@@ -28,12 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormMenuInicio";
+            menuStrip1 = new MenuStrip();
+            inicioToolStripMenuItem = new ToolStripMenuItem();
+            gestionDeUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            aBMUsuariosToolStripMenuItem = new ToolStripMenuItem();
+            permisosYRolesToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, gestionDeUsuariosToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // inicioToolStripMenuItem
+            // 
+            inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
+            inicioToolStripMenuItem.Size = new Size(48, 20);
+            inicioToolStripMenuItem.Text = "Inicio";
+            // 
+            // gestionDeUsuariosToolStripMenuItem
+            // 
+            gestionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aBMUsuariosToolStripMenuItem, permisosYRolesToolStripMenuItem });
+            gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
+            gestionDeUsuariosToolStripMenuItem.Size = new Size(64, 20);
+            gestionDeUsuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // aBMUsuariosToolStripMenuItem
+            // 
+            aBMUsuariosToolStripMenuItem.Name = "aBMUsuariosToolStripMenuItem";
+            aBMUsuariosToolStripMenuItem.Size = new Size(180, 22);
+            aBMUsuariosToolStripMenuItem.Text = "ABM usuarios";
+            // 
+            // permisosYRolesToolStripMenuItem
+            // 
+            permisosYRolesToolStripMenuItem.Name = "permisosYRolesToolStripMenuItem";
+            permisosYRolesToolStripMenuItem.Size = new Size(180, 22);
+            permisosYRolesToolStripMenuItem.Text = "Permisos y roles";
+            // 
+            // FormMenuInicio
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "FormMenuInicio";
+            Text = "FormMenuInicio";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem inicioToolStripMenuItem;
+        private ToolStripMenuItem gestionDeUsuariosToolStripMenuItem;
+        private ToolStripMenuItem aBMUsuariosToolStripMenuItem;
+        private ToolStripMenuItem permisosYRolesToolStripMenuItem;
     }
 }

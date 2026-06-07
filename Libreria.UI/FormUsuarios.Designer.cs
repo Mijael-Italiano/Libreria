@@ -33,10 +33,16 @@
             colId = new DataGridViewTextBoxColumn();
             colDocumento = new DataGridViewTextBoxColumn();
             colNombreUsuario = new DataGridViewTextBoxColumn();
+            colContrasena = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colApellido = new DataGridViewTextBoxColumn();
             colMail = new DataGridViewTextBoxColumn();
             colTelefono = new DataGridViewTextBoxColumn();
+            colFechaNacimiento = new DataGridViewTextBoxColumn();
+            colDireccion = new DataGridViewTextBoxColumn();
+            colPiso = new DataGridViewTextBoxColumn();
+            colFechaAlta = new DataGridViewTextBoxColumn();
+            colIntentosFallidos = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewCheckBoxColumn();
             colBloqueado = new DataGridViewCheckBoxColumn();
             grpDatosUsuario = new GroupBox();
@@ -101,14 +107,14 @@
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsuarios.BackgroundColor = SystemColors.Window;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colDocumento, colNombreUsuario, colNombre, colApellido, colMail, colTelefono, colEstado, colBloqueado });
+            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colDocumento, colNombreUsuario, colContrasena, colNombre, colApellido, colMail, colTelefono, colFechaNacimiento, colDireccion, colPiso, colFechaAlta, colIntentosFallidos, colEstado, colBloqueado });
             dgvUsuarios.Location = new Point(20, 64);
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(890, 356);
+            dgvUsuarios.Size = new Size(1280, 337);
             dgvUsuarios.TabIndex = 1;
             // 
             // colId
@@ -128,6 +134,12 @@
             colNombreUsuario.HeaderText = "Usuario";
             colNombreUsuario.Name = "colNombreUsuario";
             colNombreUsuario.ReadOnly = true;
+            // 
+            // colContrasena
+            // 
+            colContrasena.HeaderText = "Clave";
+            colContrasena.Name = "colContrasena";
+            colContrasena.ReadOnly = true;
             // 
             // colNombre
             // 
@@ -152,6 +164,36 @@
             colTelefono.HeaderText = "Telefono";
             colTelefono.Name = "colTelefono";
             colTelefono.ReadOnly = true;
+            // 
+            // colFechaNacimiento
+            // 
+            colFechaNacimiento.HeaderText = "Nacimiento";
+            colFechaNacimiento.Name = "colFechaNacimiento";
+            colFechaNacimiento.ReadOnly = true;
+            // 
+            // colDireccion
+            // 
+            colDireccion.HeaderText = "Direccion";
+            colDireccion.Name = "colDireccion";
+            colDireccion.ReadOnly = true;
+            // 
+            // colPiso
+            // 
+            colPiso.HeaderText = "Piso";
+            colPiso.Name = "colPiso";
+            colPiso.ReadOnly = true;
+            // 
+            // colFechaAlta
+            // 
+            colFechaAlta.HeaderText = "Fecha alta";
+            colFechaAlta.Name = "colFechaAlta";
+            colFechaAlta.ReadOnly = true;
+            // 
+            // colIntentosFallidos
+            // 
+            colIntentosFallidos.HeaderText = "Intentos";
+            colIntentosFallidos.Name = "colIntentosFallidos";
+            colIntentosFallidos.ReadOnly = true;
             // 
             // colEstado
             // 
@@ -198,16 +240,16 @@
             grpDatosUsuario.Controls.Add(lblDocumento);
             grpDatosUsuario.Controls.Add(txtId);
             grpDatosUsuario.Controls.Add(lblId);
-            grpDatosUsuario.Location = new Point(20, 436);
+            grpDatosUsuario.Location = new Point(20, 417);
             grpDatosUsuario.Name = "grpDatosUsuario";
-            grpDatosUsuario.Size = new Size(1180, 218);
+            grpDatosUsuario.Size = new Size(1000, 255);
             grpDatosUsuario.TabIndex = 2;
             grpDatosUsuario.TabStop = false;
             grpDatosUsuario.Text = "Datos del usuario";
             // 
             // txtContrasenaEncriptada
             // 
-            txtContrasenaEncriptada.Location = new Point(390, 112);
+            txtContrasenaEncriptada.Location = new Point(430, 104);
             txtContrasenaEncriptada.Name = "txtContrasenaEncriptada";
             txtContrasenaEncriptada.ReadOnly = true;
             txtContrasenaEncriptada.Size = new Size(160, 23);
@@ -216,7 +258,7 @@
             // lblContrasenaEncriptada
             // 
             lblContrasenaEncriptada.AutoSize = true;
-            lblContrasenaEncriptada.Location = new Point(310, 107);
+            lblContrasenaEncriptada.Location = new Point(326, 101);
             lblContrasenaEncriptada.Name = "lblContrasenaEncriptada";
             lblContrasenaEncriptada.Size = new Size(63, 30);
             lblContrasenaEncriptada.TabIndex = 18;
@@ -224,7 +266,7 @@
             // 
             // txtIntentosFallidos
             // 
-            txtIntentosFallidos.Location = new Point(982, 101);
+            txtIntentosFallidos.Location = new Point(430, 179);
             txtIntentosFallidos.Name = "txtIntentosFallidos";
             txtIntentosFallidos.ReadOnly = true;
             txtIntentosFallidos.Size = new Size(160, 23);
@@ -233,7 +275,7 @@
             // lblIntentosFallidos
             // 
             lblIntentosFallidos.AutoSize = true;
-            lblIntentosFallidos.Location = new Point(858, 104);
+            lblIntentosFallidos.Location = new Point(326, 179);
             lblIntentosFallidos.Name = "lblIntentosFallidos";
             lblIntentosFallidos.Size = new Size(91, 15);
             lblIntentosFallidos.TabIndex = 16;
@@ -241,7 +283,7 @@
             // 
             // txtFechaAlta
             // 
-            txtFechaAlta.Location = new Point(982, 66);
+            txtFechaAlta.Location = new Point(430, 142);
             txtFechaAlta.Name = "txtFechaAlta";
             txtFechaAlta.ReadOnly = true;
             txtFechaAlta.Size = new Size(160, 23);
@@ -250,7 +292,7 @@
             // lblFechaAlta
             // 
             lblFechaAlta.AutoSize = true;
-            lblFechaAlta.Location = new Point(858, 69);
+            lblFechaAlta.Location = new Point(326, 142);
             lblFechaAlta.Name = "lblFechaAlta";
             lblFechaAlta.Size = new Size(76, 15);
             lblFechaAlta.TabIndex = 14;
@@ -259,7 +301,7 @@
             // chkBloqueado
             // 
             chkBloqueado.AutoSize = true;
-            chkBloqueado.Location = new Point(751, 104);
+            chkBloqueado.Location = new Point(825, 104);
             chkBloqueado.Name = "chkBloqueado";
             chkBloqueado.Size = new Size(83, 19);
             chkBloqueado.TabIndex = 13;
@@ -271,7 +313,7 @@
             chkEstado.AutoSize = true;
             chkEstado.Checked = true;
             chkEstado.CheckState = CheckState.Checked;
-            chkEstado.Location = new Point(666, 104);
+            chkEstado.Location = new Point(740, 104);
             chkEstado.Name = "chkEstado";
             chkEstado.Size = new Size(60, 19);
             chkEstado.TabIndex = 12;
@@ -280,7 +322,7 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(666, 66);
+            txtMail.Location = new Point(740, 66);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(160, 23);
             txtMail.TabIndex = 11;
@@ -288,7 +330,7 @@
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(588, 69);
+            lblMail.Location = new Point(650, 69);
             lblMail.Name = "lblMail";
             lblMail.Size = new Size(30, 15);
             lblMail.TabIndex = 10;
@@ -296,7 +338,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(666, 31);
+            txtTelefono.Location = new Point(740, 31);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(160, 23);
             txtTelefono.TabIndex = 29;
@@ -304,7 +346,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(588, 34);
+            lblTelefono.Location = new Point(650, 34);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(52, 15);
             lblTelefono.TabIndex = 28;
@@ -329,15 +371,15 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(666, 142);
+            txtDireccion.Location = new Point(740, 142);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(283, 23);
+            txtDireccion.Size = new Size(220, 23);
             txtDireccion.TabIndex = 33;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(588, 142);
+            lblDireccion.Location = new Point(650, 142);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(57, 15);
             lblDireccion.TabIndex = 32;
@@ -345,7 +387,7 @@
             // 
             // txtPiso
             // 
-            txtPiso.Location = new Point(666, 179);
+            txtPiso.Location = new Point(740, 179);
             txtPiso.Name = "txtPiso";
             txtPiso.Size = new Size(160, 23);
             txtPiso.TabIndex = 35;
@@ -353,7 +395,7 @@
             // lblPiso
             // 
             lblPiso.AutoSize = true;
-            lblPiso.Location = new Point(589, 179);
+            lblPiso.Location = new Point(650, 179);
             lblPiso.Name = "lblPiso";
             lblPiso.Size = new Size(29, 15);
             lblPiso.TabIndex = 34;
@@ -393,7 +435,7 @@
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(390, 69);
+            txtContrasena.Location = new Point(430, 66);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.PasswordChar = '*';
             txtContrasena.Size = new Size(160, 23);
@@ -402,7 +444,7 @@
             // lblContrasena
             // 
             lblContrasena.AutoSize = true;
-            lblContrasena.Location = new Point(306, 69);
+            lblContrasena.Location = new Point(326, 69);
             lblContrasena.Name = "lblContrasena";
             lblContrasena.Size = new Size(67, 15);
             lblContrasena.TabIndex = 4;
@@ -410,7 +452,7 @@
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(390, 27);
+            txtNombreUsuario.Location = new Point(430, 31);
             txtNombreUsuario.Name = "txtNombreUsuario";
             txtNombreUsuario.Size = new Size(160, 23);
             txtNombreUsuario.TabIndex = 3;
@@ -418,7 +460,7 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(306, 30);
+            lblNombreUsuario.Location = new Point(326, 34);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(47, 15);
             lblNombreUsuario.TabIndex = 2;
@@ -461,9 +503,9 @@
             // 
             grpRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             grpRolesPermisos.Controls.Add(tvRolesPermisos);
-            grpRolesPermisos.Location = new Point(926, 64);
+            grpRolesPermisos.Location = new Point(1036, 436);
             grpRolesPermisos.Name = "grpRolesPermisos";
-            grpRolesPermisos.Size = new Size(274, 356);
+            grpRolesPermisos.Size = new Size(264, 236);
             grpRolesPermisos.TabIndex = 4;
             grpRolesPermisos.TabStop = false;
             grpRolesPermisos.Text = "Roles y permisos";
@@ -473,7 +515,7 @@
             tvRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tvRolesPermisos.Location = new Point(14, 25);
             tvRolesPermisos.Name = "tvRolesPermisos";
-            tvRolesPermisos.Size = new Size(244, 315);
+            tvRolesPermisos.Size = new Size(234, 195);
             tvRolesPermisos.TabIndex = 0;
             // 
             // pnlAcciones
@@ -483,9 +525,9 @@
             pnlAcciones.Controls.Add(btnEliminar);
             pnlAcciones.Controls.Add(btnModificar);
             pnlAcciones.Controls.Add(btnAgregar);
-            pnlAcciones.Location = new Point(20, 662);
+            pnlAcciones.Location = new Point(20, 680);
             pnlAcciones.Name = "pnlAcciones";
-            pnlAcciones.Size = new Size(1180, 48);
+            pnlAcciones.Size = new Size(572, 48);
             pnlAcciones.TabIndex = 3;
             // 
             // btnLimpiar
@@ -528,13 +570,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1224, 731);
+            ClientSize = new Size(1324, 749);
             Controls.Add(grpRolesPermisos);
             Controls.Add(pnlAcciones);
             Controls.Add(grpDatosUsuario);
             Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
-            MinimumSize = new Size(1240, 736);
+            MinimumSize = new Size(1340, 736);
             Name = "FormUsuarios";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Usuarios";
@@ -554,10 +596,16 @@
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colDocumento;
         private DataGridViewTextBoxColumn colNombreUsuario;
+        private DataGridViewTextBoxColumn colContrasena;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellido;
         private DataGridViewTextBoxColumn colMail;
         private DataGridViewTextBoxColumn colTelefono;
+        private DataGridViewTextBoxColumn colFechaNacimiento;
+        private DataGridViewTextBoxColumn colDireccion;
+        private DataGridViewTextBoxColumn colPiso;
+        private DataGridViewTextBoxColumn colFechaAlta;
+        private DataGridViewTextBoxColumn colIntentosFallidos;
         private DataGridViewCheckBoxColumn colEstado;
         private DataGridViewCheckBoxColumn colBloqueado;
         private GroupBox grpDatosUsuario;
