@@ -40,7 +40,7 @@
             colTelefono = new DataGridViewTextBoxColumn();
             colFechaNacimiento = new DataGridViewTextBoxColumn();
             colDireccion = new DataGridViewTextBoxColumn();
-            colPiso = new DataGridViewTextBoxColumn();
+            colDepartamento = new DataGridViewTextBoxColumn();
             colFechaAlta = new DataGridViewTextBoxColumn();
             colIntentosFallidos = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewCheckBoxColumn();
@@ -62,8 +62,8 @@
             lblFechaNacimiento = new Label();
             txtDireccion = new TextBox();
             lblDireccion = new Label();
-            txtPiso = new TextBox();
-            lblPiso = new Label();
+            txtDepartamento = new TextBox();
+            lblDepartamento = new Label();
             txtApellido = new TextBox();
             lblApellido = new Label();
             txtNombre = new TextBox();
@@ -83,10 +83,20 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
+            grpBusqueda = new GroupBox();
+            txtBuscarDocumento = new TextBox();
+            lblBuscarDocumento = new Label();
+            txtBuscarApellido = new TextBox();
+            lblBuscarApellido = new Label();
+            txtBuscarNombre = new TextBox();
+            lblBuscarNombre = new Label();
+            btnLimpiarBusqueda = new Button();
+            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             grpDatosUsuario.SuspendLayout();
             grpRolesPermisos.SuspendLayout();
             pnlAcciones.SuspendLayout();
+            grpBusqueda.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -107,14 +117,14 @@
             dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsuarios.BackgroundColor = SystemColors.Window;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colDocumento, colNombreUsuario, colContrasena, colNombre, colApellido, colMail, colTelefono, colFechaNacimiento, colDireccion, colPiso, colFechaAlta, colIntentosFallidos, colEstado, colBloqueado });
+            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colDocumento, colNombreUsuario, colContrasena, colNombre, colApellido, colMail, colTelefono, colFechaNacimiento, colDireccion, colDepartamento, colFechaAlta, colIntentosFallidos, colEstado, colBloqueado });
             dgvUsuarios.Location = new Point(20, 64);
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(1280, 337);
+            dgvUsuarios.Size = new Size(1280, 282);
             dgvUsuarios.TabIndex = 1;
             // 
             // colId
@@ -177,11 +187,11 @@
             colDireccion.Name = "colDireccion";
             colDireccion.ReadOnly = true;
             // 
-            // colPiso
+            // colDepartamento
             // 
-            colPiso.HeaderText = "Piso";
-            colPiso.Name = "colPiso";
-            colPiso.ReadOnly = true;
+            colDepartamento.HeaderText = "Departamento";
+            colDepartamento.Name = "colDepartamento";
+            colDepartamento.ReadOnly = true;
             // 
             // colFechaAlta
             // 
@@ -212,6 +222,7 @@
             grpDatosUsuario.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpDatosUsuario.Controls.Add(txtContrasenaEncriptada);
             grpDatosUsuario.Controls.Add(lblContrasenaEncriptada);
+            grpDatosUsuario.Controls.Add(pnlAcciones);
             grpDatosUsuario.Controls.Add(txtIntentosFallidos);
             grpDatosUsuario.Controls.Add(lblIntentosFallidos);
             grpDatosUsuario.Controls.Add(txtFechaAlta);
@@ -226,8 +237,8 @@
             grpDatosUsuario.Controls.Add(lblFechaNacimiento);
             grpDatosUsuario.Controls.Add(txtDireccion);
             grpDatosUsuario.Controls.Add(lblDireccion);
-            grpDatosUsuario.Controls.Add(txtPiso);
-            grpDatosUsuario.Controls.Add(lblPiso);
+            grpDatosUsuario.Controls.Add(txtDepartamento);
+            grpDatosUsuario.Controls.Add(lblDepartamento);
             grpDatosUsuario.Controls.Add(txtApellido);
             grpDatosUsuario.Controls.Add(lblApellido);
             grpDatosUsuario.Controls.Add(txtNombre);
@@ -240,9 +251,9 @@
             grpDatosUsuario.Controls.Add(lblDocumento);
             grpDatosUsuario.Controls.Add(txtId);
             grpDatosUsuario.Controls.Add(lblId);
-            grpDatosUsuario.Location = new Point(20, 417);
+            grpDatosUsuario.Location = new Point(20, 452);
             grpDatosUsuario.Name = "grpDatosUsuario";
-            grpDatosUsuario.Size = new Size(1000, 255);
+            grpDatosUsuario.Size = new Size(1000, 285);
             grpDatosUsuario.TabIndex = 2;
             grpDatosUsuario.TabStop = false;
             grpDatosUsuario.Text = "Datos del usuario";
@@ -385,21 +396,21 @@
             lblDireccion.TabIndex = 32;
             lblDireccion.Text = "Direccion";
             // 
-            // txtPiso
+            // txtDepartamento
             // 
-            txtPiso.Location = new Point(740, 179);
-            txtPiso.Name = "txtPiso";
-            txtPiso.Size = new Size(160, 23);
-            txtPiso.TabIndex = 35;
+            txtDepartamento.Location = new Point(740, 179);
+            txtDepartamento.Name = "txtDepartamento";
+            txtDepartamento.Size = new Size(160, 23);
+            txtDepartamento.TabIndex = 35;
             // 
-            // lblPiso
+            // lblDepartamento
             // 
-            lblPiso.AutoSize = true;
-            lblPiso.Location = new Point(650, 179);
-            lblPiso.Name = "lblPiso";
-            lblPiso.Size = new Size(29, 15);
-            lblPiso.TabIndex = 34;
-            lblPiso.Text = "Piso";
+            lblDepartamento.AutoSize = true;
+            lblDepartamento.Location = new Point(650, 179);
+            lblDepartamento.Name = "lblDepartamento";
+            lblDepartamento.Size = new Size(83, 15);
+            lblDepartamento.TabIndex = 34;
+            lblDepartamento.Text = "Departamento";
             // 
             // txtApellido
             // 
@@ -503,9 +514,9 @@
             // 
             grpRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             grpRolesPermisos.Controls.Add(tvRolesPermisos);
-            grpRolesPermisos.Location = new Point(1036, 436);
+            grpRolesPermisos.Location = new Point(1048, 363);
             grpRolesPermisos.Name = "grpRolesPermisos";
-            grpRolesPermisos.Size = new Size(264, 236);
+            grpRolesPermisos.Size = new Size(264, 374);
             grpRolesPermisos.TabIndex = 4;
             grpRolesPermisos.TabStop = false;
             grpRolesPermisos.Text = "Roles y permisos";
@@ -513,9 +524,9 @@
             // tvRolesPermisos
             // 
             tvRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tvRolesPermisos.Location = new Point(14, 25);
+            tvRolesPermisos.Location = new Point(15, 30);
             tvRolesPermisos.Name = "tvRolesPermisos";
-            tvRolesPermisos.Size = new Size(234, 195);
+            tvRolesPermisos.Size = new Size(234, 333);
             tvRolesPermisos.TabIndex = 0;
             // 
             // pnlAcciones
@@ -525,7 +536,7 @@
             pnlAcciones.Controls.Add(btnEliminar);
             pnlAcciones.Controls.Add(btnModificar);
             pnlAcciones.Controls.Add(btnAgregar);
-            pnlAcciones.Location = new Point(20, 680);
+            pnlAcciones.Location = new Point(6, 231);
             pnlAcciones.Name = "pnlAcciones";
             pnlAcciones.Size = new Size(572, 48);
             pnlAcciones.TabIndex = 3;
@@ -566,13 +577,97 @@
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
+            // grpBusqueda
+            // 
+            grpBusqueda.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grpBusqueda.Controls.Add(txtBuscarDocumento);
+            grpBusqueda.Controls.Add(lblBuscarDocumento);
+            grpBusqueda.Controls.Add(txtBuscarApellido);
+            grpBusqueda.Controls.Add(lblBuscarApellido);
+            grpBusqueda.Controls.Add(txtBuscarNombre);
+            grpBusqueda.Controls.Add(lblBuscarNombre);
+            grpBusqueda.Controls.Add(btnLimpiarBusqueda);
+            grpBusqueda.Controls.Add(btnBuscar);
+            grpBusqueda.Location = new Point(20, 352);
+            grpBusqueda.Name = "grpBusqueda";
+            grpBusqueda.Size = new Size(624, 94);
+            grpBusqueda.TabIndex = 5;
+            grpBusqueda.TabStop = false;
+            grpBusqueda.Text = "Buscar usuario";
+            // 
+            // txtBuscarDocumento
+            // 
+            txtBuscarDocumento.Location = new Point(102, 62);
+            txtBuscarDocumento.Name = "txtBuscarDocumento";
+            txtBuscarDocumento.Size = new Size(160, 23);
+            txtBuscarDocumento.TabIndex = 5;
+            // 
+            // lblBuscarDocumento
+            // 
+            lblBuscarDocumento.AutoSize = true;
+            lblBuscarDocumento.Location = new Point(18, 65);
+            lblBuscarDocumento.Name = "lblBuscarDocumento";
+            lblBuscarDocumento.Size = new Size(27, 15);
+            lblBuscarDocumento.TabIndex = 4;
+            lblBuscarDocumento.Text = "DNI";
+            // 
+            // txtBuscarApellido
+            // 
+            txtBuscarApellido.Location = new Point(390, 27);
+            txtBuscarApellido.Name = "txtBuscarApellido";
+            txtBuscarApellido.Size = new Size(160, 23);
+            txtBuscarApellido.TabIndex = 3;
+            // 
+            // lblBuscarApellido
+            // 
+            lblBuscarApellido.AutoSize = true;
+            lblBuscarApellido.Location = new Point(306, 30);
+            lblBuscarApellido.Name = "lblBuscarApellido";
+            lblBuscarApellido.Size = new Size(51, 15);
+            lblBuscarApellido.TabIndex = 2;
+            lblBuscarApellido.Text = "Apellido";
+            // 
+            // txtBuscarNombre
+            // 
+            txtBuscarNombre.Location = new Point(102, 27);
+            txtBuscarNombre.Name = "txtBuscarNombre";
+            txtBuscarNombre.Size = new Size(160, 23);
+            txtBuscarNombre.TabIndex = 1;
+            // 
+            // lblBuscarNombre
+            // 
+            lblBuscarNombre.AutoSize = true;
+            lblBuscarNombre.Location = new Point(18, 30);
+            lblBuscarNombre.Name = "lblBuscarNombre";
+            lblBuscarNombre.Size = new Size(51, 15);
+            lblBuscarNombre.TabIndex = 0;
+            lblBuscarNombre.Text = "Nombre";
+            // 
+            // btnLimpiarBusqueda
+            // 
+            btnLimpiarBusqueda.Location = new Point(414, 60);
+            btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
+            btnLimpiarBusqueda.Size = new Size(118, 27);
+            btnLimpiarBusqueda.TabIndex = 7;
+            btnLimpiarBusqueda.Text = "Limpiar";
+            btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(286, 60);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(118, 27);
+            btnBuscar.TabIndex = 6;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // FormUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1324, 749);
+            Controls.Add(grpBusqueda);
             Controls.Add(grpRolesPermisos);
-            Controls.Add(pnlAcciones);
             Controls.Add(grpDatosUsuario);
             Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
@@ -585,6 +680,8 @@
             grpDatosUsuario.PerformLayout();
             grpRolesPermisos.ResumeLayout(false);
             pnlAcciones.ResumeLayout(false);
+            grpBusqueda.ResumeLayout(false);
+            grpBusqueda.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -603,7 +700,7 @@
         private DataGridViewTextBoxColumn colTelefono;
         private DataGridViewTextBoxColumn colFechaNacimiento;
         private DataGridViewTextBoxColumn colDireccion;
-        private DataGridViewTextBoxColumn colPiso;
+        private DataGridViewTextBoxColumn colDepartamento;
         private DataGridViewTextBoxColumn colFechaAlta;
         private DataGridViewTextBoxColumn colIntentosFallidos;
         private DataGridViewCheckBoxColumn colEstado;
@@ -625,8 +722,8 @@
         private Label lblFechaNacimiento;
         private TextBox txtDireccion;
         private Label lblDireccion;
-        private TextBox txtPiso;
-        private Label lblPiso;
+        private TextBox txtDepartamento;
+        private Label lblDepartamento;
         private TextBox txtApellido;
         private Label lblApellido;
         private TextBox txtNombre;
@@ -646,5 +743,14 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private GroupBox grpBusqueda;
+        private TextBox txtBuscarDocumento;
+        private Label lblBuscarDocumento;
+        private TextBox txtBuscarApellido;
+        private Label lblBuscarApellido;
+        private TextBox txtBuscarNombre;
+        private Label lblBuscarNombre;
+        private Button btnLimpiarBusqueda;
+        private Button btnBuscar;
     }
 }

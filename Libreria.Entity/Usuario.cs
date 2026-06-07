@@ -15,7 +15,7 @@ namespace Libreria.Entity
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Direccion { get; set; }
-        public string? Piso { get; set; }
+        public string? Departamento { get; set; }
         public bool Estado { get; set; }
         public bool Bloqueado { get; set; }
         public DateTime FechaAlta { get; set; }
@@ -33,7 +33,7 @@ namespace Libreria.Entity
             Telefono = string.Empty;
             FechaNacimiento = DateTime.Today;
             Direccion = string.Empty;
-            Piso = null;
+            Departamento = null;
             Estado = true;
             Bloqueado = false;
             FechaAlta = DateTime.Now;
@@ -51,7 +51,7 @@ namespace Libreria.Entity
             string telefono,
             DateTime fechaNacimiento,
             string direccion,
-            string? piso,
+            string? departamento,
             bool estado,
             bool bloqueado,
             List<string> roles)
@@ -65,7 +65,7 @@ namespace Libreria.Entity
             Telefono = telefono;
             FechaNacimiento = fechaNacimiento;
             Direccion = direccion;
-            Piso = piso;
+            Departamento = departamento;
             Estado = estado;
             Bloqueado = bloqueado;
             FechaAlta = DateTime.Now;
