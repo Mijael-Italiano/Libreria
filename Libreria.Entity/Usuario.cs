@@ -10,7 +10,8 @@ namespace Libreria.Entity
         public string Contrasena { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string Estado { get; set; }
+        public bool Estado { get; set; }
+        public bool Bloqueado { get; set; }
         public DateTime FechaAlta { get; set; }
         public int IntentosFallidos { get; set; }
         public List<string> Roles { get; set; }
@@ -21,10 +22,31 @@ namespace Libreria.Entity
             Contrasena = string.Empty;
             Nombre = string.Empty;
             Apellido = string.Empty;
-            Estado = "Activo";
+            Estado = true;
+            Bloqueado = false;
             FechaAlta = DateTime.Now;
             IntentosFallidos = 0;
             Roles = new List<string>();
+        }
+
+        public Usuario(
+            string nombreUsuario,
+            string contrasena,
+            string nombre,
+            string apellido,
+            bool estado,
+            bool bloqueado,
+            List<string> roles)
+        {
+            NombreUsuario = nombreUsuario;
+            Contrasena = contrasena;
+            Nombre = nombre;
+            Apellido = apellido;
+            Estado = estado;
+            Bloqueado = bloqueado;
+            FechaAlta = DateTime.Now;
+            IntentosFallidos = 0;
+            Roles = roles ?? new List<string>();
         }
     }
 }
