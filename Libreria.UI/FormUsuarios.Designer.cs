@@ -48,6 +48,14 @@
             grpDatosUsuario = new GroupBox();
             txtContrasenaEncriptada = new TextBox();
             lblContrasenaEncriptada = new Label();
+            chkVerUsuariosNoActivos = new CheckBox();
+            btnReactivarUsuario = new Button();
+            grpUsuariosNoActivos = new GroupBox();
+            pnlAcciones = new Panel();
+            btnLimpiar = new Button();
+            btnEliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             txtIntentosFallidos = new TextBox();
             lblIntentosFallidos = new Label();
             txtFechaAlta = new TextBox();
@@ -78,11 +86,6 @@
             lblId = new Label();
             grpRolesPermisos = new GroupBox();
             tvRolesPermisos = new TreeView();
-            pnlAcciones = new Panel();
-            btnLimpiar = new Button();
-            btnEliminar = new Button();
-            btnModificar = new Button();
-            btnAgregar = new Button();
             grpBusqueda = new GroupBox();
             txtBuscarDocumento = new TextBox();
             lblBuscarDocumento = new Label();
@@ -94,8 +97,9 @@
             btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             grpDatosUsuario.SuspendLayout();
-            grpRolesPermisos.SuspendLayout();
+            grpUsuariosNoActivos.SuspendLayout();
             pnlAcciones.SuspendLayout();
+            grpRolesPermisos.SuspendLayout();
             grpBusqueda.SuspendLayout();
             SuspendLayout();
             // 
@@ -275,6 +279,84 @@
             lblContrasenaEncriptada.TabIndex = 18;
             lblContrasenaEncriptada.Text = "Clave\r\nencriptada";
             // 
+            // chkVerUsuariosNoActivos
+            // 
+            chkVerUsuariosNoActivos.AutoSize = true;
+            chkVerUsuariosNoActivos.Location = new Point(18, 32);
+            chkVerUsuariosNoActivos.Name = "chkVerUsuariosNoActivos";
+            chkVerUsuariosNoActivos.Size = new Size(146, 19);
+            chkVerUsuariosNoActivos.TabIndex = 37;
+            chkVerUsuariosNoActivos.Text = "Ver usuarios no activos";
+            chkVerUsuariosNoActivos.UseVisualStyleBackColor = true;
+            // 
+            // btnReactivarUsuario
+            // 
+            btnReactivarUsuario.Location = new Point(194, 24);
+            btnReactivarUsuario.Name = "btnReactivarUsuario";
+            btnReactivarUsuario.Size = new Size(130, 27);
+            btnReactivarUsuario.TabIndex = 36;
+            btnReactivarUsuario.Text = "Reactivar usuario";
+            btnReactivarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // grpUsuariosNoActivos
+            // 
+            grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
+            grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
+            grpUsuariosNoActivos.Location = new Point(656, 363);
+            grpUsuariosNoActivos.Name = "grpUsuariosNoActivos";
+            grpUsuariosNoActivos.Size = new Size(344, 70);
+            grpUsuariosNoActivos.TabIndex = 6;
+            grpUsuariosNoActivos.TabStop = false;
+            grpUsuariosNoActivos.Text = "Usuarios no activos";
+            // 
+            // pnlAcciones
+            // 
+            pnlAcciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlAcciones.Controls.Add(btnLimpiar);
+            pnlAcciones.Controls.Add(btnEliminar);
+            pnlAcciones.Controls.Add(btnModificar);
+            pnlAcciones.Controls.Add(btnAgregar);
+            pnlAcciones.Location = new Point(6, 231);
+            pnlAcciones.Name = "pnlAcciones";
+            pnlAcciones.Size = new Size(572, 48);
+            pnlAcciones.TabIndex = 3;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Location = new Point(414, 10);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(118, 27);
+            btnLimpiar.TabIndex = 3;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(284, 10);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(118, 27);
+            btnEliminar.TabIndex = 2;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(154, 10);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(118, 27);
+            btnModificar.TabIndex = 1;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(24, 10);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(118, 27);
+            btnAgregar.TabIndex = 0;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            // 
             // txtIntentosFallidos
             // 
             txtIntentosFallidos.Location = new Point(430, 179);
@@ -322,14 +404,17 @@
             // chkEstado
             // 
             chkEstado.AutoSize = true;
+            chkEstado.BackColor = SystemColors.Control;
             chkEstado.Checked = true;
             chkEstado.CheckState = CheckState.Checked;
+            chkEstado.Enabled = false;
+            chkEstado.ForeColor = SystemColors.ControlDark;
             chkEstado.Location = new Point(740, 104);
             chkEstado.Name = "chkEstado";
             chkEstado.Size = new Size(60, 19);
             chkEstado.TabIndex = 12;
             chkEstado.Text = "Activo";
-            chkEstado.UseVisualStyleBackColor = true;
+            chkEstado.UseVisualStyleBackColor = false;
             // 
             // txtMail
             // 
@@ -529,54 +614,6 @@
             tvRolesPermisos.Size = new Size(234, 333);
             tvRolesPermisos.TabIndex = 0;
             // 
-            // pnlAcciones
-            // 
-            pnlAcciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnlAcciones.Controls.Add(btnLimpiar);
-            pnlAcciones.Controls.Add(btnEliminar);
-            pnlAcciones.Controls.Add(btnModificar);
-            pnlAcciones.Controls.Add(btnAgregar);
-            pnlAcciones.Location = new Point(6, 231);
-            pnlAcciones.Name = "pnlAcciones";
-            pnlAcciones.Size = new Size(572, 48);
-            pnlAcciones.TabIndex = 3;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.Location = new Point(414, 10);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(118, 27);
-            btnLimpiar.TabIndex = 3;
-            btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(284, 10);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(118, 27);
-            btnEliminar.TabIndex = 2;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(154, 10);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(118, 27);
-            btnModificar.TabIndex = 1;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(24, 10);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(118, 27);
-            btnAgregar.TabIndex = 0;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            // 
             // grpBusqueda
             // 
             grpBusqueda.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -668,6 +705,7 @@
             ClientSize = new Size(1324, 749);
             Controls.Add(grpBusqueda);
             Controls.Add(grpRolesPermisos);
+            Controls.Add(grpUsuariosNoActivos);
             Controls.Add(grpDatosUsuario);
             Controls.Add(dgvUsuarios);
             Controls.Add(lblTitulo);
@@ -678,8 +716,10 @@
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             grpDatosUsuario.ResumeLayout(false);
             grpDatosUsuario.PerformLayout();
-            grpRolesPermisos.ResumeLayout(false);
+            grpUsuariosNoActivos.ResumeLayout(false);
+            grpUsuariosNoActivos.PerformLayout();
             pnlAcciones.ResumeLayout(false);
+            grpRolesPermisos.ResumeLayout(false);
             grpBusqueda.ResumeLayout(false);
             grpBusqueda.PerformLayout();
             ResumeLayout(false);
@@ -752,5 +792,8 @@
         private Label lblBuscarNombre;
         private Button btnLimpiarBusqueda;
         private Button btnBuscar;
+        private CheckBox chkVerUsuariosNoActivos;
+        private Button btnReactivarUsuario;
+        private GroupBox grpUsuariosNoActivos;
     }
 }
