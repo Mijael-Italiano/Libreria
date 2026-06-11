@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria.Business", "Librer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria.Data", "Libreria.Data\Libreria.Data.csproj", "{932C7047-3435-4EA6-B0B6-9A1DDD5A54C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria.Mapper", "Libreria.Mapper\Libreria.Mapper.csproj", "{614CBAF6-9121-4538-A558-6F8393416889}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria.Seguridad", "Libreria.Seguridad\Libreria.Seguridad.csproj", "{1568781B-C5EF-47D2-9C50-ECFF49D05FF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{932C7047-3435-4EA6-B0B6-9A1DDD5A54C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{932C7047-3435-4EA6-B0B6-9A1DDD5A54C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{932C7047-3435-4EA6-B0B6-9A1DDD5A54C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{614CBAF6-9121-4538-A558-6F8393416889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{614CBAF6-9121-4538-A558-6F8393416889}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{614CBAF6-9121-4538-A558-6F8393416889}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{614CBAF6-9121-4538-A558-6F8393416889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1568781B-C5EF-47D2-9C50-ECFF49D05FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1568781B-C5EF-47D2-9C50-ECFF49D05FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1568781B-C5EF-47D2-9C50-ECFF49D05FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1568781B-C5EF-47D2-9C50-ECFF49D05FF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

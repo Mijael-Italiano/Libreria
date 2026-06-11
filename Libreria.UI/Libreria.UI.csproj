@@ -23,4 +23,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Libreria.Business\Libreria.Business.csproj" />
+  </ItemGroup>
+
 </Project>

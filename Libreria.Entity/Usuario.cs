@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Libreria.Entity.EntityComposite;
 
 namespace Libreria.Entity
 {
@@ -20,25 +21,25 @@ namespace Libreria.Entity
         public bool Bloqueado { get; set; }
         public DateTime FechaAlta { get; set; }
         public int IntentosFallidos { get; set; }
-        public List<string> Roles { get; set; }
+        public List<Rol> Roles { get; set; }
 
         public Usuario()
         {
-            Documento = 0;
-            NombreUsuario = string.Empty;
-            Contrasena = string.Empty;
-            Nombre = string.Empty;
-            Apellido = string.Empty;
-            Mail = string.Empty;
-            Telefono = string.Empty;
-            FechaNacimiento = DateTime.Today;
-            Direccion = string.Empty;
-            Departamento = null;
-            Estado = true;
-            Bloqueado = false;
-            FechaAlta = DateTime.Now;
-            IntentosFallidos = 0;
-            Roles = new List<string>();
+            this.Documento = 0;
+            this.NombreUsuario = string.Empty;
+            this.Contrasena = string.Empty;
+            this.Nombre = string.Empty;
+            this.Apellido = string.Empty;
+            this.Mail = string.Empty;
+            this.Telefono = string.Empty;
+            this.FechaNacimiento = DateTime.Today;
+            this.Direccion = string.Empty;
+            this.Departamento = null;
+            this.Estado = true;
+            this.Bloqueado = false;
+            this.FechaAlta = DateTime.Now;
+            this.IntentosFallidos = 0;
+            this.Roles = new List<Rol>();
         }
 
         public Usuario(
@@ -53,24 +54,23 @@ namespace Libreria.Entity
             string direccion,
             string? departamento,
             bool estado,
-            bool bloqueado,
-            List<string> roles)
+            bool bloqueado)
         {
-            Documento = documento;
-            NombreUsuario = nombreUsuario;
-            Contrasena = contrasena;
-            Nombre = nombre;
-            Apellido = apellido;
-            Mail = mail;
-            Telefono = telefono;
-            FechaNacimiento = fechaNacimiento;
-            Direccion = direccion;
-            Departamento = departamento;
-            Estado = estado;
-            Bloqueado = bloqueado;
-            FechaAlta = DateTime.Now;
-            IntentosFallidos = 0;
-            Roles = roles ?? new List<string>();
+            this.Documento = documento;
+            this.NombreUsuario = nombreUsuario;
+            this.Contrasena = contrasena;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Mail = mail;
+            this.Telefono = telefono;
+            this.FechaNacimiento = fechaNacimiento;
+            this.Direccion = direccion;
+            this.Departamento = departamento;
+            this.Estado = estado;
+            this.Bloqueado = bloqueado;
+            this.FechaAlta = DateTime.Now;
+            this.IntentosFallidos = 0;
+            this.Roles = new List<Rol>();
         }
     }
 }

@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Libreria.Data\Libreria.Data.csproj" />
+    <ProjectReference Include="..\Libreria.Entity\Libreria.Entity.csproj" />
+  </ItemGroup>
+
 </Project>
