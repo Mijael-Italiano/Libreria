@@ -73,6 +73,7 @@
             lblApellido = new Label();
             txtNombre = new TextBox();
             lblNombre = new Label();
+            chkMostrarContrasena = new CheckBox();
             txtContrasena = new TextBox();
             lblContrasena = new Label();
             txtNombreUsuario = new TextBox();
@@ -247,6 +248,7 @@
             grpDatosUsuario.Controls.Add(lblApellido);
             grpDatosUsuario.Controls.Add(txtNombre);
             grpDatosUsuario.Controls.Add(lblNombre);
+            grpDatosUsuario.Controls.Add(chkMostrarContrasena);
             grpDatosUsuario.Controls.Add(txtContrasena);
             grpDatosUsuario.Controls.Add(lblContrasena);
             grpDatosUsuario.Controls.Add(txtNombreUsuario);
@@ -264,7 +266,7 @@
             // 
             // txtContrasenaEncriptada
             // 
-            txtContrasenaEncriptada.Location = new Point(430, 152);
+            txtContrasenaEncriptada.Location = new Point(430, 129);
             txtContrasenaEncriptada.Name = "txtContrasenaEncriptada";
             txtContrasenaEncriptada.ReadOnly = true;
             txtContrasenaEncriptada.Size = new Size(160, 23);
@@ -273,7 +275,7 @@
             // lblContrasenaEncriptada
             // 
             lblContrasenaEncriptada.AutoSize = true;
-            lblContrasenaEncriptada.Location = new Point(326, 152);
+            lblContrasenaEncriptada.Location = new Point(326, 122);
             lblContrasenaEncriptada.Name = "lblContrasenaEncriptada";
             lblContrasenaEncriptada.Size = new Size(63, 30);
             lblContrasenaEncriptada.TabIndex = 18;
@@ -326,10 +328,11 @@
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // txtIntentosFallidos
             // 
-            txtIntentosFallidos.Location = new Point(740, 256);
+            txtIntentosFallidos.Location = new Point(430, 179);
             txtIntentosFallidos.Name = "txtIntentosFallidos";
             txtIntentosFallidos.ReadOnly = true;
             txtIntentosFallidos.Size = new Size(160, 23);
@@ -338,7 +341,7 @@
             // lblIntentosFallidos
             // 
             lblIntentosFallidos.AutoSize = true;
-            lblIntentosFallidos.Location = new Point(642, 259);
+            lblIntentosFallidos.Location = new Point(326, 187);
             lblIntentosFallidos.Name = "lblIntentosFallidos";
             lblIntentosFallidos.Size = new Size(91, 15);
             lblIntentosFallidos.TabIndex = 16;
@@ -346,7 +349,7 @@
             // 
             // txtFechaAlta
             // 
-            txtFechaAlta.Location = new Point(740, 218);
+            txtFechaAlta.Location = new Point(740, 222);
             txtFechaAlta.Name = "txtFechaAlta";
             txtFechaAlta.ReadOnly = true;
             txtFechaAlta.Size = new Size(160, 23);
@@ -355,7 +358,7 @@
             // lblFechaAlta
             // 
             lblFechaAlta.AutoSize = true;
-            lblFechaAlta.Location = new Point(650, 221);
+            lblFechaAlta.Location = new Point(650, 225);
             lblFechaAlta.Name = "lblFechaAlta";
             lblFechaAlta.Size = new Size(76, 15);
             lblFechaAlta.TabIndex = 14;
@@ -499,6 +502,17 @@
             lblNombre.TabIndex = 6;
             lblNombre.Text = "Nombre";
             // 
+            // chkMostrarContrasena
+            // 
+            chkMostrarContrasena.AutoSize = true;
+            chkMostrarContrasena.Location = new Point(430, 96);
+            chkMostrarContrasena.Name = "chkMostrarContrasena";
+            chkMostrarContrasena.Size = new Size(128, 19);
+            chkMostrarContrasena.TabIndex = 36;
+            chkMostrarContrasena.Text = "Mostrar contrasena";
+            chkMostrarContrasena.UseVisualStyleBackColor = true;
+            chkMostrarContrasena.CheckedChanged += chkMostrarContrasena_CheckedChanged;
+            // 
             // txtContrasena
             // 
             txtContrasena.Location = new Point(430, 66);
@@ -586,6 +600,7 @@
             // 
             // grpUsuariosNoActivos
             // 
+            grpUsuariosNoActivos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
             grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
             grpUsuariosNoActivos.Location = new Point(676, 367);
@@ -768,6 +783,7 @@
         private Label lblApellido;
         private TextBox txtNombre;
         private Label lblNombre;
+        private CheckBox chkMostrarContrasena;
         private TextBox txtContrasena;
         private Label lblContrasena;
         private TextBox txtNombreUsuario;

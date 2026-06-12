@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Libreria.Business;
 using Libreria.Business.BusinessComposite;
 
 namespace Libreria.UI
@@ -15,14 +16,44 @@ namespace Libreria.UI
     {
         private readonly PermisoBusiness permisoBusiness;
         private readonly RolBusiness rolBusiness;
+        private readonly UsuarioBusiness usuarioBusiness;
 
         public FormRolesPermisos()
         {
             InitializeComponent();
             this.permisoBusiness = new PermisoBusiness();
             this.rolBusiness = new RolBusiness();
+            this.usuarioBusiness = new UsuarioBusiness();
+            this.CargarUsuarios();
             this.CargarPermisos();
             this.CargarRoles();
+        }
+
+        private void CargarUsuarios()
+        {
+            try
+            {
+                tvUsuarios.Nodes.Clear();
+
+                foreach (var usuario in this.usuarioBusiness.ConsultarUsuarios())
+                {
+                    TreeNode nodo = new TreeNode(usuario.NombreUsuario)
+                    {
+                        Tag = usuario
+                    };
+
+                    tvUsuarios.Nodes.Add(nodo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudieron cargar los usuarios disponibles. " + ex.Message,
+                    "Usuarios",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
 
         private void CargarPermisos()
