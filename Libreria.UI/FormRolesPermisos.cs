@@ -21,12 +21,20 @@ namespace Libreria.UI
         public FormRolesPermisos()
         {
             InitializeComponent();
+            this.ConfigurarTreeViews();
             this.permisoBusiness = new PermisoBusiness();
             this.rolBusiness = new RolBusiness();
             this.usuarioBusiness = new UsuarioBusiness();
             this.CargarUsuarios();
             this.CargarPermisos();
             this.CargarRoles();
+        }
+
+        private void ConfigurarTreeViews()
+        {
+            tvUsuarios.HideSelection = false;
+            tvRoles.HideSelection = false;
+            tvPermisos.HideSelection = false;
         }
 
         private void CargarUsuarios()
