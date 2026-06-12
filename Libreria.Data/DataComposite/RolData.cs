@@ -16,12 +16,14 @@ namespace Libreria.Data.DataComposite
                 string ruta = RutaBaseDeDatos.BuscarRuta("Roles.xml");
 
                 XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Roles.xml no tiene una raiz valida.");
 
                 var consulta =
-                    from rol in documento.Root.Elements("Rol")
+                    from rol in raiz.Elements("Rol")
                     select new Rol(
-                        int.Parse(rol.Attribute("Id").Value),
-                        rol.Element("Nombre").Value
+                        int.Parse(rol.Attribute("Id")?.Value ?? throw new Exception("Hay un rol sin Id.")),
+                        rol.Element("Nombre")?.Value ?? throw new Exception("Hay un rol sin nombre.")
                     );
 
                 return consulta.ToList();
@@ -39,6 +41,8 @@ namespace Libreria.Data.DataComposite
                 string ruta = RutaBaseDeDatos.BuscarRuta("Roles.xml");
 
                 XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Roles.xml no tiene una raiz valida.");
 
                 XElement nuevoRol = new XElement(
                     "Rol",
@@ -46,7 +50,7 @@ namespace Libreria.Data.DataComposite
                     new XElement("Nombre", rol.Nombre)
                 );
 
-                documento.Root.Add(nuevoRol);
+                raiz.Add(nuevoRol);
                 documento.Save(ruta);
             }
             catch (Exception)

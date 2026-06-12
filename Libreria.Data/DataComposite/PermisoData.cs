@@ -15,12 +15,14 @@ namespace Libreria.Data.DataComposite
                 string ruta = RutaBaseDeDatos.BuscarRuta("Permisos.xml");
 
                 XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Permisos.xml no tiene una raiz valida.");
 
                 var consulta =
-                    from permiso in documento.Root.Elements("Permiso")
+                    from permiso in raiz.Elements("Permiso")
                     select new Permiso(
-                        int.Parse(permiso.Attribute("Id").Value),
-                        permiso.Element("Nombre").Value
+                        int.Parse(permiso.Attribute("Id")?.Value ?? throw new Exception("Hay un permiso sin Id.")),
+                        permiso.Element("Nombre")?.Value ?? throw new Exception("Hay un permiso sin nombre.")
                     );
 
                 return consulta.ToList();

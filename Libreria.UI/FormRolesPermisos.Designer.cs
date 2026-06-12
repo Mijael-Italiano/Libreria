@@ -244,6 +244,7 @@ namespace Libreria.UI
             btnAltaRol.TabIndex = 4;
             btnAltaRol.Text = "Alta";
             btnAltaRol.UseVisualStyleBackColor = true;
+            btnAltaRol.Click += btnAltaRol_Click;
             // 
             // txtNombreRol
             // 

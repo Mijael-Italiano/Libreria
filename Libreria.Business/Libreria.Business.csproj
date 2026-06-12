@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Libreria.Data\Libreria.Data.csproj" />
     <ProjectReference Include="..\Libreria.Entity\Libreria.Entity.csproj" />
+    <ProjectReference Include="..\Libreria.Seguridad\Libreria.Seguridad.csproj" />
   </ItemGroup>
 
 </Project>

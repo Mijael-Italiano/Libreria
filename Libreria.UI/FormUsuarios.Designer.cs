@@ -48,9 +48,6 @@
             grpDatosUsuario = new GroupBox();
             txtContrasenaEncriptada = new TextBox();
             lblContrasenaEncriptada = new Label();
-            chkVerUsuariosNoActivos = new CheckBox();
-            btnReactivarUsuario = new Button();
-            grpUsuariosNoActivos = new GroupBox();
             pnlAcciones = new Panel();
             btnLimpiar = new Button();
             btnEliminar = new Button();
@@ -84,6 +81,9 @@
             lblDocumento = new Label();
             txtId = new TextBox();
             lblId = new Label();
+            chkVerUsuariosNoActivos = new CheckBox();
+            btnReactivarUsuario = new Button();
+            grpUsuariosNoActivos = new GroupBox();
             grpRolesPermisos = new GroupBox();
             tvRolesPermisos = new TreeView();
             grpBusqueda = new GroupBox();
@@ -97,8 +97,8 @@
             btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             grpDatosUsuario.SuspendLayout();
-            grpUsuariosNoActivos.SuspendLayout();
             pnlAcciones.SuspendLayout();
+            grpUsuariosNoActivos.SuspendLayout();
             grpRolesPermisos.SuspendLayout();
             grpBusqueda.SuspendLayout();
             SuspendLayout();
@@ -264,7 +264,7 @@
             // 
             // txtContrasenaEncriptada
             // 
-            txtContrasenaEncriptada.Location = new Point(430, 104);
+            txtContrasenaEncriptada.Location = new Point(430, 152);
             txtContrasenaEncriptada.Name = "txtContrasenaEncriptada";
             txtContrasenaEncriptada.ReadOnly = true;
             txtContrasenaEncriptada.Size = new Size(160, 23);
@@ -273,41 +273,11 @@
             // lblContrasenaEncriptada
             // 
             lblContrasenaEncriptada.AutoSize = true;
-            lblContrasenaEncriptada.Location = new Point(326, 101);
+            lblContrasenaEncriptada.Location = new Point(326, 152);
             lblContrasenaEncriptada.Name = "lblContrasenaEncriptada";
             lblContrasenaEncriptada.Size = new Size(63, 30);
             lblContrasenaEncriptada.TabIndex = 18;
             lblContrasenaEncriptada.Text = "Clave\r\nencriptada";
-            // 
-            // chkVerUsuariosNoActivos
-            // 
-            chkVerUsuariosNoActivos.AutoSize = true;
-            chkVerUsuariosNoActivos.Location = new Point(18, 32);
-            chkVerUsuariosNoActivos.Name = "chkVerUsuariosNoActivos";
-            chkVerUsuariosNoActivos.Size = new Size(146, 19);
-            chkVerUsuariosNoActivos.TabIndex = 37;
-            chkVerUsuariosNoActivos.Text = "Ver usuarios no activos";
-            chkVerUsuariosNoActivos.UseVisualStyleBackColor = true;
-            // 
-            // btnReactivarUsuario
-            // 
-            btnReactivarUsuario.Location = new Point(194, 24);
-            btnReactivarUsuario.Name = "btnReactivarUsuario";
-            btnReactivarUsuario.Size = new Size(130, 27);
-            btnReactivarUsuario.TabIndex = 36;
-            btnReactivarUsuario.Text = "Reactivar usuario";
-            btnReactivarUsuario.UseVisualStyleBackColor = true;
-            // 
-            // grpUsuariosNoActivos
-            // 
-            grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
-            grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
-            grpUsuariosNoActivos.Location = new Point(656, 363);
-            grpUsuariosNoActivos.Name = "grpUsuariosNoActivos";
-            grpUsuariosNoActivos.Size = new Size(344, 70);
-            grpUsuariosNoActivos.TabIndex = 6;
-            grpUsuariosNoActivos.TabStop = false;
-            grpUsuariosNoActivos.Text = "Usuarios no activos";
             // 
             // pnlAcciones
             // 
@@ -359,7 +329,7 @@
             // 
             // txtIntentosFallidos
             // 
-            txtIntentosFallidos.Location = new Point(430, 179);
+            txtIntentosFallidos.Location = new Point(740, 256);
             txtIntentosFallidos.Name = "txtIntentosFallidos";
             txtIntentosFallidos.ReadOnly = true;
             txtIntentosFallidos.Size = new Size(160, 23);
@@ -368,7 +338,7 @@
             // lblIntentosFallidos
             // 
             lblIntentosFallidos.AutoSize = true;
-            lblIntentosFallidos.Location = new Point(326, 179);
+            lblIntentosFallidos.Location = new Point(642, 259);
             lblIntentosFallidos.Name = "lblIntentosFallidos";
             lblIntentosFallidos.Size = new Size(91, 15);
             lblIntentosFallidos.TabIndex = 16;
@@ -376,7 +346,7 @@
             // 
             // txtFechaAlta
             // 
-            txtFechaAlta.Location = new Point(430, 142);
+            txtFechaAlta.Location = new Point(740, 218);
             txtFechaAlta.Name = "txtFechaAlta";
             txtFechaAlta.ReadOnly = true;
             txtFechaAlta.Size = new Size(160, 23);
@@ -385,7 +355,7 @@
             // lblFechaAlta
             // 
             lblFechaAlta.AutoSize = true;
-            lblFechaAlta.Location = new Point(326, 142);
+            lblFechaAlta.Location = new Point(650, 221);
             lblFechaAlta.Name = "lblFechaAlta";
             lblFechaAlta.Size = new Size(76, 15);
             lblFechaAlta.TabIndex = 14;
@@ -595,6 +565,36 @@
             lblId.TabIndex = 20;
             lblId.Text = "ID";
             // 
+            // chkVerUsuariosNoActivos
+            // 
+            chkVerUsuariosNoActivos.AutoSize = true;
+            chkVerUsuariosNoActivos.Location = new Point(18, 32);
+            chkVerUsuariosNoActivos.Name = "chkVerUsuariosNoActivos";
+            chkVerUsuariosNoActivos.Size = new Size(146, 19);
+            chkVerUsuariosNoActivos.TabIndex = 37;
+            chkVerUsuariosNoActivos.Text = "Ver usuarios no activos";
+            chkVerUsuariosNoActivos.UseVisualStyleBackColor = true;
+            // 
+            // btnReactivarUsuario
+            // 
+            btnReactivarUsuario.Location = new Point(194, 24);
+            btnReactivarUsuario.Name = "btnReactivarUsuario";
+            btnReactivarUsuario.Size = new Size(130, 27);
+            btnReactivarUsuario.TabIndex = 36;
+            btnReactivarUsuario.Text = "Reactivar usuario";
+            btnReactivarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // grpUsuariosNoActivos
+            // 
+            grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
+            grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
+            grpUsuariosNoActivos.Location = new Point(676, 367);
+            grpUsuariosNoActivos.Name = "grpUsuariosNoActivos";
+            grpUsuariosNoActivos.Size = new Size(344, 70);
+            grpUsuariosNoActivos.TabIndex = 6;
+            grpUsuariosNoActivos.TabStop = false;
+            grpUsuariosNoActivos.Text = "Usuarios no activos";
+            // 
             // grpRolesPermisos
             // 
             grpRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
@@ -716,9 +716,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             grpDatosUsuario.ResumeLayout(false);
             grpDatosUsuario.PerformLayout();
+            pnlAcciones.ResumeLayout(false);
             grpUsuariosNoActivos.ResumeLayout(false);
             grpUsuariosNoActivos.PerformLayout();
-            pnlAcciones.ResumeLayout(false);
             grpRolesPermisos.ResumeLayout(false);
             grpBusqueda.ResumeLayout(false);
             grpBusqueda.PerformLayout();
