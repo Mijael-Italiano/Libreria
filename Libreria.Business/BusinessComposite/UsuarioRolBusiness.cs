@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Libreria.Data.DataComposite;
+using Libreria.Entity.EntityComposite;
 
 namespace Libreria.Business.BusinessComposite
 {
@@ -40,6 +42,35 @@ namespace Libreria.Business.BusinessComposite
                 this.ValidarRelacionExistente(idUsuario, idRol);
 
                 this.usuarioRolData.DesasociarUsuarioRol(idUsuario, idRol);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Rol> ConsultarRolesPorUsuario(int idUsuario)
+        {
+            try
+            {
+                if (idUsuario <= 0)
+                {
+                    throw new Exception("Debe seleccionar un usuario.");
+                }
+
+                bool existeUsuario = this.usuarioBusiness.ConsultarUsuarios().Any(usuario => usuario.Id == idUsuario);
+
+                if (!existeUsuario)
+                {
+                    throw new Exception("El usuario seleccionado no existe.");
+                }
+
+                List<int> idsRoles = this.usuarioRolData.ConsultarIdsRolesPorUsuario(idUsuario);
+
+                return this.rolBusiness
+                    .ConsultarRoles()
+                    .Where(rol => idsRoles.Contains(rol.Id))
+                    .ToList();
             }
             catch (Exception)
             {

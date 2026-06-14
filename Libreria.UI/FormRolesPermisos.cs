@@ -43,6 +43,7 @@ namespace Libreria.UI
             tvRoles.HideSelection = false;
             tvPermisos.HideSelection = false;
             tvPermisosPorRol.HideSelection = false;
+            tvRolesPermisosUsuario.HideSelection = false;
             tvUsuarios.AfterSelect += tvUsuarios_AfterSelect;
             tvRoles.AfterSelect += tvRoles_AfterSelect;
             tvPermisos.AfterSelect += tvPermisos_AfterSelect;
@@ -134,9 +135,8 @@ namespace Libreria.UI
         {
             try
             {
-                this.rolBusiness.AltaRol(txtNombreRol.Text);
-                txtNombreRol.Clear();
-                txtIdRol.Clear();
+                this.rolBusiness.AltaRol(txtNombreAltaRol.Text);
+                txtNombreAltaRol.Clear();
                 this.CargarRoles();
 
                 MessageBox.Show(
@@ -157,11 +157,56 @@ namespace Libreria.UI
             }
         }
 
+        private void btnModificarRol_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idRol = int.Parse(txtIdRol.Text);
+
+                this.rolBusiness.ModificarRol(idRol, txtNombreRol.Text);
+                this.CargarRoles();
+
+                Rol rolModificado = new Rol(idRol, txtNombreRol.Text.Trim());
+                this.CargarPermisosPorRol(rolModificado);
+
+                if (tvUsuarios.SelectedNode?.Tag is Usuario usuario)
+                {
+                    this.CargarRolesPermisosUsuario(usuario);
+                }
+
+                MessageBox.Show(
+                    "Rol modificado correctamente.",
+                    "Roles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un rol.",
+                    "Roles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Roles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
         private void tvUsuarios_AfterSelect(object? sender, TreeViewEventArgs e)
         {
             if (e.Node?.Tag is Usuario usuario)
             {
                 this.MostrarUsuarioSeleccionado(usuario);
+                this.CargarRolesPermisosUsuario(usuario);
             }
         }
 
@@ -259,6 +304,51 @@ namespace Libreria.UI
             }
         }
 
+        private void CargarRolesPermisosUsuario(Usuario usuario)
+        {
+            try
+            {
+                tvRolesPermisosUsuario.Nodes.Clear();
+
+                TreeNode nodoUsuario = new TreeNode(usuario.NombreUsuario)
+                {
+                    Tag = usuario
+                };
+
+                foreach (Rol rol in this.usuarioRolBusiness.ConsultarRolesPorUsuario(usuario.Id))
+                {
+                    TreeNode nodoRol = new TreeNode(rol.Nombre)
+                    {
+                        Tag = rol
+                    };
+
+                    foreach (Permiso permiso in this.rolPermisoBusiness.ConsultarPermisosPorRol(rol.Id))
+                    {
+                        TreeNode nodoPermiso = new TreeNode(permiso.Nombre)
+                        {
+                            Tag = permiso
+                        };
+
+                        nodoRol.Nodes.Add(nodoPermiso);
+                    }
+
+                    nodoUsuario.Nodes.Add(nodoRol);
+                }
+
+                tvRolesPermisosUsuario.Nodes.Add(nodoUsuario);
+                nodoUsuario.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "No se pudieron cargar los roles y permisos del usuario. " + ex.Message,
+                    "Roles y permisos del usuario",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
         private void btnAsignarPermisoRol_Click(object sender, EventArgs e)
         {
             try
@@ -268,6 +358,7 @@ namespace Libreria.UI
 
                 this.rolPermisoBusiness.AsociarRolPermiso(rol.Id, permiso.Id);
                 this.CargarPermisosPorRol(rol);
+                this.RefrescarRolesPermisosUsuarioSeleccionado();
 
                 MessageBox.Show(
                     "Permiso asignado correctamente al rol.",
@@ -296,6 +387,7 @@ namespace Libreria.UI
 
                 this.rolPermisoBusiness.DesasociarRolPermiso(rol.Id, permiso.Id);
                 this.CargarPermisosPorRol(rol);
+                this.RefrescarRolesPermisosUsuarioSeleccionado();
 
                 MessageBox.Show(
                     "Permiso quitado correctamente del rol.",
@@ -323,6 +415,7 @@ namespace Libreria.UI
                 Rol rol = this.ObtenerRolSeleccionado();
 
                 this.usuarioRolBusiness.AsociarUsuarioRol(usuario.Id, rol.Id);
+                this.CargarRolesPermisosUsuario(usuario);
 
                 MessageBox.Show(
                     "Rol asignado correctamente al usuario.",
@@ -350,6 +443,7 @@ namespace Libreria.UI
                 Rol rol = this.ObtenerRolSeleccionado();
 
                 this.usuarioRolBusiness.DesasociarUsuarioRol(usuario.Id, rol.Id);
+                this.CargarRolesPermisosUsuario(usuario);
 
                 MessageBox.Show(
                     "Rol quitado correctamente del usuario.",
@@ -377,6 +471,14 @@ namespace Libreria.UI
             }
 
             throw new Exception("Debe seleccionar un usuario.");
+        }
+
+        private void RefrescarRolesPermisosUsuarioSeleccionado()
+        {
+            if (tvUsuarios.SelectedNode?.Tag is Usuario usuario)
+            {
+                this.CargarRolesPermisosUsuario(usuario);
+            }
         }
 
         private Rol ObtenerRolSeleccionado()

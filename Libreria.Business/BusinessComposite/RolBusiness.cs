@@ -44,6 +44,33 @@ namespace Libreria.Business.BusinessComposite
             }
         }
 
+        public void ModificarRol(int id, string nombre)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Debe seleccionar un rol.");
+                }
+
+                this.Validar(nombre, id);
+
+                bool existeRol = this.rolData.ConsultarRoles().Any(rol => rol.Id == id);
+
+                if (!existeRol)
+                {
+                    throw new Exception("El rol seleccionado no existe.");
+                }
+
+                Rol rol = new Rol(id, nombre.Trim());
+                this.rolData.ModificarRol(rol);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         private void Validar(string nombre)
         {
             this.Validar(nombre, 0);

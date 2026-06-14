@@ -59,6 +59,29 @@ namespace Libreria.Data.DataComposite
             }
         }
 
+        public void ModificarRol(Rol rol)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("Roles.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Roles.xml no tiene una raiz valida.");
+
+                XElement rolXml = raiz.Elements("Rol").FirstOrDefault(elemento =>
+                    int.Parse(elemento.Attribute("Id")?.Value ?? throw new Exception("Hay un rol sin Id.")) == rol.Id
+                ) ?? throw new Exception("No se encontro el rol indicado.");
+
+                rolXml.SetElementValue("Nombre", rol.Nombre);
+                documento.Save(ruta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public int ObtenerProximoId()
         {
             try
