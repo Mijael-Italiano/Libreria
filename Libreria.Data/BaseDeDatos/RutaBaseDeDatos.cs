@@ -23,6 +23,8 @@ namespace Libreria.Data.BaseDeDatos
             CrearUsuariosIniciales(carpetaBaseDeDatos);
             CrearRolesIniciales(carpetaBaseDeDatos);
             CrearPermisosIniciales(carpetaBaseDeDatos);
+            CrearRolesPermisosIniciales(carpetaBaseDeDatos);
+            CrearUsuariosRolesIniciales(carpetaBaseDeDatos);
         }
 
         private static void CrearUsuariosIniciales(string carpetaBaseDeDatos)
@@ -74,6 +76,9 @@ namespace Libreria.Data.BaseDeDatos
                 """
                 <?xml version="1.0" encoding="utf-8"?>
                 <Roles>
+                  <Rol Id="1">
+                    <Nombre>Admin</Nombre>
+                  </Rol>
                 </Roles>
                 """
             );
@@ -103,6 +108,48 @@ namespace Libreria.Data.BaseDeDatos
                     <Nombre>Gestion de roles y permisos</Nombre>
                   </Permiso>
                 </Permisos>
+                """
+            );
+        }
+
+        private static void CrearRolesPermisosIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaRolesPermisos = Path.Combine(carpetaBaseDeDatos, "RolesPermisos.xml");
+
+            if (File.Exists(rutaRolesPermisos))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaRolesPermisos,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <RolesPermisos>
+                  <RolPermiso IdRol="1" IdPermiso="1" />
+                  <RolPermiso IdRol="1" IdPermiso="2" />
+                  <RolPermiso IdRol="1" IdPermiso="3" />
+                </RolesPermisos>
+                """
+            );
+        }
+
+        private static void CrearUsuariosRolesIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaUsuariosRoles = Path.Combine(carpetaBaseDeDatos, "UsuariosRoles.xml");
+
+            if (File.Exists(rutaUsuariosRoles))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaUsuariosRoles,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <UsuariosRoles>
+                  <UsuarioRol IdUsuario="1" IdRol="1" />
+                </UsuariosRoles>
                 """
             );
         }

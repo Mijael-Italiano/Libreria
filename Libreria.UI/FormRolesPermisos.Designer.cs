@@ -33,7 +33,6 @@ namespace Libreria.UI
             chkCifrarContrasena = new CheckBox();
             txtContrasenaUsuario = new TextBox();
             lblContrasenaUsuario = new Label();
-            chkActivo = new CheckBox();
             chkBloqueado = new CheckBox();
             txtNombreUsuario = new TextBox();
             lblNombreUsuario = new Label();
@@ -101,7 +100,6 @@ namespace Libreria.UI
             grpUsuario.Controls.Add(chkCifrarContrasena);
             grpUsuario.Controls.Add(txtContrasenaUsuario);
             grpUsuario.Controls.Add(lblContrasenaUsuario);
-            grpUsuario.Controls.Add(chkActivo);
             grpUsuario.Controls.Add(chkBloqueado);
             grpUsuario.Controls.Add(txtNombreUsuario);
             grpUsuario.Controls.Add(lblNombreUsuario);
@@ -142,18 +140,6 @@ namespace Libreria.UI
             lblContrasenaUsuario.Size = new Size(36, 15);
             lblContrasenaUsuario.TabIndex = 6;
             lblContrasenaUsuario.Text = "Clave";
-            // 
-            // chkActivo
-            // 
-            chkActivo.AutoSize = true;
-            chkActivo.Enabled = false;
-            chkActivo.ForeColor = SystemColors.ControlDark;
-            chkActivo.Location = new Point(232, 31);
-            chkActivo.Name = "chkActivo";
-            chkActivo.Size = new Size(60, 19);
-            chkActivo.TabIndex = 5;
-            chkActivo.Text = "Activo";
-            chkActivo.UseVisualStyleBackColor = true;
             // 
             // chkBloqueado
             // 
@@ -211,7 +197,7 @@ namespace Libreria.UI
             grpRol.Controls.Add(lblNombreRol);
             grpRol.Controls.Add(txtIdRol);
             grpRol.Controls.Add(lblIdRol);
-            grpRol.Location = new Point(400, 65);
+            grpRol.Location = new Point(400, 69);
             grpRol.Name = "grpRol";
             grpRol.Size = new Size(360, 115);
             grpRol.TabIndex = 2;
@@ -285,7 +271,7 @@ namespace Libreria.UI
             grpPermiso.Controls.Add(lblNombrePermiso);
             grpPermiso.Controls.Add(txtIdPermiso);
             grpPermiso.Controls.Add(lblIdPermiso);
-            grpPermiso.Location = new Point(780, 65);
+            grpPermiso.Location = new Point(839, 80);
             grpPermiso.Name = "grpPermiso";
             grpPermiso.Size = new Size(360, 115);
             grpPermiso.TabIndex = 3;
@@ -331,7 +317,7 @@ namespace Libreria.UI
             grpAsignarRolUsuario.Controls.Add(btnQuitarRolUsuario);
             grpAsignarRolUsuario.Controls.Add(btnAsignarRolUsuario);
             grpAsignarRolUsuario.Controls.Add(lblAsignarRolUsuario);
-            grpAsignarRolUsuario.Location = new Point(20, 205);
+            grpAsignarRolUsuario.Location = new Point(20, 224);
             grpAsignarRolUsuario.Name = "grpAsignarRolUsuario";
             grpAsignarRolUsuario.Size = new Size(360, 95);
             grpAsignarRolUsuario.TabIndex = 4;
@@ -346,6 +332,7 @@ namespace Libreria.UI
             btnQuitarRolUsuario.TabIndex = 2;
             btnQuitarRolUsuario.Text = "Quitar rol";
             btnQuitarRolUsuario.UseVisualStyleBackColor = true;
+            btnQuitarRolUsuario.Click += btnQuitarRolUsuario_Click;
             // 
             // btnAsignarRolUsuario
             // 
@@ -355,6 +342,7 @@ namespace Libreria.UI
             btnAsignarRolUsuario.TabIndex = 1;
             btnAsignarRolUsuario.Text = "Asignar rol";
             btnAsignarRolUsuario.UseVisualStyleBackColor = true;
+            btnAsignarRolUsuario.Click += btnAsignarRolUsuario_Click;
             // 
             // lblAsignarRolUsuario
             // 
@@ -370,7 +358,7 @@ namespace Libreria.UI
             grpPermisosRol.Controls.Add(btnQuitarPermisoRol);
             grpPermisosRol.Controls.Add(btnAsignarPermisoRol);
             grpPermisosRol.Controls.Add(lblPermisosRol);
-            grpPermisosRol.Location = new Point(400, 205);
+            grpPermisosRol.Location = new Point(400, 224);
             grpPermisosRol.Name = "grpPermisosRol";
             grpPermisosRol.Size = new Size(360, 95);
             grpPermisosRol.TabIndex = 5;
@@ -385,6 +373,7 @@ namespace Libreria.UI
             btnQuitarPermisoRol.TabIndex = 2;
             btnQuitarPermisoRol.Text = "Quitar permiso";
             btnQuitarPermisoRol.UseVisualStyleBackColor = true;
+            btnQuitarPermisoRol.Click += btnQuitarPermisoRol_Click;
             // 
             // btnAsignarPermisoRol
             // 
@@ -394,6 +383,7 @@ namespace Libreria.UI
             btnAsignarPermisoRol.TabIndex = 1;
             btnAsignarPermisoRol.Text = "Asignar permiso";
             btnAsignarPermisoRol.UseVisualStyleBackColor = true;
+            btnAsignarPermisoRol.Click += btnAsignarPermisoRol_Click;
             // 
             // lblPermisosRol
             // 
@@ -408,7 +398,7 @@ namespace Libreria.UI
             // 
             pnlAcciones.Controls.Add(btnSalir);
             pnlAcciones.Controls.Add(btnLimpiar);
-            pnlAcciones.Location = new Point(780, 217);
+            pnlAcciones.Location = new Point(839, 224);
             pnlAcciones.Name = "pnlAcciones";
             pnlAcciones.Size = new Size(360, 83);
             pnlAcciones.TabIndex = 6;
@@ -574,7 +564,6 @@ namespace Libreria.UI
         private CheckBox chkCifrarContrasena;
         private TextBox txtContrasenaUsuario;
         private Label lblContrasenaUsuario;
-        private CheckBox chkActivo;
         private CheckBox chkBloqueado;
         private TextBox txtNombreUsuario;
         private Label lblNombreUsuario;
