@@ -78,6 +78,30 @@ namespace Libreria.Business.BusinessComposite
             }
         }
 
+        public List<int> ConsultarIdsUsuariosPorRol(int idRol)
+        {
+            try
+            {
+                if (idRol <= 0)
+                {
+                    throw new Exception("Debe seleccionar un rol.");
+                }
+
+                bool existeRol = this.rolBusiness.ConsultarRoles().Any(rol => rol.Id == idRol);
+
+                if (!existeRol)
+                {
+                    throw new Exception("El rol seleccionado no existe.");
+                }
+
+                return this.usuarioRolData.ConsultarIdsUsuariosPorRol(idRol);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         private void ValidarUsuarioYRol(int idUsuario, int idRol)
         {
             if (idUsuario <= 0)

@@ -52,7 +52,6 @@
             btnLimpiar = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
-            btnAgregar = new Button();
             txtIntentosFallidos = new TextBox();
             lblIntentosFallidos = new Label();
             txtFechaAlta = new TextBox();
@@ -82,11 +81,32 @@
             lblDocumento = new Label();
             txtId = new TextBox();
             lblId = new Label();
+            btnAgregarUsuario = new Button();
             chkVerUsuariosNoActivos = new CheckBox();
             btnReactivarUsuario = new Button();
             grpUsuariosNoActivos = new GroupBox();
-            grpRolesPermisos = new GroupBox();
-            tvRolesPermisos = new TreeView();
+            grpAltaUsuario = new GroupBox();
+            txtAltaDepartamento = new TextBox();
+            lblAltaDepartamento = new Label();
+            txtAltaDireccion = new TextBox();
+            lblAltaDireccion = new Label();
+            dtpAltaFechaNacimiento = new DateTimePicker();
+            lblAltaFechaNacimiento = new Label();
+            txtAltaTelefono = new TextBox();
+            lblAltaTelefono = new Label();
+            txtAltaMail = new TextBox();
+            lblAltaMail = new Label();
+            txtAltaApellido = new TextBox();
+            lblAltaApellido = new Label();
+            txtAltaNombre = new TextBox();
+            lblAltaNombre = new Label();
+            chkAltaMostrarContrasena = new CheckBox();
+            txtAltaContrasena = new TextBox();
+            lblAltaContrasena = new Label();
+            txtAltaNombreUsuario = new TextBox();
+            lblAltaNombreUsuario = new Label();
+            txtAltaDocumento = new TextBox();
+            lblAltaDocumento = new Label();
             grpBusqueda = new GroupBox();
             txtBuscarDocumento = new TextBox();
             lblBuscarDocumento = new Label();
@@ -100,7 +120,7 @@
             grpDatosUsuario.SuspendLayout();
             pnlAcciones.SuspendLayout();
             grpUsuariosNoActivos.SuspendLayout();
-            grpRolesPermisos.SuspendLayout();
+            grpAltaUsuario.SuspendLayout();
             grpBusqueda.SuspendLayout();
             SuspendLayout();
             // 
@@ -129,7 +149,7 @@
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(1280, 282);
+            dgvUsuarios.Size = new Size(1280, 231);
             dgvUsuarios.TabIndex = 1;
             // 
             // colId
@@ -257,16 +277,16 @@
             grpDatosUsuario.Controls.Add(lblDocumento);
             grpDatosUsuario.Controls.Add(txtId);
             grpDatosUsuario.Controls.Add(lblId);
-            grpDatosUsuario.Location = new Point(20, 452);
+            grpDatosUsuario.Location = new Point(676, 401);
             grpDatosUsuario.Name = "grpDatosUsuario";
-            grpDatosUsuario.Size = new Size(1000, 285);
+            grpDatosUsuario.Size = new Size(624, 335);
             grpDatosUsuario.TabIndex = 2;
             grpDatosUsuario.TabStop = false;
-            grpDatosUsuario.Text = "Datos del usuario";
+            grpDatosUsuario.Text = "Datos del usuario seleccionado";
             // 
             // txtContrasenaEncriptada
             // 
-            txtContrasenaEncriptada.Location = new Point(430, 129);
+            txtContrasenaEncriptada.Location = new Point(102, 146);
             txtContrasenaEncriptada.Name = "txtContrasenaEncriptada";
             txtContrasenaEncriptada.ReadOnly = true;
             txtContrasenaEncriptada.Size = new Size(160, 23);
@@ -275,7 +295,7 @@
             // lblContrasenaEncriptada
             // 
             lblContrasenaEncriptada.AutoSize = true;
-            lblContrasenaEncriptada.Location = new Point(326, 122);
+            lblContrasenaEncriptada.Location = new Point(14, 144);
             lblContrasenaEncriptada.Name = "lblContrasenaEncriptada";
             lblContrasenaEncriptada.Size = new Size(63, 30);
             lblContrasenaEncriptada.TabIndex = 18;
@@ -287,15 +307,14 @@
             pnlAcciones.Controls.Add(btnLimpiar);
             pnlAcciones.Controls.Add(btnEliminar);
             pnlAcciones.Controls.Add(btnModificar);
-            pnlAcciones.Controls.Add(btnAgregar);
-            pnlAcciones.Location = new Point(6, 231);
+            pnlAcciones.Location = new Point(6, 281);
             pnlAcciones.Name = "pnlAcciones";
             pnlAcciones.Size = new Size(572, 48);
             pnlAcciones.TabIndex = 3;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(414, 10);
+            btnLimpiar.Location = new Point(284, 10);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(118, 27);
             btnLimpiar.TabIndex = 3;
@@ -304,7 +323,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(284, 10);
+            btnEliminar.Location = new Point(154, 10);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(118, 27);
             btnEliminar.TabIndex = 2;
@@ -313,26 +332,16 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(154, 10);
+            btnModificar.Location = new Point(24, 10);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(118, 27);
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
             // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(24, 10);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(118, 27);
-            btnAgregar.TabIndex = 0;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
             // txtIntentosFallidos
             // 
-            txtIntentosFallidos.Location = new Point(430, 179);
+            txtIntentosFallidos.Location = new Point(430, 183);
             txtIntentosFallidos.Name = "txtIntentosFallidos";
             txtIntentosFallidos.ReadOnly = true;
             txtIntentosFallidos.Size = new Size(160, 23);
@@ -341,7 +350,7 @@
             // lblIntentosFallidos
             // 
             lblIntentosFallidos.AutoSize = true;
-            lblIntentosFallidos.Location = new Point(326, 187);
+            lblIntentosFallidos.Location = new Point(326, 188);
             lblIntentosFallidos.Name = "lblIntentosFallidos";
             lblIntentosFallidos.Size = new Size(91, 15);
             lblIntentosFallidos.TabIndex = 16;
@@ -349,7 +358,7 @@
             // 
             // txtFechaAlta
             // 
-            txtFechaAlta.Location = new Point(740, 222);
+            txtFechaAlta.Location = new Point(429, 212);
             txtFechaAlta.Name = "txtFechaAlta";
             txtFechaAlta.ReadOnly = true;
             txtFechaAlta.Size = new Size(160, 23);
@@ -358,7 +367,7 @@
             // lblFechaAlta
             // 
             lblFechaAlta.AutoSize = true;
-            lblFechaAlta.Location = new Point(650, 225);
+            lblFechaAlta.Location = new Point(326, 220);
             lblFechaAlta.Name = "lblFechaAlta";
             lblFechaAlta.Size = new Size(76, 15);
             lblFechaAlta.TabIndex = 14;
@@ -367,7 +376,7 @@
             // chkBloqueado
             // 
             chkBloqueado.AutoSize = true;
-            chkBloqueado.Location = new Point(825, 104);
+            chkBloqueado.Location = new Point(506, 248);
             chkBloqueado.Name = "chkBloqueado";
             chkBloqueado.Size = new Size(83, 19);
             chkBloqueado.TabIndex = 13;
@@ -382,7 +391,7 @@
             chkEstado.CheckState = CheckState.Checked;
             chkEstado.Enabled = false;
             chkEstado.ForeColor = SystemColors.ControlDark;
-            chkEstado.Location = new Point(740, 104);
+            chkEstado.Location = new Point(430, 248);
             chkEstado.Name = "chkEstado";
             chkEstado.Size = new Size(60, 19);
             chkEstado.TabIndex = 12;
@@ -391,7 +400,7 @@
             // 
             // txtMail
             // 
-            txtMail.Location = new Point(740, 66);
+            txtMail.Location = new Point(430, 61);
             txtMail.Name = "txtMail";
             txtMail.Size = new Size(160, 23);
             txtMail.TabIndex = 11;
@@ -399,7 +408,7 @@
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(650, 69);
+            lblMail.Location = new Point(326, 64);
             lblMail.Name = "lblMail";
             lblMail.Size = new Size(30, 15);
             lblMail.TabIndex = 10;
@@ -407,7 +416,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(740, 31);
+            txtTelefono.Location = new Point(430, 31);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(160, 23);
             txtTelefono.TabIndex = 29;
@@ -415,7 +424,7 @@
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(650, 34);
+            lblTelefono.Location = new Point(326, 34);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(52, 15);
             lblTelefono.TabIndex = 28;
@@ -424,7 +433,7 @@
             // dtpFechaNacimiento
             // 
             dtpFechaNacimiento.Format = DateTimePickerFormat.Short;
-            dtpFechaNacimiento.Location = new Point(102, 179);
+            dtpFechaNacimiento.Location = new Point(429, 154);
             dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             dtpFechaNacimiento.Size = new Size(160, 23);
             dtpFechaNacimiento.TabIndex = 31;
@@ -432,7 +441,7 @@
             // lblFechaNacimiento
             // 
             lblFechaNacimiento.AutoSize = true;
-            lblFechaNacimiento.Location = new Point(18, 187);
+            lblFechaNacimiento.Location = new Point(326, 159);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
             lblFechaNacimiento.Size = new Size(69, 15);
             lblFechaNacimiento.TabIndex = 30;
@@ -440,15 +449,15 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(740, 142);
+            txtDireccion.Location = new Point(430, 91);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(220, 23);
+            txtDireccion.Size = new Size(160, 23);
             txtDireccion.TabIndex = 33;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(650, 142);
+            lblDireccion.Location = new Point(326, 94);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(57, 15);
             lblDireccion.TabIndex = 32;
@@ -456,7 +465,7 @@
             // 
             // txtDepartamento
             // 
-            txtDepartamento.Location = new Point(740, 179);
+            txtDepartamento.Location = new Point(430, 121);
             txtDepartamento.Name = "txtDepartamento";
             txtDepartamento.Size = new Size(160, 23);
             txtDepartamento.TabIndex = 35;
@@ -464,7 +473,7 @@
             // lblDepartamento
             // 
             lblDepartamento.AutoSize = true;
-            lblDepartamento.Location = new Point(650, 179);
+            lblDepartamento.Location = new Point(326, 125);
             lblDepartamento.Name = "lblDepartamento";
             lblDepartamento.Size = new Size(83, 15);
             lblDepartamento.TabIndex = 34;
@@ -472,7 +481,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(102, 104);
+            txtApellido.Location = new Point(102, 210);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(160, 23);
             txtApellido.TabIndex = 9;
@@ -480,7 +489,7 @@
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(18, 106);
+            lblApellido.Location = new Point(14, 212);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(51, 15);
             lblApellido.TabIndex = 8;
@@ -488,7 +497,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(102, 66);
+            txtNombre.Location = new Point(102, 180);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(160, 23);
             txtNombre.TabIndex = 7;
@@ -496,7 +505,7 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(18, 69);
+            lblNombre.Location = new Point(14, 183);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 6;
@@ -505,7 +514,7 @@
             // chkMostrarContrasena
             // 
             chkMostrarContrasena.AutoSize = true;
-            chkMostrarContrasena.Location = new Point(430, 96);
+            chkMostrarContrasena.Location = new Point(102, 120);
             chkMostrarContrasena.Name = "chkMostrarContrasena";
             chkMostrarContrasena.Size = new Size(128, 19);
             chkMostrarContrasena.TabIndex = 36;
@@ -515,7 +524,7 @@
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(430, 66);
+            txtContrasena.Location = new Point(102, 91);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.PasswordChar = '*';
             txtContrasena.Size = new Size(160, 23);
@@ -524,7 +533,7 @@
             // lblContrasena
             // 
             lblContrasena.AutoSize = true;
-            lblContrasena.Location = new Point(326, 69);
+            lblContrasena.Location = new Point(18, 94);
             lblContrasena.Name = "lblContrasena";
             lblContrasena.Size = new Size(67, 15);
             lblContrasena.TabIndex = 4;
@@ -532,7 +541,7 @@
             // 
             // txtNombreUsuario
             // 
-            txtNombreUsuario.Location = new Point(430, 31);
+            txtNombreUsuario.Location = new Point(102, 60);
             txtNombreUsuario.Name = "txtNombreUsuario";
             txtNombreUsuario.Size = new Size(160, 23);
             txtNombreUsuario.TabIndex = 3;
@@ -540,7 +549,7 @@
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.Location = new Point(326, 34);
+            lblNombreUsuario.Location = new Point(18, 63);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(47, 15);
             lblNombreUsuario.TabIndex = 2;
@@ -548,7 +557,7 @@
             // 
             // txtDocumento
             // 
-            txtDocumento.Location = new Point(102, 139);
+            txtDocumento.Location = new Point(102, 239);
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(160, 23);
             txtDocumento.TabIndex = 1;
@@ -556,7 +565,7 @@
             // lblDocumento
             // 
             lblDocumento.AutoSize = true;
-            lblDocumento.Location = new Point(18, 142);
+            lblDocumento.Location = new Point(18, 242);
             lblDocumento.Name = "lblDocumento";
             lblDocumento.Size = new Size(27, 15);
             lblDocumento.TabIndex = 0;
@@ -578,6 +587,16 @@
             lblId.Size = new Size(18, 15);
             lblId.TabIndex = 20;
             lblId.Text = "ID";
+            // 
+            // btnAgregarUsuario
+            // 
+            btnAgregarUsuario.Location = new Point(472, 204);
+            btnAgregarUsuario.Name = "btnAgregarUsuario";
+            btnAgregarUsuario.Size = new Size(118, 27);
+            btnAgregarUsuario.TabIndex = 20;
+            btnAgregarUsuario.Text = "Agregar";
+            btnAgregarUsuario.UseVisualStyleBackColor = true;
+            btnAgregarUsuario.Click += btnAgregar_Click;
             // 
             // chkVerUsuariosNoActivos
             // 
@@ -603,31 +622,217 @@
             grpUsuariosNoActivos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
             grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
-            grpUsuariosNoActivos.Location = new Point(676, 367);
+            grpUsuariosNoActivos.Location = new Point(676, 316);
             grpUsuariosNoActivos.Name = "grpUsuariosNoActivos";
             grpUsuariosNoActivos.Size = new Size(344, 70);
             grpUsuariosNoActivos.TabIndex = 6;
             grpUsuariosNoActivos.TabStop = false;
             grpUsuariosNoActivos.Text = "Usuarios no activos";
             // 
-            // grpRolesPermisos
+            // grpAltaUsuario
             // 
-            grpRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            grpRolesPermisos.Controls.Add(tvRolesPermisos);
-            grpRolesPermisos.Location = new Point(1048, 363);
-            grpRolesPermisos.Name = "grpRolesPermisos";
-            grpRolesPermisos.Size = new Size(264, 374);
-            grpRolesPermisos.TabIndex = 4;
-            grpRolesPermisos.TabStop = false;
-            grpRolesPermisos.Text = "Roles y permisos";
+            grpAltaUsuario.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            grpAltaUsuario.Controls.Add(btnAgregarUsuario);
+            grpAltaUsuario.Controls.Add(txtAltaDepartamento);
+            grpAltaUsuario.Controls.Add(lblAltaDepartamento);
+            grpAltaUsuario.Controls.Add(txtAltaDireccion);
+            grpAltaUsuario.Controls.Add(lblAltaDireccion);
+            grpAltaUsuario.Controls.Add(dtpAltaFechaNacimiento);
+            grpAltaUsuario.Controls.Add(lblAltaFechaNacimiento);
+            grpAltaUsuario.Controls.Add(txtAltaTelefono);
+            grpAltaUsuario.Controls.Add(lblAltaTelefono);
+            grpAltaUsuario.Controls.Add(txtAltaMail);
+            grpAltaUsuario.Controls.Add(lblAltaMail);
+            grpAltaUsuario.Controls.Add(txtAltaApellido);
+            grpAltaUsuario.Controls.Add(lblAltaApellido);
+            grpAltaUsuario.Controls.Add(txtAltaNombre);
+            grpAltaUsuario.Controls.Add(lblAltaNombre);
+            grpAltaUsuario.Controls.Add(chkAltaMostrarContrasena);
+            grpAltaUsuario.Controls.Add(txtAltaContrasena);
+            grpAltaUsuario.Controls.Add(lblAltaContrasena);
+            grpAltaUsuario.Controls.Add(txtAltaNombreUsuario);
+            grpAltaUsuario.Controls.Add(lblAltaNombreUsuario);
+            grpAltaUsuario.Controls.Add(txtAltaDocumento);
+            grpAltaUsuario.Controls.Add(lblAltaDocumento);
+            grpAltaUsuario.Location = new Point(20, 401);
+            grpAltaUsuario.Name = "grpAltaUsuario";
+            grpAltaUsuario.Size = new Size(624, 262);
+            grpAltaUsuario.TabIndex = 4;
+            grpAltaUsuario.TabStop = false;
+            grpAltaUsuario.Text = "Datos de alta usuario";
             // 
-            // tvRolesPermisos
+            // txtAltaDepartamento
             // 
-            tvRolesPermisos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tvRolesPermisos.Location = new Point(15, 30);
-            tvRolesPermisos.Name = "tvRolesPermisos";
-            tvRolesPermisos.Size = new Size(234, 333);
-            tvRolesPermisos.TabIndex = 0;
+            txtAltaDepartamento.Location = new Point(430, 151);
+            txtAltaDepartamento.Name = "txtAltaDepartamento";
+            txtAltaDepartamento.Size = new Size(160, 23);
+            txtAltaDepartamento.TabIndex = 19;
+            // 
+            // lblAltaDepartamento
+            // 
+            lblAltaDepartamento.AutoSize = true;
+            lblAltaDepartamento.Location = new Point(326, 154);
+            lblAltaDepartamento.Name = "lblAltaDepartamento";
+            lblAltaDepartamento.Size = new Size(83, 15);
+            lblAltaDepartamento.TabIndex = 18;
+            lblAltaDepartamento.Text = "Departamento";
+            // 
+            // txtAltaDireccion
+            // 
+            txtAltaDireccion.Location = new Point(430, 121);
+            txtAltaDireccion.Name = "txtAltaDireccion";
+            txtAltaDireccion.Size = new Size(160, 23);
+            txtAltaDireccion.TabIndex = 17;
+            // 
+            // lblAltaDireccion
+            // 
+            lblAltaDireccion.AutoSize = true;
+            lblAltaDireccion.Location = new Point(326, 124);
+            lblAltaDireccion.Name = "lblAltaDireccion";
+            lblAltaDireccion.Size = new Size(57, 15);
+            lblAltaDireccion.TabIndex = 16;
+            lblAltaDireccion.Text = "Direccion";
+            // 
+            // dtpAltaFechaNacimiento
+            // 
+            dtpAltaFechaNacimiento.Format = DateTimePickerFormat.Short;
+            dtpAltaFechaNacimiento.Location = new Point(430, 91);
+            dtpAltaFechaNacimiento.Name = "dtpAltaFechaNacimiento";
+            dtpAltaFechaNacimiento.Size = new Size(160, 23);
+            dtpAltaFechaNacimiento.TabIndex = 15;
+            // 
+            // lblAltaFechaNacimiento
+            // 
+            lblAltaFechaNacimiento.AutoSize = true;
+            lblAltaFechaNacimiento.Location = new Point(326, 94);
+            lblAltaFechaNacimiento.Name = "lblAltaFechaNacimiento";
+            lblAltaFechaNacimiento.Size = new Size(69, 15);
+            lblAltaFechaNacimiento.TabIndex = 14;
+            lblAltaFechaNacimiento.Text = "Nacimiento";
+            // 
+            // txtAltaTelefono
+            // 
+            txtAltaTelefono.Location = new Point(430, 61);
+            txtAltaTelefono.Name = "txtAltaTelefono";
+            txtAltaTelefono.Size = new Size(160, 23);
+            txtAltaTelefono.TabIndex = 13;
+            // 
+            // lblAltaTelefono
+            // 
+            lblAltaTelefono.AutoSize = true;
+            lblAltaTelefono.Location = new Point(326, 64);
+            lblAltaTelefono.Name = "lblAltaTelefono";
+            lblAltaTelefono.Size = new Size(52, 15);
+            lblAltaTelefono.TabIndex = 12;
+            lblAltaTelefono.Text = "Telefono";
+            // 
+            // txtAltaMail
+            // 
+            txtAltaMail.Location = new Point(430, 31);
+            txtAltaMail.Name = "txtAltaMail";
+            txtAltaMail.Size = new Size(160, 23);
+            txtAltaMail.TabIndex = 11;
+            // 
+            // lblAltaMail
+            // 
+            lblAltaMail.AutoSize = true;
+            lblAltaMail.Location = new Point(326, 34);
+            lblAltaMail.Name = "lblAltaMail";
+            lblAltaMail.Size = new Size(30, 15);
+            lblAltaMail.TabIndex = 10;
+            lblAltaMail.Text = "Mail";
+            // 
+            // txtAltaApellido
+            // 
+            txtAltaApellido.Location = new Point(102, 151);
+            txtAltaApellido.Name = "txtAltaApellido";
+            txtAltaApellido.Size = new Size(160, 23);
+            txtAltaApellido.TabIndex = 9;
+            // 
+            // lblAltaApellido
+            // 
+            lblAltaApellido.AutoSize = true;
+            lblAltaApellido.Location = new Point(18, 154);
+            lblAltaApellido.Name = "lblAltaApellido";
+            lblAltaApellido.Size = new Size(51, 15);
+            lblAltaApellido.TabIndex = 8;
+            lblAltaApellido.Text = "Apellido";
+            // 
+            // txtAltaNombre
+            // 
+            txtAltaNombre.Location = new Point(102, 121);
+            txtAltaNombre.Name = "txtAltaNombre";
+            txtAltaNombre.Size = new Size(160, 23);
+            txtAltaNombre.TabIndex = 7;
+            // 
+            // lblAltaNombre
+            // 
+            lblAltaNombre.AutoSize = true;
+            lblAltaNombre.Location = new Point(18, 124);
+            lblAltaNombre.Name = "lblAltaNombre";
+            lblAltaNombre.Size = new Size(51, 15);
+            lblAltaNombre.TabIndex = 6;
+            lblAltaNombre.Text = "Nombre";
+            // 
+            // chkAltaMostrarContrasena
+            // 
+            chkAltaMostrarContrasena.AutoSize = true;
+            chkAltaMostrarContrasena.Location = new Point(102, 181);
+            chkAltaMostrarContrasena.Name = "chkAltaMostrarContrasena";
+            chkAltaMostrarContrasena.Size = new Size(128, 19);
+            chkAltaMostrarContrasena.TabIndex = 21;
+            chkAltaMostrarContrasena.Text = "Mostrar contrasena";
+            chkAltaMostrarContrasena.UseVisualStyleBackColor = true;
+            chkAltaMostrarContrasena.CheckedChanged += chkAltaMostrarContrasena_CheckedChanged;
+            // 
+            // txtAltaContrasena
+            // 
+            txtAltaContrasena.Location = new Point(102, 91);
+            txtAltaContrasena.Name = "txtAltaContrasena";
+            txtAltaContrasena.PasswordChar = '*';
+            txtAltaContrasena.Size = new Size(160, 23);
+            txtAltaContrasena.TabIndex = 5;
+            // 
+            // lblAltaContrasena
+            // 
+            lblAltaContrasena.AutoSize = true;
+            lblAltaContrasena.Location = new Point(18, 94);
+            lblAltaContrasena.Name = "lblAltaContrasena";
+            lblAltaContrasena.Size = new Size(67, 15);
+            lblAltaContrasena.TabIndex = 4;
+            lblAltaContrasena.Text = "Contrasena";
+            // 
+            // txtAltaNombreUsuario
+            // 
+            txtAltaNombreUsuario.Location = new Point(102, 61);
+            txtAltaNombreUsuario.Name = "txtAltaNombreUsuario";
+            txtAltaNombreUsuario.Size = new Size(160, 23);
+            txtAltaNombreUsuario.TabIndex = 3;
+            // 
+            // lblAltaNombreUsuario
+            // 
+            lblAltaNombreUsuario.AutoSize = true;
+            lblAltaNombreUsuario.Location = new Point(18, 64);
+            lblAltaNombreUsuario.Name = "lblAltaNombreUsuario";
+            lblAltaNombreUsuario.Size = new Size(47, 15);
+            lblAltaNombreUsuario.TabIndex = 2;
+            lblAltaNombreUsuario.Text = "Usuario";
+            // 
+            // txtAltaDocumento
+            // 
+            txtAltaDocumento.Location = new Point(102, 31);
+            txtAltaDocumento.Name = "txtAltaDocumento";
+            txtAltaDocumento.Size = new Size(160, 23);
+            txtAltaDocumento.TabIndex = 1;
+            // 
+            // lblAltaDocumento
+            // 
+            lblAltaDocumento.AutoSize = true;
+            lblAltaDocumento.Location = new Point(18, 34);
+            lblAltaDocumento.Name = "lblAltaDocumento";
+            lblAltaDocumento.Size = new Size(27, 15);
+            lblAltaDocumento.TabIndex = 0;
+            lblAltaDocumento.Text = "DNI";
             // 
             // grpBusqueda
             // 
@@ -640,7 +845,7 @@
             grpBusqueda.Controls.Add(lblBuscarNombre);
             grpBusqueda.Controls.Add(btnLimpiarBusqueda);
             grpBusqueda.Controls.Add(btnBuscar);
-            grpBusqueda.Location = new Point(20, 352);
+            grpBusqueda.Location = new Point(20, 301);
             grpBusqueda.Name = "grpBusqueda";
             grpBusqueda.Size = new Size(624, 94);
             grpBusqueda.TabIndex = 5;
@@ -719,7 +924,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1324, 749);
             Controls.Add(grpBusqueda);
-            Controls.Add(grpRolesPermisos);
+            Controls.Add(grpAltaUsuario);
             Controls.Add(grpUsuariosNoActivos);
             Controls.Add(grpDatosUsuario);
             Controls.Add(dgvUsuarios);
@@ -734,7 +939,8 @@
             pnlAcciones.ResumeLayout(false);
             grpUsuariosNoActivos.ResumeLayout(false);
             grpUsuariosNoActivos.PerformLayout();
-            grpRolesPermisos.ResumeLayout(false);
+            grpAltaUsuario.ResumeLayout(false);
+            grpAltaUsuario.PerformLayout();
             grpBusqueda.ResumeLayout(false);
             grpBusqueda.PerformLayout();
             ResumeLayout(false);
@@ -792,13 +998,11 @@
         private Label lblDocumento;
         private TextBox txtId;
         private Label lblId;
-        private GroupBox grpRolesPermisos;
-        private TreeView tvRolesPermisos;
         private Panel pnlAcciones;
         private Button btnLimpiar;
         private Button btnEliminar;
         private Button btnModificar;
-        private Button btnAgregar;
+        private Button btnAgregarUsuario;
         private GroupBox grpBusqueda;
         private TextBox txtBuscarDocumento;
         private Label lblBuscarDocumento;
@@ -811,5 +1015,27 @@
         private CheckBox chkVerUsuariosNoActivos;
         private Button btnReactivarUsuario;
         private GroupBox grpUsuariosNoActivos;
+        private GroupBox grpAltaUsuario;
+        private TextBox txtAltaDepartamento;
+        private Label lblAltaDepartamento;
+        private TextBox txtAltaDireccion;
+        private Label lblAltaDireccion;
+        private DateTimePicker dtpAltaFechaNacimiento;
+        private Label lblAltaFechaNacimiento;
+        private TextBox txtAltaTelefono;
+        private Label lblAltaTelefono;
+        private TextBox txtAltaMail;
+        private Label lblAltaMail;
+        private TextBox txtAltaApellido;
+        private Label lblAltaApellido;
+        private TextBox txtAltaNombre;
+        private Label lblAltaNombre;
+        private TextBox txtAltaContrasena;
+        private Label lblAltaContrasena;
+        private CheckBox chkAltaMostrarContrasena;
+        private TextBox txtAltaNombreUsuario;
+        private Label lblAltaNombreUsuario;
+        private TextBox txtAltaDocumento;
+        private Label lblAltaDocumento;
     }
 }

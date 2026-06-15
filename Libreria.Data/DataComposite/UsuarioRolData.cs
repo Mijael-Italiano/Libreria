@@ -79,5 +79,28 @@ namespace Libreria.Data.DataComposite
                 throw;
             }
         }
+
+        public List<int> ConsultarIdsUsuariosPorRol(int idRol)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("UsuariosRoles.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo UsuariosRoles.xml no tiene una raiz valida.");
+
+                var consulta =
+                    from usuarioRol in raiz.Elements("UsuarioRol")
+                    where int.Parse(usuarioRol.Attribute("IdRol")?.Value ?? throw new Exception("Hay una relacion usuario-rol sin IdRol.")) == idRol
+                    select int.Parse(usuarioRol.Attribute("IdUsuario")?.Value ?? throw new Exception("Hay una relacion usuario-rol sin IdUsuario."));
+
+                return consulta.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

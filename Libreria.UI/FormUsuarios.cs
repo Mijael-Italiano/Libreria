@@ -28,28 +28,33 @@ namespace Libreria.UI
             txtContrasena.PasswordChar = chkMostrarContrasena.Checked ? '\0' : '*';
         }
 
+        private void chkAltaMostrarContrasena_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAltaContrasena.PasswordChar = chkAltaMostrarContrasena.Checked ? '\0' : '*';
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
                 Usuario usuario = new Usuario(
-                    int.Parse(txtDocumento.Text),
-                    txtNombreUsuario.Text,
-                    txtContrasena.Text,
-                    txtNombre.Text,
-                    txtApellido.Text,
-                    txtMail.Text,
-                    txtTelefono.Text,
-                    dtpFechaNacimiento.Value,
-                    txtDireccion.Text,
-                    string.IsNullOrWhiteSpace(txtDepartamento.Text) ? null : txtDepartamento.Text,
-                    chkEstado.Checked,
-                    chkBloqueado.Checked
+                    int.Parse(txtAltaDocumento.Text),
+                    txtAltaNombreUsuario.Text,
+                    txtAltaContrasena.Text,
+                    txtAltaNombre.Text,
+                    txtAltaApellido.Text,
+                    txtAltaMail.Text,
+                    txtAltaTelefono.Text,
+                    dtpAltaFechaNacimiento.Value,
+                    txtAltaDireccion.Text,
+                    string.IsNullOrWhiteSpace(txtAltaDepartamento.Text) ? null : txtAltaDepartamento.Text,
+                    true,
+                    false
                 );
 
                 this.usuarioBusiness.AltaUsuario(usuario);
                 this.CargarUsuarios();
-                this.LimpiarCampos();
+                this.LimpiarCamposAlta();
 
                 MessageBox.Show(
                     "Usuario agregado correctamente.",
@@ -135,6 +140,21 @@ namespace Libreria.UI
             txtFechaAlta.Clear();
             txtIntentosFallidos.Clear();
             chkMostrarContrasena.Checked = false;
+        }
+
+        private void LimpiarCamposAlta()
+        {
+            txtAltaDocumento.Clear();
+            txtAltaNombreUsuario.Clear();
+            txtAltaContrasena.Clear();
+            chkAltaMostrarContrasena.Checked = false;
+            txtAltaNombre.Clear();
+            txtAltaApellido.Clear();
+            txtAltaMail.Clear();
+            txtAltaTelefono.Clear();
+            dtpAltaFechaNacimiento.Value = DateTime.Today;
+            txtAltaDireccion.Clear();
+            txtAltaDepartamento.Clear();
         }
 
     }

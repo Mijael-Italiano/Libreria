@@ -266,6 +266,7 @@ namespace Libreria.UI
             btnEliminarRol.TabIndex = 5;
             btnEliminarRol.Text = "Eliminar";
             btnEliminarRol.UseVisualStyleBackColor = true;
+            btnEliminarRol.Click += btnEliminarRol_Click;
             // 
             // btnModificarRol
             // 

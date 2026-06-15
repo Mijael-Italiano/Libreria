@@ -500,5 +500,59 @@ namespace Libreria.UI
 
             throw new Exception("Debe seleccionar un permiso.");
         }
+
+        private void btnEliminarRol_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Rol rol = this.ObtenerRolSeleccionado();
+
+                DialogResult confirmacion = MessageBox.Show(
+                    $"¿Desea eliminar el rol {rol.Nombre}?",
+                    "Roles",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (confirmacion != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                foreach (int idUsuario in this.usuarioRolBusiness.ConsultarIdsUsuariosPorRol(rol.Id))
+                {
+                    this.usuarioRolBusiness.DesasociarUsuarioRol(idUsuario, rol.Id);
+                }
+
+                foreach (Permiso permiso in this.rolPermisoBusiness.ConsultarPermisosPorRol(rol.Id))
+                {
+                    this.rolPermisoBusiness.DesasociarRolPermiso(rol.Id, permiso.Id);
+                }
+
+                this.rolBusiness.EliminarRol(rol.Id);
+
+                txtIdRol.Clear();
+                txtNombreRol.Clear();
+                tvPermisosPorRol.Nodes.Clear();
+                this.CargarRoles();
+                this.RefrescarRolesPermisosUsuarioSeleccionado();
+
+                MessageBox.Show(
+                    "Rol eliminado correctamente.",
+                    "Roles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Roles",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
     }
 }
