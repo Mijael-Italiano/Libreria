@@ -466,6 +466,7 @@ namespace Libreria.UI
             btnLimpiar.TabIndex = 0;
             btnLimpiar.Text = "Limpiar campos";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // grpUsuarios
             // 

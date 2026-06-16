@@ -143,13 +143,13 @@
             dgvUsuarios.BackgroundColor = SystemColors.Window;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colDocumento, colNombreUsuario, colContrasena, colNombre, colApellido, colMail, colTelefono, colFechaNacimiento, colDireccion, colDepartamento, colFechaAlta, colIntentosFallidos, colEstado, colBloqueado });
-            dgvUsuarios.Location = new Point(20, 64);
+            dgvUsuarios.Location = new Point(20, 85);
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(1280, 231);
+            dgvUsuarios.Size = new Size(1280, 283);
             dgvUsuarios.TabIndex = 1;
             // 
             // colId
@@ -277,7 +277,7 @@
             grpDatosUsuario.Controls.Add(lblDocumento);
             grpDatosUsuario.Controls.Add(txtId);
             grpDatosUsuario.Controls.Add(lblId);
-            grpDatosUsuario.Location = new Point(676, 401);
+            grpDatosUsuario.Location = new Point(676, 374);
             grpDatosUsuario.Name = "grpDatosUsuario";
             grpDatosUsuario.Size = new Size(624, 335);
             grpDatosUsuario.TabIndex = 2;
@@ -329,6 +329,7 @@
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -338,6 +339,7 @@
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtIntentosFallidos
             // 
@@ -607,6 +609,7 @@
             chkVerUsuariosNoActivos.TabIndex = 37;
             chkVerUsuariosNoActivos.Text = "Ver usuarios no activos";
             chkVerUsuariosNoActivos.UseVisualStyleBackColor = true;
+            chkVerUsuariosNoActivos.CheckedChanged += chkVerUsuariosNoActivos_CheckedChanged;
             // 
             // btnReactivarUsuario
             // 
@@ -616,13 +619,14 @@
             btnReactivarUsuario.TabIndex = 36;
             btnReactivarUsuario.Text = "Reactivar usuario";
             btnReactivarUsuario.UseVisualStyleBackColor = true;
+            btnReactivarUsuario.Click += btnReactivarUsuario_Click;
             // 
             // grpUsuariosNoActivos
             // 
-            grpUsuariosNoActivos.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            grpUsuariosNoActivos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpUsuariosNoActivos.Controls.Add(chkVerUsuariosNoActivos);
             grpUsuariosNoActivos.Controls.Add(btnReactivarUsuario);
-            grpUsuariosNoActivos.Location = new Point(676, 316);
+            grpUsuariosNoActivos.Location = new Point(956, 12);
             grpUsuariosNoActivos.Name = "grpUsuariosNoActivos";
             grpUsuariosNoActivos.Size = new Size(344, 70);
             grpUsuariosNoActivos.TabIndex = 6;
@@ -654,7 +658,7 @@
             grpAltaUsuario.Controls.Add(lblAltaNombreUsuario);
             grpAltaUsuario.Controls.Add(txtAltaDocumento);
             grpAltaUsuario.Controls.Add(lblAltaDocumento);
-            grpAltaUsuario.Location = new Point(20, 401);
+            grpAltaUsuario.Location = new Point(20, 474);
             grpAltaUsuario.Name = "grpAltaUsuario";
             grpAltaUsuario.Size = new Size(624, 262);
             grpAltaUsuario.TabIndex = 4;
@@ -744,7 +748,7 @@
             // 
             // txtAltaApellido
             // 
-            txtAltaApellido.Location = new Point(102, 151);
+            txtAltaApellido.Location = new Point(102, 180);
             txtAltaApellido.Name = "txtAltaApellido";
             txtAltaApellido.Size = new Size(160, 23);
             txtAltaApellido.TabIndex = 9;
@@ -752,7 +756,7 @@
             // lblAltaApellido
             // 
             lblAltaApellido.AutoSize = true;
-            lblAltaApellido.Location = new Point(18, 154);
+            lblAltaApellido.Location = new Point(18, 183);
             lblAltaApellido.Name = "lblAltaApellido";
             lblAltaApellido.Size = new Size(51, 15);
             lblAltaApellido.TabIndex = 8;
@@ -760,7 +764,7 @@
             // 
             // txtAltaNombre
             // 
-            txtAltaNombre.Location = new Point(102, 121);
+            txtAltaNombre.Location = new Point(102, 151);
             txtAltaNombre.Name = "txtAltaNombre";
             txtAltaNombre.Size = new Size(160, 23);
             txtAltaNombre.TabIndex = 7;
@@ -768,7 +772,7 @@
             // lblAltaNombre
             // 
             lblAltaNombre.AutoSize = true;
-            lblAltaNombre.Location = new Point(18, 124);
+            lblAltaNombre.Location = new Point(18, 154);
             lblAltaNombre.Name = "lblAltaNombre";
             lblAltaNombre.Size = new Size(51, 15);
             lblAltaNombre.TabIndex = 6;
@@ -777,7 +781,7 @@
             // chkAltaMostrarContrasena
             // 
             chkAltaMostrarContrasena.AutoSize = true;
-            chkAltaMostrarContrasena.Location = new Point(102, 181);
+            chkAltaMostrarContrasena.Location = new Point(102, 123);
             chkAltaMostrarContrasena.Name = "chkAltaMostrarContrasena";
             chkAltaMostrarContrasena.Size = new Size(128, 19);
             chkAltaMostrarContrasena.TabIndex = 21;
@@ -836,7 +840,7 @@
             // 
             // grpBusqueda
             // 
-            grpBusqueda.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grpBusqueda.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             grpBusqueda.Controls.Add(txtBuscarDocumento);
             grpBusqueda.Controls.Add(lblBuscarDocumento);
             grpBusqueda.Controls.Add(txtBuscarApellido);
@@ -845,7 +849,7 @@
             grpBusqueda.Controls.Add(lblBuscarNombre);
             grpBusqueda.Controls.Add(btnLimpiarBusqueda);
             grpBusqueda.Controls.Add(btnBuscar);
-            grpBusqueda.Location = new Point(20, 301);
+            grpBusqueda.Location = new Point(20, 374);
             grpBusqueda.Name = "grpBusqueda";
             grpBusqueda.Size = new Size(624, 94);
             grpBusqueda.TabIndex = 5;
@@ -908,6 +912,7 @@
             btnLimpiarBusqueda.TabIndex = 7;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -917,6 +922,7 @@
             btnBuscar.TabIndex = 6;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // FormUsuarios
             // 
@@ -1029,7 +1035,6 @@
         private TextBox txtAltaApellido;
         private Label lblAltaApellido;
         private TextBox txtAltaNombre;
-        private Label lblAltaNombre;
         private TextBox txtAltaContrasena;
         private Label lblAltaContrasena;
         private CheckBox chkAltaMostrarContrasena;
@@ -1037,5 +1042,6 @@
         private Label lblAltaNombreUsuario;
         private TextBox txtAltaDocumento;
         private Label lblAltaDocumento;
+        private Label lblAltaNombre;
     }
 }

@@ -86,6 +86,133 @@ namespace Libreria.Data
             }
         }
 
+        public void ModificarUsuario(Usuario usuario)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("Usuarios.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Usuarios.xml no tiene una raiz valida.");
+
+                XElement usuarioXml = raiz.Elements("Usuario").FirstOrDefault(elemento =>
+                    int.Parse(elemento.Attribute("Id")?.Value ?? throw new Exception("Hay un usuario sin Id.")) == usuario.Id
+                ) ?? throw new Exception("No se encontro el usuario indicado.");
+
+                usuarioXml.SetElementValue("Documento", usuario.Documento);
+                usuarioXml.SetElementValue("NombreUsuario", usuario.NombreUsuario);
+                usuarioXml.SetElementValue("Contrasena", usuario.Contrasena);
+                usuarioXml.SetElementValue("Nombre", usuario.Nombre);
+                usuarioXml.SetElementValue("Apellido", usuario.Apellido);
+                usuarioXml.SetElementValue("Mail", usuario.Mail);
+                usuarioXml.SetElementValue("Telefono", usuario.Telefono);
+                usuarioXml.SetElementValue("FechaNacimiento", usuario.FechaNacimiento);
+                usuarioXml.SetElementValue("Direccion", usuario.Direccion);
+                usuarioXml.SetElementValue("Departamento", usuario.Departamento ?? string.Empty);
+                usuarioXml.SetElementValue("Estado", usuario.Estado);
+                usuarioXml.SetElementValue("Bloqueado", usuario.Bloqueado);
+                usuarioXml.SetElementValue("FechaAlta", usuario.FechaAlta);
+                usuarioXml.SetElementValue("IntentosFallidos", usuario.IntentosFallidos);
+
+                documento.Save(ruta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void CambiarEstadoUsuario(int id, bool estado)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("Usuarios.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Usuarios.xml no tiene una raiz valida.");
+
+                XElement usuarioXml = raiz.Elements("Usuario").FirstOrDefault(elemento =>
+                    int.Parse(elemento.Attribute("Id")?.Value ?? throw new Exception("Hay un usuario sin Id.")) == id
+                ) ?? throw new Exception("No se encontro el usuario indicado.");
+
+                usuarioXml.SetElementValue("Estado", estado);
+                documento.Save(ruta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void ActualizarIntentosFallidos(int id, int intentosFallidos)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("Usuarios.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo Usuarios.xml no tiene una raiz valida.");
+
+                XElement usuarioXml = raiz.Elements("Usuario").FirstOrDefault(elemento =>
+                    int.Parse(elemento.Attribute("Id")?.Value ?? throw new Exception("Hay un usuario sin Id.")) == id
+                ) ?? throw new Exception("No se encontro el usuario indicado.");
+
+                usuarioXml.SetElementValue("IntentosFallidos", intentosFallidos);
+                documento.Save(ruta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Usuario> BuscarUsuarios(
+            string nombre,
+            string apellido,
+            string documento,
+            bool incluirNoActivos)
+        {
+            try
+            {
+                IEnumerable<Usuario> usuarios = this.ConsultarUsuarios();
+
+                if (!incluirNoActivos)
+                {
+                    usuarios = usuarios.Where(usuario => usuario.Estado);
+                }
+
+                if (!string.IsNullOrWhiteSpace(nombre))
+                {
+                    usuarios = usuarios.Where(usuario =>
+                        usuario.Nombre.StartsWith(nombre.Trim(), StringComparison.OrdinalIgnoreCase)
+                    );
+                }
+
+                if (!string.IsNullOrWhiteSpace(apellido))
+                {
+                    usuarios = usuarios.Where(usuario =>
+                        usuario.Apellido.StartsWith(apellido.Trim(), StringComparison.OrdinalIgnoreCase)
+                    );
+                }
+
+                if (!string.IsNullOrWhiteSpace(documento))
+                {
+                    usuarios = usuarios.Where(usuario =>
+                        usuario.Documento.ToString().StartsWith(documento.Trim(), StringComparison.Ordinal)
+                    );
+                }
+
+                return usuarios.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public int ObtenerProximoId()
         {
             try

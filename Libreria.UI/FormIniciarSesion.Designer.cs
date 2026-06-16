@@ -33,6 +33,7 @@
             txtNombreUsuario = new TextBox();
             txtContrasena = new TextBox();
             groupBox1 = new GroupBox();
+            chkMostrarContrasena = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
@@ -47,6 +48,7 @@
             btnIniciarSesion.TabIndex = 0;
             btnIniciarSesion.Text = "Iniciar sesión";
             btnIniciarSesion.UseVisualStyleBackColor = true;
+            btnIniciarSesion.Click += btnIniciarSesion_Click;
             // 
             // btnSalir
             // 
@@ -68,11 +70,13 @@
             // 
             txtContrasena.Location = new Point(15, 114);
             txtContrasena.Name = "txtContrasena";
+            txtContrasena.PasswordChar = '*';
             txtContrasena.Size = new Size(199, 23);
             txtContrasena.TabIndex = 3;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(chkMostrarContrasena);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtNombreUsuario);
@@ -83,6 +87,17 @@
             groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Iniciar sesión";
+            // 
+            // chkMostrarContrasena
+            // 
+            chkMostrarContrasena.AutoSize = true;
+            chkMostrarContrasena.Location = new Point(15, 143);
+            chkMostrarContrasena.Name = "chkMostrarContrasena";
+            chkMostrarContrasena.Size = new Size(125, 19);
+            chkMostrarContrasena.TabIndex = 6;
+            chkMostrarContrasena.Text = "Mostrar contraseña";
+            chkMostrarContrasena.UseVisualStyleBackColor = true;
+            chkMostrarContrasena.CheckedChanged += chkMostrarContrasena_CheckedChanged;
             // 
             // label2
             // 
@@ -136,6 +151,7 @@
         private TextBox txtNombreUsuario;
         private TextBox txtContrasena;
         private GroupBox groupBox1;
+        private CheckBox chkMostrarContrasena;
         private Label label2;
         private Label label1;
         private Label label3;

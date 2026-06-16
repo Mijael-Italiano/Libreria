@@ -7,16 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Libreria.Business;
+using Libreria.Entity;
 
 namespace Libreria.UI
 {
     public partial class FormIniciarSesion : Form
     {
+        private readonly UsuarioBusiness usuarioBusiness;
+
         public FormIniciarSesion()
         {
             InitializeComponent();
+            this.usuarioBusiness = new UsuarioBusiness();
         }
 
+        private void chkMostrarContrasena_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasena.PasswordChar = chkMostrarContrasena.Checked ? '\0' : '*';
+        }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Usuario usuario = this.usuarioBusiness.IniciarSesion(
+                    txtNombreUsuario.Text,
+                    txtContrasena.Text
+                );
+
+                MessageBox.Show(
+                    $"Bienvenido {usuario.NombreUsuario}.",
+                    "Iniciar sesión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "Iniciar sesión",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
 
     }
 }

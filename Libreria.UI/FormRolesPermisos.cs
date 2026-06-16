@@ -201,6 +201,29 @@ namespace Libreria.UI
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            tvUsuarios.SelectedNode = null;
+            tvRoles.SelectedNode = null;
+            tvPermisos.SelectedNode = null;
+
+            txtIdUsuario.Clear();
+            txtNombreUsuario.Clear();
+            txtContrasenaUsuario.Clear();
+            chkBloqueado.Checked = false;
+            chkCifrarContrasena.Checked = false;
+
+            txtIdRol.Clear();
+            txtNombreRol.Clear();
+            txtNombreAltaRol.Clear();
+
+            txtIdPermiso.Clear();
+            txtNombrePermiso.Clear();
+
+            tvPermisosPorRol.Nodes.Clear();
+            tvRolesPermisosUsuario.Nodes.Clear();
+        }
+
         private void tvUsuarios_AfterSelect(object? sender, TreeViewEventArgs e)
         {
             if (e.Node?.Tag is Usuario usuario)

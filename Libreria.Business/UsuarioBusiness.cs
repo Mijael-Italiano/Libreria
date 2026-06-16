@@ -44,6 +44,197 @@ namespace Libreria.Business
             }
         }
 
+        public Usuario IniciarSesion(string nombreUsuario, string contrasena)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(nombreUsuario)
+                    || string.IsNullOrWhiteSpace(contrasena))
+                {
+                    throw new Exception("Las credenciales no son correctas.");
+                }
+
+                Usuario usuario = this.usuarioData
+                    .ConsultarUsuarios()
+                    .FirstOrDefault(usuarioExistente =>
+                        usuarioExistente.NombreUsuario.Equals(
+                            nombreUsuario.Trim(),
+                            StringComparison.OrdinalIgnoreCase
+                        )
+                    ) ?? throw new Exception("Las credenciales no son correctas.");
+
+                string contrasenaEncriptada = Encriptacion.EncriptarPassword(contrasena);
+
+                if (usuario.Contrasena != contrasenaEncriptada)
+                {
+                    this.usuarioData.ActualizarIntentosFallidos(
+                        usuario.Id,
+                        usuario.IntentosFallidos + 1
+                    );
+
+                    throw new Exception("Las credenciales no son correctas.");
+                }
+
+                this.usuarioData.ActualizarIntentosFallidos(usuario.Id, 0);
+                usuario.IntentosFallidos = 0;
+
+                return usuario;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            try
+            {
+                if (usuario.Id <= 0)
+                {
+                    throw new Exception("Debe seleccionar un usuario.");
+                }
+
+                this.Validar(usuario, usuario.Id);
+
+                Usuario usuarioActual = this.usuarioData
+                    .ConsultarUsuarios()
+                    .FirstOrDefault(usuarioExistente => usuarioExistente.Id == usuario.Id)
+                    ?? throw new Exception("El usuario seleccionado no existe.");
+
+                string contrasenaEncriptada = Encriptacion.EncriptarPassword(usuario.Contrasena);
+
+                if (!this.UsuarioTieneCambios(usuarioActual, usuario, contrasenaEncriptada))
+                {
+                    throw new Exception("No se modifico ningun dato.");
+                }
+
+                usuario.Contrasena = contrasenaEncriptada;
+                this.usuarioData.ModificarUsuario(usuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void EliminarUsuario(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Debe seleccionar un usuario.");
+                }
+
+                if (id == 1)
+                {
+                    throw new Exception("No se puede dar de baja el usuario Admin.");
+                }
+
+                Usuario usuarioActual = this.usuarioData
+                    .ConsultarUsuarios()
+                    .FirstOrDefault(usuarioExistente => usuarioExistente.Id == id)
+                    ?? throw new Exception("El usuario seleccionado no existe.");
+
+                if (!usuarioActual.Estado)
+                {
+                    throw new Exception("El usuario seleccionado ya esta dado de baja.");
+                }
+
+                this.usuarioData.CambiarEstadoUsuario(id, false);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void ReactivarUsuario(int id)
+        {
+            try
+            {
+                if (id <= 0)
+                {
+                    throw new Exception("Debe seleccionar un usuario.");
+                }
+
+                Usuario usuarioActual = this.usuarioData
+                    .ConsultarUsuarios()
+                    .FirstOrDefault(usuarioExistente => usuarioExistente.Id == id)
+                    ?? throw new Exception("El usuario seleccionado no existe.");
+
+                if (usuarioActual.Estado)
+                {
+                    throw new Exception("El usuario seleccionado ya esta activo.");
+                }
+
+                this.usuarioData.CambiarEstadoUsuario(id, true);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Usuario> BuscarUsuarios(
+            string nombre,
+            string apellido,
+            string documento,
+            bool incluirNoActivos)
+        {
+            try
+            {
+                nombre = nombre.Trim();
+                apellido = apellido.Trim();
+                documento = documento.Trim();
+
+                if (!string.IsNullOrWhiteSpace(documento)
+                    && !documento.All(char.IsDigit))
+                {
+                    throw new Exception("Debe ingresar un DNI valido.");
+                }
+
+                return this.usuarioData.BuscarUsuarios(
+                    nombre,
+                    apellido,
+                    documento,
+                    incluirNoActivos
+                );
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private bool UsuarioTieneCambios(
+            Usuario usuarioActual,
+            Usuario usuarioModificado,
+            string contrasenaModificadaEncriptada)
+        {
+            return usuarioActual.Documento != usuarioModificado.Documento
+                || !usuarioActual.NombreUsuario.Equals(usuarioModificado.NombreUsuario.Trim(), StringComparison.Ordinal)
+                || usuarioActual.Contrasena != contrasenaModificadaEncriptada
+                || !usuarioActual.Nombre.Equals(usuarioModificado.Nombre.Trim(), StringComparison.Ordinal)
+                || !usuarioActual.Apellido.Equals(usuarioModificado.Apellido.Trim(), StringComparison.Ordinal)
+                || !usuarioActual.Mail.Equals(usuarioModificado.Mail.Trim(), StringComparison.Ordinal)
+                || !usuarioActual.Telefono.Equals(usuarioModificado.Telefono.Trim(), StringComparison.Ordinal)
+                || usuarioActual.FechaNacimiento.Date != usuarioModificado.FechaNacimiento.Date
+                || !usuarioActual.Direccion.Equals(usuarioModificado.Direccion.Trim(), StringComparison.Ordinal)
+                || !NormalizarTextoOpcional(usuarioActual.Departamento).Equals(
+                    NormalizarTextoOpcional(usuarioModificado.Departamento),
+                    StringComparison.Ordinal
+                )
+                || usuarioActual.Estado != usuarioModificado.Estado
+                || usuarioActual.Bloqueado != usuarioModificado.Bloqueado;
+        }
+
+        private static string NormalizarTextoOpcional(string? valor)
+        {
+            return valor?.Trim() ?? string.Empty;
+        }
+
         private void Validar(Usuario usuario)
         {
             this.Validar(usuario, 0);
