@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Libreria.Business;
 using Libreria.Entity;
+using Libreria.Sesion;
 
 namespace Libreria.UI
 {
@@ -36,12 +37,18 @@ namespace Libreria.UI
                     txtContrasena.Text
                 );
 
+                SesionActual.Iniciar(usuario);
+
                 MessageBox.Show(
                     $"Bienvenido {usuario.NombreUsuario}.",
                     "Iniciar sesión",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
+
+                FormMenuInicio menuInicio = new FormMenuInicio();
+                menuInicio.Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
