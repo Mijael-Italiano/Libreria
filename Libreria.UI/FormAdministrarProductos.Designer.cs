@@ -226,7 +226,7 @@ namespace Libreria.UI
             grpBusquedaInventario.Controls.Add(btnBuscarInventario);
             grpBusquedaInventario.Location = new Point(1030, 18);
             grpBusquedaInventario.Name = "grpBusquedaInventario";
-            grpBusquedaInventario.Size = new Size(320, 216);
+            grpBusquedaInventario.Size = new Size(312, 235);
             grpBusquedaInventario.TabIndex = 2;
             grpBusquedaInventario.TabStop = false;
             grpBusquedaInventario.Text = "Buscar producto";
@@ -525,7 +525,7 @@ namespace Libreria.UI
             chkAltaEstado.CheckState = CheckState.Checked;
             chkAltaEstado.Enabled = false;
             chkAltaEstado.ForeColor = SystemColors.ControlDark;
-            chkAltaEstado.Location = new Point(414, 177);
+            chkAltaEstado.Location = new Point(344, 172);
             chkAltaEstado.Name = "chkAltaEstado";
             chkAltaEstado.Size = new Size(60, 19);
             chkAltaEstado.TabIndex = 23;
