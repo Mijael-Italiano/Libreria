@@ -38,6 +38,8 @@
             productosToolStripMenuItem = new ToolStripMenuItem();
             verInventarioToolStripMenuItem = new ToolStripMenuItem();
             administrarProductosToolStripMenuItem = new ToolStripMenuItem();
+            administrarMarcasToolStripMenuItem = new ToolStripMenuItem();
+            administrarCategoriasToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             administrarClientesToolStripMenuItem = new ToolStripMenuItem();
             ventasToolStripMenuItem = new ToolStripMenuItem();
@@ -105,7 +107,7 @@
             // 
             // productosToolStripMenuItem
             // 
-            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem });
+            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem, administrarMarcasToolStripMenuItem, administrarCategoriasToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             productosToolStripMenuItem.Size = new Size(73, 20);
             productosToolStripMenuItem.Text = "Productos";
@@ -121,6 +123,18 @@
             administrarProductosToolStripMenuItem.Name = "administrarProductosToolStripMenuItem";
             administrarProductosToolStripMenuItem.Size = new Size(180, 22);
             administrarProductosToolStripMenuItem.Text = "Administrar productos";
+            // 
+            // administrarMarcasToolStripMenuItem
+            // 
+            administrarMarcasToolStripMenuItem.Name = "administrarMarcasToolStripMenuItem";
+            administrarMarcasToolStripMenuItem.Size = new Size(180, 22);
+            administrarMarcasToolStripMenuItem.Text = "Administrar marcas";
+            // 
+            // administrarCategoriasToolStripMenuItem
+            // 
+            administrarCategoriasToolStripMenuItem.Name = "administrarCategoriasToolStripMenuItem";
+            administrarCategoriasToolStripMenuItem.Size = new Size(180, 22);
+            administrarCategoriasToolStripMenuItem.Text = "Administrar categorías";
             // 
             // clientesToolStripMenuItem
             // 
@@ -232,6 +246,8 @@
         private ToolStripMenuItem productosToolStripMenuItem;
         private ToolStripMenuItem verInventarioToolStripMenuItem;
         private ToolStripMenuItem administrarProductosToolStripMenuItem;
+        private ToolStripMenuItem administrarMarcasToolStripMenuItem;
+        private ToolStripMenuItem administrarCategoriasToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem administrarClientesToolStripMenuItem;
         private ToolStripMenuItem ventasToolStripMenuItem;

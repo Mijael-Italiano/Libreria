@@ -25,6 +25,9 @@ namespace Libreria.Data.BaseDeDatos
             CrearPermisosIniciales(carpetaBaseDeDatos);
             CrearRolesPermisosIniciales(carpetaBaseDeDatos);
             CrearUsuariosRolesIniciales(carpetaBaseDeDatos);
+            CrearMarcasIniciales(carpetaBaseDeDatos);
+            CrearCategoriasIniciales(carpetaBaseDeDatos);
+            CrearProductosIniciales(carpetaBaseDeDatos);
         }
 
         private static void CrearUsuariosIniciales(string carpetaBaseDeDatos)
@@ -107,6 +110,27 @@ namespace Libreria.Data.BaseDeDatos
                   <Permiso Id="3">
                     <Nombre>Gestion de roles y permisos</Nombre>
                   </Permiso>
+                  <Permiso Id="4">
+                    <Nombre>Ver inventario</Nombre>
+                  </Permiso>
+                  <Permiso Id="5">
+                    <Nombre>Administrar productos</Nombre>
+                  </Permiso>
+                  <Permiso Id="6">
+                    <Nombre>Administrar clientes</Nombre>
+                  </Permiso>
+                  <Permiso Id="7">
+                    <Nombre>Gestion de ventas</Nombre>
+                  </Permiso>
+                  <Permiso Id="8">
+                    <Nombre>Administrar metodos de pago</Nombre>
+                  </Permiso>
+                  <Permiso Id="9">
+                    <Nombre>Gestion de base de datos</Nombre>
+                  </Permiso>
+                  <Permiso Id="10">
+                    <Nombre>Analisis de ventas</Nombre>
+                  </Permiso>
                 </Permisos>
                 """
             );
@@ -129,6 +153,13 @@ namespace Libreria.Data.BaseDeDatos
                   <RolPermiso IdRol="1" IdPermiso="1" />
                   <RolPermiso IdRol="1" IdPermiso="2" />
                   <RolPermiso IdRol="1" IdPermiso="3" />
+                  <RolPermiso IdRol="1" IdPermiso="4" />
+                  <RolPermiso IdRol="1" IdPermiso="5" />
+                  <RolPermiso IdRol="1" IdPermiso="6" />
+                  <RolPermiso IdRol="1" IdPermiso="7" />
+                  <RolPermiso IdRol="1" IdPermiso="8" />
+                  <RolPermiso IdRol="1" IdPermiso="9" />
+                  <RolPermiso IdRol="1" IdPermiso="10" />
                 </RolesPermisos>
                 """
             );
@@ -150,6 +181,63 @@ namespace Libreria.Data.BaseDeDatos
                 <UsuariosRoles>
                   <UsuarioRol IdUsuario="1" IdRol="1" />
                 </UsuariosRoles>
+                """
+            );
+        }
+
+        private static void CrearMarcasIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaMarcas = Path.Combine(carpetaBaseDeDatos, "Marcas.xml");
+
+            if (File.Exists(rutaMarcas))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaMarcas,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Marcas>
+                </Marcas>
+                """
+            );
+        }
+
+        private static void CrearCategoriasIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaCategorias = Path.Combine(carpetaBaseDeDatos, "Categorias.xml");
+
+            if (File.Exists(rutaCategorias))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaCategorias,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Categorias>
+                </Categorias>
+                """
+            );
+        }
+
+        private static void CrearProductosIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaProductos = Path.Combine(carpetaBaseDeDatos, "Productos.xml");
+
+            if (File.Exists(rutaProductos))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaProductos,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Productos>
+                </Productos>
                 """
             );
         }
