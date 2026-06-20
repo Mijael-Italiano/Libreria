@@ -106,7 +106,7 @@ namespace Libreria.UI
             // 
             dgvFacturas.AllowUserToAddRows = false;
             dgvFacturas.AllowUserToDeleteRows = false;
-            dgvFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             dgvFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFacturas.BackgroundColor = SystemColors.Window;
             dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -117,7 +117,7 @@ namespace Libreria.UI
             dgvFacturas.ReadOnly = true;
             dgvFacturas.RowHeadersVisible = false;
             dgvFacturas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvFacturas.Size = new Size(778, 275);
+            dgvFacturas.Size = new Size(774, 275);
             dgvFacturas.TabIndex = 1;
             // 
             // colIdFactura
@@ -183,7 +183,7 @@ namespace Libreria.UI
             // 
             // grpBusqueda
             // 
-            grpBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            grpBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             grpBusqueda.Controls.Add(btnLimpiarBusqueda);
             grpBusqueda.Controls.Add(btnBuscar);
             grpBusqueda.Controls.Add(txtBuscarApellidoCliente);
