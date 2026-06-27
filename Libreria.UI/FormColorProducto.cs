@@ -1,49 +1,43 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Libreria.Business;
 using Libreria.Entity;
 
 namespace Libreria.UI
 {
-    public partial class FormMarcaProducto : Form
+    public partial class FormColorProducto : Form
     {
-        private readonly MarcaBusiness marcaBusiness;
-        private int? idMarcaForzarSeleccion;
+        private readonly ColorBusiness colorBusiness;
+        private int? idColorForzarSeleccion;
 
-        public FormMarcaProducto()
+        public FormColorProducto()
         {
             InitializeComponent();
-            this.marcaBusiness = new MarcaBusiness();
+            this.colorBusiness = new ColorBusiness();
             this.ConfigurarEventos();
-            this.CargarMarcas();
+            this.CargarColores();
         }
 
         private void ConfigurarEventos()
         {
-            dgvMarcas.SelectionChanged += dgvMarcas_SelectionChanged;
-            chkVerMarcasNoActivas.CheckedChanged += chkVerMarcasNoActivas_CheckedChanged;
+            dgvColores.SelectionChanged += dgvColores_SelectionChanged;
+            chkVerColoresNoActivos.CheckedChanged += chkVerColoresNoActivos_CheckedChanged;
         }
 
-        private void btnAgregarMarca_Click(object? sender, EventArgs e)
+        private void btnAgregarColor_Click(object? sender, EventArgs e)
         {
             try
             {
-                Marca marca = new Marca(txtAltaNombre.Text);
+                ColorProducto color = new ColorProducto(txtAltaNombre.Text);
 
-                this.marcaBusiness.AltaMarca(marca);
-                this.CargarMarcas();
+                this.colorBusiness.AltaColor(color);
+                this.CargarColores();
                 this.LimpiarCamposAlta();
 
                 MessageBox.Show(
-                    "Marca agregada correctamente.",
-                    "Marcas",
+                    "Color agregado correctamente.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -52,7 +46,7 @@ namespace Libreria.UI
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Marcas",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -63,15 +57,15 @@ namespace Libreria.UI
         {
             try
             {
-                this.CargarMarcas(this.ObtenerMarcasSegunBusqueda());
-                dgvMarcas.ClearSelection();
+                this.CargarColores(this.ObtenerColoresSegunBusqueda());
+                dgvColores.ClearSelection();
                 this.LimpiarCampos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Buscar marca",
+                    "Buscar color",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -81,8 +75,8 @@ namespace Libreria.UI
         private void btnLimpiarBusqueda_Click(object? sender, EventArgs e)
         {
             txtBuscarNombre.Clear();
-            this.CargarMarcas();
-            dgvMarcas.ClearSelection();
+            this.CargarColores();
+            dgvColores.ClearSelection();
             this.LimpiarCampos();
         }
 
@@ -90,16 +84,16 @@ namespace Libreria.UI
         {
             try
             {
-                Marca marca = this.ObtenerMarcaDesdeCamposSeleccionados();
-                this.idMarcaForzarSeleccion = marca.Id;
+                ColorProducto color = this.ObtenerColorDesdeCamposSeleccionados();
+                this.idColorForzarSeleccion = color.Id;
 
-                this.marcaBusiness.ModificarMarca(marca);
-                this.CargarMarcas();
-                this.SeleccionarMarcaEnGrilla(marca.Id);
+                this.colorBusiness.ModificarColor(color);
+                this.CargarColores();
+                this.SeleccionarColorEnGrilla(color.Id);
 
                 MessageBox.Show(
-                    "Marca modificada correctamente.",
-                    "Marcas",
+                    "Color modificado correctamente.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -107,8 +101,8 @@ namespace Libreria.UI
             catch (FormatException)
             {
                 MessageBox.Show(
-                    "Debe seleccionar una marca valida.",
-                    "Marcas",
+                    "Debe seleccionar un color valido.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -117,7 +111,7 @@ namespace Libreria.UI
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Marcas",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -128,11 +122,11 @@ namespace Libreria.UI
         {
             try
             {
-                int idMarca = this.ObtenerIdMarcaSeleccionada();
+                int idColor = this.ObtenerIdColorSeleccionado();
 
                 DialogResult confirmacion = MessageBox.Show(
-                    $"Desea dar de baja la marca {txtNombre.Text}?",
-                    "Marcas",
+                    $"Desea dar de baja el color {txtNombre.Text}?",
+                    "Colores",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
                 );
@@ -142,14 +136,14 @@ namespace Libreria.UI
                     return;
                 }
 
-                this.idMarcaForzarSeleccion = idMarca;
-                this.marcaBusiness.EliminarMarca(idMarca);
-                this.CargarMarcas();
-                this.SeleccionarMarcaEnGrilla(idMarca);
+                this.idColorForzarSeleccion = idColor;
+                this.colorBusiness.EliminarColor(idColor);
+                this.CargarColores();
+                this.SeleccionarColorEnGrilla(idColor);
 
                 MessageBox.Show(
-                    "Marca dada de baja correctamente.",
-                    "Marcas",
+                    "Color dado de baja correctamente.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -157,8 +151,8 @@ namespace Libreria.UI
             catch (FormatException)
             {
                 MessageBox.Show(
-                    "Debe seleccionar una marca valida.",
-                    "Marcas",
+                    "Debe seleccionar un color valido.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -167,7 +161,7 @@ namespace Libreria.UI
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Marcas",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -176,19 +170,19 @@ namespace Libreria.UI
 
         private void btnLimpiar_Click(object? sender, EventArgs e)
         {
-            dgvMarcas.ClearSelection();
+            dgvColores.ClearSelection();
             this.LimpiarCampos();
         }
 
-        private void btnReactivarMarca_Click(object? sender, EventArgs e)
+        private void btnReactivarColor_Click(object? sender, EventArgs e)
         {
             try
             {
-                int idMarca = this.ObtenerIdMarcaSeleccionada();
+                int idColor = this.ObtenerIdColorSeleccionado();
 
                 DialogResult confirmacion = MessageBox.Show(
-                    $"Desea reactivar la marca {txtNombre.Text}?",
-                    "Marcas",
+                    $"Desea reactivar el color {txtNombre.Text}?",
+                    "Colores",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
                 );
@@ -198,14 +192,14 @@ namespace Libreria.UI
                     return;
                 }
 
-                this.idMarcaForzarSeleccion = idMarca;
-                this.marcaBusiness.ReactivarMarca(idMarca);
-                this.CargarMarcas();
-                this.SeleccionarMarcaEnGrilla(idMarca);
+                this.idColorForzarSeleccion = idColor;
+                this.colorBusiness.ReactivarColor(idColor);
+                this.CargarColores();
+                this.SeleccionarColorEnGrilla(idColor);
 
                 MessageBox.Show(
-                    "Marca reactivada correctamente.",
-                    "Marcas",
+                    "Color reactivado correctamente.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
@@ -213,8 +207,8 @@ namespace Libreria.UI
             catch (FormatException)
             {
                 MessageBox.Show(
-                    "Debe seleccionar una marca valida.",
-                    "Marcas",
+                    "Debe seleccionar un color valido.",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
@@ -223,90 +217,90 @@ namespace Libreria.UI
             {
                 MessageBox.Show(
                     ex.Message,
-                    "Marcas",
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
         }
 
-        private void chkVerMarcasNoActivas_CheckedChanged(object? sender, EventArgs e)
+        private void chkVerColoresNoActivos_CheckedChanged(object? sender, EventArgs e)
         {
-            this.CargarMarcas(this.ObtenerMarcasSegunBusqueda());
-            dgvMarcas.ClearSelection();
+            this.CargarColores(this.ObtenerColoresSegunBusqueda());
+            dgvColores.ClearSelection();
             this.LimpiarCampos();
         }
 
-        private void CargarMarcas(List<Marca>? marcas = null)
+        private void CargarColores(List<ColorProducto>? colores = null)
         {
             try
             {
-                dgvMarcas.Rows.Clear();
+                dgvColores.Rows.Clear();
 
-                marcas ??= this.marcaBusiness.BuscarMarcas(
+                colores ??= this.colorBusiness.BuscarColores(
                     string.Empty,
-                    chkVerMarcasNoActivas.Checked
+                    chkVerColoresNoActivos.Checked
                 );
 
-                foreach (Marca marca in marcas)
+                foreach (ColorProducto color in colores)
                 {
-                    int indiceFila = dgvMarcas.Rows.Add(
-                        marca.Id,
-                        marca.Nombre,
-                        marca.Estado
+                    int indiceFila = dgvColores.Rows.Add(
+                        color.Id,
+                        color.Nombre,
+                        color.Estado
                     );
 
-                    dgvMarcas.Rows[indiceFila].Tag = marca;
+                    dgvColores.Rows[indiceFila].Tag = color;
                 }
 
-                if (this.idMarcaForzarSeleccion.HasValue)
+                if (this.idColorForzarSeleccion.HasValue)
                 {
-                    this.SeleccionarMarcaEnGrilla(this.idMarcaForzarSeleccion.Value);
-                    this.idMarcaForzarSeleccion = null;
+                    this.SeleccionarColorEnGrilla(this.idColorForzarSeleccion.Value);
+                    this.idColorForzarSeleccion = null;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "No se pudieron cargar las marcas. " + ex.Message,
-                    "Marcas",
+                    "No se pudieron cargar los colores. " + ex.Message,
+                    "Colores",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
             }
         }
 
-        private List<Marca> ObtenerMarcasSegunBusqueda()
+        private List<ColorProducto> ObtenerColoresSegunBusqueda()
         {
-            return this.marcaBusiness.BuscarMarcas(
+            return this.colorBusiness.BuscarColores(
                 txtBuscarNombre.Text,
-                chkVerMarcasNoActivas.Checked
+                chkVerColoresNoActivos.Checked
             );
         }
 
-        private void dgvMarcas_SelectionChanged(object? sender, EventArgs e)
+        private void dgvColores_SelectionChanged(object? sender, EventArgs e)
         {
-            if (dgvMarcas.SelectedRows.Count == 0)
+            if (dgvColores.SelectedRows.Count == 0)
             {
                 return;
             }
 
-            if (dgvMarcas.SelectedRows[0].Tag is Marca marca)
+            if (dgvColores.SelectedRows[0].Tag is ColorProducto color)
             {
-                this.MostrarMarcaSeleccionada(marca);
+                this.MostrarColorSeleccionado(color);
             }
         }
 
-        private void MostrarMarcaSeleccionada(Marca marca)
+        private void MostrarColorSeleccionado(ColorProducto color)
         {
-            txtId.Text = marca.Id.ToString();
-            txtNombre.Text = marca.Nombre;
-            chkEstado.Checked = marca.Estado;
+            txtId.Text = color.Id.ToString();
+            txtNombre.Text = color.Nombre;
+            chkEstado.Checked = color.Estado;
         }
 
-        private Marca ObtenerMarcaDesdeCamposSeleccionados()
+        private ColorProducto ObtenerColorDesdeCamposSeleccionados()
         {
-            return new Marca
+            return new ColorProducto
             {
                 Id = int.Parse(txtId.Text),
                 Nombre = txtNombre.Text,
@@ -314,20 +308,20 @@ namespace Libreria.UI
             };
         }
 
-        private int ObtenerIdMarcaSeleccionada()
+        private int ObtenerIdColorSeleccionado()
         {
             return int.Parse(txtId.Text);
         }
 
-        private void SeleccionarMarcaEnGrilla(int idMarca)
+        private void SeleccionarColorEnGrilla(int idColor)
         {
-            foreach (DataGridViewRow fila in dgvMarcas.Rows)
+            foreach (DataGridViewRow fila in dgvColores.Rows)
             {
-                if (fila.Tag is Marca marca && marca.Id == idMarca)
+                if (fila.Tag is ColorProducto color && color.Id == idColor)
                 {
                     fila.Selected = true;
-                    dgvMarcas.CurrentCell = fila.Cells[0];
-                    this.MostrarMarcaSeleccionada(marca);
+                    dgvColores.CurrentCell = fila.Cells[0];
+                    this.MostrarColorSeleccionado(color);
                     return;
                 }
             }

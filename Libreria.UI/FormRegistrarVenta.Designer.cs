@@ -85,11 +85,20 @@ namespace Libreria.UI
             lblIdCliente = new Label();
             txtIdFactura = new TextBox();
             lblIdFactura = new Label();
+            dgvFacturaItems = new DataGridView();
+            colIdFacturaItem = new DataGridViewTextBoxColumn();
+            colItemIdProducto = new DataGridViewTextBoxColumn();
+            colItemProducto = new DataGridViewTextBoxColumn();
+            colItemCantidad = new DataGridViewTextBoxColumn();
+            colItemPrecioUnitario = new DataGridViewTextBoxColumn();
+            colItemSubtotal = new DataGridViewTextBoxColumn();
+            colItemEstado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvFacturas).BeginInit();
             grpBusqueda.SuspendLayout();
             grpAltaFactura.SuspendLayout();
             grpDatosFactura.SuspendLayout();
             pnlAcciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFacturaItems).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -106,7 +115,6 @@ namespace Libreria.UI
             // 
             dgvFacturas.AllowUserToAddRows = false;
             dgvFacturas.AllowUserToDeleteRows = false;
-            dgvFacturas.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             dgvFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFacturas.BackgroundColor = SystemColors.Window;
             dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -183,7 +191,6 @@ namespace Libreria.UI
             // 
             // grpBusqueda
             // 
-            grpBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             grpBusqueda.Controls.Add(btnLimpiarBusqueda);
             grpBusqueda.Controls.Add(btnBuscar);
             grpBusqueda.Controls.Add(txtBuscarApellidoCliente);
@@ -318,7 +325,7 @@ namespace Libreria.UI
             btnCrearFactura.Name = "btnCrearFactura";
             btnCrearFactura.Size = new Size(136, 27);
             btnCrearFactura.TabIndex = 13;
-            btnCrearFactura.Text = "Crear factura";
+            btnCrearFactura.Text = "Iniciar venta";
             btnCrearFactura.UseVisualStyleBackColor = true;
             // 
             // txtAltaDocumentoCliente
@@ -471,7 +478,7 @@ namespace Libreria.UI
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(138, 27);
             btnModificar.TabIndex = 0;
-            btnModificar.Text = "Modificar items";
+            btnModificar.Text = "Editar venta";
             btnModificar.UseVisualStyleBackColor = true;
             // 
             // txtTotal
@@ -645,11 +652,77 @@ namespace Libreria.UI
             lblIdFactura.TabIndex = 0;
             lblIdFactura.Text = "Id factura";
             // 
+            // dgvFacturaItems
+            // 
+            dgvFacturaItems.AllowUserToAddRows = false;
+            dgvFacturaItems.AllowUserToDeleteRows = false;
+            dgvFacturaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFacturaItems.BackgroundColor = SystemColors.Window;
+            dgvFacturaItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFacturaItems.Columns.AddRange(new DataGridViewColumn[] { colIdFacturaItem, colItemIdProducto, colItemProducto, colItemCantidad, colItemPrecioUnitario, colItemSubtotal, colItemEstado });
+            dgvFacturaItems.Location = new Point(20, 365);
+            dgvFacturaItems.MultiSelect = false;
+            dgvFacturaItems.Name = "dgvFacturaItems";
+            dgvFacturaItems.ReadOnly = true;
+            dgvFacturaItems.RowHeadersVisible = false;
+            dgvFacturaItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFacturaItems.Size = new Size(774, 263);
+            dgvFacturaItems.TabIndex = 5;
+            // 
+            // colIdFacturaItem
+            // 
+            colIdFacturaItem.FillWeight = 55F;
+            colIdFacturaItem.HeaderText = "Id item";
+            colIdFacturaItem.Name = "colIdFacturaItem";
+            colIdFacturaItem.ReadOnly = true;
+            // 
+            // colItemIdProducto
+            // 
+            colItemIdProducto.FillWeight = 65F;
+            colItemIdProducto.HeaderText = "Id producto";
+            colItemIdProducto.Name = "colItemIdProducto";
+            colItemIdProducto.ReadOnly = true;
+            // 
+            // colItemProducto
+            // 
+            colItemProducto.HeaderText = "Producto";
+            colItemProducto.Name = "colItemProducto";
+            colItemProducto.ReadOnly = true;
+            // 
+            // colItemCantidad
+            // 
+            colItemCantidad.FillWeight = 65F;
+            colItemCantidad.HeaderText = "Cantidad";
+            colItemCantidad.Name = "colItemCantidad";
+            colItemCantidad.ReadOnly = true;
+            // 
+            // colItemPrecioUnitario
+            // 
+            colItemPrecioUnitario.FillWeight = 85F;
+            colItemPrecioUnitario.HeaderText = "Precio unitario";
+            colItemPrecioUnitario.Name = "colItemPrecioUnitario";
+            colItemPrecioUnitario.ReadOnly = true;
+            // 
+            // colItemSubtotal
+            // 
+            colItemSubtotal.FillWeight = 75F;
+            colItemSubtotal.HeaderText = "Subtotal";
+            colItemSubtotal.Name = "colItemSubtotal";
+            colItemSubtotal.ReadOnly = true;
+            // 
+            // colItemEstado
+            // 
+            colItemEstado.FillWeight = 70F;
+            colItemEstado.HeaderText = "Estado";
+            colItemEstado.Name = "colItemEstado";
+            colItemEstado.ReadOnly = true;
+            // 
             // FormRegistrarVenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1307, 681);
+            Controls.Add(dgvFacturaItems);
             Controls.Add(grpDatosFactura);
             Controls.Add(grpAltaFactura);
             Controls.Add(grpBusqueda);
@@ -667,6 +740,7 @@ namespace Libreria.UI
             grpDatosFactura.ResumeLayout(false);
             grpDatosFactura.PerformLayout();
             pnlAcciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvFacturaItems).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -730,5 +804,13 @@ namespace Libreria.UI
         private Label lblIdCliente;
         private TextBox txtIdFactura;
         private Label lblIdFactura;
+        private DataGridView dgvFacturaItems;
+        private DataGridViewTextBoxColumn colIdFacturaItem;
+        private DataGridViewTextBoxColumn colItemIdProducto;
+        private DataGridViewTextBoxColumn colItemProducto;
+        private DataGridViewTextBoxColumn colItemCantidad;
+        private DataGridViewTextBoxColumn colItemPrecioUnitario;
+        private DataGridViewTextBoxColumn colItemSubtotal;
+        private DataGridViewTextBoxColumn colItemEstado;
     }
 }

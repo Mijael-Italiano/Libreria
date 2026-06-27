@@ -40,6 +40,7 @@
             administrarProductosToolStripMenuItem = new ToolStripMenuItem();
             administrarMarcasToolStripMenuItem = new ToolStripMenuItem();
             administrarCategoriasToolStripMenuItem = new ToolStripMenuItem();
+            administrarColoresToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             administrarClientesToolStripMenuItem = new ToolStripMenuItem();
             ventasToolStripMenuItem = new ToolStripMenuItem();
@@ -107,7 +108,7 @@
             // 
             // productosToolStripMenuItem
             // 
-            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem, administrarMarcasToolStripMenuItem, administrarCategoriasToolStripMenuItem });
+            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem, administrarMarcasToolStripMenuItem, administrarCategoriasToolStripMenuItem, administrarColoresToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             productosToolStripMenuItem.Size = new Size(73, 20);
             productosToolStripMenuItem.Text = "Productos";
@@ -135,6 +136,12 @@
             administrarCategoriasToolStripMenuItem.Name = "administrarCategoriasToolStripMenuItem";
             administrarCategoriasToolStripMenuItem.Size = new Size(180, 22);
             administrarCategoriasToolStripMenuItem.Text = "Administrar categorías";
+            // 
+            // administrarColoresToolStripMenuItem
+            // 
+            administrarColoresToolStripMenuItem.Name = "administrarColoresToolStripMenuItem";
+            administrarColoresToolStripMenuItem.Size = new Size(180, 22);
+            administrarColoresToolStripMenuItem.Text = "Administrar colores";
             // 
             // clientesToolStripMenuItem
             // 
@@ -248,6 +255,7 @@
         private ToolStripMenuItem administrarProductosToolStripMenuItem;
         private ToolStripMenuItem administrarMarcasToolStripMenuItem;
         private ToolStripMenuItem administrarCategoriasToolStripMenuItem;
+        private ToolStripMenuItem administrarColoresToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem administrarClientesToolStripMenuItem;
         private ToolStripMenuItem ventasToolStripMenuItem;

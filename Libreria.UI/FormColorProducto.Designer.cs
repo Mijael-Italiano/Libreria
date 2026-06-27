@@ -1,16 +1,9 @@
 namespace Libreria.UI
 {
-    partial class FormCategoriaProducto
+    partial class FormColorProducto
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,14 +15,10 @@ namespace Libreria.UI
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             lblTitulo = new Label();
-            dgvCategorias = new DataGridView();
+            dgvColores = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewCheckBoxColumn();
@@ -38,11 +27,11 @@ namespace Libreria.UI
             btnBuscar = new Button();
             txtBuscarNombre = new TextBox();
             lblBuscarNombre = new Label();
-            grpAltaCategoria = new GroupBox();
-            btnAgregarCategoria = new Button();
+            grpAltaColor = new GroupBox();
+            btnAgregarColor = new Button();
             txtAltaNombre = new TextBox();
             lblAltaNombre = new Label();
-            grpDatosCategoria = new GroupBox();
+            grpDatosColor = new GroupBox();
             chkEstado = new CheckBox();
             pnlAcciones = new Panel();
             btnLimpiar = new Button();
@@ -52,15 +41,15 @@ namespace Libreria.UI
             lblNombre = new Label();
             txtId = new TextBox();
             lblId = new Label();
-            grpCategoriasNoActivas = new GroupBox();
-            chkVerCategoriasNoActivas = new CheckBox();
-            btnReactivarCategoria = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            grpColoresNoActivos = new GroupBox();
+            chkVerColoresNoActivos = new CheckBox();
+            btnReactivarColor = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvColores).BeginInit();
             grpBusqueda.SuspendLayout();
-            grpAltaCategoria.SuspendLayout();
-            grpDatosCategoria.SuspendLayout();
+            grpAltaColor.SuspendLayout();
+            grpDatosColor.SuspendLayout();
             pnlAcciones.SuspendLayout();
-            grpCategoriasNoActivas.SuspendLayout();
+            grpColoresNoActivos.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -69,27 +58,27 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(268, 30);
+            lblTitulo.Size = new Size(233, 30);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Categorías de productos";
+            lblTitulo.Text = "Colores de productos";
             // 
-            // dgvCategorias
+            // dgvColores
             // 
-            dgvCategorias.AllowUserToAddRows = false;
-            dgvCategorias.AllowUserToDeleteRows = false;
-            dgvCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCategorias.BackgroundColor = SystemColors.Window;
-            dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategorias.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colEstado });
-            dgvCategorias.Location = new Point(20, 72);
-            dgvCategorias.MultiSelect = false;
-            dgvCategorias.Name = "dgvCategorias";
-            dgvCategorias.ReadOnly = true;
-            dgvCategorias.RowHeadersVisible = false;
-            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.Size = new Size(740, 235);
-            dgvCategorias.TabIndex = 1;
+            dgvColores.AllowUserToAddRows = false;
+            dgvColores.AllowUserToDeleteRows = false;
+            dgvColores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvColores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvColores.BackgroundColor = SystemColors.Window;
+            dgvColores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvColores.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colEstado });
+            dgvColores.Location = new Point(20, 72);
+            dgvColores.MultiSelect = false;
+            dgvColores.Name = "dgvColores";
+            dgvColores.ReadOnly = true;
+            dgvColores.RowHeadersVisible = false;
+            dgvColores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvColores.Size = new Size(740, 235);
+            dgvColores.TabIndex = 1;
             // 
             // colId
             // 
@@ -100,7 +89,7 @@ namespace Libreria.UI
             // 
             // colNombre
             // 
-            colNombre.HeaderText = "Categoría";
+            colNombre.HeaderText = "Color";
             colNombre.Name = "colNombre";
             colNombre.ReadOnly = true;
             // 
@@ -123,7 +112,7 @@ namespace Libreria.UI
             grpBusqueda.Size = new Size(360, 94);
             grpBusqueda.TabIndex = 2;
             grpBusqueda.TabStop = false;
-            grpBusqueda.Text = "Buscar categoría";
+            grpBusqueda.Text = "Buscar color";
             // 
             // btnLimpiarBusqueda
             // 
@@ -161,28 +150,28 @@ namespace Libreria.UI
             lblBuscarNombre.TabIndex = 0;
             lblBuscarNombre.Text = "Nombre";
             // 
-            // grpAltaCategoria
+            // grpAltaColor
             // 
-            grpAltaCategoria.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            grpAltaCategoria.Controls.Add(btnAgregarCategoria);
-            grpAltaCategoria.Controls.Add(txtAltaNombre);
-            grpAltaCategoria.Controls.Add(lblAltaNombre);
-            grpAltaCategoria.Location = new Point(20, 424);
-            grpAltaCategoria.Name = "grpAltaCategoria";
-            grpAltaCategoria.Size = new Size(360, 100);
-            grpAltaCategoria.TabIndex = 3;
-            grpAltaCategoria.TabStop = false;
-            grpAltaCategoria.Text = "Datos de alta categoría";
+            grpAltaColor.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            grpAltaColor.Controls.Add(btnAgregarColor);
+            grpAltaColor.Controls.Add(txtAltaNombre);
+            grpAltaColor.Controls.Add(lblAltaNombre);
+            grpAltaColor.Location = new Point(20, 424);
+            grpAltaColor.Name = "grpAltaColor";
+            grpAltaColor.Size = new Size(360, 100);
+            grpAltaColor.TabIndex = 3;
+            grpAltaColor.TabStop = false;
+            grpAltaColor.Text = "Datos de alta color";
             // 
-            // btnAgregarCategoria
+            // btnAgregarColor
             // 
-            btnAgregarCategoria.Location = new Point(187, 59);
-            btnAgregarCategoria.Name = "btnAgregarCategoria";
-            btnAgregarCategoria.Size = new Size(136, 27);
-            btnAgregarCategoria.TabIndex = 2;
-            btnAgregarCategoria.Text = "Agregar categoría";
-            btnAgregarCategoria.UseVisualStyleBackColor = true;
-            btnAgregarCategoria.Click += btnAgregarCategoria_Click;
+            btnAgregarColor.Location = new Point(205, 59);
+            btnAgregarColor.Name = "btnAgregarColor";
+            btnAgregarColor.Size = new Size(118, 27);
+            btnAgregarColor.TabIndex = 2;
+            btnAgregarColor.Text = "Agregar color";
+            btnAgregarColor.UseVisualStyleBackColor = true;
+            btnAgregarColor.Click += btnAgregarColor_Click;
             // 
             // txtAltaNombre
             // 
@@ -200,21 +189,21 @@ namespace Libreria.UI
             lblAltaNombre.TabIndex = 0;
             lblAltaNombre.Text = "Nombre";
             // 
-            // grpDatosCategoria
+            // grpDatosColor
             // 
-            grpDatosCategoria.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grpDatosCategoria.Controls.Add(chkEstado);
-            grpDatosCategoria.Controls.Add(pnlAcciones);
-            grpDatosCategoria.Controls.Add(txtNombre);
-            grpDatosCategoria.Controls.Add(lblNombre);
-            grpDatosCategoria.Controls.Add(txtId);
-            grpDatosCategoria.Controls.Add(lblId);
-            grpDatosCategoria.Location = new Point(400, 324);
-            grpDatosCategoria.Name = "grpDatosCategoria";
-            grpDatosCategoria.Size = new Size(360, 200);
-            grpDatosCategoria.TabIndex = 4;
-            grpDatosCategoria.TabStop = false;
-            grpDatosCategoria.Text = "Datos de la categoría seleccionada";
+            grpDatosColor.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grpDatosColor.Controls.Add(chkEstado);
+            grpDatosColor.Controls.Add(pnlAcciones);
+            grpDatosColor.Controls.Add(txtNombre);
+            grpDatosColor.Controls.Add(lblNombre);
+            grpDatosColor.Controls.Add(txtId);
+            grpDatosColor.Controls.Add(lblId);
+            grpDatosColor.Location = new Point(400, 324);
+            grpDatosColor.Name = "grpDatosColor";
+            grpDatosColor.Size = new Size(360, 200);
+            grpDatosColor.TabIndex = 4;
+            grpDatosColor.TabStop = false;
+            grpDatosColor.Text = "Datos del color seleccionado";
             // 
             // chkEstado
             // 
@@ -233,13 +222,12 @@ namespace Libreria.UI
             // 
             // pnlAcciones
             // 
-            pnlAcciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlAcciones.Controls.Add(btnLimpiar);
             pnlAcciones.Controls.Add(btnEliminar);
             pnlAcciones.Controls.Add(btnModificar);
-            pnlAcciones.Location = new Point(6, 141);
+            pnlAcciones.Location = new Point(18, 142);
             pnlAcciones.Name = "pnlAcciones";
-            pnlAcciones.Size = new Size(348, 48);
+            pnlAcciones.Size = new Size(334, 48);
             pnlAcciones.TabIndex = 4;
             // 
             // btnLimpiar
@@ -307,63 +295,63 @@ namespace Libreria.UI
             lblId.TabIndex = 0;
             lblId.Text = "ID";
             // 
-            // grpCategoriasNoActivas
+            // grpColoresNoActivos
             // 
-            grpCategoriasNoActivas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            grpCategoriasNoActivas.Controls.Add(chkVerCategoriasNoActivas);
-            grpCategoriasNoActivas.Controls.Add(btnReactivarCategoria);
-            grpCategoriasNoActivas.Location = new Point(428, 12);
-            grpCategoriasNoActivas.Name = "grpCategoriasNoActivas";
-            grpCategoriasNoActivas.Size = new Size(332, 54);
-            grpCategoriasNoActivas.TabIndex = 5;
-            grpCategoriasNoActivas.TabStop = false;
-            grpCategoriasNoActivas.Text = "Categorías no activas";
+            grpColoresNoActivos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            grpColoresNoActivos.Controls.Add(chkVerColoresNoActivos);
+            grpColoresNoActivos.Controls.Add(btnReactivarColor);
+            grpColoresNoActivos.Location = new Point(428, 12);
+            grpColoresNoActivos.Name = "grpColoresNoActivos";
+            grpColoresNoActivos.Size = new Size(332, 54);
+            grpColoresNoActivos.TabIndex = 5;
+            grpColoresNoActivos.TabStop = false;
+            grpColoresNoActivos.Text = "Colores no activos";
             // 
-            // chkVerCategoriasNoActivas
+            // chkVerColoresNoActivos
             // 
-            chkVerCategoriasNoActivas.AutoSize = true;
-            chkVerCategoriasNoActivas.Location = new Point(15, 23);
-            chkVerCategoriasNoActivas.Name = "chkVerCategoriasNoActivas";
-            chkVerCategoriasNoActivas.Size = new Size(155, 19);
-            chkVerCategoriasNoActivas.TabIndex = 0;
-            chkVerCategoriasNoActivas.Text = "Ver categorías no activas";
-            chkVerCategoriasNoActivas.UseVisualStyleBackColor = true;
+            chkVerColoresNoActivos.AutoSize = true;
+            chkVerColoresNoActivos.Location = new Point(15, 23);
+            chkVerColoresNoActivos.Name = "chkVerColoresNoActivos";
+            chkVerColoresNoActivos.Size = new Size(139, 19);
+            chkVerColoresNoActivos.TabIndex = 0;
+            chkVerColoresNoActivos.Text = "Ver colores no activos";
+            chkVerColoresNoActivos.UseVisualStyleBackColor = true;
             // 
-            // btnReactivarCategoria
+            // btnReactivarColor
             // 
-            btnReactivarCategoria.Location = new Point(186, 19);
-            btnReactivarCategoria.Name = "btnReactivarCategoria";
-            btnReactivarCategoria.Size = new Size(126, 27);
-            btnReactivarCategoria.TabIndex = 1;
-            btnReactivarCategoria.Text = "Reactivar categoría";
-            btnReactivarCategoria.UseVisualStyleBackColor = true;
-            btnReactivarCategoria.Click += btnReactivarCategoria_Click;
+            btnReactivarColor.Location = new Point(186, 19);
+            btnReactivarColor.Name = "btnReactivarColor";
+            btnReactivarColor.Size = new Size(126, 27);
+            btnReactivarColor.TabIndex = 1;
+            btnReactivarColor.Text = "Reactivar color";
+            btnReactivarColor.UseVisualStyleBackColor = true;
+            btnReactivarColor.Click += btnReactivarColor_Click;
             // 
-            // FormCategoriaProducto
+            // FormColorProducto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 541);
-            Controls.Add(grpCategoriasNoActivas);
-            Controls.Add(grpDatosCategoria);
-            Controls.Add(grpAltaCategoria);
+            Controls.Add(grpColoresNoActivos);
+            Controls.Add(grpDatosColor);
+            Controls.Add(grpAltaColor);
             Controls.Add(grpBusqueda);
-            Controls.Add(dgvCategorias);
+            Controls.Add(dgvColores);
             Controls.Add(lblTitulo);
             MinimumSize = new Size(800, 580);
-            Name = "FormCategoriaProducto";
+            Name = "FormColorProducto";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Categorías de productos";
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+            Text = "Colores de productos";
+            ((System.ComponentModel.ISupportInitialize)dgvColores).EndInit();
             grpBusqueda.ResumeLayout(false);
             grpBusqueda.PerformLayout();
-            grpAltaCategoria.ResumeLayout(false);
-            grpAltaCategoria.PerformLayout();
-            grpDatosCategoria.ResumeLayout(false);
-            grpDatosCategoria.PerformLayout();
+            grpAltaColor.ResumeLayout(false);
+            grpAltaColor.PerformLayout();
+            grpDatosColor.ResumeLayout(false);
+            grpDatosColor.PerformLayout();
             pnlAcciones.ResumeLayout(false);
-            grpCategoriasNoActivas.ResumeLayout(false);
-            grpCategoriasNoActivas.PerformLayout();
+            grpColoresNoActivos.ResumeLayout(false);
+            grpColoresNoActivos.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -371,7 +359,7 @@ namespace Libreria.UI
         #endregion
 
         private Label lblTitulo;
-        private DataGridView dgvCategorias;
+        private DataGridView dgvColores;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewCheckBoxColumn colEstado;
@@ -380,12 +368,11 @@ namespace Libreria.UI
         private Button btnBuscar;
         private TextBox txtBuscarNombre;
         private Label lblBuscarNombre;
-        private GroupBox grpAltaCategoria;
-        private Button btnAgregarCategoria;
+        private GroupBox grpAltaColor;
+        private Button btnAgregarColor;
         private TextBox txtAltaNombre;
         private Label lblAltaNombre;
-        private GroupBox grpDatosCategoria;
-        private CheckBox chkEstado;
+        private GroupBox grpDatosColor;
         private Panel pnlAcciones;
         private Button btnLimpiar;
         private Button btnEliminar;
@@ -394,8 +381,9 @@ namespace Libreria.UI
         private Label lblNombre;
         private TextBox txtId;
         private Label lblId;
-        private GroupBox grpCategoriasNoActivas;
-        private CheckBox chkVerCategoriasNoActivas;
-        private Button btnReactivarCategoria;
+        private CheckBox chkEstado;
+        private GroupBox grpColoresNoActivos;
+        private CheckBox chkVerColoresNoActivos;
+        private Button btnReactivarColor;
     }
 }

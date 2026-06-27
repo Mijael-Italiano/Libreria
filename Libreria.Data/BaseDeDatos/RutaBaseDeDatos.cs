@@ -27,7 +27,12 @@ namespace Libreria.Data.BaseDeDatos
             CrearUsuariosRolesIniciales(carpetaBaseDeDatos);
             CrearMarcasIniciales(carpetaBaseDeDatos);
             CrearCategoriasIniciales(carpetaBaseDeDatos);
+            CrearColoresIniciales(carpetaBaseDeDatos);
             CrearProductosIniciales(carpetaBaseDeDatos);
+            CrearMediosPagoIniciales(carpetaBaseDeDatos);
+            CrearFacturasIniciales(carpetaBaseDeDatos);
+            CrearFacturaItemsIniciales(carpetaBaseDeDatos);
+            CrearFacturasMediosPagoIniciales(carpetaBaseDeDatos);
         }
 
         private static void CrearUsuariosIniciales(string carpetaBaseDeDatos)
@@ -223,6 +228,25 @@ namespace Libreria.Data.BaseDeDatos
             );
         }
 
+        private static void CrearColoresIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaColores = Path.Combine(carpetaBaseDeDatos, "Colores.xml");
+
+            if (File.Exists(rutaColores))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaColores,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Colores>
+                </Colores>
+                """
+            );
+        }
+
         private static void CrearProductosIniciales(string carpetaBaseDeDatos)
         {
             string rutaProductos = Path.Combine(carpetaBaseDeDatos, "Productos.xml");
@@ -238,6 +262,82 @@ namespace Libreria.Data.BaseDeDatos
                 <?xml version="1.0" encoding="utf-8"?>
                 <Productos>
                 </Productos>
+                """
+            );
+        }
+
+        private static void CrearMediosPagoIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaMediosPago = Path.Combine(carpetaBaseDeDatos, "MediosPago.xml");
+
+            if (File.Exists(rutaMediosPago))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaMediosPago,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <MediosPago>
+                </MediosPago>
+                """
+            );
+        }
+
+        private static void CrearFacturasIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaFacturas = Path.Combine(carpetaBaseDeDatos, "Facturas.xml");
+
+            if (File.Exists(rutaFacturas))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaFacturas,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Facturas>
+                </Facturas>
+                """
+            );
+        }
+
+        private static void CrearFacturaItemsIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaFacturaItems = Path.Combine(carpetaBaseDeDatos, "FacturaItems.xml");
+
+            if (File.Exists(rutaFacturaItems))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaFacturaItems,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <FacturaItems>
+                </FacturaItems>
+                """
+            );
+        }
+
+        private static void CrearFacturasMediosPagoIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaFacturasMediosPago = Path.Combine(carpetaBaseDeDatos, "FacturasMediosPago.xml");
+
+            if (File.Exists(rutaFacturasMediosPago))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaFacturasMediosPago,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <FacturasMediosPago>
+                </FacturasMediosPago>
                 """
             );
         }

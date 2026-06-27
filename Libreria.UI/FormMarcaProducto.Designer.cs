@@ -43,6 +43,7 @@ namespace Libreria.UI
             txtAltaNombre = new TextBox();
             lblAltaNombre = new Label();
             grpDatosMarca = new GroupBox();
+            chkEstado = new CheckBox();
             pnlAcciones = new Panel();
             btnLimpiar = new Button();
             btnEliminar = new Button();
@@ -51,7 +52,6 @@ namespace Libreria.UI
             lblNombre = new Label();
             txtId = new TextBox();
             lblId = new Label();
-            chkEstado = new CheckBox();
             grpMarcasNoActivas = new GroupBox();
             chkVerMarcasNoActivas = new CheckBox();
             btnReactivarMarca = new Button();
@@ -69,7 +69,7 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(226, 30);
+            lblTitulo.Size = new Size(232, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Marcas de productos";
             // 
@@ -133,6 +133,7 @@ namespace Libreria.UI
             btnLimpiarBusqueda.TabIndex = 3;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -142,6 +143,7 @@ namespace Libreria.UI
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarNombre
             // 
@@ -180,6 +182,7 @@ namespace Libreria.UI
             btnAgregarMarca.TabIndex = 2;
             btnAgregarMarca.Text = "Agregar marca";
             btnAgregarMarca.UseVisualStyleBackColor = true;
+            btnAgregarMarca.Click += btnAgregarMarca_Click;
             // 
             // txtAltaNombre
             // 
@@ -213,6 +216,21 @@ namespace Libreria.UI
             grpDatosMarca.TabStop = false;
             grpDatosMarca.Text = "Datos de la marca seleccionada";
             // 
+            // chkEstado
+            // 
+            chkEstado.AutoSize = true;
+            chkEstado.BackColor = SystemColors.Control;
+            chkEstado.Checked = true;
+            chkEstado.CheckState = CheckState.Checked;
+            chkEstado.Enabled = false;
+            chkEstado.ForeColor = SystemColors.ControlDark;
+            chkEstado.Location = new Point(102, 108);
+            chkEstado.Name = "chkEstado";
+            chkEstado.Size = new Size(60, 19);
+            chkEstado.TabIndex = 5;
+            chkEstado.Text = "Activo";
+            chkEstado.UseVisualStyleBackColor = false;
+            // 
             // pnlAcciones
             // 
             pnlAcciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -232,6 +250,7 @@ namespace Libreria.UI
             btnLimpiar.TabIndex = 2;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEliminar
             // 
@@ -241,6 +260,7 @@ namespace Libreria.UI
             btnEliminar.TabIndex = 1;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -250,6 +270,7 @@ namespace Libreria.UI
             btnModificar.TabIndex = 0;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtNombre
             // 
@@ -286,21 +307,6 @@ namespace Libreria.UI
             lblId.TabIndex = 0;
             lblId.Text = "ID";
             // 
-            // chkEstado
-            // 
-            chkEstado.AutoSize = true;
-            chkEstado.BackColor = SystemColors.Control;
-            chkEstado.Checked = true;
-            chkEstado.CheckState = CheckState.Checked;
-            chkEstado.Enabled = false;
-            chkEstado.ForeColor = SystemColors.ControlDark;
-            chkEstado.Location = new Point(102, 108);
-            chkEstado.Name = "chkEstado";
-            chkEstado.Size = new Size(60, 19);
-            chkEstado.TabIndex = 5;
-            chkEstado.Text = "Activo";
-            chkEstado.UseVisualStyleBackColor = false;
-            // 
             // grpMarcasNoActivas
             // 
             grpMarcasNoActivas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -318,7 +324,7 @@ namespace Libreria.UI
             chkVerMarcasNoActivas.AutoSize = true;
             chkVerMarcasNoActivas.Location = new Point(15, 23);
             chkVerMarcasNoActivas.Name = "chkVerMarcasNoActivas";
-            chkVerMarcasNoActivas.Size = new Size(141, 19);
+            chkVerMarcasNoActivas.Size = new Size(139, 19);
             chkVerMarcasNoActivas.TabIndex = 0;
             chkVerMarcasNoActivas.Text = "Ver marcas no activas";
             chkVerMarcasNoActivas.UseVisualStyleBackColor = true;
@@ -331,6 +337,7 @@ namespace Libreria.UI
             btnReactivarMarca.TabIndex = 1;
             btnReactivarMarca.Text = "Reactivar marca";
             btnReactivarMarca.UseVisualStyleBackColor = true;
+            btnReactivarMarca.Click += btnReactivarMarca_Click;
             // 
             // FormMarcaProducto
             // 

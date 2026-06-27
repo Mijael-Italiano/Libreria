@@ -39,6 +39,7 @@ namespace Libreria.UI
             lblBuscarNombre = new Label();
             grpDatosMarca = new GroupBox();
             btnSeleccionar = new Button();
+            chkSinMarca = new CheckBox();
             txtNombre = new TextBox();
             lblNombre = new Label();
             txtId = new TextBox();
@@ -111,6 +112,7 @@ namespace Libreria.UI
             btnLimpiarBusqueda.TabIndex = 3;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -120,6 +122,7 @@ namespace Libreria.UI
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarNombre
             // 
@@ -141,6 +144,7 @@ namespace Libreria.UI
             // 
             grpDatosMarca.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             grpDatosMarca.Controls.Add(btnSeleccionar);
+            grpDatosMarca.Controls.Add(chkSinMarca);
             grpDatosMarca.Controls.Add(txtNombre);
             grpDatosMarca.Controls.Add(lblNombre);
             grpDatosMarca.Controls.Add(txtId);
@@ -152,6 +156,16 @@ namespace Libreria.UI
             grpDatosMarca.TabStop = false;
             grpDatosMarca.Text = "Datos de la marca seleccionada";
             // 
+            // chkSinMarca
+            // 
+            chkSinMarca.AutoSize = true;
+            chkSinMarca.Location = new Point(18, 101);
+            chkSinMarca.Name = "chkSinMarca";
+            chkSinMarca.Size = new Size(80, 19);
+            chkSinMarca.TabIndex = 4;
+            chkSinMarca.Text = "Sin marca";
+            chkSinMarca.UseVisualStyleBackColor = true;
+            // 
             // btnSeleccionar
             // 
             btnSeleccionar.Location = new Point(205, 96);
@@ -160,6 +174,7 @@ namespace Libreria.UI
             btnSeleccionar.TabIndex = 5;
             btnSeleccionar.Text = "Seleccionar";
             btnSeleccionar.UseVisualStyleBackColor = true;
+            btnSeleccionar.Click += btnSeleccionar_Click;
             // 
             // txtNombre
             // 
@@ -232,6 +247,7 @@ namespace Libreria.UI
         private Label lblBuscarNombre;
         private GroupBox grpDatosMarca;
         private Button btnSeleccionar;
+        private CheckBox chkSinMarca;
         private TextBox txtNombre;
         private Label lblNombre;
         private TextBox txtId;

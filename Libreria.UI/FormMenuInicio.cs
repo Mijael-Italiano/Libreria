@@ -93,6 +93,7 @@ namespace Libreria.UI
             administrarProductosToolStripMenuItem.Click += administrarProductosToolStripMenuItem_Click;
             administrarMarcasToolStripMenuItem.Click += administrarMarcasToolStripMenuItem_Click;
             administrarCategoriasToolStripMenuItem.Click += administrarCategoriasToolStripMenuItem_Click;
+            administrarColoresToolStripMenuItem.Click += administrarColoresToolStripMenuItem_Click;
             administrarClientesToolStripMenuItem.Click += administrarClientesToolStripMenuItem_Click;
             registrarVentaToolStripMenuItem.Click += registrarVentaToolStripMenuItem_Click;
             consultarVentasToolStripMenuItem.Click += consultarVentasToolStripMenuItem_Click;
@@ -127,6 +128,11 @@ namespace Libreria.UI
         private void administrarCategoriasToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             new FormCategoriaProducto().Show();
+        }
+
+        private void administrarColoresToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormColorProducto().Show();
         }
 
         private void administrarClientesToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -167,6 +173,7 @@ namespace Libreria.UI
             administrarProductosToolStripMenuItem.Visible = false;
             administrarMarcasToolStripMenuItem.Visible = false;
             administrarCategoriasToolStripMenuItem.Visible = false;
+            administrarColoresToolStripMenuItem.Visible = false;
             administrarClientesToolStripMenuItem.Visible = false;
             registrarVentaToolStripMenuItem.Visible = false;
             consultarVentasToolStripMenuItem.Visible = false;
@@ -213,6 +220,7 @@ namespace Libreria.UI
                 administrarProductosToolStripMenuItem.Visible = true;
                 administrarMarcasToolStripMenuItem.Visible = true;
                 administrarCategoriasToolStripMenuItem.Visible = true;
+                administrarColoresToolStripMenuItem.Visible = true;
             }
 
             if (TienePermiso(permisos, PermisoAdministrarClientes))

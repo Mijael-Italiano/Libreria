@@ -63,6 +63,16 @@ namespace Libreria.Business
                         )
                     ) ?? throw new Exception("Las credenciales no son correctas.");
 
+                if (!usuario.Estado)
+                {
+                    throw new Exception("El usuario esta dado de baja.");
+                }
+
+                if (usuario.Bloqueado)
+                {
+                    throw new Exception("El usuario esta bloqueado.");
+                }
+
                 string contrasenaEncriptada = Encriptacion.EncriptarPassword(contrasena);
 
                 if (usuario.Contrasena != contrasenaEncriptada)

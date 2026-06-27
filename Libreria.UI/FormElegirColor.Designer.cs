@@ -1,16 +1,9 @@
 namespace Libreria.UI
 {
-    partial class FormElegirCategoria
+    partial class FormElegirColor
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,14 +15,10 @@ namespace Libreria.UI
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             lblTitulo = new Label();
-            dgvCategorias = new DataGridView();
+            dgvColores = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             grpBusqueda = new GroupBox();
@@ -37,16 +26,16 @@ namespace Libreria.UI
             btnBuscar = new Button();
             txtBuscarNombre = new TextBox();
             lblBuscarNombre = new Label();
-            grpDatosCategoria = new GroupBox();
+            grpDatosColor = new GroupBox();
             btnSeleccionar = new Button();
-            chkSinCategoria = new CheckBox();
+            chkSinColor = new CheckBox();
             txtNombre = new TextBox();
             lblNombre = new Label();
             txtId = new TextBox();
             lblId = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvColores).BeginInit();
             grpBusqueda.SuspendLayout();
-            grpDatosCategoria.SuspendLayout();
+            grpDatosColor.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
@@ -55,27 +44,27 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(176, 30);
+            lblTitulo.Size = new Size(127, 30);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Elegir categoría";
+            lblTitulo.Text = "Elegir color";
             // 
-            // dgvCategorias
+            // dgvColores
             // 
-            dgvCategorias.AllowUserToAddRows = false;
-            dgvCategorias.AllowUserToDeleteRows = false;
-            dgvCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCategorias.BackgroundColor = SystemColors.Window;
-            dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategorias.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre });
-            dgvCategorias.Location = new Point(20, 72);
-            dgvCategorias.MultiSelect = false;
-            dgvCategorias.Name = "dgvCategorias";
-            dgvCategorias.ReadOnly = true;
-            dgvCategorias.RowHeadersVisible = false;
-            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.Size = new Size(360, 235);
-            dgvCategorias.TabIndex = 1;
+            dgvColores.AllowUserToAddRows = false;
+            dgvColores.AllowUserToDeleteRows = false;
+            dgvColores.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvColores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvColores.BackgroundColor = SystemColors.Window;
+            dgvColores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvColores.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre });
+            dgvColores.Location = new Point(20, 72);
+            dgvColores.MultiSelect = false;
+            dgvColores.Name = "dgvColores";
+            dgvColores.ReadOnly = true;
+            dgvColores.RowHeadersVisible = false;
+            dgvColores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvColores.Size = new Size(360, 235);
+            dgvColores.TabIndex = 1;
             // 
             // colId
             // 
@@ -86,7 +75,7 @@ namespace Libreria.UI
             // 
             // colNombre
             // 
-            colNombre.HeaderText = "Categoría";
+            colNombre.HeaderText = "Color";
             colNombre.Name = "colNombre";
             colNombre.ReadOnly = true;
             // 
@@ -102,7 +91,7 @@ namespace Libreria.UI
             grpBusqueda.Size = new Size(360, 94);
             grpBusqueda.TabIndex = 2;
             grpBusqueda.TabStop = false;
-            grpBusqueda.Text = "Buscar categoría";
+            grpBusqueda.Text = "Buscar color";
             // 
             // btnLimpiarBusqueda
             // 
@@ -140,31 +129,31 @@ namespace Libreria.UI
             lblBuscarNombre.TabIndex = 0;
             lblBuscarNombre.Text = "Nombre";
             // 
-            // grpDatosCategoria
+            // grpDatosColor
             // 
-            grpDatosCategoria.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            grpDatosCategoria.Controls.Add(btnSeleccionar);
-            grpDatosCategoria.Controls.Add(chkSinCategoria);
-            grpDatosCategoria.Controls.Add(txtNombre);
-            grpDatosCategoria.Controls.Add(lblNombre);
-            grpDatosCategoria.Controls.Add(txtId);
-            grpDatosCategoria.Controls.Add(lblId);
-            grpDatosCategoria.Location = new Point(20, 430);
-            grpDatosCategoria.Name = "grpDatosCategoria";
-            grpDatosCategoria.Size = new Size(360, 139);
-            grpDatosCategoria.TabIndex = 3;
-            grpDatosCategoria.TabStop = false;
-            grpDatosCategoria.Text = "Datos de la categoría seleccionada";
+            grpDatosColor.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            grpDatosColor.Controls.Add(btnSeleccionar);
+            grpDatosColor.Controls.Add(chkSinColor);
+            grpDatosColor.Controls.Add(txtNombre);
+            grpDatosColor.Controls.Add(lblNombre);
+            grpDatosColor.Controls.Add(txtId);
+            grpDatosColor.Controls.Add(lblId);
+            grpDatosColor.Location = new Point(20, 430);
+            grpDatosColor.Name = "grpDatosColor";
+            grpDatosColor.Size = new Size(360, 139);
+            grpDatosColor.TabIndex = 3;
+            grpDatosColor.TabStop = false;
+            grpDatosColor.Text = "Datos del color seleccionado";
             // 
-            // chkSinCategoria
+            // chkSinColor
             // 
-            chkSinCategoria.AutoSize = true;
-            chkSinCategoria.Location = new Point(18, 101);
-            chkSinCategoria.Name = "chkSinCategoria";
-            chkSinCategoria.Size = new Size(100, 19);
-            chkSinCategoria.TabIndex = 4;
-            chkSinCategoria.Text = "Sin categoria";
-            chkSinCategoria.UseVisualStyleBackColor = true;
+            chkSinColor.AutoSize = true;
+            chkSinColor.Location = new Point(18, 101);
+            chkSinColor.Name = "chkSinColor";
+            chkSinColor.Size = new Size(100, 19);
+            chkSinColor.TabIndex = 4;
+            chkSinColor.Text = "Sin color";
+            chkSinColor.UseVisualStyleBackColor = true;
             // 
             // btnSeleccionar
             // 
@@ -212,24 +201,24 @@ namespace Libreria.UI
             lblId.TabIndex = 0;
             lblId.Text = "ID";
             // 
-            // FormElegirCategoria
+            // FormElegirColor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(404, 581);
-            Controls.Add(grpDatosCategoria);
+            Controls.Add(grpDatosColor);
             Controls.Add(grpBusqueda);
-            Controls.Add(dgvCategorias);
+            Controls.Add(dgvColores);
             Controls.Add(lblTitulo);
             MinimumSize = new Size(420, 620);
-            Name = "FormElegirCategoria";
+            Name = "FormElegirColor";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Elegir categoría";
-            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+            Text = "Elegir color";
+            ((System.ComponentModel.ISupportInitialize)dgvColores).EndInit();
             grpBusqueda.ResumeLayout(false);
             grpBusqueda.PerformLayout();
-            grpDatosCategoria.ResumeLayout(false);
-            grpDatosCategoria.PerformLayout();
+            grpDatosColor.ResumeLayout(false);
+            grpDatosColor.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,7 +226,7 @@ namespace Libreria.UI
         #endregion
 
         private Label lblTitulo;
-        private DataGridView dgvCategorias;
+        private DataGridView dgvColores;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colNombre;
         private GroupBox grpBusqueda;
@@ -245,9 +234,9 @@ namespace Libreria.UI
         private Button btnBuscar;
         private TextBox txtBuscarNombre;
         private Label lblBuscarNombre;
-        private GroupBox grpDatosCategoria;
+        private GroupBox grpDatosColor;
         private Button btnSeleccionar;
-        private CheckBox chkSinCategoria;
+        private CheckBox chkSinColor;
         private TextBox txtNombre;
         private Label lblNombre;
         private TextBox txtId;

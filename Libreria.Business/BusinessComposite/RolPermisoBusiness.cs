@@ -58,18 +58,25 @@ namespace Libreria.Business.BusinessComposite
                     throw new Exception("Debe seleccionar un rol.");
                 }
 
-                bool existeRol = this.rolBusiness.ConsultarRoles().Any(rol => rol.Id == idRol);
-
-                if (!existeRol)
-                {
-                    throw new Exception("El rol seleccionado no existe.");
-                }
+                Rol rol = this.rolBusiness
+                    .ConsultarRoles()
+                    .FirstOrDefault(rolExistente => rolExistente.Id == idRol)
+                    ?? throw new Exception("El rol seleccionado no existe.");
 
                 List<int> idsPermisos = this.rolPermisoData.ConsultarIdsPermisosPorRol(idRol);
 
-                return this.permisoBusiness
+                List<Permiso> permisos = this.permisoBusiness
                     .ConsultarPermisos()
                     .Where(permiso => idsPermisos.Contains(permiso.Id))
+                    .ToList();
+
+                foreach (Permiso permiso in permisos)
+                {
+                    rol.AgregarHijo(permiso);
+                }
+
+                return rol.ObtenerHijos()
+                    .OfType<Permiso>()
                     .ToList();
             }
             catch (Exception)
