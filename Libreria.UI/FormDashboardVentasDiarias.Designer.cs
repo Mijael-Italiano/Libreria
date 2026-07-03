@@ -205,7 +205,7 @@ namespace Libreria.UI
             grpCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpCategorias.Location = new Point(648, 247);
             grpCategorias.Size = new Size(332, 330);
-            grpCategorias.Text = "Top 5 categorias mas vendidas";
+            grpCategorias.Text = "Top 5 categorias por ingresos";
             pnlCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlCategorias.BackColor = SystemColors.Window;
             pnlCategorias.BorderStyle = BorderStyle.FixedSingle;
@@ -243,3 +243,4 @@ namespace Libreria.UI
         }
     }
 }
+

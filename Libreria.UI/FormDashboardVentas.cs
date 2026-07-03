@@ -15,14 +15,17 @@ namespace Libreria.UI
         private DateTime fechaInicioSemana;
         private DashboardVentasResumen? resumenSemana;
         private Panel? panelGraficoMarcas;
+        private Panel? panelCategoriasItems;
         private Label? lblTituloGraficoMarcas;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
+        private CriterioTortaMarcas criterioTortaSeleccionado;
 
         public FormDashboardVentas()
         {
             InitializeComponent();
             this.dashboardVentasBusiness = new DashboardVentasBusiness();
             this.marcasCategoriaSeleccionada = new List<DashboardVentasMarcaCategoria>();
+            this.criterioTortaSeleccionado = CriterioTortaMarcas.Ingresos;
             this.ConfigurarLayoutGraficos();
             fechaInicioSemana = ObtenerInicioSemana(DateTime.Today);
             MostrarSemana();
@@ -70,7 +73,8 @@ namespace Libreria.UI
                 lblRangoSemana.Text = $"Semana del {fechaInicioSemana:dd/MM/yyyy} al {fechaFinSemana:dd/MM/yyyy}";
                 this.MostrarResumen(this.resumenSemana);
                 this.MostrarBarrasSemana(this.resumenSemana.VentasPorDia);
-                this.MostrarCategorias(this.resumenSemana.VentasPorCategoria);
+                this.MostrarCategoriasPorIngresos(this.resumenSemana.VentasPorCategoria);
+                this.MostrarCategoriasPorItems(this.resumenSemana.CategoriasPorItems);
                 this.LimpiarTortaMarcas("Seleccione una categoria del top para ver marcas.");
                 lblEstado.Text = $"Datos actualizados para la semana seleccionada. Facturas: {this.resumenSemana.CantidadFacturas}.";
             }
@@ -83,74 +87,6 @@ namespace Libreria.UI
 
         private void ConfigurarLayoutGraficos()
         {
-            GroupBox? grupoVentasSemana = this.ObtenerControles<GroupBox>()
-                .FirstOrDefault(control => control.Text.Contains("semana", StringComparison.OrdinalIgnoreCase)
-                    && control.Text.Contains("Facturacion", StringComparison.OrdinalIgnoreCase));
-            Panel? panelSemana = grupoVentasSemana == null ? null : this.ObtenerControles<Panel>(grupoVentasSemana).FirstOrDefault();
-            GroupBox? grupoCategorias = this.ObtenerControles<GroupBox>()
-                .FirstOrDefault(control => control.Text.Contains("categoria", StringComparison.OrdinalIgnoreCase));
-            Panel? panelCategorias = grupoCategorias == null ? null : this.ObtenerControles<Panel>(grupoCategorias).FirstOrDefault();
-            Button? botonDetalle = grupoCategorias == null ? null : this.ObtenerControles<Button>(grupoCategorias).FirstOrDefault();
-
-            if (grupoVentasSemana != null)
-            {
-                grupoVentasSemana.Size = new Size(grupoVentasSemana.Width, 270);
-            }
-
-            if (panelSemana != null)
-            {
-                panelSemana.Size = new Size(panelSemana.Width, 220);
-            }
-
-            if (grupoCategorias != null)
-            {
-                grupoCategorias.Size = new Size(grupoCategorias.Width, 210);
-            }
-
-            if (panelCategorias != null)
-            {
-                panelCategorias.Size = new Size(panelCategorias.Width, 150);
-            }
-
-            if (botonDetalle != null)
-            {
-                botonDetalle.Visible = false;
-            }
-
-            if (grupoCategorias == null)
-            {
-                return;
-            }
-
-            GroupBox grupoMarcas = new GroupBox
-            {
-                Text = "Marcas de la categoria seleccionada",
-                Location = new Point(grupoCategorias.Left, grupoCategorias.Bottom + 10),
-                Size = new Size(grupoCategorias.Width, 190),
-                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
-            };
-
-            this.lblTituloGraficoMarcas = new Label
-            {
-                AutoEllipsis = true,
-                Location = new Point(12, 20),
-                Size = new Size(grupoMarcas.Width - 24, 20),
-                Text = "Seleccione una categoria",
-            };
-
-            this.panelGraficoMarcas = new Panel
-            {
-                Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right,
-                BackColor = SystemColors.Window,
-                BorderStyle = BorderStyle.FixedSingle,
-                Location = new Point(18, 46),
-                Size = new Size(grupoMarcas.Width - 36, 122),
-            };
-            this.panelGraficoMarcas.Paint += panelGraficoMarcas_Paint;
-
-            grupoMarcas.Controls.Add(this.lblTituloGraficoMarcas);
-            grupoMarcas.Controls.Add(this.panelGraficoMarcas);
-            this.Controls.Add(grupoMarcas);
         }
 
         private void MostrarResumen(DashboardVentasResumen resumen)
@@ -166,10 +102,11 @@ namespace Libreria.UI
                 .OrderBy(label => label.Left)
                 .ToList();
 
-            if (valores.Count >= 2)
+            if (valores.Count >= 3)
             {
                 valores[0].Text = FormatearImporte(resumen.TotalFacturado);
-                valores[1].Text = resumen.CantidadFacturas.ToString();
+                valores[1].Text = resumen.CantidadItemsVendidos.ToString();
+                valores[2].Text = resumen.CantidadFacturas.ToString();
             }
         }
 
@@ -230,7 +167,7 @@ namespace Libreria.UI
             return grupo == null ? null : this.ObtenerControles<Panel>(grupo).FirstOrDefault();
         }
 
-        private void MostrarCategorias(List<DashboardVentasCategoria> categorias)
+        private void MostrarCategoriasPorIngresos(List<DashboardVentasCategoria> categorias)
         {
             Panel? panel = this.ObtenerPanelCategorias();
             if (panel == null)
@@ -238,58 +175,91 @@ namespace Libreria.UI
                 return;
             }
 
-            panel.Controls.Clear();
-            List<DashboardVentasCategoria> topCategorias = categorias.Take(5).ToList();
+            this.MostrarTopCategorias(
+                panel,
+                categorias.Take(5).ToList(),
+                categoria => categoria.TotalFacturado,
+                categoria => FormatearImporteCorto(categoria.TotalFacturado),
+                "Sin ingresos en el periodo",
+                CriterioTortaMarcas.Ingresos
+            );
+        }
 
-            if (topCategorias.Count == 0)
+        private void MostrarCategoriasPorItems(List<DashboardVentasCategoria> categorias)
+        {
+            if (this.panelCategoriasItems == null)
             {
-                panel.Controls.Add(this.CrearEtiqueta("Sin ventas en el periodo", new Point(20, 58), new Size(panel.Width - 40, 30), ContentAlignment.MiddleCenter));
-                this.LimpiarTortaMarcas("Sin categorias con ventas.");
                 return;
             }
 
-            decimal maximo = topCategorias.Max(categoria => categoria.TotalFacturado);
+            this.MostrarTopCategorias(
+                this.panelCategoriasItems,
+                categorias.Take(5).ToList(),
+                categoria => categoria.CantidadVendida,
+                categoria => $"{categoria.CantidadVendida} items",
+                "Sin items vendidos en el periodo",
+                CriterioTortaMarcas.Items
+            );
+        }
+
+        private void MostrarTopCategorias(
+            Panel panel,
+            List<DashboardVentasCategoria> categorias,
+            Func<DashboardVentasCategoria, decimal> obtenerValor,
+            Func<DashboardVentasCategoria, string> formatearValor,
+            string mensajeSinDatos,
+            CriterioTortaMarcas criterio)
+        {
+            panel.Controls.Clear();
+
+            if (categorias.Count == 0)
+            {
+                panel.Controls.Add(this.CrearEtiqueta(mensajeSinDatos, new Point(12, 58), new Size(panel.Width - 24, 30), ContentAlignment.MiddleCenter));
+                return;
+            }
+
+            decimal maximo = categorias.Select(obtenerValor).DefaultIfEmpty(0).Max();
             int y = 12;
 
-            foreach (DashboardVentasCategoria categoria in topCategorias)
+            foreach (DashboardVentasCategoria categoria in categorias)
             {
-                Label nombre = this.CrearEtiqueta(categoria.Categoria, new Point(14, y), new Size(155, 18), ContentAlignment.MiddleLeft);
-                Label importe = this.CrearEtiqueta(FormatearImporteCorto(categoria.TotalFacturado), new Point(panel.Width - 106, y), new Size(90, 18), ContentAlignment.MiddleRight);
+                Label nombre = this.CrearEtiqueta(categoria.Categoria, new Point(10, y), new Size(100, 18), ContentAlignment.MiddleLeft);
+                Label valor = this.CrearEtiqueta(formatearValor(categoria), new Point(panel.Width - 98, y), new Size(88, 18), ContentAlignment.MiddleRight);
                 Panel barra = new Panel
                 {
                     BackColor = Color.SeaGreen,
                     Cursor = Cursors.Hand,
-                    Location = new Point(14, y + 20),
-                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)((panel.Width - 30) * categoria.TotalFacturado / maximo)), 8),
+                    Location = new Point(10, y + 20),
+                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)((panel.Width - 20) * obtenerValor(categoria) / maximo)), 8),
                 };
 
-                this.ConfigurarClickCategoria(nombre, categoria.Categoria);
-                this.ConfigurarClickCategoria(importe, categoria.Categoria);
-                this.ConfigurarClickCategoria(barra, categoria.Categoria);
+                this.ConfigurarClickCategoria(nombre, categoria.Categoria, criterio);
+                this.ConfigurarClickCategoria(valor, categoria.Categoria, criterio);
+                this.ConfigurarClickCategoria(barra, categoria.Categoria, criterio);
 
                 panel.Controls.Add(nombre);
-                panel.Controls.Add(importe);
+                panel.Controls.Add(valor);
                 panel.Controls.Add(barra);
                 y += 27;
             }
         }
 
-        private void ConfigurarClickCategoria(Control control, string categoria)
+        private void ConfigurarClickCategoria(Control control, string categoria, CriterioTortaMarcas criterio)
         {
             control.Cursor = Cursors.Hand;
-            control.Tag = categoria;
+            control.Tag = new CategoriaSeleccionada(categoria, criterio);
             control.Click += Categoria_Click;
         }
 
         private void Categoria_Click(object? sender, EventArgs e)
         {
-            if (sender is Control control && control.Tag is string categoria)
+            if (sender is Control control && control.Tag is CategoriaSeleccionada seleccion)
             {
-                this.MostrarTortaMarcas(categoria);
+                this.MostrarTortaMarcas(seleccion.Categoria, seleccion.Criterio);
             }
         }
 
-        private void MostrarTortaMarcas(string categoria)
+        private void MostrarTortaMarcas(string categoria, CriterioTortaMarcas criterio)
         {
             if (this.resumenSemana == null)
             {
@@ -298,12 +268,12 @@ namespace Libreria.UI
 
             this.marcasCategoriaSeleccionada = this.resumenSemana.VentasPorMarcaCategoria
                 .Where(marca => marca.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
-                .OrderByDescending(marca => marca.TotalFacturado)
+                .OrderByDescending(marca => this.ObtenerValorMarca(marca, criterio))
                 .ToList();
 
             if (this.lblTituloGraficoMarcas != null)
             {
-                this.lblTituloGraficoMarcas.Text = $"Marcas de {categoria}";
+                this.lblTituloGraficoMarcas.Text = $"Marcas de {categoria} por {this.ObtenerNombreCriterio(criterio)}";
             }
 
             this.panelGraficoMarcas?.Invalidate();
@@ -312,6 +282,7 @@ namespace Libreria.UI
         private void LimpiarTortaMarcas(string texto)
         {
             this.marcasCategoriaSeleccionada = new List<DashboardVentasMarcaCategoria>();
+            this.criterioTortaSeleccionado = CriterioTortaMarcas.Ingresos;
 
             if (this.lblTituloGraficoMarcas != null)
             {
@@ -344,7 +315,7 @@ namespace Libreria.UI
                 return;
             }
 
-            decimal total = this.marcasCategoriaSeleccionada.Sum(marca => marca.TotalFacturado);
+            decimal total = this.marcasCategoriaSeleccionada.Sum(marca => this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado));
             if (total <= 0)
             {
                 return;
@@ -360,33 +331,33 @@ namespace Libreria.UI
                 Color.Goldenrod,
             };
 
-            int diametro = Math.Max(64, Math.Min(panel.Height - 18, 112));
-            Rectangle rectanguloTorta = new Rectangle(14, (panel.Height - diametro) / 2, diametro, diametro);
+            int diametro = Math.Max(96, Math.Min(panel.Height - 22, 160));
+            Rectangle rectanguloTorta = new Rectangle(18, (panel.Height - diametro) / 2, diametro, diametro);
             float anguloInicio = -90f;
 
             for (int i = 0; i < this.marcasCategoriaSeleccionada.Count; i++)
             {
                 DashboardVentasMarcaCategoria marca = this.marcasCategoriaSeleccionada[i];
-                float angulo = (float)(marca.TotalFacturado / total * 360m);
+                float angulo = (float)(this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado) / total * 360m);
 
                 using SolidBrush brush = new SolidBrush(colores[i % colores.Length]);
                 e.Graphics.FillPie(brush, rectanguloTorta, anguloInicio, angulo);
                 anguloInicio += angulo;
             }
 
-            int leyendaX = rectanguloTorta.Right + 16;
-            int leyendaY = 12;
-            int anchoLeyenda = Math.Max(90, panel.Width - leyendaX - 8);
+            int leyendaX = rectanguloTorta.Right + 18;
+            int leyendaY = 18;
+            int anchoLeyenda = Math.Max(120, panel.Width - leyendaX - 8);
 
-            for (int i = 0; i < this.marcasCategoriaSeleccionada.Count && i < 5; i++)
+            for (int i = 0; i < this.marcasCategoriaSeleccionada.Count && i < 6; i++)
             {
                 DashboardVentasMarcaCategoria marca = this.marcasCategoriaSeleccionada[i];
-                decimal porcentaje = marca.TotalFacturado / total;
+                decimal porcentaje = this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado) / total;
 
                 using SolidBrush brush = new SolidBrush(colores[i % colores.Length]);
                 e.Graphics.FillRectangle(brush, leyendaX, leyendaY + 4, 10, 10);
 
-                string texto = $"{marca.Marca} {porcentaje:P0}";
+                string texto = $"{marca.Marca} {porcentaje:P0} - {this.FormatearValorMarca(marca, this.criterioTortaSeleccionado)}";
                 TextRenderer.DrawText(
                     e.Graphics,
                     texto,
@@ -396,13 +367,50 @@ namespace Libreria.UI
                     TextFormatFlags.EndEllipsis | TextFormatFlags.Left
                 );
 
-                leyendaY += 20;
+                leyendaY += 22;
             }
         }
 
+
+        private decimal ObtenerValorMarca(DashboardVentasMarcaCategoria marca, CriterioTortaMarcas criterio)
+        {
+            return criterio == CriterioTortaMarcas.Items
+                ? marca.CantidadVendida
+                : marca.TotalFacturado;
+        }
+
+        private string FormatearValorMarca(DashboardVentasMarcaCategoria marca, CriterioTortaMarcas criterio)
+        {
+            return criterio == CriterioTortaMarcas.Items
+                ? $"{marca.CantidadVendida} items"
+                : FormatearImporteCorto(marca.TotalFacturado);
+        }
+
+        private string ObtenerNombreCriterio(CriterioTortaMarcas criterio)
+        {
+            return criterio == CriterioTortaMarcas.Items ? "items vendidos" : "ingresos";
+        }
+
+        private class CategoriaSeleccionada
+        {
+            public CategoriaSeleccionada(string categoria, CriterioTortaMarcas criterio)
+            {
+                this.Categoria = categoria;
+                this.Criterio = criterio;
+            }
+
+            public string Categoria { get; }
+            public CriterioTortaMarcas Criterio { get; }
+        }
+
+        private enum CriterioTortaMarcas
+        {
+            Ingresos,
+            Items,
+        }
         private Panel? ObtenerPanelCategorias()
         {
-            GroupBox? grupo = this.ObtenerControles<GroupBox>().FirstOrDefault(control => control.Text.Contains("Categoria", StringComparison.OrdinalIgnoreCase));
+            GroupBox? grupo = this.ObtenerControles<GroupBox>().FirstOrDefault(control => control.Text.Equals("Top 5 categorias por ingresos", StringComparison.OrdinalIgnoreCase));
             return grupo == null ? null : this.ObtenerControles<Panel>(grupo).FirstOrDefault();
         }
 
@@ -469,3 +477,11 @@ namespace Libreria.UI
         }
     }
 }
+
+
+
+
+
+
+
+

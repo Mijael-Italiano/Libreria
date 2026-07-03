@@ -43,9 +43,11 @@ namespace Libreria.Business
             {
                 TotalFacturado = facturas.Sum(factura => factura.Total),
                 CantidadFacturas = facturas.Count,
+                CantidadItemsVendidos = items.Sum(item => item.Cantidad),
                 VentasPorDia = this.ObtenerVentasPorDia(facturas, desde, hasta),
                 VentasPorHora = this.ObtenerVentasPorHora(facturas, desde),
                 VentasPorCategoria = this.ObtenerVentasPorCategoria(items),
+                CategoriasPorItems = this.ObtenerCategoriasPorItems(items),
                 VentasPorMarcaCategoria = this.ObtenerVentasPorMarcaCategoria(items),
             };
         }
@@ -94,6 +96,21 @@ namespace Libreria.Business
         }
 
 
+
+        private List<DashboardVentasCategoria> ObtenerCategoriasPorItems(List<FacturaItem> items)
+        {
+            return items
+                .GroupBy(item => item.Producto.Categoria?.Nombre ?? "Sin categoria")
+                .Select(grupo => new DashboardVentasCategoria
+                {
+                    Categoria = grupo.Key,
+                    TotalFacturado = grupo.Sum(item => item.Subtotal),
+                    CantidadVendida = grupo.Sum(item => item.Cantidad),
+                })
+                .OrderByDescending(categoria => categoria.CantidadVendida)
+                .ThenBy(categoria => categoria.Categoria)
+                .ToList();
+        }
         private List<DashboardVentasMarcaCategoria> ObtenerVentasPorMarcaCategoria(List<FacturaItem> items)
         {
             return items
@@ -133,9 +150,11 @@ namespace Libreria.Business
     {
         public decimal TotalFacturado { get; set; }
         public int CantidadFacturas { get; set; }
+        public int CantidadItemsVendidos { get; set; }
         public List<DashboardVentasDia> VentasPorDia { get; set; } = new List<DashboardVentasDia>();
         public List<DashboardVentasHora> VentasPorHora { get; set; } = new List<DashboardVentasHora>();
         public List<DashboardVentasCategoria> VentasPorCategoria { get; set; } = new List<DashboardVentasCategoria>();
+        public List<DashboardVentasCategoria> CategoriasPorItems { get; set; } = new List<DashboardVentasCategoria>();
         public List<DashboardVentasMarcaCategoria> VentasPorMarcaCategoria { get; set; } = new List<DashboardVentasMarcaCategoria>();
     }
 
@@ -168,4 +187,9 @@ namespace Libreria.Business
         public int CantidadVendida { get; set; }
     }
 }
+
+
+
+
+
 

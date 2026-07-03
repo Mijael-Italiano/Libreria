@@ -401,7 +401,7 @@ namespace Libreria.UI
                 using SolidBrush brush = new SolidBrush(colores[i % colores.Length]);
                 e.Graphics.FillRectangle(brush, leyendaX, leyendaY + 4, 10, 10);
 
-                string texto = $"{marca.Marca} {porcentaje:P0}";
+                string texto = $"{marca.Marca} {porcentaje:P0} - {FormatearImporteCorto(marca.TotalFacturado)}";
                 TextRenderer.DrawText(
                     e.Graphics,
                     texto,
@@ -484,3 +484,4 @@ namespace Libreria.UI
         }
     }
 }
+
