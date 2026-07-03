@@ -45,6 +45,7 @@ namespace Libreria.Business
                 CantidadFacturas = facturas.Count,
                 CantidadItemsVendidos = items.Sum(item => item.Cantidad),
                 VentasPorDia = this.ObtenerVentasPorDia(facturas, desde, hasta),
+                ClientesPorIngresos = this.ObtenerClientesPorIngresos(facturas),
                 VentasPorHora = this.ObtenerVentasPorHora(facturas, desde),
                 VentasPorCategoria = this.ObtenerVentasPorCategoria(items),
                 CategoriasPorItems = this.ObtenerCategoriasPorItems(items),
@@ -52,6 +53,64 @@ namespace Libreria.Business
             };
         }
 
+
+
+        public DashboardVentasResumen ObtenerResumenMensual(int anio, int mes)
+        {
+            if (mes < 1 || mes > 12)
+            {
+                throw new Exception("El mes indicado no es valido.");
+            }
+
+            DateTime desde = new DateTime(anio, mes, 1);
+            DateTime hasta = desde.AddMonths(1).AddDays(-1);
+
+            List<Factura> facturas = this.facturaBusiness.ConsultarFacturas()
+                .Where(factura => factura.FechaEmision.Date >= desde
+                    && factura.FechaEmision.Date <= hasta
+                    && !factura.Estado.Equals("Anulada", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            List<FacturaItem> items = this.facturaItemBusiness.ConsultarFacturaItems()
+                .Where(item => item.Factura.FechaEmision.Date >= desde
+                    && item.Factura.FechaEmision.Date <= hasta
+                    && !item.Estado.Equals("Anulado", StringComparison.OrdinalIgnoreCase)
+                    && !item.Factura.Estado.Equals("Anulada", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return new DashboardVentasResumen
+            {
+                TotalFacturado = facturas.Sum(factura => factura.Total),
+                CantidadFacturas = facturas.Count,
+                CantidadItemsVendidos = items.Sum(item => item.Cantidad),
+                VentasPorDia = this.ObtenerVentasPorDia(facturas, desde, hasta),
+                VentasPorTramoMensual = this.ObtenerVentasPorTramoMensual(facturas, desde, hasta),
+                ClientesPorIngresos = this.ObtenerClientesPorIngresos(facturas),
+                VentasPorHora = this.ObtenerVentasPorHora(facturas, desde),
+                VentasPorCategoria = this.ObtenerVentasPorCategoria(items),
+                CategoriasPorItems = this.ObtenerCategoriasPorItems(items),
+                VentasPorMarcaCategoria = this.ObtenerVentasPorMarcaCategoria(items),
+            };
+        }
+        private List<DashboardVentasCliente> ObtenerClientesPorIngresos(List<Factura> facturas)
+        {
+            return facturas
+                .GroupBy(factura => new
+                {
+                    factura.Cliente.Id,
+                    factura.Cliente.Nombre,
+                    factura.Cliente.Apellido
+                })
+                .Select(grupo => new DashboardVentasCliente
+                {
+                    Cliente = $"{grupo.Key.Apellido}, {grupo.Key.Nombre}",
+                    TotalFacturado = grupo.Sum(factura => factura.Total),
+                    CantidadCompras = grupo.Count(),
+                })
+                .OrderByDescending(cliente => cliente.TotalFacturado)
+                .ThenBy(cliente => cliente.Cliente)
+                .ToList();
+        }
         private List<DashboardVentasDia> ObtenerVentasPorDia(List<Factura> facturas, DateTime desde, DateTime hasta)
         {
             List<DashboardVentasDia> ventas = new List<DashboardVentasDia>();
@@ -73,6 +132,60 @@ namespace Libreria.Business
             return ventas;
         }
 
+
+        private List<DashboardVentasTramoMensual> ObtenerVentasPorTramoMensual(List<Factura> facturas, DateTime desde, DateTime hasta)
+        {
+            List<DashboardVentasTramoMensual> ventas = new List<DashboardVentasTramoMensual>();
+            DateTime inicioTramo = desde.Date;
+
+            while (inicioTramo <= hasta.Date)
+            {
+                int diasHastaDomingo = DayOfWeek.Sunday - inicioTramo.DayOfWeek;
+                if (diasHastaDomingo < 0)
+                {
+                    diasHastaDomingo += 7;
+                }
+
+                DateTime finTramo = inicioTramo.AddDays(diasHastaDomingo);
+                if (finTramo > hasta.Date)
+                {
+                    finTramo = hasta.Date;
+                }
+
+                List<Factura> facturasTramo = facturas
+                    .Where(factura => factura.FechaEmision.Date >= inicioTramo.Date
+                        && factura.FechaEmision.Date <= finTramo.Date)
+                    .ToList();
+
+                ventas.Add(new DashboardVentasTramoMensual
+                {
+                    FechaDesde = inicioTramo,
+                    FechaHasta = finTramo,
+                    Etiqueta = $"{ObtenerDiaCorto(inicioTramo)} {inicioTramo.Day} - {ObtenerDiaCorto(finTramo)} {finTramo.Day}",
+                    TotalFacturado = facturasTramo.Sum(factura => factura.Total),
+                    CantidadFacturas = facturasTramo.Count,
+                });
+
+                inicioTramo = finTramo.AddDays(1);
+            }
+
+            return ventas;
+        }
+
+        private static string ObtenerDiaCorto(DateTime fecha)
+        {
+            return fecha.DayOfWeek switch
+            {
+                DayOfWeek.Monday => "Lun",
+                DayOfWeek.Tuesday => "Mar",
+                DayOfWeek.Wednesday => "Mi�",
+                DayOfWeek.Thursday => "Jue",
+                DayOfWeek.Friday => "Vie",
+                DayOfWeek.Saturday => "S�b",
+                DayOfWeek.Sunday => "Dom",
+                _ => string.Empty,
+            };
+        }
         private List<DashboardVentasHora> ObtenerVentasPorHora(List<Factura> facturas, DateTime fecha)
         {
             List<DashboardVentasHora> ventas = new List<DashboardVentasHora>();
@@ -146,47 +259,12 @@ namespace Libreria.Business
         }
     }
 
-    public class DashboardVentasResumen
-    {
-        public decimal TotalFacturado { get; set; }
-        public int CantidadFacturas { get; set; }
-        public int CantidadItemsVendidos { get; set; }
-        public List<DashboardVentasDia> VentasPorDia { get; set; } = new List<DashboardVentasDia>();
-        public List<DashboardVentasHora> VentasPorHora { get; set; } = new List<DashboardVentasHora>();
-        public List<DashboardVentasCategoria> VentasPorCategoria { get; set; } = new List<DashboardVentasCategoria>();
-        public List<DashboardVentasCategoria> CategoriasPorItems { get; set; } = new List<DashboardVentasCategoria>();
-        public List<DashboardVentasMarcaCategoria> VentasPorMarcaCategoria { get; set; } = new List<DashboardVentasMarcaCategoria>();
-    }
-
-    public class DashboardVentasDia
-    {
-        public DateTime Fecha { get; set; }
-        public decimal TotalFacturado { get; set; }
-        public int CantidadFacturas { get; set; }
-    }
-
-    public class DashboardVentasHora
-    {
-        public int Hora { get; set; }
-        public decimal TotalFacturado { get; set; }
-        public int CantidadFacturas { get; set; }
-    }
-
-
-    public class DashboardVentasMarcaCategoria
-    {
-        public string Categoria { get; set; } = string.Empty;
-        public string Marca { get; set; } = string.Empty;
-        public decimal TotalFacturado { get; set; }
-        public int CantidadVendida { get; set; }
-    }
-    public class DashboardVentasCategoria
-    {
-        public string Categoria { get; set; } = string.Empty;
-        public decimal TotalFacturado { get; set; }
-        public int CantidadVendida { get; set; }
-    }
 }
+
+
+
+
+
 
 
 

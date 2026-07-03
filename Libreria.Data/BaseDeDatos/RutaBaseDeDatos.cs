@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 
 namespace Libreria.Data.BaseDeDatos
 {
@@ -23,12 +25,16 @@ namespace Libreria.Data.BaseDeDatos
             CrearUsuariosIniciales(carpetaBaseDeDatos);
             CrearRolesIniciales(carpetaBaseDeDatos);
             CrearPermisosIniciales(carpetaBaseDeDatos);
+            AsegurarPermisosVentas(carpetaBaseDeDatos);
+            AsegurarPermisosAuditoria(carpetaBaseDeDatos);
             CrearRolesPermisosIniciales(carpetaBaseDeDatos);
+            AsegurarPermisosAdmin(carpetaBaseDeDatos);
             CrearUsuariosRolesIniciales(carpetaBaseDeDatos);
             CrearMarcasIniciales(carpetaBaseDeDatos);
             CrearCategoriasIniciales(carpetaBaseDeDatos);
             CrearColoresIniciales(carpetaBaseDeDatos);
             CrearProductosIniciales(carpetaBaseDeDatos);
+            CrearClientesIniciales(carpetaBaseDeDatos);
             CrearMediosPagoIniciales(carpetaBaseDeDatos);
             CrearFacturasIniciales(carpetaBaseDeDatos);
             CrearFacturaItemsIniciales(carpetaBaseDeDatos);
@@ -92,6 +98,7 @@ namespace Libreria.Data.BaseDeDatos
             );
         }
 
+
         private static void CrearPermisosIniciales(string carpetaBaseDeDatos)
         {
             string rutaPermisos = Path.Combine(carpetaBaseDeDatos, "Permisos.xml");
@@ -125,22 +132,90 @@ namespace Libreria.Data.BaseDeDatos
                     <Nombre>Administrar clientes</Nombre>
                   </Permiso>
                   <Permiso Id="7">
-                    <Nombre>Gestion de ventas</Nombre>
+                    <Nombre>Registrar ventas</Nombre>
+                  </Permiso>
+                  <Permiso Id="13">
+                    <Nombre>Consultar ventas</Nombre>
                   </Permiso>
                   <Permiso Id="8">
                     <Nombre>Administrar metodos de pago</Nombre>
                   </Permiso>
                   <Permiso Id="9">
-                    <Nombre>Gestion de base de datos</Nombre>
+                    <Nombre>Gestion de back up</Nombre>
                   </Permiso>
                   <Permiso Id="10">
                     <Nombre>Analisis de ventas</Nombre>
+                  </Permiso>
+                  <Permiso Id="11">
+                    <Nombre>Gestion de restore</Nombre>
+                  </Permiso>
+                  <Permiso Id="12">
+                    <Nombre>Ver bitacora</Nombre>
                   </Permiso>
                 </Permisos>
                 """
             );
         }
 
+
+        private static void AsegurarPermisosVentas(string carpetaBaseDeDatos)
+        {
+            string rutaPermisos = Path.Combine(carpetaBaseDeDatos, "Permisos.xml");
+
+            if (!File.Exists(rutaPermisos))
+            {
+                return;
+            }
+
+            XDocument documento = XDocument.Load(rutaPermisos);
+            XElement raiz = documento.Root
+                ?? throw new Exception("El archivo Permisos.xml no tiene una raiz valida.");
+
+            AsegurarPermiso(raiz, 7, "Registrar ventas");
+            AsegurarPermiso(raiz, 13, "Consultar ventas");
+
+            documento.Save(rutaPermisos);
+        }
+        private static void AsegurarPermisosAuditoria(string carpetaBaseDeDatos)
+        {
+            string rutaPermisos = Path.Combine(carpetaBaseDeDatos, "Permisos.xml");
+
+            if (!File.Exists(rutaPermisos))
+            {
+                return;
+            }
+
+            XDocument documento = XDocument.Load(rutaPermisos);
+            XElement raiz = documento.Root
+                ?? throw new Exception("El archivo Permisos.xml no tiene una raiz valida.");
+
+            AsegurarPermiso(raiz, 9, "Gestion de back up");
+            AsegurarPermiso(raiz, 11, "Gestion de restore");
+            AsegurarPermiso(raiz, 12, "Ver bitacora");
+
+            documento.Save(rutaPermisos);
+        }
+
+        private static void AsegurarPermiso(XElement raiz, int id, string nombre)
+        {
+            XElement? permiso = raiz.Elements("Permiso").FirstOrDefault(elemento =>
+                int.Parse(elemento.Attribute("Id")?.Value ?? "0") == id
+            );
+
+            if (permiso == null)
+            {
+                raiz.Add(
+                    new XElement(
+                        "Permiso",
+                        new XAttribute("Id", id),
+                        new XElement("Nombre", nombre)
+                    )
+                );
+                return;
+            }
+
+            permiso.SetElementValue("Nombre", nombre);
+        }
         private static void CrearRolesPermisosIniciales(string carpetaBaseDeDatos)
         {
             string rutaRolesPermisos = Path.Combine(carpetaBaseDeDatos, "RolesPermisos.xml");
@@ -165,11 +240,50 @@ namespace Libreria.Data.BaseDeDatos
                   <RolPermiso IdRol="1" IdPermiso="8" />
                   <RolPermiso IdRol="1" IdPermiso="9" />
                   <RolPermiso IdRol="1" IdPermiso="10" />
+                  <RolPermiso IdRol="1" IdPermiso="11" />
+                  <RolPermiso IdRol="1" IdPermiso="12" />
+                  <RolPermiso IdRol="1" IdPermiso="13" />
                 </RolesPermisos>
                 """
             );
         }
 
+        private static void AsegurarPermisosAdmin(string carpetaBaseDeDatos)
+        {
+            string rutaRolesPermisos = Path.Combine(carpetaBaseDeDatos, "RolesPermisos.xml");
+
+            if (!File.Exists(rutaRolesPermisos))
+            {
+                return;
+            }
+
+            XDocument documento = XDocument.Load(rutaRolesPermisos);
+            XElement raiz = documento.Root
+                ?? throw new Exception("El archivo RolesPermisos.xml no tiene una raiz valida.");
+
+            AsegurarRolPermiso(raiz, 1, 9);
+            AsegurarRolPermiso(raiz, 1, 11);
+            AsegurarRolPermiso(raiz, 1, 12);
+            AsegurarRolPermiso(raiz, 1, 13);
+
+            documento.Save(rutaRolesPermisos);
+        }
+
+
+        private static void AsegurarRolPermiso(XElement raiz, int idRol, int idPermiso)
+        {
+            bool existeRelacion = raiz.Elements("RolPermiso").Any(elemento =>
+                int.Parse(elemento.Attribute("IdRol")?.Value ?? "0") == idRol
+                && int.Parse(elemento.Attribute("IdPermiso")?.Value ?? "0") == idPermiso
+            );
+
+            if (existeRelacion)
+            {
+                return;
+            }
+
+            raiz.Add(new XElement("RolPermiso", new XAttribute("IdRol", idRol), new XAttribute("IdPermiso", idPermiso)));
+        }
         private static void CrearUsuariosRolesIniciales(string carpetaBaseDeDatos)
         {
             string rutaUsuariosRoles = Path.Combine(carpetaBaseDeDatos, "UsuariosRoles.xml");
@@ -266,6 +380,24 @@ namespace Libreria.Data.BaseDeDatos
             );
         }
 
+        private static void CrearClientesIniciales(string carpetaBaseDeDatos)
+        {
+            string rutaClientes = Path.Combine(carpetaBaseDeDatos, "Clientes.xml");
+
+            if (File.Exists(rutaClientes))
+            {
+                return;
+            }
+
+            File.WriteAllText(
+                rutaClientes,
+                """
+                <?xml version="1.0" encoding="utf-8"?>
+                <Clientes>
+                </Clientes>
+                """
+            );
+        }
         private static void CrearMediosPagoIniciales(string carpetaBaseDeDatos)
         {
             string rutaMediosPago = Path.Combine(carpetaBaseDeDatos, "MediosPago.xml");
@@ -343,3 +475,6 @@ namespace Libreria.Data.BaseDeDatos
         }
     }
 }
+
+
+

@@ -1,4 +1,4 @@
-namespace Libreria.UI
+﻿namespace Libreria.UI
 {
     partial class FormConsultarVentas
     {
@@ -38,7 +38,6 @@ namespace Libreria.UI
             colUsuario = new DataGridViewTextBoxColumn();
             colFechaEmision = new DataGridViewTextBoxColumn();
             colTotal = new DataGridViewTextBoxColumn();
-            colMedioPago = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewTextBoxColumn();
             dgvFacturaItems = new DataGridView();
             colIdFacturaItem = new DataGridViewTextBoxColumn();
@@ -96,7 +95,7 @@ namespace Libreria.UI
             dgvFacturas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFacturas.BackgroundColor = SystemColors.Window;
             dgvFacturas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFacturas.Columns.AddRange(new DataGridViewColumn[] { colIdFactura, colIdCliente, colNombreCliente, colApellidoCliente, colDocumentoCliente, colUsuario, colFechaEmision, colTotal, colMedioPago, colEstado });
+            dgvFacturas.Columns.AddRange(new DataGridViewColumn[] { colIdFactura, colIdCliente, colNombreCliente, colApellidoCliente, colDocumentoCliente, colUsuario, colFechaEmision, colTotal, colEstado });
             dgvFacturas.Location = new Point(20, 72);
             dgvFacturas.MultiSelect = false;
             dgvFacturas.Name = "dgvFacturas";
@@ -159,13 +158,6 @@ namespace Libreria.UI
             colTotal.HeaderText = "Total";
             colTotal.Name = "colTotal";
             colTotal.ReadOnly = true;
-            // 
-            // colMedioPago
-            // 
-            colMedioPago.FillWeight = 90F;
-            colMedioPago.HeaderText = "Medio de pago";
-            colMedioPago.Name = "colMedioPago";
-            colMedioPago.ReadOnly = true;
             // 
             // colEstado
             // 
@@ -486,7 +478,6 @@ namespace Libreria.UI
         private DataGridViewTextBoxColumn colUsuario;
         private DataGridViewTextBoxColumn colFechaEmision;
         private DataGridViewTextBoxColumn colTotal;
-        private DataGridViewTextBoxColumn colMedioPago;
         private DataGridViewTextBoxColumn colEstado;
         private DataGridView dgvFacturaItems;
         private DataGridViewTextBoxColumn colIdFacturaItem;
@@ -521,3 +512,6 @@ namespace Libreria.UI
         private Button btnBuscar;
     }
 }
+
+
+

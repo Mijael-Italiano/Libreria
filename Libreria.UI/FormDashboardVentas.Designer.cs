@@ -1,3 +1,5 @@
+using System.Windows.Forms.DataVisualization.Charting;
+
 namespace Libreria.UI
 {
     partial class FormDashboardVentas
@@ -29,6 +31,8 @@ namespace Libreria.UI
             Label lblFacturasTitulo = new Label();
             Label lblFacturasValor = new Label();
             GroupBox grpVentasSemana = new GroupBox();
+            GroupBox grpClientes = new GroupBox();
+            panelClientesIngresos = new Panel();
             Panel pnlGraficoSemana = new Panel();
             GroupBox grpCategorias = new GroupBox();
             Panel pnlCategorias = new Panel();
@@ -38,7 +42,7 @@ namespace Libreria.UI
             panelCategoriasItems = new Panel();
             GroupBox grpMarcas = new GroupBox();
             lblTituloGraficoMarcas = new Label();
-            panelGraficoMarcas = new Panel();
+            chartMarcas = new Chart();
             SuspendLayout();
             // lblTitulo
             lblTitulo.AutoSize = true;
@@ -105,31 +109,31 @@ namespace Libreria.UI
             // grpVentasSemana
             grpVentasSemana.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             grpVentasSemana.Location = new Point(20, 214);
-            grpVentasSemana.Size = new Size(520, 430);
+            grpVentasSemana.Size = new Size(520, 270);
             grpVentasSemana.Text = "Facturacion por dia de la semana";
             pnlGraficoSemana.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlGraficoSemana.BackColor = SystemColors.Window;
             pnlGraficoSemana.BorderStyle = BorderStyle.FixedSingle;
             pnlGraficoSemana.Location = new Point(18, 28);
-            pnlGraficoSemana.Size = new Size(484, 382);
+            pnlGraficoSemana.Size = new Size(484, 222);
             Panel pnlBarraLun = new Panel();
             Label lblValorLun = new Label();
             Label lblDiaLun = new Label();
             pnlBarraLun.BackColor = Color.SteelBlue;
             pnlBarraLun.Cursor = Cursors.Hand;
-            pnlBarraLun.Location = new Point(24, 162);
-            pnlBarraLun.Size = new Size(42, 76);
+            pnlBarraLun.Location = new Point(24, 118);
+            pnlBarraLun.Size = new Size(42, 56);
             pnlBarraLun.Tag = 0;
             pnlBarraLun.Click += DiaSemana_Click;
             lblValorLun.Cursor = Cursors.Hand;
-            lblValorLun.Location = new Point(5, 139);
+            lblValorLun.Location = new Point(5, 95);
             lblValorLun.Size = new Size(78, 20);
             lblValorLun.Tag = 0;
             lblValorLun.Text = "$0";
             lblValorLun.TextAlign = ContentAlignment.MiddleCenter;
             lblValorLun.Click += DiaSemana_Click;
             lblDiaLun.Cursor = Cursors.Hand;
-            lblDiaLun.Location = new Point(5, 245);
+            lblDiaLun.Location = new Point(5, 184);
             lblDiaLun.Size = new Size(78, 24);
             lblDiaLun.Tag = 0;
             lblDiaLun.Text = "Lun";
@@ -143,19 +147,19 @@ namespace Libreria.UI
             Label lblDiaMar = new Label();
             pnlBarraMar.BackColor = Color.SteelBlue;
             pnlBarraMar.Cursor = Cursors.Hand;
-            pnlBarraMar.Location = new Point(91, 128);
-            pnlBarraMar.Size = new Size(42, 110);
+            pnlBarraMar.Location = new Point(91, 94);
+            pnlBarraMar.Size = new Size(42, 80);
             pnlBarraMar.Tag = 1;
             pnlBarraMar.Click += DiaSemana_Click;
             lblValorMar.Cursor = Cursors.Hand;
-            lblValorMar.Location = new Point(73, 105);
+            lblValorMar.Location = new Point(73, 71);
             lblValorMar.Size = new Size(78, 20);
             lblValorMar.Tag = 1;
             lblValorMar.Text = "$0";
             lblValorMar.TextAlign = ContentAlignment.MiddleCenter;
             lblValorMar.Click += DiaSemana_Click;
             lblDiaMar.Cursor = Cursors.Hand;
-            lblDiaMar.Location = new Point(73, 245);
+            lblDiaMar.Location = new Point(73, 184);
             lblDiaMar.Size = new Size(78, 24);
             lblDiaMar.Tag = 1;
             lblDiaMar.Text = "Mar";
@@ -169,19 +173,19 @@ namespace Libreria.UI
             Label lblDiaMie = new Label();
             pnlBarraMie.BackColor = Color.SteelBlue;
             pnlBarraMie.Cursor = Cursors.Hand;
-            pnlBarraMie.Location = new Point(159, 96);
-            pnlBarraMie.Size = new Size(42, 142);
+            pnlBarraMie.Location = new Point(159, 70);
+            pnlBarraMie.Size = new Size(42, 104);
             pnlBarraMie.Tag = 2;
             pnlBarraMie.Click += DiaSemana_Click;
             lblValorMie.Cursor = Cursors.Hand;
-            lblValorMie.Location = new Point(141, 73);
+            lblValorMie.Location = new Point(141, 47);
             lblValorMie.Size = new Size(78, 20);
             lblValorMie.Tag = 2;
             lblValorMie.Text = "$0";
             lblValorMie.TextAlign = ContentAlignment.MiddleCenter;
             lblValorMie.Click += DiaSemana_Click;
             lblDiaMie.Cursor = Cursors.Hand;
-            lblDiaMie.Location = new Point(141, 245);
+            lblDiaMie.Location = new Point(141, 184);
             lblDiaMie.Size = new Size(78, 24);
             lblDiaMie.Tag = 2;
             lblDiaMie.Text = "Mie";
@@ -195,19 +199,19 @@ namespace Libreria.UI
             Label lblDiaJue = new Label();
             pnlBarraJue.BackColor = Color.SteelBlue;
             pnlBarraJue.Cursor = Cursors.Hand;
-            pnlBarraJue.Location = new Point(226, 144);
-            pnlBarraJue.Size = new Size(42, 94);
+            pnlBarraJue.Location = new Point(226, 104);
+            pnlBarraJue.Size = new Size(42, 70);
             pnlBarraJue.Tag = 3;
             pnlBarraJue.Click += DiaSemana_Click;
             lblValorJue.Cursor = Cursors.Hand;
-            lblValorJue.Location = new Point(208, 121);
+            lblValorJue.Location = new Point(208, 81);
             lblValorJue.Size = new Size(78, 20);
             lblValorJue.Tag = 3;
             lblValorJue.Text = "$0";
             lblValorJue.TextAlign = ContentAlignment.MiddleCenter;
             lblValorJue.Click += DiaSemana_Click;
             lblDiaJue.Cursor = Cursors.Hand;
-            lblDiaJue.Location = new Point(208, 245);
+            lblDiaJue.Location = new Point(208, 184);
             lblDiaJue.Size = new Size(78, 24);
             lblDiaJue.Tag = 3;
             lblDiaJue.Text = "Jue";
@@ -221,19 +225,19 @@ namespace Libreria.UI
             Label lblDiaVie = new Label();
             pnlBarraVie.BackColor = Color.SteelBlue;
             pnlBarraVie.Cursor = Cursors.Hand;
-            pnlBarraVie.Location = new Point(294, 78);
-            pnlBarraVie.Size = new Size(42, 160);
+            pnlBarraVie.Location = new Point(294, 56);
+            pnlBarraVie.Size = new Size(42, 118);
             pnlBarraVie.Tag = 4;
             pnlBarraVie.Click += DiaSemana_Click;
             lblValorVie.Cursor = Cursors.Hand;
-            lblValorVie.Location = new Point(276, 55);
+            lblValorVie.Location = new Point(276, 33);
             lblValorVie.Size = new Size(78, 20);
             lblValorVie.Tag = 4;
             lblValorVie.Text = "$0";
             lblValorVie.TextAlign = ContentAlignment.MiddleCenter;
             lblValorVie.Click += DiaSemana_Click;
             lblDiaVie.Cursor = Cursors.Hand;
-            lblDiaVie.Location = new Point(276, 245);
+            lblDiaVie.Location = new Point(276, 184);
             lblDiaVie.Size = new Size(78, 24);
             lblDiaVie.Tag = 4;
             lblDiaVie.Text = "Vie";
@@ -247,19 +251,19 @@ namespace Libreria.UI
             Label lblDiaSab = new Label();
             pnlBarraSab.BackColor = Color.SteelBlue;
             pnlBarraSab.Cursor = Cursors.Hand;
-            pnlBarraSab.Location = new Point(361, 186);
-            pnlBarraSab.Size = new Size(42, 52);
+            pnlBarraSab.Location = new Point(361, 134);
+            pnlBarraSab.Size = new Size(42, 40);
             pnlBarraSab.Tag = 5;
             pnlBarraSab.Click += DiaSemana_Click;
             lblValorSab.Cursor = Cursors.Hand;
-            lblValorSab.Location = new Point(343, 163);
+            lblValorSab.Location = new Point(343, 111);
             lblValorSab.Size = new Size(78, 20);
             lblValorSab.Tag = 5;
             lblValorSab.Text = "$0";
             lblValorSab.TextAlign = ContentAlignment.MiddleCenter;
             lblValorSab.Click += DiaSemana_Click;
             lblDiaSab.Cursor = Cursors.Hand;
-            lblDiaSab.Location = new Point(343, 245);
+            lblDiaSab.Location = new Point(343, 184);
             lblDiaSab.Size = new Size(78, 24);
             lblDiaSab.Tag = 5;
             lblDiaSab.Text = "Sab";
@@ -273,19 +277,19 @@ namespace Libreria.UI
             Label lblDiaDom = new Label();
             pnlBarraDom.BackColor = Color.SteelBlue;
             pnlBarraDom.Cursor = Cursors.Hand;
-            pnlBarraDom.Location = new Point(429, 196);
-            pnlBarraDom.Size = new Size(42, 42);
+            pnlBarraDom.Location = new Point(429, 142);
+            pnlBarraDom.Size = new Size(42, 32);
             pnlBarraDom.Tag = 6;
             pnlBarraDom.Click += DiaSemana_Click;
             lblValorDom.Cursor = Cursors.Hand;
-            lblValorDom.Location = new Point(411, 173);
+            lblValorDom.Location = new Point(411, 119);
             lblValorDom.Size = new Size(78, 20);
             lblValorDom.Tag = 6;
             lblValorDom.Text = "$0";
             lblValorDom.TextAlign = ContentAlignment.MiddleCenter;
             lblValorDom.Click += DiaSemana_Click;
             lblDiaDom.Cursor = Cursors.Hand;
-            lblDiaDom.Location = new Point(411, 245);
+            lblDiaDom.Location = new Point(411, 184);
             lblDiaDom.Size = new Size(78, 24);
             lblDiaDom.Tag = 6;
             lblDiaDom.Text = "Dom";
@@ -295,6 +299,17 @@ namespace Libreria.UI
             pnlGraficoSemana.Controls.Add(lblValorDom);
             pnlGraficoSemana.Controls.Add(lblDiaDom);
             grpVentasSemana.Controls.Add(pnlGraficoSemana);
+            // grpClientes
+            grpClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            grpClientes.Location = new Point(20, 494);
+            grpClientes.Size = new Size(520, 180);
+            grpClientes.Text = "Top 5 clientes por ingresos";
+            panelClientesIngresos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelClientesIngresos.BackColor = SystemColors.Window;
+            panelClientesIngresos.BorderStyle = BorderStyle.FixedSingle;
+            panelClientesIngresos.Location = new Point(18, 28);
+            panelClientesIngresos.Size = new Size(484, 134);
+            grpClientes.Controls.Add(panelClientesIngresos);
             // grpCategorias
             grpCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpCategorias.Location = new Point(560, 120);
@@ -339,20 +354,18 @@ namespace Libreria.UI
             lblTituloGraficoMarcas.Location = new Point(12, 20);
             lblTituloGraficoMarcas.Size = new Size(496, 20);
             lblTituloGraficoMarcas.Text = "Seleccione una categoria";
-            panelGraficoMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelGraficoMarcas.BackColor = SystemColors.Window;
-            panelGraficoMarcas.BorderStyle = BorderStyle.FixedSingle;
-            panelGraficoMarcas.Location = new Point(18, 46);
-            panelGraficoMarcas.Size = new Size(484, 236);
-            panelGraficoMarcas.Paint += panelGraficoMarcas_Paint;
+            chartMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartMarcas.Location = new Point(18, 46);
+            chartMarcas.Size = new Size(484, 236);
             grpMarcas.Controls.Add(lblTituloGraficoMarcas);
-            grpMarcas.Controls.Add(panelGraficoMarcas);
+            grpMarcas.Controls.Add(chartMarcas);
             lblEstado.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblEstado.AutoEllipsis = true;
             lblEstado.ForeColor = SystemColors.GrayText;
             lblEstado.Location = new Point(20, 656);
             lblEstado.Size = new Size(1060, 22);
-            lblEstado.Text = "Vista semanal preparada. Falta conectar los datos de ventas.";
+            lblEstado.Text = "";
+            lblEstado.Visible = false;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 690);
@@ -360,6 +373,7 @@ namespace Libreria.UI
             Controls.Add(grpMarcas);
             Controls.Add(grpCategoriasItems);
             Controls.Add(grpCategorias);
+            Controls.Add(grpClientes);
             Controls.Add(grpVentasSemana);
             Controls.Add(grpResumen);
             Controls.Add(pnlSemana);
@@ -373,6 +387,11 @@ namespace Libreria.UI
         }
     }
 }
+
+
+
+
+
 
 
 

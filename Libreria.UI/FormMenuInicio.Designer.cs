@@ -1,4 +1,4 @@
-﻿namespace Libreria.UI
+namespace Libreria.UI
 {
     partial class FormMenuInicio
     {
@@ -38,6 +38,7 @@
             productosToolStripMenuItem = new ToolStripMenuItem();
             verInventarioToolStripMenuItem = new ToolStripMenuItem();
             administrarProductosToolStripMenuItem = new ToolStripMenuItem();
+            caracteristicasProductoToolStripMenuItem = new ToolStripMenuItem();
             administrarMarcasToolStripMenuItem = new ToolStripMenuItem();
             administrarCategoriasToolStripMenuItem = new ToolStripMenuItem();
             administrarColoresToolStripMenuItem = new ToolStripMenuItem();
@@ -53,6 +54,9 @@
             bitacoraToolStripMenuItem = new ToolStripMenuItem();
             analisisToolStripMenuItem = new ToolStripMenuItem();
             dashboardProductosToolStripMenuItem = new ToolStripMenuItem();
+            dashboardDiarioToolStripMenuItem = new ToolStripMenuItem();
+            dashboardSemanalToolStripMenuItem = new ToolStripMenuItem();
+            dashboardMensualToolStripMenuItem = new ToolStripMenuItem();
             dashboardClientesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -77,6 +81,7 @@
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Tag = "Inicio";
             cerrarSesionToolStripMenuItem.Text = "Cerrar sesión";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
             // 
@@ -84,6 +89,7 @@
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             salirToolStripMenuItem.Size = new Size(180, 22);
+            salirToolStripMenuItem.Tag = "Inicio";
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -98,17 +104,19 @@
             // 
             aBMUsuariosToolStripMenuItem.Name = "aBMUsuariosToolStripMenuItem";
             aBMUsuariosToolStripMenuItem.Size = new Size(180, 22);
+            aBMUsuariosToolStripMenuItem.Tag = "ABM usuarios";
             aBMUsuariosToolStripMenuItem.Text = "ABM usuarios";
             // 
             // permisosYRolesToolStripMenuItem
             // 
             permisosYRolesToolStripMenuItem.Name = "permisosYRolesToolStripMenuItem";
             permisosYRolesToolStripMenuItem.Size = new Size(180, 22);
+            permisosYRolesToolStripMenuItem.Tag = "Gestion de roles y permisos";
             permisosYRolesToolStripMenuItem.Text = "Permisos y roles";
             // 
             // productosToolStripMenuItem
             // 
-            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem, administrarMarcasToolStripMenuItem, administrarCategoriasToolStripMenuItem, administrarColoresToolStripMenuItem });
+            productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { verInventarioToolStripMenuItem, administrarProductosToolStripMenuItem, caracteristicasProductoToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             productosToolStripMenuItem.Size = new Size(73, 20);
             productosToolStripMenuItem.Text = "Productos";
@@ -117,30 +125,42 @@
             // 
             verInventarioToolStripMenuItem.Name = "verInventarioToolStripMenuItem";
             verInventarioToolStripMenuItem.Size = new Size(180, 22);
+            verInventarioToolStripMenuItem.Tag = "Ver inventario";
             verInventarioToolStripMenuItem.Text = "Ver inventario";
             // 
             // administrarProductosToolStripMenuItem
             // 
             administrarProductosToolStripMenuItem.Name = "administrarProductosToolStripMenuItem";
             administrarProductosToolStripMenuItem.Size = new Size(180, 22);
+            administrarProductosToolStripMenuItem.Tag = "Administrar productos";
             administrarProductosToolStripMenuItem.Text = "Administrar productos";
+            // 
+            // caracteristicasProductoToolStripMenuItem
+            // 
+            caracteristicasProductoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { administrarMarcasToolStripMenuItem, administrarCategoriasToolStripMenuItem, administrarColoresToolStripMenuItem });
+            caracteristicasProductoToolStripMenuItem.Name = "caracteristicasProductoToolStripMenuItem";
+            caracteristicasProductoToolStripMenuItem.Size = new Size(223, 22);
+            caracteristicasProductoToolStripMenuItem.Text = "Características de producto";
             // 
             // administrarMarcasToolStripMenuItem
             // 
             administrarMarcasToolStripMenuItem.Name = "administrarMarcasToolStripMenuItem";
             administrarMarcasToolStripMenuItem.Size = new Size(180, 22);
+            administrarMarcasToolStripMenuItem.Tag = "Administrar productos";
             administrarMarcasToolStripMenuItem.Text = "Administrar marcas";
             // 
             // administrarCategoriasToolStripMenuItem
             // 
             administrarCategoriasToolStripMenuItem.Name = "administrarCategoriasToolStripMenuItem";
             administrarCategoriasToolStripMenuItem.Size = new Size(180, 22);
+            administrarCategoriasToolStripMenuItem.Tag = "Administrar productos";
             administrarCategoriasToolStripMenuItem.Text = "Administrar categorías";
             // 
             // administrarColoresToolStripMenuItem
             // 
             administrarColoresToolStripMenuItem.Name = "administrarColoresToolStripMenuItem";
             administrarColoresToolStripMenuItem.Size = new Size(180, 22);
+            administrarColoresToolStripMenuItem.Tag = "Administrar productos";
             administrarColoresToolStripMenuItem.Text = "Administrar colores";
             // 
             // clientesToolStripMenuItem
@@ -154,6 +174,7 @@
             // 
             administrarClientesToolStripMenuItem.Name = "administrarClientesToolStripMenuItem";
             administrarClientesToolStripMenuItem.Size = new Size(180, 22);
+            administrarClientesToolStripMenuItem.Tag = "Administrar clientes";
             administrarClientesToolStripMenuItem.Text = "Administrar clientes";
             // 
             // ventasToolStripMenuItem
@@ -167,18 +188,21 @@
             // 
             registrarVentaToolStripMenuItem.Name = "registrarVentaToolStripMenuItem";
             registrarVentaToolStripMenuItem.Size = new Size(218, 22);
+            registrarVentaToolStripMenuItem.Tag = "Registrar ventas";
             registrarVentaToolStripMenuItem.Text = "Registrar venta";
             // 
             // consultarVentasToolStripMenuItem
             // 
             consultarVentasToolStripMenuItem.Name = "consultarVentasToolStripMenuItem";
             consultarVentasToolStripMenuItem.Size = new Size(218, 22);
+            consultarVentasToolStripMenuItem.Tag = "Consultar ventas";
             consultarVentasToolStripMenuItem.Text = "Consultar ventas";
             // 
             // administrarMetodosDePagoToolStripMenuItem
             // 
             administrarMetodosDePagoToolStripMenuItem.Name = "administrarMetodosDePagoToolStripMenuItem";
             administrarMetodosDePagoToolStripMenuItem.Size = new Size(218, 22);
+            administrarMetodosDePagoToolStripMenuItem.Tag = "Administrar metodos de pago";
             administrarMetodosDePagoToolStripMenuItem.Text = "Administrar métodos de pago";
             // 
             // gestionDeBaseDeDatosToolStripMenuItem
@@ -192,37 +216,64 @@
             // 
             backupToolStripMenuItem.Name = "backupToolStripMenuItem";
             backupToolStripMenuItem.Size = new Size(180, 22);
+            backupToolStripMenuItem.Tag = "Gestion de back up";
             backupToolStripMenuItem.Text = "Backup";
             // 
             // restoreToolStripMenuItem
             // 
             restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
             restoreToolStripMenuItem.Size = new Size(180, 22);
+            restoreToolStripMenuItem.Tag = "Gestion de restore";
             restoreToolStripMenuItem.Text = "Restore";
             // 
             // bitacoraToolStripMenuItem
             // 
             bitacoraToolStripMenuItem.Name = "bitacoraToolStripMenuItem";
             bitacoraToolStripMenuItem.Size = new Size(180, 22);
+            bitacoraToolStripMenuItem.Tag = "Ver bitacora";
             bitacoraToolStripMenuItem.Text = "Bitácora";
             // 
             // analisisToolStripMenuItem
             // 
-            analisisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardProductosToolStripMenuItem, dashboardClientesToolStripMenuItem });
+            analisisToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardProductosToolStripMenuItem });
             analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
             analisisToolStripMenuItem.Size = new Size(109, 20);
             analisisToolStripMenuItem.Text = "Análisis de ventas";
             // 
             // dashboardProductosToolStripMenuItem
-            // 
+            //
+            dashboardProductosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardDiarioToolStripMenuItem, dashboardSemanalToolStripMenuItem, dashboardMensualToolStripMenuItem });
             dashboardProductosToolStripMenuItem.Name = "dashboardProductosToolStripMenuItem";
             dashboardProductosToolStripMenuItem.Size = new Size(186, 22);
-            dashboardProductosToolStripMenuItem.Text = "Dashboard productos";
+            dashboardProductosToolStripMenuItem.Tag = "Analisis de ventas";
+            dashboardProductosToolStripMenuItem.Text = "Dashboard ventas";
+            //
+            // dashboardDiarioToolStripMenuItem
+            //
+            dashboardDiarioToolStripMenuItem.Name = "dashboardDiarioToolStripMenuItem";
+            dashboardDiarioToolStripMenuItem.Size = new Size(186, 22);
+            dashboardDiarioToolStripMenuItem.Tag = "Analisis de ventas";
+            dashboardDiarioToolStripMenuItem.Text = "Por día";
+            //
+            // dashboardSemanalToolStripMenuItem
+            //
+            dashboardSemanalToolStripMenuItem.Name = "dashboardSemanalToolStripMenuItem";
+            dashboardSemanalToolStripMenuItem.Size = new Size(186, 22);
+            dashboardSemanalToolStripMenuItem.Tag = "Analisis de ventas";
+            dashboardSemanalToolStripMenuItem.Text = "Por semana";
+            //
+            // dashboardMensualToolStripMenuItem
+            //
+            dashboardMensualToolStripMenuItem.Name = "dashboardMensualToolStripMenuItem";
+            dashboardMensualToolStripMenuItem.Size = new Size(186, 22);
+            dashboardMensualToolStripMenuItem.Tag = "Analisis de ventas";
+            dashboardMensualToolStripMenuItem.Text = "Por mes";
             // 
             // dashboardClientesToolStripMenuItem
             // 
             dashboardClientesToolStripMenuItem.Name = "dashboardClientesToolStripMenuItem";
             dashboardClientesToolStripMenuItem.Size = new Size(186, 22);
+            dashboardClientesToolStripMenuItem.Tag = "Analisis de ventas";
             dashboardClientesToolStripMenuItem.Text = "Dashboard clientes";
             // 
             // FormMenuInicio
@@ -253,6 +304,7 @@
         private ToolStripMenuItem productosToolStripMenuItem;
         private ToolStripMenuItem verInventarioToolStripMenuItem;
         private ToolStripMenuItem administrarProductosToolStripMenuItem;
+        private ToolStripMenuItem caracteristicasProductoToolStripMenuItem;
         private ToolStripMenuItem administrarMarcasToolStripMenuItem;
         private ToolStripMenuItem administrarCategoriasToolStripMenuItem;
         private ToolStripMenuItem administrarColoresToolStripMenuItem;
@@ -268,6 +320,11 @@
         private ToolStripMenuItem bitacoraToolStripMenuItem;
         private ToolStripMenuItem analisisToolStripMenuItem;
         private ToolStripMenuItem dashboardProductosToolStripMenuItem;
+        private ToolStripMenuItem dashboardDiarioToolStripMenuItem;
+        private ToolStripMenuItem dashboardSemanalToolStripMenuItem;
+        private ToolStripMenuItem dashboardMensualToolStripMenuItem;
         private ToolStripMenuItem dashboardClientesToolStripMenuItem;
     }
 }
+
+

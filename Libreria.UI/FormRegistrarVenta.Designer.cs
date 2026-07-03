@@ -40,6 +40,13 @@ namespace Libreria.UI
             colTotal = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewTextBoxColumn();
             grpBusqueda = new GroupBox();
+            lblBuscarIdFactura = new Label();
+            txtBuscarIdFactura = new TextBox();
+            chkBuscarPorPeriodo = new CheckBox();
+            lblBuscarFechaDesde = new Label();
+            dtpBuscarFechaDesde = new DateTimePicker();
+            lblBuscarFechaHasta = new Label();
+            dtpBuscarFechaHasta = new DateTimePicker();
             btnLimpiarBusqueda = new Button();
             btnBuscar = new Button();
             txtBuscarApellidoCliente = new TextBox();
@@ -171,7 +178,7 @@ namespace Libreria.UI
             // colFechaEmision
             // 
             colFechaEmision.FillWeight = 85F;
-            colFechaEmision.HeaderText = "Fecha emisión";
+            colFechaEmision.HeaderText = "Fecha emisi\u00f3n";
             colFechaEmision.Name = "colFechaEmision";
             colFechaEmision.ReadOnly = true;
             // 
@@ -191,6 +198,13 @@ namespace Libreria.UI
             // 
             // grpBusqueda
             // 
+            grpBusqueda.Controls.Add(dtpBuscarFechaHasta);
+            grpBusqueda.Controls.Add(lblBuscarFechaHasta);
+            grpBusqueda.Controls.Add(dtpBuscarFechaDesde);
+            grpBusqueda.Controls.Add(lblBuscarFechaDesde);
+            grpBusqueda.Controls.Add(chkBuscarPorPeriodo);
+            grpBusqueda.Controls.Add(txtBuscarIdFactura);
+            grpBusqueda.Controls.Add(lblBuscarIdFactura);
             grpBusqueda.Controls.Add(btnLimpiarBusqueda);
             grpBusqueda.Controls.Add(btnBuscar);
             grpBusqueda.Controls.Add(txtBuscarApellidoCliente);
@@ -203,32 +217,97 @@ namespace Libreria.UI
             grpBusqueda.Controls.Add(lblBuscarIdCliente);
             grpBusqueda.Location = new Point(841, 72);
             grpBusqueda.Name = "grpBusqueda";
-            grpBusqueda.Size = new Size(456, 143);
+            grpBusqueda.Size = new Size(456, 205);
             grpBusqueda.TabIndex = 2;
             grpBusqueda.TabStop = false;
             grpBusqueda.Text = "Buscar factura";
             // 
+            // lblBuscarIdFactura
+            // 
+            lblBuscarIdFactura.AutoSize = true;
+            lblBuscarIdFactura.Location = new Point(15, 31);
+            lblBuscarIdFactura.Name = "lblBuscarIdFactura";
+            lblBuscarIdFactura.Size = new Size(57, 15);
+            lblBuscarIdFactura.TabIndex = 0;
+            lblBuscarIdFactura.Text = "Id factura";
+            // 
+            // txtBuscarIdFactura
+            // 
+            txtBuscarIdFactura.Location = new Point(105, 28);
+            txtBuscarIdFactura.Name = "txtBuscarIdFactura";
+            txtBuscarIdFactura.Size = new Size(70, 23);
+            txtBuscarIdFactura.TabIndex = 1;
+            // 
+            // chkBuscarPorPeriodo
+            // 
+            chkBuscarPorPeriodo.AutoSize = true;
+            chkBuscarPorPeriodo.Location = new Point(240, 92);
+            chkBuscarPorPeriodo.Name = "chkBuscarPorPeriodo";
+            chkBuscarPorPeriodo.Size = new Size(113, 19);
+            chkBuscarPorPeriodo.TabIndex = 8;
+            chkBuscarPorPeriodo.Text = "Filtrar por fecha";
+            chkBuscarPorPeriodo.UseVisualStyleBackColor = true;
+            chkBuscarPorPeriodo.CheckedChanged += chkBuscarPorPeriodo_CheckedChanged;
+            // 
+            // lblBuscarFechaDesde
+            // 
+            lblBuscarFechaDesde.AutoSize = true;
+            lblBuscarFechaDesde.Location = new Point(15, 129);
+            lblBuscarFechaDesde.Name = "lblBuscarFechaDesde";
+            lblBuscarFechaDesde.Size = new Size(39, 15);
+            lblBuscarFechaDesde.TabIndex = 9;
+            lblBuscarFechaDesde.Text = "Desde";
+            // 
+            // dtpBuscarFechaDesde
+            // 
+            dtpBuscarFechaDesde.Enabled = false;
+            dtpBuscarFechaDesde.Format = DateTimePickerFormat.Short;
+            dtpBuscarFechaDesde.Location = new Point(64, 125);
+            dtpBuscarFechaDesde.Name = "dtpBuscarFechaDesde";
+            dtpBuscarFechaDesde.Size = new Size(111, 23);
+            dtpBuscarFechaDesde.TabIndex = 10;
+            // 
+            // lblBuscarFechaHasta
+            // 
+            lblBuscarFechaHasta.AutoSize = true;
+            lblBuscarFechaHasta.Location = new Point(190, 129);
+            lblBuscarFechaHasta.Name = "lblBuscarFechaHasta";
+            lblBuscarFechaHasta.Size = new Size(37, 15);
+            lblBuscarFechaHasta.TabIndex = 11;
+            lblBuscarFechaHasta.Text = "Hasta";
+            // 
+            // dtpBuscarFechaHasta
+            // 
+            dtpBuscarFechaHasta.Enabled = false;
+            dtpBuscarFechaHasta.Format = DateTimePickerFormat.Short;
+            dtpBuscarFechaHasta.Location = new Point(240, 125);
+            dtpBuscarFechaHasta.Name = "dtpBuscarFechaHasta";
+            dtpBuscarFechaHasta.Size = new Size(111, 23);
+            dtpBuscarFechaHasta.TabIndex = 12;
+            // 
             // btnLimpiarBusqueda
             // 
-            btnLimpiarBusqueda.Location = new Point(149, 96);
+            btnLimpiarBusqueda.Location = new Point(149, 162);
             btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             btnLimpiarBusqueda.Size = new Size(118, 27);
             btnLimpiarBusqueda.TabIndex = 9;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(15, 96);
+            btnBuscar.Location = new Point(15, 162);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(118, 27);
             btnBuscar.TabIndex = 8;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarApellidoCliente
             // 
-            txtBuscarApellidoCliente.Location = new Point(308, 61);
+            txtBuscarApellidoCliente.Location = new Point(308, 59);
             txtBuscarApellidoCliente.Name = "txtBuscarApellidoCliente";
             txtBuscarApellidoCliente.Size = new Size(110, 23);
             txtBuscarApellidoCliente.TabIndex = 7;
@@ -236,7 +315,7 @@ namespace Libreria.UI
             // lblBuscarApellidoCliente
             // 
             lblBuscarApellidoCliente.AutoSize = true;
-            lblBuscarApellidoCliente.Location = new Point(240, 64);
+            lblBuscarApellidoCliente.Location = new Point(240, 62);
             lblBuscarApellidoCliente.Name = "lblBuscarApellidoCliente";
             lblBuscarApellidoCliente.Size = new Size(51, 15);
             lblBuscarApellidoCliente.TabIndex = 6;
@@ -244,7 +323,7 @@ namespace Libreria.UI
             // 
             // txtBuscarNombreCliente
             // 
-            txtBuscarNombreCliente.Location = new Point(308, 31);
+            txtBuscarNombreCliente.Location = new Point(308, 28);
             txtBuscarNombreCliente.Name = "txtBuscarNombreCliente";
             txtBuscarNombreCliente.Size = new Size(110, 23);
             txtBuscarNombreCliente.TabIndex = 5;
@@ -252,7 +331,7 @@ namespace Libreria.UI
             // lblBuscarNombreCliente
             // 
             lblBuscarNombreCliente.AutoSize = true;
-            lblBuscarNombreCliente.Location = new Point(240, 34);
+            lblBuscarNombreCliente.Location = new Point(240, 31);
             lblBuscarNombreCliente.Name = "lblBuscarNombreCliente";
             lblBuscarNombreCliente.Size = new Size(51, 15);
             lblBuscarNombreCliente.TabIndex = 4;
@@ -260,7 +339,7 @@ namespace Libreria.UI
             // 
             // txtBuscarDocumentoCliente
             // 
-            txtBuscarDocumentoCliente.Location = new Point(105, 58);
+            txtBuscarDocumentoCliente.Location = new Point(105, 89);
             txtBuscarDocumentoCliente.Name = "txtBuscarDocumentoCliente";
             txtBuscarDocumentoCliente.Size = new Size(110, 23);
             txtBuscarDocumentoCliente.TabIndex = 3;
@@ -268,7 +347,7 @@ namespace Libreria.UI
             // lblBuscarDocumentoCliente
             // 
             lblBuscarDocumentoCliente.AutoSize = true;
-            lblBuscarDocumentoCliente.Location = new Point(15, 61);
+            lblBuscarDocumentoCliente.Location = new Point(15, 92);
             lblBuscarDocumentoCliente.Name = "lblBuscarDocumentoCliente";
             lblBuscarDocumentoCliente.Size = new Size(70, 15);
             lblBuscarDocumentoCliente.TabIndex = 2;
@@ -276,7 +355,7 @@ namespace Libreria.UI
             // 
             // txtBuscarIdCliente
             // 
-            txtBuscarIdCliente.Location = new Point(105, 28);
+            txtBuscarIdCliente.Location = new Point(105, 59);
             txtBuscarIdCliente.Name = "txtBuscarIdCliente";
             txtBuscarIdCliente.Size = new Size(70, 23);
             txtBuscarIdCliente.TabIndex = 1;
@@ -284,7 +363,7 @@ namespace Libreria.UI
             // lblBuscarIdCliente
             // 
             lblBuscarIdCliente.AutoSize = true;
-            lblBuscarIdCliente.Location = new Point(15, 31);
+            lblBuscarIdCliente.Location = new Point(15, 62);
             lblBuscarIdCliente.Name = "lblBuscarIdCliente";
             lblBuscarIdCliente.Size = new Size(55, 15);
             lblBuscarIdCliente.TabIndex = 0;
@@ -303,7 +382,7 @@ namespace Libreria.UI
             grpAltaFactura.Controls.Add(lblAltaNombreCliente);
             grpAltaFactura.Controls.Add(txtAltaIdCliente);
             grpAltaFactura.Controls.Add(lblAltaIdCliente);
-            grpAltaFactura.Location = new Point(841, 235);
+            grpAltaFactura.Location = new Point(841, 295);
             grpAltaFactura.Name = "grpAltaFactura";
             grpAltaFactura.Size = new Size(456, 130);
             grpAltaFactura.TabIndex = 3;
@@ -318,6 +397,7 @@ namespace Libreria.UI
             btnAltaSeleccionarCliente.TabIndex = 4;
             btnAltaSeleccionarCliente.Text = "...";
             btnAltaSeleccionarCliente.UseVisualStyleBackColor = true;
+            btnAltaSeleccionarCliente.Click += btnAltaSeleccionarCliente_Click;
             // 
             // btnCrearFactura
             // 
@@ -327,6 +407,7 @@ namespace Libreria.UI
             btnCrearFactura.TabIndex = 13;
             btnCrearFactura.Text = "Iniciar venta";
             btnCrearFactura.UseVisualStyleBackColor = true;
+            btnCrearFactura.Click += btnCrearFactura_Click;
             // 
             // txtAltaDocumentoCliente
             // 
@@ -427,7 +508,7 @@ namespace Libreria.UI
             grpDatosFactura.Controls.Add(lblIdCliente);
             grpDatosFactura.Controls.Add(txtIdFactura);
             grpDatosFactura.Controls.Add(lblIdFactura);
-            grpDatosFactura.Location = new Point(841, 388);
+            grpDatosFactura.Location = new Point(841, 440);
             grpDatosFactura.Name = "grpDatosFactura";
             grpDatosFactura.Size = new Size(454, 245);
             grpDatosFactura.TabIndex = 4;
@@ -442,6 +523,7 @@ namespace Libreria.UI
             btnSeleccionadoSeleccionarCliente.TabIndex = 4;
             btnSeleccionadoSeleccionarCliente.Text = "...";
             btnSeleccionadoSeleccionarCliente.UseVisualStyleBackColor = true;
+            btnSeleccionadoSeleccionarCliente.Click += btnSeleccionadoSeleccionarCliente_Click;
             // 
             // pnlAcciones
             // 
@@ -462,6 +544,7 @@ namespace Libreria.UI
             btnLimpiar.TabIndex = 2;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnAnular
             // 
@@ -471,6 +554,7 @@ namespace Libreria.UI
             btnAnular.TabIndex = 1;
             btnAnular.Text = "Anular";
             btnAnular.UseVisualStyleBackColor = true;
+            btnAnular.Click += btnAnular_Click;
             // 
             // btnModificar
             // 
@@ -480,6 +564,7 @@ namespace Libreria.UI
             btnModificar.TabIndex = 0;
             btnModificar.Text = "Editar venta";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtTotal
             // 
@@ -721,14 +806,14 @@ namespace Libreria.UI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1307, 681);
+            ClientSize = new Size(1307, 735);
             Controls.Add(dgvFacturaItems);
             Controls.Add(grpDatosFactura);
             Controls.Add(grpAltaFactura);
             Controls.Add(grpBusqueda);
             Controls.Add(dgvFacturas);
             Controls.Add(lblTitulo);
-            MinimumSize = new Size(1256, 720);
+            MinimumSize = new Size(1256, 760);
             Name = "FormRegistrarVenta";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar venta";
@@ -759,6 +844,13 @@ namespace Libreria.UI
         private DataGridViewTextBoxColumn colTotal;
         private DataGridViewTextBoxColumn colEstado;
         private GroupBox grpBusqueda;
+        private Label lblBuscarIdFactura;
+        private TextBox txtBuscarIdFactura;
+        private CheckBox chkBuscarPorPeriodo;
+        private Label lblBuscarFechaDesde;
+        private DateTimePicker dtpBuscarFechaDesde;
+        private Label lblBuscarFechaHasta;
+        private DateTimePicker dtpBuscarFechaHasta;
         private Button btnLimpiarBusqueda;
         private Button btnBuscar;
         private TextBox txtBuscarApellidoCliente;
@@ -814,3 +906,5 @@ namespace Libreria.UI
         private DataGridViewTextBoxColumn colItemEstado;
     }
 }
+
+

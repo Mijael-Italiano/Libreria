@@ -59,7 +59,7 @@ namespace Libreria.Business
                     .FirstOrDefault(usuarioExistente =>
                         usuarioExistente.NombreUsuario.Equals(
                             nombreUsuario.Trim(),
-                            StringComparison.OrdinalIgnoreCase
+                            StringComparison.Ordinal
                         )
                     ) ?? throw new Exception("Las credenciales no son correctas.");
 

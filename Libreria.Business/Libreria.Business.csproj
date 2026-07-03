@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Libreria.AuditoriaData\Libreria.AuditoriaData.csproj" />
     <ProjectReference Include="..\Libreria.Data\Libreria.Data.csproj" />
     <ProjectReference Include="..\Libreria.Entity\Libreria.Entity.csproj" />
     <ProjectReference Include="..\Libreria.Seguridad\Libreria.Seguridad.csproj" />

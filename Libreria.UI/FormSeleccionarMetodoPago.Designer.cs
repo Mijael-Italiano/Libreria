@@ -89,7 +89,7 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(297, 30);
+            lblTitulo.Size = new Size(308, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Seleccionar metodo de pago";
             // 
@@ -110,6 +110,7 @@ namespace Libreria.UI
             dgvMediosPago.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMediosPago.Size = new Size(450, 205);
             dgvMediosPago.TabIndex = 1;
+            dgvMediosPago.SelectionChanged += dgvMediosPago_SelectionChanged;
             // 
             // colIdMedioPago
             // 
@@ -148,6 +149,7 @@ namespace Libreria.UI
             dgvPagosVenta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPagosVenta.Size = new Size(450, 288);
             dgvPagosVenta.TabIndex = 2;
+            dgvPagosVenta.SelectionChanged += dgvPagosVenta_SelectionChanged;
             // 
             // colPagoIdMedioPago
             // 
@@ -192,6 +194,7 @@ namespace Libreria.UI
             btnLimpiarBusqueda.TabIndex = 3;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -202,6 +205,7 @@ namespace Libreria.UI
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarNombre
             // 
@@ -251,7 +255,7 @@ namespace Libreria.UI
             lblSaldoPendiente.AutoSize = true;
             lblSaldoPendiente.Location = new Point(18, 93);
             lblSaldoPendiente.Name = "lblSaldoPendiente";
-            lblSaldoPendiente.Size = new Size(94, 15);
+            lblSaldoPendiente.Size = new Size(92, 15);
             lblSaldoPendiente.TabIndex = 4;
             lblSaldoPendiente.Text = "Saldo pendiente";
             // 
@@ -270,7 +274,7 @@ namespace Libreria.UI
             lblTotalAsignado.AutoSize = true;
             lblTotalAsignado.Location = new Point(18, 61);
             lblTotalAsignado.Name = "lblTotalAsignado";
-            lblTotalAsignado.Size = new Size(87, 15);
+            lblTotalAsignado.Size = new Size(83, 15);
             lblTotalAsignado.TabIndex = 2;
             lblTotalAsignado.Text = "Total asignado";
             // 
@@ -289,7 +293,7 @@ namespace Libreria.UI
             lblTotalPagar.AutoSize = true;
             lblTotalPagar.Location = new Point(18, 30);
             lblTotalPagar.Name = "lblTotalPagar";
-            lblTotalPagar.Size = new Size(75, 15);
+            lblTotalPagar.Size = new Size(74, 15);
             lblTotalPagar.TabIndex = 0;
             lblTotalPagar.Text = "Total a pagar";
             // 
@@ -317,7 +321,7 @@ namespace Libreria.UI
             chkAgregarRestante.AutoSize = true;
             chkAgregarRestante.Location = new Point(140, 113);
             chkAgregarRestante.Name = "chkAgregarRestante";
-            chkAgregarRestante.Size = new Size(112, 19);
+            chkAgregarRestante.Size = new Size(113, 19);
             chkAgregarRestante.TabIndex = 6;
             chkAgregarRestante.Text = "Agregar restante";
             chkAgregarRestante.UseVisualStyleBackColor = true;
@@ -330,6 +334,7 @@ namespace Libreria.UI
             btnLimpiarPago.TabIndex = 8;
             btnLimpiarPago.Text = "Limpiar";
             btnLimpiarPago.UseVisualStyleBackColor = true;
+            btnLimpiarPago.Click += btnLimpiarPago_Click;
             // 
             // btnAgregarPago
             // 
@@ -339,6 +344,7 @@ namespace Libreria.UI
             btnAgregarPago.TabIndex = 7;
             btnAgregarPago.Text = "Agregar pago";
             btnAgregarPago.UseVisualStyleBackColor = true;
+            btnAgregarPago.Click += btnAgregarPago_Click;
             // 
             // txtMonto
             // 
@@ -390,7 +396,7 @@ namespace Libreria.UI
             lblIdMedioPago.AutoSize = true;
             lblIdMedioPago.Location = new Point(18, 29);
             lblIdMedioPago.Name = "lblIdMedioPago";
-            lblIdMedioPago.Size = new Size(18, 15);
+            lblIdMedioPago.Size = new Size(17, 15);
             lblIdMedioPago.TabIndex = 0;
             lblIdMedioPago.Text = "Id";
             // 
@@ -430,6 +436,7 @@ namespace Libreria.UI
             btnLimpiarSeleccion.TabIndex = 2;
             btnLimpiarSeleccion.Text = "Limpiar";
             btnLimpiarSeleccion.UseVisualStyleBackColor = true;
+            btnLimpiarSeleccion.Click += btnLimpiarSeleccion_Click;
             // 
             // btnEliminarPago
             // 
@@ -439,6 +446,7 @@ namespace Libreria.UI
             btnEliminarPago.TabIndex = 1;
             btnEliminarPago.Text = "Eliminar pago";
             btnEliminarPago.UseVisualStyleBackColor = true;
+            btnEliminarPago.Click += btnEliminarPago_Click;
             // 
             // btnModificarMonto
             // 
@@ -448,6 +456,7 @@ namespace Libreria.UI
             btnModificarMonto.TabIndex = 0;
             btnModificarMonto.Text = "Modificar monto";
             btnModificarMonto.UseVisualStyleBackColor = true;
+            btnModificarMonto.Click += btnModificarMonto_Click;
             // 
             // txtMontoSeleccionado
             // 
@@ -499,7 +508,7 @@ namespace Libreria.UI
             lblIdMedioPagoSeleccionado.AutoSize = true;
             lblIdMedioPagoSeleccionado.Location = new Point(18, 30);
             lblIdMedioPagoSeleccionado.Name = "lblIdMedioPagoSeleccionado";
-            lblIdMedioPagoSeleccionado.Size = new Size(18, 15);
+            lblIdMedioPagoSeleccionado.Size = new Size(17, 15);
             lblIdMedioPagoSeleccionado.TabIndex = 0;
             lblIdMedioPagoSeleccionado.Text = "Id";
             // 
@@ -521,6 +530,7 @@ namespace Libreria.UI
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnConfirmarPago
             // 
@@ -530,6 +540,7 @@ namespace Libreria.UI
             btnConfirmarPago.TabIndex = 0;
             btnConfirmarPago.Text = "Confirmar pago";
             btnConfirmarPago.UseVisualStyleBackColor = true;
+            btnConfirmarPago.Click += btnConfirmarPago_Click;
             // 
             // FormSeleccionarMetodoPago
             // 
@@ -613,3 +624,5 @@ namespace Libreria.UI
         private Button btnConfirmarPago;
     }
 }
+
+

@@ -114,7 +114,7 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(177, 30);
+            lblTitulo.Size = new Size(180, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "ABM de clientes";
             // 
@@ -135,6 +135,7 @@ namespace Libreria.UI
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(1280, 283);
             dgvClientes.TabIndex = 1;
+            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
             // 
             // colId
             // 
@@ -280,6 +281,7 @@ namespace Libreria.UI
             btnLimpiar.TabIndex = 2;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEliminar
             // 
@@ -289,6 +291,7 @@ namespace Libreria.UI
             btnEliminar.TabIndex = 1;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -298,6 +301,7 @@ namespace Libreria.UI
             btnModificar.TabIndex = 0;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtFechaAlta
             // 
@@ -518,6 +522,7 @@ namespace Libreria.UI
             btnAgregarCliente.TabIndex = 16;
             btnAgregarCliente.Text = "Agregar cliente";
             btnAgregarCliente.UseVisualStyleBackColor = true;
+            btnAgregarCliente.Click += btnAgregar_Click;
             // 
             // dtpAltaFechaNacimiento
             // 
@@ -724,6 +729,7 @@ namespace Libreria.UI
             btnLimpiarBusqueda.TabIndex = 7;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -733,6 +739,7 @@ namespace Libreria.UI
             btnBuscar.TabIndex = 6;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // grpClientesNoActivos
             // 
@@ -751,10 +758,11 @@ namespace Libreria.UI
             chkVerClientesNoActivos.AutoSize = true;
             chkVerClientesNoActivos.Location = new Point(18, 32);
             chkVerClientesNoActivos.Name = "chkVerClientesNoActivos";
-            chkVerClientesNoActivos.Size = new Size(143, 19);
+            chkVerClientesNoActivos.Size = new Size(142, 19);
             chkVerClientesNoActivos.TabIndex = 0;
             chkVerClientesNoActivos.Text = "Ver clientes no activos";
             chkVerClientesNoActivos.UseVisualStyleBackColor = true;
+            chkVerClientesNoActivos.CheckedChanged += chkVerClientesNoActivos_CheckedChanged;
             // 
             // btnReactivarCliente
             // 
@@ -764,6 +772,7 @@ namespace Libreria.UI
             btnReactivarCliente.TabIndex = 1;
             btnReactivarCliente.Text = "Reactivar cliente";
             btnReactivarCliente.UseVisualStyleBackColor = true;
+            btnReactivarCliente.Click += btnReactivarCliente_Click;
             // 
             // FormClientes
             // 

@@ -90,6 +90,7 @@ namespace Libreria.UI
             dgvMediosPago.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMediosPago.Size = new Size(560, 235);
             dgvMediosPago.TabIndex = 1;
+            dgvMediosPago.SelectionChanged += dgvMediosPago_SelectionChanged;
             // 
             // colId
             // 
@@ -133,6 +134,7 @@ namespace Libreria.UI
             btnLimpiarBusqueda.TabIndex = 3;
             btnLimpiarBusqueda.Text = "Limpiar";
             btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            btnLimpiarBusqueda.Click += btnLimpiarBusqueda_Click;
             // 
             // btnBuscar
             // 
@@ -142,6 +144,7 @@ namespace Libreria.UI
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarNombre
             // 
@@ -180,6 +183,7 @@ namespace Libreria.UI
             btnAgregarMedioPago.TabIndex = 4;
             btnAgregarMedioPago.Text = "Agregar método";
             btnAgregarMedioPago.UseVisualStyleBackColor = true;
+            btnAgregarMedioPago.Click += btnAgregar_Click;
             // 
             // txtAltaNombre
             // 
@@ -247,6 +251,7 @@ namespace Libreria.UI
             btnLimpiar.TabIndex = 2;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEliminar
             // 
@@ -256,6 +261,7 @@ namespace Libreria.UI
             btnEliminar.TabIndex = 1;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -265,6 +271,7 @@ namespace Libreria.UI
             btnModificar.TabIndex = 0;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // txtNombre
             // 
@@ -322,6 +329,7 @@ namespace Libreria.UI
             chkVerMediosPagoNoActivos.TabIndex = 0;
             chkVerMediosPagoNoActivos.Text = "Ver métodos de pago no activos";
             chkVerMediosPagoNoActivos.UseVisualStyleBackColor = true;
+            chkVerMediosPagoNoActivos.CheckedChanged += chkVerMediosPagoNoActivos_CheckedChanged;
             // 
             // btnReactivarMedioPago
             // 
@@ -331,6 +339,7 @@ namespace Libreria.UI
             btnReactivarMedioPago.TabIndex = 1;
             btnReactivarMedioPago.Text = "Reactivar";
             btnReactivarMedioPago.UseVisualStyleBackColor = true;
+            btnReactivarMedioPago.Click += btnReactivarMedioPago_Click;
             // 
             // FormMetodosDePago
             // 

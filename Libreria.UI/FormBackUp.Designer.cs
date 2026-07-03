@@ -2,15 +2,8 @@
 {
     partial class FormBackUp
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,18 +15,88 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormBackUp";
+            lblTitulo = new Label();
+            lblUsuarioActual = new Label();
+            dgvBackUps = new DataGridView();
+            btnCrearBackUp = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvBackUps).BeginInit();
+            SuspendLayout();
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTitulo.Location = new Point(24, 22);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(196, 25);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Back up de sistema";
+            // 
+            // lblUsuarioActual
+            // 
+            lblUsuarioActual.AutoSize = true;
+            lblUsuarioActual.Location = new Point(26, 62);
+            lblUsuarioActual.Name = "lblUsuarioActual";
+            lblUsuarioActual.Size = new Size(127, 15);
+            lblUsuarioActual.TabIndex = 1;
+            lblUsuarioActual.Text = "Usuario actual: -";
+            // 
+            // dgvBackUps
+            // 
+            dgvBackUps.AllowUserToAddRows = false;
+            dgvBackUps.AllowUserToDeleteRows = false;
+            dgvBackUps.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvBackUps.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBackUps.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBackUps.Location = new Point(26, 96);
+            dgvBackUps.MultiSelect = false;
+            dgvBackUps.Name = "dgvBackUps";
+            dgvBackUps.ReadOnly = true;
+            dgvBackUps.RowHeadersVisible = false;
+            dgvBackUps.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvBackUps.Size = new Size(746, 282);
+            dgvBackUps.TabIndex = 2;
+            // 
+            // btnCrearBackUp
+            // 
+            btnCrearBackUp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCrearBackUp.Location = new Point(629, 396);
+            btnCrearBackUp.Name = "btnCrearBackUp";
+            btnCrearBackUp.Size = new Size(143, 32);
+            btnCrearBackUp.TabIndex = 3;
+            btnCrearBackUp.Text = "Crear back up";
+            btnCrearBackUp.UseVisualStyleBackColor = true;
+            btnCrearBackUp.Click += btnCrearBackUp_Click;
+            // 
+            // FormBackUp
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnCrearBackUp);
+            Controls.Add(dgvBackUps);
+            Controls.Add(lblUsuarioActual);
+            Controls.Add(lblTitulo);
+            MinimumSize = new Size(640, 420);
+            Name = "FormBackUp";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Back up";
+            Load += FormBackUp_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvBackUps).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblTitulo;
+        private Label lblUsuarioActual;
+        private DataGridView dgvBackUps;
+        private Button btnCrearBackUp;
     }
 }
+
+
+

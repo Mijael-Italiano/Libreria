@@ -5,7 +5,9 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Libreria.Business;
+using Libreria.Entity;
 
 namespace Libreria.UI
 {
@@ -13,39 +15,77 @@ namespace Libreria.UI
     {
         private readonly DashboardVentasBusiness dashboardVentasBusiness;
         private DateTime fechaInicioSemana;
+        private DateTime fechaMesAnalisis;
         private DashboardVentasResumen? resumenSemana;
-        private Panel? panelGraficoMarcas;
+        private Chart chartMarcas = null!;
         private Panel? panelCategoriasItems;
+        private Panel? panelClientesIngresos;
         private Label? lblTituloGraficoMarcas;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
         private CriterioTortaMarcas criterioTortaSeleccionado;
 
-        public FormDashboardVentas()
+        public FormDashboardVentas() : this(DateTime.Today, new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1))
+        {
+        }
+
+        public FormDashboardVentas(DateTime fechaReferencia, DateTime fechaMesAnalisis)
         {
             InitializeComponent();
             this.dashboardVentasBusiness = new DashboardVentasBusiness();
             this.marcasCategoriaSeleccionada = new List<DashboardVentasMarcaCategoria>();
             this.criterioTortaSeleccionado = CriterioTortaMarcas.Ingresos;
             this.ConfigurarLayoutGraficos();
-            fechaInicioSemana = ObtenerInicioSemana(DateTime.Today);
-            MostrarSemana();
+            this.fechaInicioSemana = ObtenerInicioSemana(fechaReferencia);
+            this.fechaMesAnalisis = new DateTime(fechaMesAnalisis.Year, fechaMesAnalisis.Month, 1);
+            this.MostrarSemana();
         }
 
         private void btnSemanaAnterior_Click(object? sender, EventArgs e)
         {
+            DateTime finSemana = fechaInicioSemana.AddDays(6);
+            bool spansDosM = fechaInicioSemana.Month != finSemana.Month || fechaInicioSemana.Year != finSemana.Year;
+
+            if (spansDosM)
+            {
+                DateTime mesPosterior = new DateTime(finSemana.Year, finSemana.Month, 1);
+                if (fechaMesAnalisis == mesPosterior)
+                {
+                    fechaMesAnalisis = new DateTime(fechaInicioSemana.Year, fechaInicioSemana.Month, 1);
+                    MostrarSemana();
+                    return;
+                }
+            }
+
             fechaInicioSemana = fechaInicioSemana.AddDays(-7);
+            fechaMesAnalisis = ObtenerMesPredominanteSemana(fechaInicioSemana);
             MostrarSemana();
         }
 
         private void btnSemanaSiguiente_Click(object? sender, EventArgs e)
         {
+            DateTime finSemana = fechaInicioSemana.AddDays(6);
+            bool spansDosM = fechaInicioSemana.Month != finSemana.Month || fechaInicioSemana.Year != finSemana.Year;
+
+            if (spansDosM)
+            {
+                DateTime mesAnterior = new DateTime(fechaInicioSemana.Year, fechaInicioSemana.Month, 1);
+                if (fechaMesAnalisis == mesAnterior)
+                {
+                    fechaMesAnalisis = new DateTime(finSemana.Year, finSemana.Month, 1);
+                    MostrarSemana();
+                    return;
+                }
+            }
+
             fechaInicioSemana = fechaInicioSemana.AddDays(7);
+            fechaMesAnalisis = ObtenerMesPredominanteSemana(fechaInicioSemana);
             MostrarSemana();
         }
 
         private void btnSemanaActual_Click(object? sender, EventArgs e)
         {
             fechaInicioSemana = ObtenerInicioSemana(DateTime.Today);
+            fechaMesAnalisis = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             MostrarSemana();
         }
 
@@ -53,7 +93,11 @@ namespace Libreria.UI
         {
             if (sender is Control control && control.Tag is int dia)
             {
-                new FormDashboardVentasDiarias(fechaInicioSemana.AddDays(dia)).Show();
+                DateTime fecha = fechaInicioSemana.AddDays(dia);
+                if (this.PerteneceMesAnalisis(fecha))
+                {
+                    new FormDashboardVentasDiarias(fecha).Show();
+                }
             }
         }
 
@@ -63,20 +107,36 @@ namespace Libreria.UI
             return fecha.Date.AddDays(-diferencia);
         }
 
+        private static DateTime ObtenerMesPredominanteSemana(DateTime inicioSemana)
+        {
+            return new DateTime(inicioSemana.Year, inicioSemana.Month, 1);
+        }
+
+        private bool PerteneceMesAnalisis(DateTime fecha)
+        {
+            return fecha.Year == this.fechaMesAnalisis.Year && fecha.Month == this.fechaMesAnalisis.Month;
+        }
+
         private void MostrarSemana()
         {
             try
             {
                 DateTime fechaFinSemana = fechaInicioSemana.AddDays(6);
-                this.resumenSemana = this.dashboardVentasBusiness.ObtenerResumen(fechaInicioSemana, fechaFinSemana);
+                DateTime inicioMes = this.fechaMesAnalisis;
+                DateTime finMes = inicioMes.AddMonths(1).AddDays(-1);
+                DateTime fechaDesdeAnalisis = fechaInicioSemana > inicioMes ? fechaInicioSemana : inicioMes;
+                DateTime fechaHastaAnalisis = fechaFinSemana < finMes ? fechaFinSemana : finMes;
+                DashboardVentasResumen resumenVisualSemana = this.dashboardVentasBusiness.ObtenerResumen(fechaInicioSemana, fechaFinSemana);
+                this.resumenSemana = this.dashboardVentasBusiness.ObtenerResumen(fechaDesdeAnalisis, fechaHastaAnalisis);
 
-                lblRangoSemana.Text = $"Semana del {fechaInicioSemana:dd/MM/yyyy} al {fechaFinSemana:dd/MM/yyyy}";
+                lblRangoSemana.Text = $"Semana del {fechaInicioSemana:dd/MM/yyyy} al {fechaFinSemana:dd/MM/yyyy} - Analiza {fechaDesdeAnalisis:dd/MM/yyyy} al {fechaHastaAnalisis:dd/MM/yyyy}";
                 this.MostrarResumen(this.resumenSemana);
-                this.MostrarBarrasSemana(this.resumenSemana.VentasPorDia);
+                this.MostrarBarrasSemana(resumenVisualSemana.VentasPorDia);
+                this.MostrarClientesPorIngresos(this.resumenSemana.ClientesPorIngresos);
                 this.MostrarCategoriasPorIngresos(this.resumenSemana.VentasPorCategoria);
                 this.MostrarCategoriasPorItems(this.resumenSemana.CategoriasPorItems);
                 this.LimpiarTortaMarcas("Seleccione una categoria del top para ver marcas.");
-                lblEstado.Text = $"Datos actualizados para la semana seleccionada. Facturas: {this.resumenSemana.CantidadFacturas}.";
+                lblEstado.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -87,6 +147,19 @@ namespace Libreria.UI
 
         private void ConfigurarLayoutGraficos()
         {
+            ChartArea area = new ChartArea("marcas");
+            this.chartMarcas.ChartAreas.Add(area);
+
+            Series series = new Series("marcas");
+            series.ChartType = SeriesChartType.Pie;
+            series["PieLabelStyle"] = "Disabled";
+            this.chartMarcas.Series.Add(series);
+
+            Legend legend = new Legend("marcas");
+            legend.Docking = Docking.Right;
+            this.chartMarcas.Legends.Add(legend);
+
+            this.chartMarcas.BackColor = SystemColors.Window;
         }
 
         private void MostrarResumen(DashboardVentasResumen resumen)
@@ -126,13 +199,16 @@ namespace Libreria.UI
 
             for (int i = 0; i < 7; i++)
             {
-                DashboardVentasDia ventaDia = ventasPorDia.FirstOrDefault(dia => dia.Fecha.Date == fechaInicioSemana.AddDays(i).Date)
-                    ?? new DashboardVentasDia { Fecha = fechaInicioSemana.AddDays(i) };
+                DateTime fechaDia = fechaInicioSemana.AddDays(i);
+                bool perteneceMes = this.PerteneceMesAnalisis(fechaDia);
+                DashboardVentasDia ventaDia = ventasPorDia.FirstOrDefault(dia => dia.Fecha.Date == fechaDia.Date)
+                    ?? new DashboardVentasDia { Fecha = fechaDia };
 
                 Panel? barra = this.ObtenerControles<Panel>(panelGrafico).FirstOrDefault(panel => panel.Tag is int tag && tag == i);
                 Label? valor = this.ObtenerControles<Label>(panelGrafico).FirstOrDefault(label => label.Tag is int tag && tag == i && label.Text.StartsWith("$", StringComparison.Ordinal));
                 Label? dia = this.ObtenerControles<Label>(panelGrafico).FirstOrDefault(label => label.Tag is int tag && tag == i && !label.Text.StartsWith("$", StringComparison.Ordinal));
                 int centroSlot = (anchoSlot * i) + (anchoSlot / 2);
+                decimal totalDia = ventaDia.TotalFacturado;
 
                 if (barra != null)
                 {
@@ -140,19 +216,25 @@ namespace Libreria.UI
                     barra.Left = centroSlot - (anchoBarra / 2);
                     barra.Top = baseBarras - 2;
                     barra.Height = 2;
-                    this.AjustarBarra(barra, ventaDia.TotalFacturado, maximo, alturaMaxima);
+                    barra.BackColor = perteneceMes ? Color.SteelBlue : Color.LightSteelBlue;
+                    barra.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
+                    this.AjustarBarra(barra, totalDia, maximo, alturaMaxima);
                 }
 
                 if (valor != null && barra != null)
                 {
-                    valor.Text = FormatearImporteCorto(ventaDia.TotalFacturado);
+                    valor.Text = FormatearImporteCorto(totalDia);
+                    valor.ForeColor = perteneceMes ? SystemColors.ControlText : SystemColors.GrayText;
+                    valor.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
                     valor.Width = Math.Max(78, anchoSlot - 8);
                     this.AjustarValorSobreBarra(valor, barra);
                 }
 
                 if (dia != null)
                 {
-                    dia.Text = ventaDia.Fecha.ToString("ddd dd", CultureInfo.CurrentCulture);
+                    dia.Text = fechaDia.ToString("ddd dd", CultureInfo.CurrentCulture);
+                    dia.ForeColor = perteneceMes ? SystemColors.ControlText : SystemColors.GrayText;
+                    dia.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
                     dia.Width = Math.Max(78, anchoSlot - 8);
                     dia.Left = centroSlot - (dia.Width / 2);
                     dia.Top = baseBarras + 6;
@@ -167,6 +249,50 @@ namespace Libreria.UI
             return grupo == null ? null : this.ObtenerControles<Panel>(grupo).FirstOrDefault();
         }
 
+
+        private void MostrarClientesPorIngresos(List<DashboardVentasCliente> clientes)
+        {
+            if (this.panelClientesIngresos == null)
+            {
+                return;
+            }
+
+            this.panelClientesIngresos.Controls.Clear();
+            List<DashboardVentasCliente> topClientes = clientes.Take(5).ToList();
+
+            if (topClientes.Count == 0)
+            {
+                this.panelClientesIngresos.Controls.Add(this.CrearEtiqueta(
+                    "Sin clientes con compras en el periodo",
+                    new Point(12, 35),
+                    new Size(this.panelClientesIngresos.Width - 24, 30),
+                    ContentAlignment.MiddleCenter));
+                return;
+            }
+
+            decimal maximo = topClientes.Select(cliente => cliente.TotalFacturado).DefaultIfEmpty(0).Max();
+            int y = 8;
+
+            foreach (DashboardVentasCliente cliente in topClientes)
+            {
+                Label nombre = this.CrearEtiqueta(cliente.Cliente, new Point(10, y), new Size(210, 18), ContentAlignment.MiddleLeft);
+                Label total = this.CrearEtiqueta(FormatearImporteCorto(cliente.TotalFacturado), new Point(this.panelClientesIngresos.Width - 106, y), new Size(94, 18), ContentAlignment.MiddleRight);
+                string textoCompras = cliente.CantidadCompras == 1 ? "1 asistencia" : $"{cliente.CantidadCompras} asistencias";
+                Label compras = this.CrearEtiqueta(textoCompras, new Point(226, y), new Size(120, 18), ContentAlignment.MiddleLeft);
+                Panel barra = new Panel
+                {
+                    BackColor = Color.SteelBlue,
+                    Location = new Point(10, y + 17),
+                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)(210 * cliente.TotalFacturado / maximo)), 6),
+                };
+
+                this.panelClientesIngresos.Controls.Add(nombre);
+                this.panelClientesIngresos.Controls.Add(compras);
+                this.panelClientesIngresos.Controls.Add(total);
+                this.panelClientesIngresos.Controls.Add(barra);
+                y += 24;
+            }
+        }
         private void MostrarCategoriasPorIngresos(List<DashboardVentasCategoria> categorias)
         {
             Panel? panel = this.ObtenerPanelCategorias();
@@ -276,7 +402,7 @@ namespace Libreria.UI
                 this.lblTituloGraficoMarcas.Text = $"Marcas de {categoria} por {this.ObtenerNombreCriterio(criterio)}";
             }
 
-            this.panelGraficoMarcas?.Invalidate();
+            this.ActualizarChartMarcas();
         }
 
         private void LimpiarTortaMarcas(string texto)
@@ -289,85 +415,37 @@ namespace Libreria.UI
                 this.lblTituloGraficoMarcas.Text = texto;
             }
 
-            this.panelGraficoMarcas?.Invalidate();
+            this.ActualizarChartMarcas();
         }
 
-        private void panelGraficoMarcas_Paint(object? sender, PaintEventArgs e)
+        private void ActualizarChartMarcas()
         {
-            if (sender is not Panel panel)
-            {
-                return;
-            }
-
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.Clear(panel.BackColor);
+            Series series = this.chartMarcas.Series["marcas"];
+            series.Points.Clear();
 
             if (this.marcasCategoriaSeleccionada.Count == 0)
             {
-                TextRenderer.DrawText(
-                    e.Graphics,
-                    "Sin categoria seleccionada",
-                    panel.Font,
-                    panel.ClientRectangle,
-                    SystemColors.GrayText,
-                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                );
                 return;
             }
 
+            Color[] colores = { Color.SeaGreen, Color.SteelBlue, Color.DarkOrange, Color.MediumPurple, Color.IndianRed, Color.Goldenrod };
             decimal total = this.marcasCategoriaSeleccionada.Sum(marca => this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado));
             if (total <= 0)
             {
                 return;
             }
 
-            Color[] colores =
-            {
-                Color.SeaGreen,
-                Color.SteelBlue,
-                Color.DarkOrange,
-                Color.MediumPurple,
-                Color.IndianRed,
-                Color.Goldenrod,
-            };
-
-            int diametro = Math.Max(96, Math.Min(panel.Height - 22, 160));
-            Rectangle rectanguloTorta = new Rectangle(18, (panel.Height - diametro) / 2, diametro, diametro);
-            float anguloInicio = -90f;
-
             for (int i = 0; i < this.marcasCategoriaSeleccionada.Count; i++)
             {
                 DashboardVentasMarcaCategoria marca = this.marcasCategoriaSeleccionada[i];
-                float angulo = (float)(this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado) / total * 360m);
+                decimal valor = this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado);
+                decimal porcentaje = valor / total;
 
-                using SolidBrush brush = new SolidBrush(colores[i % colores.Length]);
-                e.Graphics.FillPie(brush, rectanguloTorta, anguloInicio, angulo);
-                anguloInicio += angulo;
-            }
-
-            int leyendaX = rectanguloTorta.Right + 18;
-            int leyendaY = 18;
-            int anchoLeyenda = Math.Max(120, panel.Width - leyendaX - 8);
-
-            for (int i = 0; i < this.marcasCategoriaSeleccionada.Count && i < 6; i++)
-            {
-                DashboardVentasMarcaCategoria marca = this.marcasCategoriaSeleccionada[i];
-                decimal porcentaje = this.ObtenerValorMarca(marca, this.criterioTortaSeleccionado) / total;
-
-                using SolidBrush brush = new SolidBrush(colores[i % colores.Length]);
-                e.Graphics.FillRectangle(brush, leyendaX, leyendaY + 4, 10, 10);
-
-                string texto = $"{marca.Marca} {porcentaje:P0} - {this.FormatearValorMarca(marca, this.criterioTortaSeleccionado)}";
-                TextRenderer.DrawText(
-                    e.Graphics,
-                    texto,
-                    panel.Font,
-                    new Rectangle(leyendaX + 16, leyendaY, anchoLeyenda - 16, 18),
-                    panel.ForeColor,
-                    TextFormatFlags.EndEllipsis | TextFormatFlags.Left
-                );
-
-                leyendaY += 22;
+                DataPoint point = new DataPoint();
+                point.SetValueY((double)valor);
+                point.Color = colores[i % colores.Length];
+                point.LegendText = $"{marca.Marca} {porcentaje:P0} - {this.FormatearValorMarca(marca, this.criterioTortaSeleccionado)}";
+                series.Points.Add(point);
             }
         }
 
@@ -477,6 +555,17 @@ namespace Libreria.UI
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

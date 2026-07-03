@@ -1,4 +1,4 @@
-namespace Libreria.UI
+﻿namespace Libreria.UI
 {
     partial class FormItemsFactura
     {
@@ -104,7 +104,7 @@ namespace Libreria.UI
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTitulo.Location = new Point(20, 18);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(134, 30);
+            lblTitulo.Size = new Size(141, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Iniciar venta";
             // 
@@ -123,6 +123,7 @@ namespace Libreria.UI
             dgvFacturaItems.ReadOnly = true;
             dgvFacturaItems.RowHeadersVisible = false;
             dgvFacturaItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFacturaItems.SelectionChanged += dgvFacturaItems_SelectionChanged;
             dgvFacturaItems.Size = new Size(830, 300);
             dgvFacturaItems.TabIndex = 1;
             // 
@@ -225,6 +226,7 @@ namespace Libreria.UI
             btnBuscarProducto.TabIndex = 2;
             btnBuscarProducto.Text = "Buscar producto";
             btnBuscarProducto.UseVisualStyleBackColor = true;
+            btnBuscarProducto.Click += btnBuscarProducto_Click;
             // 
             // btnLimpiarAlta
             // 
@@ -234,6 +236,7 @@ namespace Libreria.UI
             btnLimpiarAlta.TabIndex = 18;
             btnLimpiarAlta.Text = "Limpiar";
             btnLimpiarAlta.UseVisualStyleBackColor = true;
+            btnLimpiarAlta.Click += btnLimpiarAlta_Click;
             // 
             // btnAgregarItem
             // 
@@ -243,6 +246,7 @@ namespace Libreria.UI
             btnAgregarItem.TabIndex = 17;
             btnAgregarItem.Text = "Agregar item";
             btnAgregarItem.UseVisualStyleBackColor = true;
+            btnAgregarItem.Click += btnAgregarItem_Click;
             // 
             // txtAltaSubtotal
             // 
@@ -430,7 +434,7 @@ namespace Libreria.UI
             pnlAccionesItem.Controls.Add(btnLimpiarSeleccion);
             pnlAccionesItem.Controls.Add(btnEliminarItem);
             pnlAccionesItem.Controls.Add(btnModificarItem);
-            pnlAccionesItem.Location = new Point(213, 199);
+            pnlAccionesItem.Location = new Point(219, 203);
             pnlAccionesItem.Name = "pnlAccionesItem";
             pnlAccionesItem.Size = new Size(360, 46);
             pnlAccionesItem.TabIndex = 16;
@@ -443,6 +447,7 @@ namespace Libreria.UI
             btnLimpiarSeleccion.TabIndex = 2;
             btnLimpiarSeleccion.Text = "Limpiar";
             btnLimpiarSeleccion.UseVisualStyleBackColor = true;
+            btnLimpiarSeleccion.Click += btnLimpiarSeleccion_Click;
             // 
             // btnEliminarItem
             // 
@@ -452,6 +457,7 @@ namespace Libreria.UI
             btnEliminarItem.TabIndex = 1;
             btnEliminarItem.Text = "Eliminar item";
             btnEliminarItem.UseVisualStyleBackColor = true;
+            btnEliminarItem.Click += btnEliminarItem_Click;
             // 
             // btnModificarItem
             // 
@@ -461,6 +467,7 @@ namespace Libreria.UI
             btnModificarItem.TabIndex = 0;
             btnModificarItem.Text = "Modificar item";
             btnModificarItem.UseVisualStyleBackColor = true;
+            btnModificarItem.Click += btnModificarItem_Click;
             // 
             // txtEstado
             // 
@@ -645,7 +652,7 @@ namespace Libreria.UI
             lblIdFacturaItem.AutoSize = true;
             lblIdFacturaItem.Location = new Point(18, 33);
             lblIdFacturaItem.Name = "lblIdFacturaItem";
-            lblIdFacturaItem.Size = new Size(43, 15);
+            lblIdFacturaItem.Size = new Size(44, 15);
             lblIdFacturaItem.TabIndex = 0;
             lblIdFacturaItem.Text = "Id item";
             // 
@@ -673,6 +680,7 @@ namespace Libreria.UI
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnConfirmarVenta
             // 
@@ -682,6 +690,7 @@ namespace Libreria.UI
             btnConfirmarVenta.TabIndex = 4;
             btnConfirmarVenta.Text = "Confirmar venta";
             btnConfirmarVenta.UseVisualStyleBackColor = true;
+            btnConfirmarVenta.Click += btnConfirmarVenta_Click;
             // 
             // txtCantidadItems
             // 
@@ -814,3 +823,4 @@ namespace Libreria.UI
         private Label lblTotalVenta;
     }
 }
+

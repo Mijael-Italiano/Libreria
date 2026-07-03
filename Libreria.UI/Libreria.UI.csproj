@@ -24,8 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="WinForms.DataVisualization" Version="1.10.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Libreria.Business\Libreria.Business.csproj" />
     <ProjectReference Include="..\Libreria.Sesion\Libreria.Sesion.csproj" />
+    <ProjectReference Include="..\Libreria.Documentos\Libreria.Documentos.csproj" />
   </ItemGroup>
 
 </Project>

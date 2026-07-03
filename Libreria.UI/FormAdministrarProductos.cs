@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Libreria.Business;
 using Libreria.Entity;
@@ -290,6 +291,7 @@ namespace Libreria.UI
                     );
 
                     dgvInventario.Rows[indiceFila].Tag = producto;
+                    this.AplicarEstiloStock(dgvInventario.Rows[indiceFila], producto);
                 }
 
                 if (this.idProductoForzarSeleccion.HasValue)
@@ -313,6 +315,19 @@ namespace Libreria.UI
             }
         }
 
+
+        private void AplicarEstiloStock(DataGridViewRow fila, Producto producto)
+        {
+            if (producto.StockActual >= producto.StockMinimo)
+            {
+                return;
+            }
+
+            fila.DefaultCellStyle.BackColor = Color.MistyRose;
+            fila.DefaultCellStyle.ForeColor = Color.DarkRed;
+            fila.DefaultCellStyle.SelectionBackColor = Color.IndianRed;
+            fila.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
         private List<Producto> ObtenerProductosSegunBusqueda()
         {
             return this.productoBusiness.BuscarProductos(

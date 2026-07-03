@@ -15,16 +15,6 @@ namespace Libreria.UI
 {
     public partial class FormMenuInicio : Form
     {
-        private const string PermisoInicio = "Inicio";
-        private const string PermisoAbmUsuarios = "ABM usuarios";
-        private const string PermisoGestionRolesPermisos = "Gestion de roles y permisos";
-        private const string PermisoVerInventario = "Ver inventario";
-        private const string PermisoAdministrarProductos = "Administrar productos";
-        private const string PermisoAdministrarClientes = "Administrar clientes";
-        private const string PermisoGestionVentas = "Gestion de ventas";
-        private const string PermisoAdministrarMetodosPago = "Administrar metodos de pago";
-        private const string PermisoGestionBaseDatos = "Gestion de base de datos";
-        private const string PermisoAnalisisVentas = "Analisis de ventas";
         private readonly UsuarioRolBusiness usuarioRolBusiness;
         private readonly RolPermisoBusiness rolPermisoBusiness;
         private bool cerrandoSesion;
@@ -98,6 +88,12 @@ namespace Libreria.UI
             registrarVentaToolStripMenuItem.Click += registrarVentaToolStripMenuItem_Click;
             consultarVentasToolStripMenuItem.Click += consultarVentasToolStripMenuItem_Click;
             administrarMetodosDePagoToolStripMenuItem.Click += administrarMetodosDePagoToolStripMenuItem_Click;
+            backupToolStripMenuItem.Click += backupToolStripMenuItem_Click;
+            restoreToolStripMenuItem.Click += restoreToolStripMenuItem_Click;
+            bitacoraToolStripMenuItem.Click += bitacoraToolStripMenuItem_Click;
+            dashboardDiarioToolStripMenuItem.Click += dashboardDiarioToolStripMenuItem_Click;
+            dashboardSemanalToolStripMenuItem.Click += dashboardSemanalToolStripMenuItem_Click;
+            dashboardMensualToolStripMenuItem.Click += dashboardMensualToolStripMenuItem_Click;
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -155,108 +151,81 @@ namespace Libreria.UI
             new FormMetodosDePago().Show();
         }
 
+        private void backupToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormBackUp().Show();
+        }
+
+        private void restoreToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormRestore().Show();
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormBitacora().Show();
+        }
+
+
+        private void dashboardDiarioToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormDashboardVentasDiarias().Show();
+        }
+
+        private void dashboardSemanalToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormDashboardVentas().Show();
+        }
+
+        private void dashboardMensualToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormDashboardVentasMensuales().Show();
+        }
         private void OcultarOpcionesPorPermiso()
         {
-            inicioToolStripMenuItem.Visible = false;
-            gestionDeUsuariosToolStripMenuItem.Visible = false;
-            productosToolStripMenuItem.Visible = false;
-            clientesToolStripMenuItem.Visible = false;
-            ventasToolStripMenuItem.Visible = false;
-            gestionDeBaseDeDatosToolStripMenuItem.Visible = false;
-            analisisToolStripMenuItem.Visible = false;
-
-            cerrarSesionToolStripMenuItem.Visible = false;
-            salirToolStripMenuItem.Visible = false;
-            aBMUsuariosToolStripMenuItem.Visible = false;
-            permisosYRolesToolStripMenuItem.Visible = false;
-            verInventarioToolStripMenuItem.Visible = false;
-            administrarProductosToolStripMenuItem.Visible = false;
-            administrarMarcasToolStripMenuItem.Visible = false;
-            administrarCategoriasToolStripMenuItem.Visible = false;
-            administrarColoresToolStripMenuItem.Visible = false;
-            administrarClientesToolStripMenuItem.Visible = false;
-            registrarVentaToolStripMenuItem.Visible = false;
-            consultarVentasToolStripMenuItem.Visible = false;
-            administrarMetodosDePagoToolStripMenuItem.Visible = false;
-            backupToolStripMenuItem.Visible = false;
-            restoreToolStripMenuItem.Visible = false;
-            bitacoraToolStripMenuItem.Visible = false;
-            dashboardProductosToolStripMenuItem.Visible = false;
-            dashboardClientesToolStripMenuItem.Visible = false;
+            foreach (ToolStripMenuItem menuItem in menuStrip1.Items.OfType<ToolStripMenuItem>())
+            {
+                this.OcultarOpcion(menuItem);
+            }
         }
 
         private void AplicarPermisosUsuarioActual()
         {
-            List<Permiso> permisos = this.ObtenerPermisosUsuarioActual();
+            HashSet<string> permisos = this.ObtenerPermisosUsuarioActual()
+                .Select(permiso => permiso.Nombre)
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-            if (TienePermiso(permisos, PermisoInicio))
+            foreach (ToolStripMenuItem menuItem in menuStrip1.Items.OfType<ToolStripMenuItem>())
             {
-                inicioToolStripMenuItem.Visible = true;
-                cerrarSesionToolStripMenuItem.Visible = true;
-                salirToolStripMenuItem.Visible = true;
+                this.AplicarPermisos(menuItem, permisos);
+            }
+        }
+
+        private void OcultarOpcion(ToolStripMenuItem menuItem)
+        {
+            menuItem.Visible = false;
+
+            foreach (ToolStripMenuItem subMenuItem in menuItem.DropDownItems.OfType<ToolStripMenuItem>())
+            {
+                this.OcultarOpcion(subMenuItem);
+            }
+        }
+
+        private bool AplicarPermisos(ToolStripMenuItem menuItem, HashSet<string> permisos)
+        {
+            bool tienePermisoPropio = menuItem.Tag is string permiso
+                && permisos.Contains(permiso);
+
+            bool tieneSubMenuVisible = false;
+
+            foreach (ToolStripMenuItem subMenuItem in menuItem.DropDownItems.OfType<ToolStripMenuItem>())
+            {
+                tieneSubMenuVisible |= this.AplicarPermisos(subMenuItem, permisos);
             }
 
-            if (TienePermiso(permisos, PermisoAbmUsuarios))
-            {
-                gestionDeUsuariosToolStripMenuItem.Visible = true;
-                aBMUsuariosToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoGestionRolesPermisos))
-            {
-                gestionDeUsuariosToolStripMenuItem.Visible = true;
-                permisosYRolesToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoVerInventario))
-            {
-                productosToolStripMenuItem.Visible = true;
-                verInventarioToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoAdministrarProductos))
-            {
-                productosToolStripMenuItem.Visible = true;
-                administrarProductosToolStripMenuItem.Visible = true;
-                administrarMarcasToolStripMenuItem.Visible = true;
-                administrarCategoriasToolStripMenuItem.Visible = true;
-                administrarColoresToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoAdministrarClientes))
-            {
-                clientesToolStripMenuItem.Visible = true;
-                administrarClientesToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoGestionVentas))
-            {
-                ventasToolStripMenuItem.Visible = true;
-                registrarVentaToolStripMenuItem.Visible = true;
-                consultarVentasToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoAdministrarMetodosPago))
-            {
-                ventasToolStripMenuItem.Visible = true;
-                administrarMetodosDePagoToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoGestionBaseDatos))
-            {
-                gestionDeBaseDeDatosToolStripMenuItem.Visible = true;
-                backupToolStripMenuItem.Visible = true;
-                restoreToolStripMenuItem.Visible = true;
-                bitacoraToolStripMenuItem.Visible = true;
-            }
-
-            if (TienePermiso(permisos, PermisoAnalisisVentas))
-            {
-                analisisToolStripMenuItem.Visible = true;
-                dashboardProductosToolStripMenuItem.Visible = true;
-                dashboardClientesToolStripMenuItem.Visible = true;
-            }
-
+            bool esVisible = tienePermisoPropio || tieneSubMenuVisible;
+            menuItem.Visible = esVisible;
+            return esVisible;
         }
 
         private List<Permiso> ObtenerPermisosUsuarioActual()
@@ -291,3 +260,6 @@ namespace Libreria.UI
 
     }
 }
+
+
+
