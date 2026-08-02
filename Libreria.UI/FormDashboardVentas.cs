@@ -19,7 +19,8 @@ namespace Libreria.UI
         private DashboardVentasResumen? resumenSemana;
         private Chart chartMarcas = null!;
         private Chart chartClientes = null!;
-        private Panel? panelCategoriasItems;
+        private Chart chartCategoriasIngresos = null!;
+        private Chart chartCategoriasItems = null!;
         private Label? lblTituloGraficoMarcas;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
         private CriterioTortaMarcas criterioTortaSeleccionado;
@@ -163,16 +164,17 @@ namespace Libreria.UI
 
             ChartArea areaClientes = new ChartArea("clientes");
             areaClientes.AxisY.LabelStyle.Enabled = false;
-            areaClientes.AxisY.MajorGrid.LineColor = Color.Gainsboro;
+            areaClientes.AxisY.MajorGrid.Enabled = false;
             areaClientes.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
-            areaClientes.AxisX.LabelStyle.Angle = -25;
+            areaClientes.AxisX.MajorGrid.Enabled = false;
             areaClientes.AxisX.Interval = 1;
             this.chartClientes.ChartAreas.Add(areaClientes);
 
             Series seriesClientes = new Series("clientes");
-            seriesClientes.ChartType = SeriesChartType.Column;
+            seriesClientes.ChartType = SeriesChartType.Bar;
             seriesClientes.Color = Color.SteelBlue;
             seriesClientes.Font = new Font("Segoe UI", 7.5F);
+            seriesClientes["PointWidth"] = "0.5";
             this.chartClientes.Series.Add(seriesClientes);
 
             Title tituloClientes = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
@@ -183,6 +185,57 @@ namespace Libreria.UI
             this.chartClientes.Titles.Add(tituloClientes);
 
             this.chartClientes.BackColor = SystemColors.Window;
+
+            this.ConfigurarChartTopCategorias(this.chartCategoriasIngresos, "categoriasIngresos", CriterioTortaMarcas.Ingresos);
+            this.ConfigurarChartTopCategorias(this.chartCategoriasItems, "categoriasItems", CriterioTortaMarcas.Items);
+        }
+
+        private void ConfigurarChartTopCategorias(Chart chart, string nombreArea, CriterioTortaMarcas criterio)
+        {
+            ChartArea area = new ChartArea(nombreArea);
+            area.AxisY.LabelStyle.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisX.Interval = 1;
+            area.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            chart.ChartAreas.Add(area);
+
+            Series series = new Series(nombreArea);
+            series.ChartType = SeriesChartType.Bar;
+            series.Color = Color.SeaGreen;
+            series.Font = new Font("Segoe UI", 7.5F);
+            series["PointWidth"] = "0.5";
+            chart.Series.Add(series);
+
+            Title titulo = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
+            {
+                Name = "titulo" + nombreArea,
+                DockedToChartArea = nombreArea,
+            };
+            chart.Titles.Add(titulo);
+
+            chart.BackColor = SystemColors.Window;
+            chart.Cursor = Cursors.Hand;
+            chart.Tag = criterio;
+            chart.MouseClick += ChartTopCategorias_MouseClick;
+        }
+
+        private void ChartTopCategorias_MouseClick(object? sender, MouseEventArgs e)
+        {
+            if (sender is not Chart chart || chart.Tag is not CriterioTortaMarcas criterio)
+            {
+                return;
+            }
+
+            HitTestResult resultado = chart.HitTest(e.X, e.Y);
+
+            if (resultado.ChartElementType != ChartElementType.DataPoint || resultado.PointIndex < 0 || resultado.Series == null)
+            {
+                return;
+            }
+
+            string categoria = resultado.Series.Points[resultado.PointIndex].AxisLabel;
+            this.MostrarTortaMarcas(categoria, criterio);
         }
 
         private void MostrarResumen(DashboardVentasResumen resumen)
@@ -288,8 +341,9 @@ namespace Libreria.UI
 
             this.chartClientes.Titles["tituloClientes"].Text = string.Empty;
 
-            foreach (DashboardVentasCliente cliente in topClientes)
+            for (int indice = topClientes.Count - 1; indice >= 0; indice--)
             {
+                DashboardVentasCliente cliente = topClientes[indice];
                 string textoCompras = cliente.CantidadCompras == 1 ? "1 asistencia" : $"{cliente.CantidadCompras} asistencias";
 
                 int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)cliente.TotalFacturado);
@@ -300,93 +354,51 @@ namespace Libreria.UI
         }
         private void MostrarCategoriasPorIngresos(List<DashboardVentasCategoria> categorias)
         {
-            Panel? panel = this.ObtenerPanelCategorias();
-            if (panel == null)
-            {
-                return;
-            }
-
             this.MostrarTopCategorias(
-                panel,
+                this.chartCategoriasIngresos,
                 categorias.Take(5).ToList(),
                 categoria => categoria.TotalFacturado,
                 categoria => FormatearImporteCorto(categoria.TotalFacturado),
-                "Sin ingresos en el periodo",
-                CriterioTortaMarcas.Ingresos
+                "Sin ingresos en el periodo"
             );
         }
 
         private void MostrarCategoriasPorItems(List<DashboardVentasCategoria> categorias)
         {
-            if (this.panelCategoriasItems == null)
-            {
-                return;
-            }
-
             this.MostrarTopCategorias(
-                this.panelCategoriasItems,
+                this.chartCategoriasItems,
                 categorias.Take(5).ToList(),
                 categoria => categoria.CantidadVendida,
                 categoria => $"{categoria.CantidadVendida} items",
-                "Sin items vendidos en el periodo",
-                CriterioTortaMarcas.Items
+                "Sin items vendidos en el periodo"
             );
         }
 
         private void MostrarTopCategorias(
-            Panel panel,
+            Chart chart,
             List<DashboardVentasCategoria> categorias,
             Func<DashboardVentasCategoria, decimal> obtenerValor,
             Func<DashboardVentasCategoria, string> formatearValor,
-            string mensajeSinDatos,
-            CriterioTortaMarcas criterio)
+            string mensajeSinDatos)
         {
-            panel.Controls.Clear();
+            Series series = chart.Series[0];
+            series.Points.Clear();
 
             if (categorias.Count == 0)
             {
-                panel.Controls.Add(this.CrearEtiqueta(mensajeSinDatos, new Point(12, 58), new Size(panel.Width - 24, 30), ContentAlignment.MiddleCenter));
+                chart.Titles[0].Text = mensajeSinDatos;
                 return;
             }
 
-            decimal maximo = categorias.Select(obtenerValor).DefaultIfEmpty(0).Max();
-            int y = 12;
+            chart.Titles[0].Text = string.Empty;
 
-            foreach (DashboardVentasCategoria categoria in categorias)
+            for (int indice = categorias.Count - 1; indice >= 0; indice--)
             {
-                Label nombre = this.CrearEtiqueta(categoria.Categoria, new Point(10, y), new Size(100, 18), ContentAlignment.MiddleLeft);
-                Label valor = this.CrearEtiqueta(formatearValor(categoria), new Point(panel.Width - 98, y), new Size(88, 18), ContentAlignment.MiddleRight);
-                Panel barra = new Panel
-                {
-                    BackColor = Color.SeaGreen,
-                    Cursor = Cursors.Hand,
-                    Location = new Point(10, y + 20),
-                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)((panel.Width - 20) * obtenerValor(categoria) / maximo)), 8),
-                };
+                DashboardVentasCategoria categoria = categorias[indice];
 
-                this.ConfigurarClickCategoria(nombre, categoria.Categoria, criterio);
-                this.ConfigurarClickCategoria(valor, categoria.Categoria, criterio);
-                this.ConfigurarClickCategoria(barra, categoria.Categoria, criterio);
-
-                panel.Controls.Add(nombre);
-                panel.Controls.Add(valor);
-                panel.Controls.Add(barra);
-                y += 27;
-            }
-        }
-
-        private void ConfigurarClickCategoria(Control control, string categoria, CriterioTortaMarcas criterio)
-        {
-            control.Cursor = Cursors.Hand;
-            control.Tag = new CategoriaSeleccionada(categoria, criterio);
-            control.Click += Categoria_Click;
-        }
-
-        private void Categoria_Click(object? sender, EventArgs e)
-        {
-            if (sender is Control control && control.Tag is CategoriaSeleccionada seleccion)
-            {
-                this.MostrarTortaMarcas(seleccion.Categoria, seleccion.Criterio);
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)obtenerValor(categoria));
+                series.Points[puntoIndice].AxisLabel = categoria.Categoria;
+                series.Points[puntoIndice].Label = formatearValor(categoria);
             }
         }
 
@@ -474,27 +486,10 @@ namespace Libreria.UI
             return criterio == CriterioTortaMarcas.Items ? "items vendidos" : "ingresos";
         }
 
-        private class CategoriaSeleccionada
-        {
-            public CategoriaSeleccionada(string categoria, CriterioTortaMarcas criterio)
-            {
-                this.Categoria = categoria;
-                this.Criterio = criterio;
-            }
-
-            public string Categoria { get; }
-            public CriterioTortaMarcas Criterio { get; }
-        }
-
         private enum CriterioTortaMarcas
         {
             Ingresos,
             Items,
-        }
-        private Panel? ObtenerPanelCategorias()
-        {
-            GroupBox? grupo = this.ObtenerControles<GroupBox>().FirstOrDefault(control => control.Text.Equals("Top 5 categorias por ingresos", StringComparison.OrdinalIgnoreCase));
-            return grupo == null ? null : this.ObtenerControles<Panel>(grupo).FirstOrDefault();
         }
 
         private void AjustarBarra(Panel barra, decimal valor, decimal maximo, int alturaMaxima)
