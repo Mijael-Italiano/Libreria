@@ -32,7 +32,7 @@ namespace Libreria.UI
             Label lblFacturasValor = new Label();
             GroupBox grpVentasSemana = new GroupBox();
             GroupBox grpClientes = new GroupBox();
-            panelClientesIngresos = new Panel();
+            chartClientes = new Chart();
             Panel pnlGraficoSemana = new Panel();
             GroupBox grpCategorias = new GroupBox();
             Panel pnlCategorias = new Panel();
@@ -304,12 +304,10 @@ namespace Libreria.UI
             grpClientes.Location = new Point(20, 494);
             grpClientes.Size = new Size(520, 180);
             grpClientes.Text = "Top 5 clientes por ingresos";
-            panelClientesIngresos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelClientesIngresos.BackColor = SystemColors.Window;
-            panelClientesIngresos.BorderStyle = BorderStyle.FixedSingle;
-            panelClientesIngresos.Location = new Point(18, 28);
-            panelClientesIngresos.Size = new Size(484, 134);
-            grpClientes.Controls.Add(panelClientesIngresos);
+            chartClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartClientes.Location = new Point(18, 28);
+            chartClientes.Size = new Size(484, 134);
+            grpClientes.Controls.Add(chartClientes);
             // grpCategorias
             grpCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpCategorias.Location = new Point(560, 120);

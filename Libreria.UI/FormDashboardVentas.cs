@@ -18,8 +18,8 @@ namespace Libreria.UI
         private DateTime fechaMesAnalisis;
         private DashboardVentasResumen? resumenSemana;
         private Chart chartMarcas = null!;
+        private Chart chartClientes = null!;
         private Panel? panelCategoriasItems;
-        private Panel? panelClientesIngresos;
         private Label? lblTituloGraficoMarcas;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
         private CriterioTortaMarcas criterioTortaSeleccionado;
@@ -160,6 +160,29 @@ namespace Libreria.UI
             this.chartMarcas.Legends.Add(legend);
 
             this.chartMarcas.BackColor = SystemColors.Window;
+
+            ChartArea areaClientes = new ChartArea("clientes");
+            areaClientes.AxisY.LabelStyle.Enabled = false;
+            areaClientes.AxisY.MajorGrid.LineColor = Color.Gainsboro;
+            areaClientes.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            areaClientes.AxisX.LabelStyle.Angle = -25;
+            areaClientes.AxisX.Interval = 1;
+            this.chartClientes.ChartAreas.Add(areaClientes);
+
+            Series seriesClientes = new Series("clientes");
+            seriesClientes.ChartType = SeriesChartType.Column;
+            seriesClientes.Color = Color.SteelBlue;
+            seriesClientes.Font = new Font("Segoe UI", 7.5F);
+            this.chartClientes.Series.Add(seriesClientes);
+
+            Title tituloClientes = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
+            {
+                Name = "tituloClientes",
+                DockedToChartArea = "clientes",
+            };
+            this.chartClientes.Titles.Add(tituloClientes);
+
+            this.chartClientes.BackColor = SystemColors.Window;
         }
 
         private void MostrarResumen(DashboardVentasResumen resumen)
@@ -252,45 +275,27 @@ namespace Libreria.UI
 
         private void MostrarClientesPorIngresos(List<DashboardVentasCliente> clientes)
         {
-            if (this.panelClientesIngresos == null)
-            {
-                return;
-            }
+            Series series = this.chartClientes.Series["clientes"];
+            series.Points.Clear();
 
-            this.panelClientesIngresos.Controls.Clear();
             List<DashboardVentasCliente> topClientes = clientes.Take(5).ToList();
 
             if (topClientes.Count == 0)
             {
-                this.panelClientesIngresos.Controls.Add(this.CrearEtiqueta(
-                    "Sin clientes con compras en el periodo",
-                    new Point(12, 35),
-                    new Size(this.panelClientesIngresos.Width - 24, 30),
-                    ContentAlignment.MiddleCenter));
+                this.chartClientes.Titles["tituloClientes"].Text = "Sin clientes con compras en el periodo";
                 return;
             }
 
-            decimal maximo = topClientes.Select(cliente => cliente.TotalFacturado).DefaultIfEmpty(0).Max();
-            int y = 8;
+            this.chartClientes.Titles["tituloClientes"].Text = string.Empty;
 
             foreach (DashboardVentasCliente cliente in topClientes)
             {
-                Label nombre = this.CrearEtiqueta(cliente.Cliente, new Point(10, y), new Size(210, 18), ContentAlignment.MiddleLeft);
-                Label total = this.CrearEtiqueta(FormatearImporteCorto(cliente.TotalFacturado), new Point(this.panelClientesIngresos.Width - 106, y), new Size(94, 18), ContentAlignment.MiddleRight);
                 string textoCompras = cliente.CantidadCompras == 1 ? "1 asistencia" : $"{cliente.CantidadCompras} asistencias";
-                Label compras = this.CrearEtiqueta(textoCompras, new Point(226, y), new Size(120, 18), ContentAlignment.MiddleLeft);
-                Panel barra = new Panel
-                {
-                    BackColor = Color.SteelBlue,
-                    Location = new Point(10, y + 17),
-                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)(210 * cliente.TotalFacturado / maximo)), 6),
-                };
 
-                this.panelClientesIngresos.Controls.Add(nombre);
-                this.panelClientesIngresos.Controls.Add(compras);
-                this.panelClientesIngresos.Controls.Add(total);
-                this.panelClientesIngresos.Controls.Add(barra);
-                y += 24;
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)cliente.TotalFacturado);
+                series.Points[puntoIndice].AxisLabel = cliente.Cliente;
+                series.Points[puntoIndice].Label = FormatearImporteCorto(cliente.TotalFacturado);
+                series.Points[puntoIndice].ToolTip = $"{cliente.Cliente}: {FormatearImporteCorto(cliente.TotalFacturado)} ({textoCompras})";
             }
         }
         private void MostrarCategoriasPorIngresos(List<DashboardVentasCategoria> categorias)
