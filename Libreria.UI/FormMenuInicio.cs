@@ -94,6 +94,7 @@ namespace Libreria.UI
             dashboardDiarioToolStripMenuItem.Click += dashboardDiarioToolStripMenuItem_Click;
             dashboardSemanalToolStripMenuItem.Click += dashboardSemanalToolStripMenuItem_Click;
             dashboardMensualToolStripMenuItem.Click += dashboardMensualToolStripMenuItem_Click;
+            dashboardAnualToolStripMenuItem.Click += dashboardAnualToolStripMenuItem_Click;
         }
 
         private void aBMUsuariosToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -180,6 +181,10 @@ namespace Libreria.UI
         private void dashboardMensualToolStripMenuItem_Click(object? sender, EventArgs e)
         {
             new FormDashboardVentasMensuales().Show();
+        }
+        private void dashboardAnualToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            new FormDashboardVentasAnuales().Show();
         }
         private void OcultarOpcionesPorPermiso()
         {

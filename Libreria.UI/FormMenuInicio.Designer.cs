@@ -57,6 +57,7 @@ namespace Libreria.UI
             dashboardDiarioToolStripMenuItem = new ToolStripMenuItem();
             dashboardSemanalToolStripMenuItem = new ToolStripMenuItem();
             dashboardMensualToolStripMenuItem = new ToolStripMenuItem();
+            dashboardAnualToolStripMenuItem = new ToolStripMenuItem();
             dashboardClientesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -242,7 +243,7 @@ namespace Libreria.UI
             // 
             // dashboardProductosToolStripMenuItem
             //
-            dashboardProductosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardDiarioToolStripMenuItem, dashboardSemanalToolStripMenuItem, dashboardMensualToolStripMenuItem });
+            dashboardProductosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dashboardDiarioToolStripMenuItem, dashboardSemanalToolStripMenuItem, dashboardMensualToolStripMenuItem, dashboardAnualToolStripMenuItem });
             dashboardProductosToolStripMenuItem.Name = "dashboardProductosToolStripMenuItem";
             dashboardProductosToolStripMenuItem.Size = new Size(186, 22);
             dashboardProductosToolStripMenuItem.Tag = "Analisis de ventas";
@@ -268,7 +269,14 @@ namespace Libreria.UI
             dashboardMensualToolStripMenuItem.Size = new Size(186, 22);
             dashboardMensualToolStripMenuItem.Tag = "Analisis de ventas";
             dashboardMensualToolStripMenuItem.Text = "Por mes";
-            // 
+            //
+            // dashboardAnualToolStripMenuItem
+            //
+            dashboardAnualToolStripMenuItem.Name = "dashboardAnualToolStripMenuItem";
+            dashboardAnualToolStripMenuItem.Size = new Size(186, 22);
+            dashboardAnualToolStripMenuItem.Tag = "Analisis de ventas";
+            dashboardAnualToolStripMenuItem.Text = "Por año";
+            //
             // dashboardClientesToolStripMenuItem
             // 
             dashboardClientesToolStripMenuItem.Name = "dashboardClientesToolStripMenuItem";
@@ -323,6 +331,7 @@ namespace Libreria.UI
         private ToolStripMenuItem dashboardDiarioToolStripMenuItem;
         private ToolStripMenuItem dashboardSemanalToolStripMenuItem;
         private ToolStripMenuItem dashboardMensualToolStripMenuItem;
+        private ToolStripMenuItem dashboardAnualToolStripMenuItem;
         private ToolStripMenuItem dashboardClientesToolStripMenuItem;
     }
 }
