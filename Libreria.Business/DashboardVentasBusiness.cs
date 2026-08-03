@@ -178,10 +178,10 @@ namespace Libreria.Business
             {
                 DayOfWeek.Monday => "Lun",
                 DayOfWeek.Tuesday => "Mar",
-                DayOfWeek.Wednesday => "Mi�",
+                DayOfWeek.Wednesday => "Mié",
                 DayOfWeek.Thursday => "Jue",
                 DayOfWeek.Friday => "Vie",
-                DayOfWeek.Saturday => "S�b",
+                DayOfWeek.Saturday => "Sáb",
                 DayOfWeek.Sunday => "Dom",
                 _ => string.Empty,
             };

@@ -10,10 +10,10 @@ namespace Libreria.UI
         private Label lblTotalValor;
         private Label lblItemsValor;
         private Label lblFacturasValor;
-        private Panel panelGraficoHoras;
-        private Panel panelClientesIngresos;
-        private Panel panelCategoriasIngresos;
-        private Panel panelCategoriasItems;
+        private Chart chartHoras;
+        private Chart chartClientes;
+        private Chart chartCategoriasIngresos;
+        private Chart chartCategoriasItems;
         private Chart chartMarcas;
         private Label lblTituloGraficoMarcas;
         private Label lblRangoHorario;
@@ -33,10 +33,10 @@ namespace Libreria.UI
             lblTotalValor = new Label();
             lblItemsValor = new Label();
             lblFacturasValor = new Label();
-            panelGraficoHoras = new Panel();
-            panelClientesIngresos = new Panel();
-            panelCategoriasIngresos = new Panel();
-            panelCategoriasItems = new Panel();
+            chartHoras = new Chart();
+            chartClientes = new Chart();
+            chartCategoriasIngresos = new Chart();
+            chartCategoriasItems = new Chart();
             chartMarcas = new Chart();
             lblTituloGraficoMarcas = new Label();
             lblRangoHorario = new Label();
@@ -148,81 +148,42 @@ namespace Libreria.UI
             pnlBloque.Controls.Add(btnBloqueAnterior);
             pnlBloque.Controls.Add(btnBloqueSiguiente);
             pnlBloque.Controls.Add(lblRangoHorario);
-            // panelGraficoHoras
-            panelGraficoHoras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelGraficoHoras.BackColor = SystemColors.Window;
-            panelGraficoHoras.BorderStyle = BorderStyle.FixedSingle;
-            panelGraficoHoras.Location = new Point(18, 64);
-            panelGraficoHoras.Size = new Size(484, 220);
-            // 6 barras de horas (posiciones iniciales, el código las recalcula)
-            Panel pnlBarraH00 = new Panel(); Label lblValorH00 = new Label(); Label lblHoraH00 = new Label();
-            pnlBarraH00.BackColor = Color.SeaGreen; pnlBarraH00.Location = new Point(20, 160); pnlBarraH00.Size = new Size(40, 20);
-            lblValorH00.Location = new Point(1, 137); lblValorH00.Size = new Size(78, 20); lblValorH00.Text = "$0"; lblValorH00.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH00.Location = new Point(1, 186); lblHoraH00.Size = new Size(78, 24); lblHoraH00.Text = "00"; lblHoraH00.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH00); panelGraficoHoras.Controls.Add(lblValorH00); panelGraficoHoras.Controls.Add(lblHoraH00);
-            Panel pnlBarraH01 = new Panel(); Label lblValorH01 = new Label(); Label lblHoraH01 = new Label();
-            pnlBarraH01.BackColor = Color.SeaGreen; pnlBarraH01.Location = new Point(100, 160); pnlBarraH01.Size = new Size(40, 20);
-            lblValorH01.Location = new Point(81, 137); lblValorH01.Size = new Size(78, 20); lblValorH01.Text = "$0"; lblValorH01.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH01.Location = new Point(81, 186); lblHoraH01.Size = new Size(78, 24); lblHoraH01.Text = "01"; lblHoraH01.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH01); panelGraficoHoras.Controls.Add(lblValorH01); panelGraficoHoras.Controls.Add(lblHoraH01);
-            Panel pnlBarraH02 = new Panel(); Label lblValorH02 = new Label(); Label lblHoraH02 = new Label();
-            pnlBarraH02.BackColor = Color.SeaGreen; pnlBarraH02.Location = new Point(180, 160); pnlBarraH02.Size = new Size(40, 20);
-            lblValorH02.Location = new Point(161, 137); lblValorH02.Size = new Size(78, 20); lblValorH02.Text = "$0"; lblValorH02.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH02.Location = new Point(161, 186); lblHoraH02.Size = new Size(78, 24); lblHoraH02.Text = "02"; lblHoraH02.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH02); panelGraficoHoras.Controls.Add(lblValorH02); panelGraficoHoras.Controls.Add(lblHoraH02);
-            Panel pnlBarraH03 = new Panel(); Label lblValorH03 = new Label(); Label lblHoraH03 = new Label();
-            pnlBarraH03.BackColor = Color.SeaGreen; pnlBarraH03.Location = new Point(260, 160); pnlBarraH03.Size = new Size(40, 20);
-            lblValorH03.Location = new Point(241, 137); lblValorH03.Size = new Size(78, 20); lblValorH03.Text = "$0"; lblValorH03.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH03.Location = new Point(241, 186); lblHoraH03.Size = new Size(78, 24); lblHoraH03.Text = "03"; lblHoraH03.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH03); panelGraficoHoras.Controls.Add(lblValorH03); panelGraficoHoras.Controls.Add(lblHoraH03);
-            Panel pnlBarraH04 = new Panel(); Label lblValorH04 = new Label(); Label lblHoraH04 = new Label();
-            pnlBarraH04.BackColor = Color.SeaGreen; pnlBarraH04.Location = new Point(340, 160); pnlBarraH04.Size = new Size(40, 20);
-            lblValorH04.Location = new Point(321, 137); lblValorH04.Size = new Size(78, 20); lblValorH04.Text = "$0"; lblValorH04.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH04.Location = new Point(321, 186); lblHoraH04.Size = new Size(78, 24); lblHoraH04.Text = "04"; lblHoraH04.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH04); panelGraficoHoras.Controls.Add(lblValorH04); panelGraficoHoras.Controls.Add(lblHoraH04);
-            Panel pnlBarraH05 = new Panel(); Label lblValorH05 = new Label(); Label lblHoraH05 = new Label();
-            pnlBarraH05.BackColor = Color.SeaGreen; pnlBarraH05.Location = new Point(420, 160); pnlBarraH05.Size = new Size(40, 20);
-            lblValorH05.Location = new Point(401, 137); lblValorH05.Size = new Size(78, 20); lblValorH05.Text = "$0"; lblValorH05.TextAlign = ContentAlignment.MiddleCenter;
-            lblHoraH05.Location = new Point(401, 186); lblHoraH05.Size = new Size(78, 24); lblHoraH05.Text = "05"; lblHoraH05.TextAlign = ContentAlignment.MiddleCenter;
-            panelGraficoHoras.Controls.Add(pnlBarraH05); panelGraficoHoras.Controls.Add(lblValorH05); panelGraficoHoras.Controls.Add(lblHoraH05);
+            // chartHoras
+            chartHoras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartHoras.Location = new Point(18, 64);
+            chartHoras.Size = new Size(484, 220);
             grpHoras.Controls.Add(pnlBloque);
-            grpHoras.Controls.Add(panelGraficoHoras);
+            grpHoras.Controls.Add(chartHoras);
 
             // grpClientes
             grpClientes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             grpClientes.Location = new Point(20, 520);
             grpClientes.Size = new Size(520, 186);
             grpClientes.Text = "Top 5 clientes por ingresos";
-            panelClientesIngresos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelClientesIngresos.BackColor = SystemColors.Window;
-            panelClientesIngresos.BorderStyle = BorderStyle.FixedSingle;
-            panelClientesIngresos.Location = new Point(18, 28);
-            panelClientesIngresos.Size = new Size(484, 140);
-            grpClientes.Controls.Add(panelClientesIngresos);
+            chartClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartClientes.Location = new Point(18, 28);
+            chartClientes.Size = new Size(484, 140);
+            grpClientes.Controls.Add(chartClientes);
 
             // grpCategorias (ingresos)
             grpCategorias.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpCategorias.Location = new Point(560, 120);
             grpCategorias.Size = new Size(250, 210);
             grpCategorias.Text = "Top 5 categorias por ingresos";
-            panelCategoriasIngresos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelCategoriasIngresos.BackColor = SystemColors.Window;
-            panelCategoriasIngresos.BorderStyle = BorderStyle.FixedSingle;
-            panelCategoriasIngresos.Location = new Point(18, 28);
-            panelCategoriasIngresos.Size = new Size(214, 160);
-            grpCategorias.Controls.Add(panelCategoriasIngresos);
+            chartCategoriasIngresos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartCategoriasIngresos.Location = new Point(18, 28);
+            chartCategoriasIngresos.Size = new Size(214, 160);
+            grpCategorias.Controls.Add(chartCategoriasIngresos);
 
             // grpCategoriasItems
             grpCategoriasItems.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             grpCategoriasItems.Location = new Point(830, 120);
             grpCategoriasItems.Size = new Size(250, 210);
             grpCategoriasItems.Text = "Top 5 categorias por items vendidos";
-            panelCategoriasItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelCategoriasItems.BackColor = SystemColors.Window;
-            panelCategoriasItems.BorderStyle = BorderStyle.FixedSingle;
-            panelCategoriasItems.Location = new Point(18, 28);
-            panelCategoriasItems.Size = new Size(214, 160);
-            grpCategoriasItems.Controls.Add(panelCategoriasItems);
+            chartCategoriasItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartCategoriasItems.Location = new Point(18, 28);
+            chartCategoriasItems.Size = new Size(214, 160);
+            grpCategoriasItems.Controls.Add(chartCategoriasItems);
 
             // grpMarcas
             grpMarcas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;

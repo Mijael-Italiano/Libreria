@@ -21,6 +21,7 @@ namespace Libreria.UI
         private Chart chartClientes = null!;
         private Chart chartCategoriasIngresos = null!;
         private Chart chartCategoriasItems = null!;
+        private Chart chartFacturacionSemana = null!;
         private Label? lblTituloGraficoMarcas;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
         private CriterioTortaMarcas criterioTortaSeleccionado;
@@ -88,18 +89,6 @@ namespace Libreria.UI
             fechaInicioSemana = ObtenerInicioSemana(DateTime.Today);
             fechaMesAnalisis = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             MostrarSemana();
-        }
-
-        private void DiaSemana_Click(object? sender, EventArgs e)
-        {
-            if (sender is Control control && control.Tag is int dia)
-            {
-                DateTime fecha = fechaInicioSemana.AddDays(dia);
-                if (this.PerteneceMesAnalisis(fecha))
-                {
-                    new FormDashboardVentasDiarias(fecha).Show();
-                }
-            }
         }
 
         private static DateTime ObtenerInicioSemana(DateTime fecha)
@@ -188,6 +177,46 @@ namespace Libreria.UI
 
             this.ConfigurarChartTopCategorias(this.chartCategoriasIngresos, "categoriasIngresos", CriterioTortaMarcas.Ingresos);
             this.ConfigurarChartTopCategorias(this.chartCategoriasItems, "categoriasItems", CriterioTortaMarcas.Items);
+
+            ChartArea areaFacturacionSemana = new ChartArea("facturacionSemana");
+            areaFacturacionSemana.AxisY.LabelStyle.Enabled = false;
+            areaFacturacionSemana.AxisY.MajorGrid.Enabled = false;
+            areaFacturacionSemana.AxisX.MajorGrid.Enabled = false;
+            areaFacturacionSemana.AxisX.Interval = 1;
+            areaFacturacionSemana.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            this.chartFacturacionSemana.ChartAreas.Add(areaFacturacionSemana);
+
+            Series seriesFacturacionSemana = new Series("facturacionSemana");
+            seriesFacturacionSemana.ChartType = SeriesChartType.Column;
+            seriesFacturacionSemana.Font = new Font("Segoe UI", 7.5F);
+            seriesFacturacionSemana["PointWidth"] = "0.5";
+            this.chartFacturacionSemana.Series.Add(seriesFacturacionSemana);
+
+            this.chartFacturacionSemana.BackColor = SystemColors.Window;
+            this.chartFacturacionSemana.Cursor = Cursors.Hand;
+            this.chartFacturacionSemana.MouseClick += ChartFacturacionSemana_MouseClick;
+        }
+
+        private void ChartFacturacionSemana_MouseClick(object? sender, MouseEventArgs e)
+        {
+            if (sender is not Chart chart)
+            {
+                return;
+            }
+
+            HitTestResult resultado = chart.HitTest(e.X, e.Y);
+
+            if (resultado.ChartElementType != ChartElementType.DataPoint || resultado.PointIndex < 0)
+            {
+                return;
+            }
+
+            DateTime fecha = fechaInicioSemana.AddDays(resultado.PointIndex);
+
+            if (this.PerteneceMesAnalisis(fecha))
+            {
+                new FormDashboardVentasDiarias(fecha).Show();
+            }
         }
 
         private void ConfigurarChartTopCategorias(Chart chart, string nombreArea, CriterioTortaMarcas criterio)
@@ -261,17 +290,8 @@ namespace Libreria.UI
 
         private void MostrarBarrasSemana(List<DashboardVentasDia> ventasPorDia)
         {
-            Panel? panelGrafico = this.ObtenerPanelGraficoSemana();
-            if (panelGrafico == null)
-            {
-                return;
-            }
-
-            decimal maximo = ventasPorDia.Select(dia => dia.TotalFacturado).DefaultIfEmpty(0).Max();
-            int baseBarras = panelGrafico.Height - 40;
-            int alturaMaxima = Math.Max(24, baseBarras - 30);
-            int anchoSlot = Math.Max(1, panelGrafico.Width / 7);
-            int anchoBarra = Math.Min(42, Math.Max(24, anchoSlot / 2));
+            Series series = this.chartFacturacionSemana.Series[0];
+            series.Points.Clear();
 
             for (int i = 0; i < 7; i++)
             {
@@ -280,49 +300,11 @@ namespace Libreria.UI
                 DashboardVentasDia ventaDia = ventasPorDia.FirstOrDefault(dia => dia.Fecha.Date == fechaDia.Date)
                     ?? new DashboardVentasDia { Fecha = fechaDia };
 
-                Panel? barra = this.ObtenerControles<Panel>(panelGrafico).FirstOrDefault(panel => panel.Tag is int tag && tag == i);
-                Label? valor = this.ObtenerControles<Label>(panelGrafico).FirstOrDefault(label => label.Tag is int tag && tag == i && label.Text.StartsWith("$", StringComparison.Ordinal));
-                Label? dia = this.ObtenerControles<Label>(panelGrafico).FirstOrDefault(label => label.Tag is int tag && tag == i && !label.Text.StartsWith("$", StringComparison.Ordinal));
-                int centroSlot = (anchoSlot * i) + (anchoSlot / 2);
-                decimal totalDia = ventaDia.TotalFacturado;
-
-                if (barra != null)
-                {
-                    barra.Width = anchoBarra;
-                    barra.Left = centroSlot - (anchoBarra / 2);
-                    barra.Top = baseBarras - 2;
-                    barra.Height = 2;
-                    barra.BackColor = perteneceMes ? Color.SteelBlue : Color.LightSteelBlue;
-                    barra.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
-                    this.AjustarBarra(barra, totalDia, maximo, alturaMaxima);
-                }
-
-                if (valor != null && barra != null)
-                {
-                    valor.Text = FormatearImporteCorto(totalDia);
-                    valor.ForeColor = perteneceMes ? SystemColors.ControlText : SystemColors.GrayText;
-                    valor.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
-                    valor.Width = Math.Max(78, anchoSlot - 8);
-                    this.AjustarValorSobreBarra(valor, barra);
-                }
-
-                if (dia != null)
-                {
-                    dia.Text = fechaDia.ToString("ddd dd", CultureInfo.CurrentCulture);
-                    dia.ForeColor = perteneceMes ? SystemColors.ControlText : SystemColors.GrayText;
-                    dia.Cursor = perteneceMes ? Cursors.Hand : Cursors.Default;
-                    dia.Width = Math.Max(78, anchoSlot - 8);
-                    dia.Left = centroSlot - (dia.Width / 2);
-                    dia.Top = baseBarras + 6;
-                }
+                int puntoIndice = series.Points.AddXY(i + 1, (double)ventaDia.TotalFacturado);
+                series.Points[puntoIndice].AxisLabel = fechaDia.ToString("ddd dd", CultureInfo.CurrentCulture);
+                series.Points[puntoIndice].Label = FormatearImporteCorto(ventaDia.TotalFacturado);
+                series.Points[puntoIndice].Color = perteneceMes ? Color.SteelBlue : Color.LightSteelBlue;
             }
-        }
-
-        private Panel? ObtenerPanelGraficoSemana()
-        {
-            GroupBox? grupo = this.ObtenerControles<GroupBox>().FirstOrDefault(control => control.Text.Contains("semana", StringComparison.OrdinalIgnoreCase)
-                && control.Text.Contains("Facturacion", StringComparison.OrdinalIgnoreCase));
-            return grupo == null ? null : this.ObtenerControles<Panel>(grupo).FirstOrDefault();
         }
 
 
@@ -490,24 +472,6 @@ namespace Libreria.UI
         {
             Ingresos,
             Items,
-        }
-
-        private void AjustarBarra(Panel barra, decimal valor, decimal maximo, int alturaMaxima)
-        {
-            int baseInferior = barra.Top + barra.Height;
-            int altura = maximo <= 0 ? 2 : Math.Max(2, (int)(alturaMaxima * valor / maximo));
-            barra.Height = altura;
-            barra.Top = baseInferior - altura;
-        }
-
-        private void AjustarValorSobreBarra(Label valor, Panel barra)
-        {
-            const int margenSuperior = 4;
-            const int separacionBarra = 4;
-
-            valor.Left = barra.Left + (barra.Width / 2) - (valor.Width / 2);
-            valor.Top = Math.Max(margenSuperior, barra.Top - valor.Height - separacionBarra);
-            valor.BringToFront();
         }
 
         private Label CrearEtiqueta(string texto, Point location, Size size, ContentAlignment alineacion)

@@ -27,6 +27,10 @@ namespace Libreria.UI
             this.criterioTortaSeleccionado = CriterioTortaMarcas.Ingresos;
             this.fechaMes = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             this.ConfigurarChartMarcas();
+            this.ConfigurarChartClientes();
+            this.ConfigurarChartTopCategorias(this.chartCategoriasIngresos, "categoriasIngresos", CriterioTortaMarcas.Ingresos);
+            this.ConfigurarChartTopCategorias(this.chartCategoriasItems, "categoriasItems", CriterioTortaMarcas.Items);
+            this.ConfigurarChartFacturacionMes();
             this.MostrarMes();
         }
 
@@ -80,71 +84,41 @@ namespace Libreria.UI
 
         private void MostrarBarrasTramos(List<DashboardVentasTramoMensual> tramos)
         {
-            this.panelGraficoMes.Controls.Clear();
+            Series series = this.chartFacturacionMes.Series[0];
+            series.Points.Clear();
 
             if (tramos.Count == 0)
             {
-                this.panelGraficoMes.Controls.Add(this.CrearEtiqueta(
-                    "Sin ventas en el mes",
-                    new Point(12, 80),
-                    new Size(this.panelGraficoMes.Width - 24, 30),
-                    ContentAlignment.MiddleCenter));
+                this.chartFacturacionMes.Titles[0].Text = "Sin ventas en el mes";
                 return;
             }
 
-            decimal maximo = tramos.Select(tramo => tramo.TotalFacturado).DefaultIfEmpty(0).Max();
-            int baseBarras = this.panelGraficoMes.Height - 50;
-            int alturaMaxima = Math.Max(24, baseBarras - 34);
-            int cantidad = tramos.Count;
-            int anchoSlot = Math.Max(1, this.panelGraficoMes.Width / cantidad);
-            int anchoBarra = Math.Min(46, Math.Max(24, anchoSlot / 2));
+            this.chartFacturacionMes.Titles[0].Text = string.Empty;
 
-            for (int i = 0; i < cantidad; i++)
+            foreach (DashboardVentasTramoMensual tramo in tramos)
             {
-                DashboardVentasTramoMensual tramo = tramos[i];
-                int centroSlot = (anchoSlot * i) + (anchoSlot / 2);
-                int altura = maximo <= 0 ? 2 : Math.Max(2, (int)(alturaMaxima * tramo.TotalFacturado / maximo));
-
-                Panel barra = new Panel
-                {
-                    BackColor = Color.SteelBlue,
-                    Location = new Point(centroSlot - (anchoBarra / 2), baseBarras - altura),
-                    Size = new Size(anchoBarra, altura),
-                };
-
-                Label valor = this.CrearEtiqueta(
-                    FormatearImporteCorto(tramo.TotalFacturado),
-                    new Point(centroSlot - (Math.Max(82, anchoSlot - 8) / 2), Math.Max(4, barra.Top - 24)),
-                    new Size(Math.Max(82, anchoSlot - 8), 20),
-                    ContentAlignment.MiddleCenter);
-
-                Label etiqueta = this.CrearEtiqueta(
-                    tramo.Etiqueta,
-                    new Point(centroSlot - (Math.Max(82, anchoSlot - 8) / 2), baseBarras + 8),
-                    new Size(Math.Max(82, anchoSlot - 8), 34),
-                    ContentAlignment.TopCenter);
-
-                this.ConfigurarClickTramo(barra, tramo);
-                this.ConfigurarClickTramo(valor, tramo);
-                this.ConfigurarClickTramo(etiqueta, tramo);
-
-                this.panelGraficoMes.Controls.Add(barra);
-                this.panelGraficoMes.Controls.Add(valor);
-                this.panelGraficoMes.Controls.Add(etiqueta);
-                valor.BringToFront();
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)tramo.TotalFacturado);
+                series.Points[puntoIndice].AxisLabel = tramo.Etiqueta;
+                series.Points[puntoIndice].Label = FormatearImporteCorto(tramo.TotalFacturado);
+                series.Points[puntoIndice].Tag = tramo;
             }
         }
 
-        private void ConfigurarClickTramo(Control control, DashboardVentasTramoMensual tramo)
+        private void ChartFacturacionMes_MouseClick(object? sender, MouseEventArgs e)
         {
-            control.Cursor = Cursors.Hand;
-            control.Tag = tramo;
-            control.Click += TramoMensual_Click;
-        }
+            if (sender is not Chart chart)
+            {
+                return;
+            }
 
-        private void TramoMensual_Click(object? sender, EventArgs e)
-        {
-            if (sender is Control control && control.Tag is DashboardVentasTramoMensual tramo)
+            HitTestResult resultado = chart.HitTest(e.X, e.Y);
+
+            if (resultado.ChartElementType != ChartElementType.DataPoint || resultado.PointIndex < 0 || resultado.Series == null)
+            {
+                return;
+            }
+
+            if (resultado.Series.Points[resultado.PointIndex].Tag is DashboardVentasTramoMensual tramo)
             {
                 new FormDashboardVentas(tramo.FechaDesde, this.fechaMes).Show();
             }
@@ -152,119 +126,76 @@ namespace Libreria.UI
 
         private void MostrarClientesPorIngresos(List<DashboardVentasCliente> clientes)
         {
-            this.panelClientesIngresos.Controls.Clear();
+            Series series = this.chartClientes.Series["clientes"];
+            series.Points.Clear();
+
             List<DashboardVentasCliente> topClientes = clientes.Take(5).ToList();
 
             if (topClientes.Count == 0)
             {
-                this.panelClientesIngresos.Controls.Add(this.CrearEtiqueta(
-                    "Sin clientes con compras en el periodo",
-                    new Point(12, 35),
-                    new Size(this.panelClientesIngresos.Width - 24, 30),
-                    ContentAlignment.MiddleCenter));
+                this.chartClientes.Titles["tituloClientes"].Text = "Sin clientes con compras en el periodo";
                 return;
             }
 
-            decimal maximo = topClientes.Select(cliente => cliente.TotalFacturado).DefaultIfEmpty(0).Max();
-            int y = 8;
+            this.chartClientes.Titles["tituloClientes"].Text = string.Empty;
 
-            foreach (DashboardVentasCliente cliente in topClientes)
+            for (int indice = topClientes.Count - 1; indice >= 0; indice--)
             {
-                Label nombre = this.CrearEtiqueta(cliente.Cliente, new Point(10, y), new Size(210, 18), ContentAlignment.MiddleLeft);
-                Label total = this.CrearEtiqueta(FormatearImporteCorto(cliente.TotalFacturado), new Point(this.panelClientesIngresos.Width - 106, y), new Size(94, 18), ContentAlignment.MiddleRight);
+                DashboardVentasCliente cliente = topClientes[indice];
                 string textoCompras = cliente.CantidadCompras == 1 ? "1 asistencia" : $"{cliente.CantidadCompras} asistencias";
-                Label compras = this.CrearEtiqueta(textoCompras, new Point(226, y), new Size(120, 18), ContentAlignment.MiddleLeft);
-                Panel barra = new Panel
-                {
-                    BackColor = Color.SteelBlue,
-                    Location = new Point(10, y + 17),
-                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)(210 * cliente.TotalFacturado / maximo)), 6),
-                };
 
-                this.panelClientesIngresos.Controls.Add(nombre);
-                this.panelClientesIngresos.Controls.Add(compras);
-                this.panelClientesIngresos.Controls.Add(total);
-                this.panelClientesIngresos.Controls.Add(barra);
-                y += 24;
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)cliente.TotalFacturado);
+                series.Points[puntoIndice].AxisLabel = cliente.Cliente;
+                series.Points[puntoIndice].Label = FormatearImporteCorto(cliente.TotalFacturado);
+                series.Points[puntoIndice].ToolTip = $"{cliente.Cliente}: {FormatearImporteCorto(cliente.TotalFacturado)} ({textoCompras})";
             }
         }
 
         private void MostrarCategoriasPorIngresos(List<DashboardVentasCategoria> categorias)
         {
             this.MostrarTopCategorias(
-                this.panelCategoriasIngresos,
+                this.chartCategoriasIngresos,
                 categorias.Take(5).ToList(),
                 categoria => categoria.TotalFacturado,
                 categoria => FormatearImporteCorto(categoria.TotalFacturado),
-                "Sin ingresos en el periodo",
-                CriterioTortaMarcas.Ingresos);
+                "Sin ingresos en el periodo");
         }
 
         private void MostrarCategoriasPorItems(List<DashboardVentasCategoria> categorias)
         {
             this.MostrarTopCategorias(
-                this.panelCategoriasItems,
+                this.chartCategoriasItems,
                 categorias.Take(5).ToList(),
                 categoria => categoria.CantidadVendida,
                 categoria => $"{categoria.CantidadVendida} items",
-                "Sin items vendidos en el periodo",
-                CriterioTortaMarcas.Items);
+                "Sin items vendidos en el periodo");
         }
 
         private void MostrarTopCategorias(
-            Panel panel,
+            Chart chart,
             List<DashboardVentasCategoria> categorias,
             Func<DashboardVentasCategoria, decimal> obtenerValor,
             Func<DashboardVentasCategoria, string> formatearValor,
-            string mensajeSinDatos,
-            CriterioTortaMarcas criterio)
+            string mensajeSinDatos)
         {
-            panel.Controls.Clear();
+            Series series = chart.Series[0];
+            series.Points.Clear();
 
             if (categorias.Count == 0)
             {
-                panel.Controls.Add(this.CrearEtiqueta(mensajeSinDatos, new Point(12, 58), new Size(panel.Width - 24, 30), ContentAlignment.MiddleCenter));
+                chart.Titles[0].Text = mensajeSinDatos;
                 return;
             }
 
-            decimal maximo = categorias.Select(obtenerValor).DefaultIfEmpty(0).Max();
-            int y = 12;
+            chart.Titles[0].Text = string.Empty;
 
-            foreach (DashboardVentasCategoria categoria in categorias)
+            for (int indice = categorias.Count - 1; indice >= 0; indice--)
             {
-                Label nombre = this.CrearEtiqueta(categoria.Categoria, new Point(10, y), new Size(100, 18), ContentAlignment.MiddleLeft);
-                Label valor = this.CrearEtiqueta(formatearValor(categoria), new Point(panel.Width - 98, y), new Size(88, 18), ContentAlignment.MiddleRight);
-                Panel barra = new Panel
-                {
-                    BackColor = Color.SeaGreen,
-                    Cursor = Cursors.Hand,
-                    Location = new Point(10, y + 20),
-                    Size = new Size(maximo == 0 ? 1 : Math.Max(1, (int)((panel.Width - 20) * obtenerValor(categoria) / maximo)), 8),
-                };
+                DashboardVentasCategoria categoria = categorias[indice];
 
-                this.ConfigurarClickCategoria(nombre, categoria.Categoria, criterio);
-                this.ConfigurarClickCategoria(valor, categoria.Categoria, criterio);
-                this.ConfigurarClickCategoria(barra, categoria.Categoria, criterio);
-
-                panel.Controls.Add(nombre);
-                panel.Controls.Add(valor);
-                panel.Controls.Add(barra);
-                y += 27;
-            }
-        }
-
-        private void ConfigurarClickCategoria(Control control, string categoria, CriterioTortaMarcas criterio)
-        {
-            control.Cursor = Cursors.Hand;
-            control.Tag = new CategoriaSeleccionada(categoria, criterio);
-            control.Click += Categoria_Click;
-        }
-
-        private void Categoria_Click(object? sender, EventArgs e)
-        {
-            if (sender is Control control && control.Tag is CategoriaSeleccionada seleccion)
-            {
-                this.MostrarTortaMarcas(seleccion.Categoria, seleccion.Criterio);
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)obtenerValor(categoria));
+                series.Points[puntoIndice].AxisLabel = categoria.Categoria;
+                series.Points[puntoIndice].Label = formatearValor(categoria);
             }
         }
 
@@ -308,6 +239,112 @@ namespace Libreria.UI
             this.chartMarcas.Legends.Add(legend);
 
             this.chartMarcas.BackColor = SystemColors.Window;
+        }
+
+        private void ConfigurarChartClientes()
+        {
+            ChartArea area = new ChartArea("clientes");
+            area.AxisY.LabelStyle.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisX.Interval = 1;
+            area.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            this.chartClientes.ChartAreas.Add(area);
+
+            Series series = new Series("clientes");
+            series.ChartType = SeriesChartType.Bar;
+            series.Color = Color.SteelBlue;
+            series.Font = new Font("Segoe UI", 7.5F);
+            series["PointWidth"] = "0.5";
+            this.chartClientes.Series.Add(series);
+
+            Title titulo = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
+            {
+                Name = "tituloClientes",
+                DockedToChartArea = "clientes",
+            };
+            this.chartClientes.Titles.Add(titulo);
+
+            this.chartClientes.BackColor = SystemColors.Window;
+        }
+
+        private void ConfigurarChartTopCategorias(Chart chart, string nombreArea, CriterioTortaMarcas criterio)
+        {
+            ChartArea area = new ChartArea(nombreArea);
+            area.AxisY.LabelStyle.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisX.Interval = 1;
+            area.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            chart.ChartAreas.Add(area);
+
+            Series series = new Series(nombreArea);
+            series.ChartType = SeriesChartType.Bar;
+            series.Color = Color.SeaGreen;
+            series.Font = new Font("Segoe UI", 7.5F);
+            series["PointWidth"] = "0.5";
+            chart.Series.Add(series);
+
+            Title titulo = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
+            {
+                Name = "titulo" + nombreArea,
+                DockedToChartArea = nombreArea,
+            };
+            chart.Titles.Add(titulo);
+
+            chart.BackColor = SystemColors.Window;
+            chart.Cursor = Cursors.Hand;
+            chart.Tag = criterio;
+            chart.MouseClick += ChartTopCategorias_MouseClick;
+        }
+
+        private void ChartTopCategorias_MouseClick(object? sender, MouseEventArgs e)
+        {
+            if (sender is not Chart chart || chart.Tag is not CriterioTortaMarcas criterio)
+            {
+                return;
+            }
+
+            HitTestResult resultado = chart.HitTest(e.X, e.Y);
+
+            if (resultado.ChartElementType != ChartElementType.DataPoint || resultado.PointIndex < 0 || resultado.Series == null)
+            {
+                return;
+            }
+
+            string categoria = resultado.Series.Points[resultado.PointIndex].AxisLabel;
+            this.MostrarTortaMarcas(categoria, criterio);
+        }
+
+        private void ConfigurarChartFacturacionMes()
+        {
+            ChartArea area = new ChartArea("facturacionMes");
+            area.AxisY.LabelStyle.Enabled = false;
+            area.AxisY.MajorGrid.Enabled = false;
+            area.AxisX.MajorGrid.Enabled = false;
+            area.AxisX.Interval = 1;
+            area.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
+            area.AxisX.LabelStyle.Angle = -20;
+            area.AxisX.LabelStyle.IsStaggered = false;
+            this.chartFacturacionMes.ChartAreas.Add(area);
+
+            Series series = new Series("facturacionMes");
+            series.ChartType = SeriesChartType.Column;
+            series.Color = Color.SteelBlue;
+            series.Font = new Font("Segoe UI", 7.5F);
+            series["PointWidth"] = "0.5";
+            this.chartFacturacionMes.Series.Add(series);
+
+            Title titulo = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
+            {
+                Name = "tituloFacturacionMes",
+                DockedToChartArea = "facturacionMes",
+            };
+            this.chartFacturacionMes.Titles.Add(titulo);
+
+            this.chartFacturacionMes.BackColor = SystemColors.Window;
+            this.chartFacturacionMes.Cursor = Cursors.Hand;
+            this.chartFacturacionMes.MouseClick += ChartFacturacionMes_MouseClick;
         }
 
         private void ActualizarChartMarcas()
@@ -360,18 +397,6 @@ namespace Libreria.UI
             return criterio == CriterioTortaMarcas.Items ? "items vendidos" : "ingresos";
         }
 
-        private Label CrearEtiqueta(string texto, Point location, Size size, ContentAlignment alineacion)
-        {
-            return new Label
-            {
-                Text = texto,
-                Location = location,
-                Size = size,
-                TextAlign = alineacion,
-                AutoEllipsis = true,
-            };
-        }
-
         private static string FormatearImporte(decimal importe)
         {
             return importe.ToString("C0", CultureInfo.CurrentCulture);
@@ -380,18 +405,6 @@ namespace Libreria.UI
         private static string FormatearImporteCorto(decimal importe)
         {
             return importe.ToString("C0", CultureInfo.CurrentCulture);
-        }
-
-        private class CategoriaSeleccionada
-        {
-            public CategoriaSeleccionada(string categoria, CriterioTortaMarcas criterio)
-            {
-                this.Categoria = categoria;
-                this.Criterio = criterio;
-            }
-
-            public string Categoria { get; }
-            public CriterioTortaMarcas Criterio { get; }
         }
 
         private enum CriterioTortaMarcas
