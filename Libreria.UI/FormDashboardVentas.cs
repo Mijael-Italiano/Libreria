@@ -59,7 +59,13 @@ namespace Libreria.UI
             }
 
             fechaInicioSemana = fechaInicioSemana.AddDays(-7);
-            fechaMesAnalisis = ObtenerMesPredominanteSemana(fechaInicioSemana);
+            DateTime nuevoFinSemana = fechaInicioSemana.AddDays(6);
+            bool nuevaSemanaAbarcaDosMeses = fechaInicioSemana.Month != nuevoFinSemana.Month
+                || fechaInicioSemana.Year != nuevoFinSemana.Year;
+
+            fechaMesAnalisis = nuevaSemanaAbarcaDosMeses
+                ? new DateTime(nuevoFinSemana.Year, nuevoFinSemana.Month, 1)
+                : ObtenerMesPredominanteSemana(fechaInicioSemana);
             MostrarSemana();
         }
 
