@@ -58,6 +58,7 @@
             btnSalir.TabIndex = 1;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // txtNombreUsuario
             // 
@@ -93,7 +94,7 @@
             chkMostrarContrasena.AutoSize = true;
             chkMostrarContrasena.Location = new Point(15, 143);
             chkMostrarContrasena.Name = "chkMostrarContrasena";
-            chkMostrarContrasena.Size = new Size(125, 19);
+            chkMostrarContrasena.Size = new Size(128, 19);
             chkMostrarContrasena.TabIndex = 6;
             chkMostrarContrasena.Text = "Mostrar contraseña";
             chkMostrarContrasena.UseVisualStyleBackColor = true;

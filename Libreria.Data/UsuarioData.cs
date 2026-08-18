@@ -146,7 +146,7 @@ namespace Libreria.Data
             }
         }
 
-        public void ActualizarIntentosFallidos(int id, int intentosFallidos)
+        public void ActualizarSeguridadAcceso(int id, int intentosFallidos, bool bloqueado)
         {
             try
             {
@@ -161,6 +161,7 @@ namespace Libreria.Data
                 ) ?? throw new Exception("No se encontro el usuario indicado.");
 
                 usuarioXml.SetElementValue("IntentosFallidos", intentosFallidos);
+                usuarioXml.SetElementValue("Bloqueado", bloqueado);
                 documento.Save(ruta);
             }
             catch (Exception)

@@ -57,6 +57,31 @@ namespace Libreria.Data.DataComposite
             }
         }
 
+        public void EliminarRelacionesPorUsuario(int idUsuario)
+        {
+            try
+            {
+                string ruta = RutaBaseDeDatos.BuscarRuta("UsuariosRoles.xml");
+
+                XDocument documento = XDocument.Load(ruta);
+                XElement raiz = documento.Root
+                    ?? throw new Exception("El archivo UsuariosRoles.xml no tiene una raiz valida.");
+
+                raiz.Elements("UsuarioRol")
+                    .Where(usuarioRol =>
+                        int.Parse(usuarioRol.Attribute("IdUsuario")?.Value
+                            ?? throw new Exception("Hay una relacion usuario-rol sin IdUsuario.")) == idUsuario
+                    )
+                    .Remove();
+
+                documento.Save(ruta);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<int> ConsultarIdsRolesPorUsuario(int idUsuario)
         {
             try
