@@ -92,6 +92,79 @@ namespace Libreria.Business
                 VentasPorMarcaCategoria = this.ObtenerVentasPorMarcaCategoria(items),
             };
         }
+        public DashboardVentasResumen ObtenerResumenAnual(int anio)
+        {
+            DateTime desde = new DateTime(anio, 1, 1);
+            DateTime hasta = new DateTime(anio, 12, 31);
+
+            List<Factura> facturas = this.facturaBusiness.ConsultarFacturas()
+                .Where(factura => factura.FechaEmision.Date >= desde
+                    && factura.FechaEmision.Date <= hasta
+                    && !factura.Estado.Equals("Anulada", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            List<FacturaItem> items = this.facturaItemBusiness.ConsultarFacturaItems()
+                .Where(item => item.Factura.FechaEmision.Date >= desde
+                    && item.Factura.FechaEmision.Date <= hasta
+                    && !item.Estado.Equals("Anulado", StringComparison.OrdinalIgnoreCase)
+                    && !item.Factura.Estado.Equals("Anulada", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return new DashboardVentasResumen
+            {
+                TotalFacturado = facturas.Sum(factura => factura.Total),
+                CantidadFacturas = facturas.Count,
+                CantidadItemsVendidos = items.Sum(item => item.Cantidad),
+                VentasPorMes = this.ObtenerVentasPorMes(facturas, anio),
+                ClientesPorIngresos = this.ObtenerClientesPorIngresos(facturas),
+                VentasPorCategoria = this.ObtenerVentasPorCategoria(items),
+                CategoriasPorItems = this.ObtenerCategoriasPorItems(items),
+                VentasPorMarcaCategoria = this.ObtenerVentasPorMarcaCategoria(items),
+            };
+        }
+
+        private List<DashboardVentasMes> ObtenerVentasPorMes(List<Factura> facturas, int anio)
+        {
+            List<DashboardVentasMes> ventas = new List<DashboardVentasMes>();
+
+            for (int mes = 1; mes <= 12; mes++)
+            {
+                List<Factura> facturasMes = facturas
+                    .Where(factura => factura.FechaEmision.Year == anio && factura.FechaEmision.Month == mes)
+                    .ToList();
+
+                ventas.Add(new DashboardVentasMes
+                {
+                    Mes = mes,
+                    NombreMes = ObtenerNombreMesCorto(mes),
+                    TotalFacturado = facturasMes.Sum(factura => factura.Total),
+                    CantidadFacturas = facturasMes.Count,
+                });
+            }
+
+            return ventas;
+        }
+
+        private static string ObtenerNombreMesCorto(int mes)
+        {
+            return mes switch
+            {
+                1 => "Ene",
+                2 => "Feb",
+                3 => "Mar",
+                4 => "Abr",
+                5 => "May",
+                6 => "Jun",
+                7 => "Jul",
+                8 => "Ago",
+                9 => "Sep",
+                10 => "Oct",
+                11 => "Nov",
+                12 => "Dic",
+                _ => string.Empty,
+            };
+        }
+
         private List<DashboardVentasCliente> ObtenerClientesPorIngresos(List<Factura> facturas)
         {
             return facturas

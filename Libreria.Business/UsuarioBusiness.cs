@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Libreria.Data;
+using Libreria.Data.DataComposite;
 using Libreria.Entity;
 using Libreria.Seguridad;
 
@@ -9,11 +10,14 @@ namespace Libreria.Business
 {
     public class UsuarioBusiness
     {
+        private const int MaximoIntentosFallidos = 5;
         private readonly UsuarioData usuarioData;
+        private readonly UsuarioRolData usuarioRolData;
 
         public UsuarioBusiness()
         {
             this.usuarioData = new UsuarioData();
+            this.usuarioRolData = new UsuarioRolData();
         }
 
         public void AltaUsuario(Usuario usuario)
@@ -77,16 +81,26 @@ namespace Libreria.Business
 
                 if (usuario.Contrasena != contrasenaEncriptada)
                 {
-                    this.usuarioData.ActualizarIntentosFallidos(
+                    int intentosFallidos = usuario.IntentosFallidos + 1;
+                    bool bloquearUsuario = intentosFallidos >= MaximoIntentosFallidos;
+
+                    this.usuarioData.ActualizarSeguridadAcceso(
                         usuario.Id,
-                        usuario.IntentosFallidos + 1
+                        intentosFallidos,
+                        bloquearUsuario
                     );
+
+                    if (bloquearUsuario)
+                    {
+                        throw new Exception("El usuario fue bloqueado por superar los cinco intentos fallidos.");
+                    }
 
                     throw new Exception("Las credenciales no son correctas.");
                 }
 
-                this.usuarioData.ActualizarIntentosFallidos(usuario.Id, 0);
+                this.usuarioData.ActualizarSeguridadAcceso(usuario.Id, 0, false);
                 usuario.IntentosFallidos = 0;
+                usuario.Bloqueado = false;
 
                 return usuario;
             }
@@ -117,6 +131,11 @@ namespace Libreria.Business
                 if (!this.UsuarioTieneCambios(usuarioActual, usuario, contrasenaEncriptada))
                 {
                     throw new Exception("No se modifico ningun dato.");
+                }
+
+                if (usuarioActual.Bloqueado && !usuario.Bloqueado)
+                {
+                    usuario.IntentosFallidos = 0;
                 }
 
                 usuario.Contrasena = contrasenaEncriptada;
@@ -152,6 +171,7 @@ namespace Libreria.Business
                     throw new Exception("El usuario seleccionado ya esta dado de baja.");
                 }
 
+                this.usuarioRolData.EliminarRelacionesPorUsuario(id);
                 this.usuarioData.CambiarEstadoUsuario(id, false);
             }
             catch (Exception)

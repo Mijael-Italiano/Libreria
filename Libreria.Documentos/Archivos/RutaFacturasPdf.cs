@@ -17,7 +17,7 @@ namespace Libreria.Documentos.Archivos
                 throw new ArgumentNullException(nameof(factura));
             }
 
-            string carpetaFactura = ObtenerCarpetaFactura(factura, fechaDocumento);
+            string carpetaFactura = ObtenerCarpetaFactura(factura, factura.FechaEmision);
             string nombreArchivo = $"{NormalizarSegmento(tipoDocumento)}_{fechaDocumento:yyyyMMdd_HHmmss}.pdf";
             return ObtenerRutaDisponible(Path.Combine(carpetaFactura, nombreArchivo));
         }
@@ -35,13 +35,25 @@ namespace Libreria.Documentos.Archivos
         private static string ObtenerCarpetaDia(DateTime fecha)
         {
             string carpeta = Path.Combine(
-                AppDomain.CurrentDomain.BaseDirectory,
+                ObtenerCarpetaSolucion(),
                 CarpetaRaiz,
                 fecha.ToString("yyyy-MM-dd")
             );
 
             Directory.CreateDirectory(carpeta);
             return carpeta;
+        }
+
+        private static string ObtenerCarpetaSolucion()
+        {
+            DirectoryInfo? directorio = new DirectoryInfo(AppContext.BaseDirectory);
+
+            while (directorio != null && !directorio.GetFiles("*.sln").Any())
+            {
+                directorio = directorio.Parent;
+            }
+
+            return directorio?.FullName ?? AppContext.BaseDirectory;
         }
 
         private static string ObtenerNombreCliente(Cliente cliente)

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,71 +10,66 @@ using Libreria.Entity;
 
 namespace Libreria.UI
 {
-    public partial class FormDashboardVentasMensuales : Form
+    public partial class FormDashboardVentasAnuales : Form
     {
         private readonly DashboardVentasBusiness dashboardVentasBusiness;
-        private DateTime fechaMes;
-        private DashboardVentasResumen? resumenMes;
+        private int anio;
+        private DashboardVentasResumen? resumenAnio;
         private List<DashboardVentasMarcaCategoria> marcasCategoriaSeleccionada;
         private CriterioTortaMarcas criterioTortaSeleccionado;
 
-        public FormDashboardVentasMensuales() : this(new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1))
-        {
-        }
-
-        public FormDashboardVentasMensuales(DateTime fechaReferencia)
+        public FormDashboardVentasAnuales()
         {
             InitializeComponent();
             this.dashboardVentasBusiness = new DashboardVentasBusiness();
             this.marcasCategoriaSeleccionada = new List<DashboardVentasMarcaCategoria>();
             this.criterioTortaSeleccionado = CriterioTortaMarcas.Ingresos;
-            this.fechaMes = new DateTime(fechaReferencia.Year, fechaReferencia.Month, 1);
+            this.anio = DateTime.Today.Year;
             this.ConfigurarChartMarcas();
             this.ConfigurarChartClientes();
             this.ConfigurarChartTopCategorias(this.chartCategoriasIngresos, "categoriasIngresos", CriterioTortaMarcas.Ingresos);
             this.ConfigurarChartTopCategorias(this.chartCategoriasItems, "categoriasItems", CriterioTortaMarcas.Items);
-            this.ConfigurarChartFacturacionMes();
-            this.MostrarMes();
+            this.ConfigurarChartFacturacionAnio();
+            this.MostrarAnio();
         }
 
-        private void btnMesAnterior_Click(object? sender, EventArgs e)
+        private void btnAnioAnterior_Click(object? sender, EventArgs e)
         {
-            this.fechaMes = this.fechaMes.AddMonths(-1);
-            this.MostrarMes();
+            this.anio -= 1;
+            this.MostrarAnio();
         }
 
-        private void btnMesSiguiente_Click(object? sender, EventArgs e)
+        private void btnAnioSiguiente_Click(object? sender, EventArgs e)
         {
-            this.fechaMes = this.fechaMes.AddMonths(1);
-            this.MostrarMes();
+            this.anio += 1;
+            this.MostrarAnio();
         }
 
-        private void btnMesActual_Click(object? sender, EventArgs e)
+        private void btnAnioActual_Click(object? sender, EventArgs e)
         {
-            this.fechaMes = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            this.MostrarMes();
+            this.anio = DateTime.Today.Year;
+            this.MostrarAnio();
         }
 
-        private void MostrarMes()
+        private void MostrarAnio()
         {
             try
             {
-                this.resumenMes = this.dashboardVentasBusiness.ObtenerResumenMensual(this.fechaMes.Year, this.fechaMes.Month);
-                DateTime fechaFinMes = this.fechaMes.AddMonths(1).AddDays(-1);
+                this.resumenAnio = this.dashboardVentasBusiness.ObtenerResumenAnual(this.anio);
 
-                this.lblRangoMes.Text = $"{this.fechaMes:MMMM yyyy} ({this.fechaMes:dd/MM/yyyy} al {fechaFinMes:dd/MM/yyyy})";
-                this.MostrarResumen(this.resumenMes);
-                this.MostrarBarrasTramos(this.resumenMes.VentasPorTramoMensual);
-                this.MostrarClientesPorIngresos(this.resumenMes.ClientesPorIngresos);
-                this.MostrarCategoriasPorIngresos(this.resumenMes.VentasPorCategoria);
-                this.MostrarCategoriasPorItems(this.resumenMes.CategoriasPorItems);
+                this.lblRangoAnio.Text = this.anio.ToString();
+                this.MostrarResumen(this.resumenAnio);
+                this.MostrarBarrasMeses(this.resumenAnio.VentasPorMes);
+                this.MostrarClientesPorIngresos(this.resumenAnio.ClientesPorIngresos);
+                this.MostrarCategoriasPorIngresos(this.resumenAnio.VentasPorCategoria);
+                this.MostrarCategoriasPorItems(this.resumenAnio.CategoriasPorItems);
                 this.LimpiarTortaMarcas("Seleccione una categoria del top para ver marcas.");
                 this.lblEstado.Text = string.Empty;
             }
             catch (Exception ex)
             {
-                this.lblEstado.Text = "No se pudieron cargar los datos del dashboard mensual.";
-                MessageBox.Show(ex.Message, "Dashboard mensual de ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.lblEstado.Text = "No se pudieron cargar los datos del dashboard anual.";
+                MessageBox.Show(ex.Message, "Dashboard anual de ventas", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,29 +80,29 @@ namespace Libreria.UI
             this.lblFacturasValor.Text = resumen.CantidadFacturas.ToString();
         }
 
-        private void MostrarBarrasTramos(List<DashboardVentasTramoMensual> tramos)
+        private void MostrarBarrasMeses(List<DashboardVentasMes> meses)
         {
-            Series series = this.chartFacturacionMes.Series[0];
+            Series series = this.chartFacturacionAnio.Series[0];
             series.Points.Clear();
 
-            if (tramos.Count == 0)
+            if (meses.Count == 0)
             {
-                this.chartFacturacionMes.Titles[0].Text = "Sin ventas en el mes";
+                this.chartFacturacionAnio.Titles[0].Text = "Sin ventas en el año";
                 return;
             }
 
-            this.chartFacturacionMes.Titles[0].Text = string.Empty;
+            this.chartFacturacionAnio.Titles[0].Text = string.Empty;
 
-            foreach (DashboardVentasTramoMensual tramo in tramos)
+            foreach (DashboardVentasMes mes in meses)
             {
-                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)tramo.TotalFacturado);
-                series.Points[puntoIndice].AxisLabel = tramo.Etiqueta;
-                series.Points[puntoIndice].Label = FormatearImporteCorto(tramo.TotalFacturado);
-                series.Points[puntoIndice].Tag = tramo;
+                int puntoIndice = series.Points.AddXY(series.Points.Count + 1, (double)mes.TotalFacturado);
+                series.Points[puntoIndice].AxisLabel = mes.NombreMes;
+                series.Points[puntoIndice].Label = FormatearImporteCorto(mes.TotalFacturado);
+                series.Points[puntoIndice].Tag = new DateTime(this.anio, mes.Mes, 1);
             }
         }
 
-        private void ChartFacturacionMes_MouseClick(object? sender, MouseEventArgs e)
+        private void ChartFacturacionAnio_MouseClick(object? sender, MouseEventArgs e)
         {
             if (sender is not Chart chart)
             {
@@ -122,9 +116,9 @@ namespace Libreria.UI
                 return;
             }
 
-            if (resultado.Series.Points[resultado.PointIndex].Tag is DashboardVentasTramoMensual tramo)
+            if (resultado.Series.Points[resultado.PointIndex].Tag is DateTime fechaMes)
             {
-                new FormDashboardVentas(tramo.FechaDesde, this.fechaMes).Show();
+                new FormDashboardVentasMensuales(fechaMes).Show();
             }
         }
 
@@ -205,13 +199,13 @@ namespace Libreria.UI
 
         private void MostrarTortaMarcas(string categoria, CriterioTortaMarcas criterio)
         {
-            if (this.resumenMes == null)
+            if (this.resumenAnio == null)
             {
                 return;
             }
 
             this.criterioTortaSeleccionado = criterio;
-            this.marcasCategoriaSeleccionada = this.resumenMes.VentasPorMarcaCategoria
+            this.marcasCategoriaSeleccionada = this.resumenAnio.VentasPorMarcaCategoria
                 .Where(marca => marca.Categoria.Equals(categoria, StringComparison.OrdinalIgnoreCase))
                 .OrderByDescending(marca => this.ObtenerValorMarca(marca, criterio))
                 .ToList();
@@ -320,35 +314,33 @@ namespace Libreria.UI
             this.MostrarTortaMarcas(categoria, criterio);
         }
 
-        private void ConfigurarChartFacturacionMes()
+        private void ConfigurarChartFacturacionAnio()
         {
-            ChartArea area = new ChartArea("facturacionMes");
+            ChartArea area = new ChartArea("facturacionAnio");
             area.AxisY.LabelStyle.Enabled = false;
             area.AxisY.MajorGrid.Enabled = false;
             area.AxisX.MajorGrid.Enabled = false;
             area.AxisX.Interval = 1;
             area.AxisX.LabelStyle.Font = new Font("Segoe UI", 7.5F);
-            area.AxisX.LabelStyle.Angle = -20;
-            area.AxisX.LabelStyle.IsStaggered = false;
-            this.chartFacturacionMes.ChartAreas.Add(area);
+            this.chartFacturacionAnio.ChartAreas.Add(area);
 
-            Series series = new Series("facturacionMes");
+            Series series = new Series("facturacionAnio");
             series.ChartType = SeriesChartType.Column;
             series.Color = Color.SteelBlue;
             series.Font = new Font("Segoe UI", 7.5F);
             series["PointWidth"] = "0.5";
-            this.chartFacturacionMes.Series.Add(series);
+            this.chartFacturacionAnio.Series.Add(series);
 
             Title titulo = new Title(string.Empty, Docking.Top, new Font("Segoe UI", 8.5F), Color.Gray)
             {
-                Name = "tituloFacturacionMes",
-                DockedToChartArea = "facturacionMes",
+                Name = "tituloFacturacionAnio",
+                DockedToChartArea = "facturacionAnio",
             };
-            this.chartFacturacionMes.Titles.Add(titulo);
+            this.chartFacturacionAnio.Titles.Add(titulo);
 
-            this.chartFacturacionMes.BackColor = SystemColors.Window;
-            this.chartFacturacionMes.Cursor = Cursors.Hand;
-            this.chartFacturacionMes.MouseClick += ChartFacturacionMes_MouseClick;
+            this.chartFacturacionAnio.BackColor = SystemColors.Window;
+            this.chartFacturacionAnio.Cursor = Cursors.Hand;
+            this.chartFacturacionAnio.MouseClick += ChartFacturacionAnio_MouseClick;
         }
 
         private void ActualizarChartMarcas()
@@ -418,4 +410,3 @@ namespace Libreria.UI
         }
     }
 }
-
