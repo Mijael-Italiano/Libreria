@@ -28,10 +28,4 @@
     <ProjectReference Include="..\Libreria.Sesion\Libreria.Sesion.csproj" />
     <ProjectReference Include="..\Libreria.Documentos\Libreria.Documentos.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\BaseDeDatos\**\*.xml">
-      <Link>BaseDeDatos\%(RecursiveDir)%(Filename)%(Extension)</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 </Project>
