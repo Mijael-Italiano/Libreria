@@ -42,10 +42,10 @@
     <IdColor>3</IdColor>
     <Descripcion>Cartuchera Maped roja</Descripcion>
     <PrecioUnitario>6200</PrecioUnitario>
-    <StockActual>19</StockActual>
+    <StockActual>13</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-30T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="5">
@@ -54,10 +54,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Cartuchera Mooving azul</Descripcion>
     <PrecioUnitario>7600</PrecioUnitario>
-    <StockActual>13</StockActual>
+    <StockActual>7</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-30T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="6">
@@ -66,10 +66,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Cuaderno Rivadavia A4</Descripcion>
     <PrecioUnitario>4200</PrecioUnitario>
-    <StockActual>39</StockActual>
+    <StockActual>32</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-31T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="7">
@@ -78,10 +78,10 @@
     <IdColor>4</IdColor>
     <Descripcion>Cuaderno Exito universitario</Descripcion>
     <PrecioUnitario>3500</PrecioUnitario>
-    <StockActual>36</StockActual>
+    <StockActual>31</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-31T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="8">
@@ -90,10 +90,10 @@
     <IdColor>5</IdColor>
     <Descripcion>Cuaderno tapa flexible</Descripcion>
     <PrecioUnitario>2200</PrecioUnitario>
-    <StockActual>64</StockActual>
+    <StockActual>58</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-31T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="9">
@@ -102,10 +102,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Lapicera Faber Castell azul</Descripcion>
     <PrecioUnitario>850</PrecioUnitario>
-    <StockActual>122</StockActual>
+    <StockActual>116</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-31T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T17:41:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="10">
@@ -114,10 +114,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Lapicera Faber Castell negra</Descripcion>
     <PrecioUnitario>850</PrecioUnitario>
-    <StockActual>114</StockActual>
+    <StockActual>109</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-31T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="11">
@@ -126,10 +126,10 @@
     <IdColor>3</IdColor>
     <Descripcion>Marcador Maped rojo</Descripcion>
     <PrecioUnitario>1250</PrecioUnitario>
-    <StockActual>78</StockActual>
+    <StockActual>72</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="12">
@@ -138,10 +138,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Goma Faber Castell blanca</Descripcion>
     <PrecioUnitario>700</PrecioUnitario>
-    <StockActual>102</StockActual>
+    <StockActual>96</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="13">
@@ -150,10 +150,10 @@
     <IdColor>5</IdColor>
     <Descripcion>Goma Maped tecnica</Descripcion>
     <PrecioUnitario>950</PrecioUnitario>
-    <StockActual>90</StockActual>
+    <StockActual>83</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="14">
@@ -162,10 +162,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Carpeta A4 azul</Descripcion>
     <PrecioUnitario>2800</PrecioUnitario>
-    <StockActual>31</StockActual>
+    <StockActual>25</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="15">
@@ -174,10 +174,10 @@
     <IdColor>3</IdColor>
     <Descripcion>Carpeta escolar Exito</Descripcion>
     <PrecioUnitario>2500</PrecioUnitario>
-    <StockActual>39</StockActual>
+    <StockActual>33</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T10:36:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="16">
@@ -186,10 +186,10 @@
     <IdColor />
     <Descripcion>Repuesto Rivadavia 96 hojas</Descripcion>
     <PrecioUnitario>3900</PrecioUnitario>
-    <StockActual>55</StockActual>
+    <StockActual>49</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-01T19:06:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T16:22:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="17">
@@ -198,10 +198,10 @@
     <IdColor />
     <Descripcion>Resma A4 generica</Descripcion>
     <PrecioUnitario>7400</PrecioUnitario>
-    <StockActual>18</StockActual>
+    <StockActual>12</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-03T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T16:22:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="18">
@@ -210,10 +210,10 @@
     <IdColor />
     <Descripcion>Regla plastica 30cm</Descripcion>
     <PrecioUnitario>1100</PrecioUnitario>
-    <StockActual>52</StockActual>
+    <StockActual>47</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-03T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T18:33:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="19">
@@ -222,10 +222,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Lapiz negro Faber Castell HB</Descripcion>
     <PrecioUnitario>650</PrecioUnitario>
-    <StockActual>93</StockActual>
+    <StockActual>86</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-03T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T18:33:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="20">
@@ -234,10 +234,10 @@
     <IdColor />
     <Descripcion>Lapices de colores Faber Castell x12</Descripcion>
     <PrecioUnitario>5200</PrecioUnitario>
-    <StockActual>30</StockActual>
+    <StockActual>24</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-04T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T18:33:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="21">
@@ -246,10 +246,10 @@
     <IdColor />
     <Descripcion>Lapices de colores Maped x24</Descripcion>
     <PrecioUnitario>8600</PrecioUnitario>
-    <StockActual>17</StockActual>
+    <StockActual>11</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-04T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T08:15:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="22">
@@ -258,10 +258,10 @@
     <IdColor></IdColor>
     <Descripcion>Lapicera Bic cristal azul</Descripcion>
     <PrecioUnitario>650</PrecioUnitario>
-    <StockActual>137</StockActual>
+    <StockActual>132</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-04T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T08:15:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="23">
@@ -270,10 +270,10 @@
     <IdColor></IdColor>
     <Descripcion>Lapicera Bic cristal negra</Descripcion>
     <PrecioUnitario>650</PrecioUnitario>
-    <StockActual>137</StockActual>
+    <StockActual>131</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-04T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="24">
@@ -282,10 +282,10 @@
     <IdColor></IdColor>
     <Descripcion>Lapiz negro Staedtler HB</Descripcion>
     <PrecioUnitario>900</PrecioUnitario>
-    <StockActual>79</StockActual>
+    <StockActual>73</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-05T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="25">
@@ -294,10 +294,10 @@
     <IdColor></IdColor>
     <Descripcion>Resma A4 Ledesma 75g</Descripcion>
     <PrecioUnitario>9200</PrecioUnitario>
-    <StockActual>16</StockActual>
+    <StockActual>10</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-05T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="26">
@@ -306,10 +306,10 @@
     <IdColor></IdColor>
     <Descripcion>Cuaderno Gloria tapa dura</Descripcion>
     <PrecioUnitario>4800</PrecioUnitario>
-    <StockActual>27</StockActual>
+    <StockActual>21</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-05T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T11:27:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="27">
@@ -318,10 +318,10 @@
     <IdColor></IdColor>
     <Descripcion>Tijera Maped escolar 13cm</Descripcion>
     <PrecioUnitario>3600</PrecioUnitario>
-    <StockActual>22</StockActual>
+    <StockActual>15</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-05T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="28">
@@ -330,10 +330,10 @@
     <IdColor></IdColor>
     <Descripcion>Corrector Faber Castell lapiz</Descripcion>
     <PrecioUnitario>2100</PrecioUnitario>
-    <StockActual>42</StockActual>
+    <StockActual>35</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-05T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="29">
@@ -342,10 +342,10 @@
     <IdColor></IdColor>
     <Descripcion>Voligoma Pelikan 30g</Descripcion>
     <PrecioUnitario>1800</PrecioUnitario>
-    <StockActual>54</StockActual>
+    <StockActual>49</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="30">
@@ -354,10 +354,10 @@
     <IdColor></IdColor>
     <Descripcion>Regla Staedtler 30cm</Descripcion>
     <PrecioUnitario>1900</PrecioUnitario>
-    <StockActual>33</StockActual>
+    <StockActual>27</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="31">
@@ -366,10 +366,10 @@
     <IdColor></IdColor>
     <Descripcion>Resaltador Simball amarillo</Descripcion>
     <PrecioUnitario>1600</PrecioUnitario>
-    <StockActual>62</StockActual>
+    <StockActual>56</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="32">
@@ -378,10 +378,10 @@
     <IdColor></IdColor>
     <Descripcion>Resaltador Simball verde</Descripcion>
     <PrecioUnitario>1600</PrecioUnitario>
-    <StockActual>56</StockActual>
+    <StockActual>50</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T17:41:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="33">
@@ -414,10 +414,10 @@
     <IdColor>10</IdColor>
     <Descripcion>Cartuchera Maped violeta</Descripcion>
     <PrecioUnitario>6900</PrecioUnitario>
-    <StockActual>15</StockActual>
+    <StockActual>10</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="36">
@@ -426,10 +426,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Cartuchera doble cierre negra</Descripcion>
     <PrecioUnitario>5400</PrecioUnitario>
-    <StockActual>19</StockActual>
+    <StockActual>12</StockActual>
     <StockMinimo>6</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-08-06T19:06:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="37">
@@ -438,10 +438,10 @@
     <IdColor>3</IdColor>
     <Descripcion>Cuaderno Rivadavia 48 hojas rojo</Descripcion>
     <PrecioUnitario>2600</PrecioUnitario>
-    <StockActual>62</StockActual>
+    <StockActual>56</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-23T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="38">
@@ -450,10 +450,10 @@
     <IdColor>10</IdColor>
     <Descripcion>Cuaderno Gloria universitario violeta</Descripcion>
     <PrecioUnitario>3900</PrecioUnitario>
-    <StockActual>38</StockActual>
+    <StockActual>32</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-23T19:06:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="39">
@@ -462,10 +462,10 @@
     <IdColor>3</IdColor>
     <Descripcion>Lapicera Bic cristal roja</Descripcion>
     <PrecioUnitario>650</PrecioUnitario>
-    <StockActual>114</StockActual>
+    <StockActual>108</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-24T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-21T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="40">
@@ -474,10 +474,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Lapicera Pelikan azul</Descripcion>
     <PrecioUnitario>780</PrecioUnitario>
-    <StockActual>95</StockActual>
+    <StockActual>88</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-24T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T08:15:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="41">
@@ -486,10 +486,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Lapiz negro Staedtler 2B</Descripcion>
     <PrecioUnitario>950</PrecioUnitario>
-    <StockActual>73</StockActual>
+    <StockActual>67</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-24T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T08:15:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="42">
@@ -498,10 +498,10 @@
     <IdColor></IdColor>
     <Descripcion>Lapices de colores Faber Castell x24</Descripcion>
     <PrecioUnitario>9800</PrecioUnitario>
-    <StockActual>14</StockActual>
+    <StockActual>9</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-25T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="43">
@@ -510,10 +510,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Marcador Pelikan azul</Descripcion>
     <PrecioUnitario>1350</PrecioUnitario>
-    <StockActual>47</StockActual>
+    <StockActual>41</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-25T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="44">
@@ -522,10 +522,10 @@
     <IdColor>4</IdColor>
     <Descripcion>Marcador Simball verde</Descripcion>
     <PrecioUnitario>1150</PrecioUnitario>
-    <StockActual>46</StockActual>
+    <StockActual>41</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-25T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="45">
@@ -534,10 +534,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Goma Pelikan blanca</Descripcion>
     <PrecioUnitario>680</PrecioUnitario>
-    <StockActual>101</StockActual>
+    <StockActual>95</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-25T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T11:27:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="46">
@@ -546,10 +546,10 @@
     <IdColor>10</IdColor>
     <Descripcion>Carpeta A4 violeta</Descripcion>
     <PrecioUnitario>2900</PrecioUnitario>
-    <StockActual>36</StockActual>
+    <StockActual>31</StockActual>
     <StockMinimo>6</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-27T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="47">
@@ -558,10 +558,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Carpeta Exito oficio negra</Descripcion>
     <PrecioUnitario>3300</PrecioUnitario>
-    <StockActual>32</StockActual>
+    <StockActual>25</StockActual>
     <StockMinimo>6</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-27T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T13:54:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="48">
@@ -570,10 +570,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Repuesto Ledesma cuadriculado 96 hojas</Descripcion>
     <PrecioUnitario>4300</PrecioUnitario>
-    <StockActual>60</StockActual>
+    <StockActual>52</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-27T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="49">
@@ -582,10 +582,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Repuesto Rivadavia rayado 48 hojas</Descripcion>
     <PrecioUnitario>2500</PrecioUnitario>
-    <StockActual>88</StockActual>
+    <StockActual>83</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-27T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="50">
@@ -594,10 +594,10 @@
     <IdColor></IdColor>
     <Descripcion>Regla Maped flexible 20cm</Descripcion>
     <PrecioUnitario>1500</PrecioUnitario>
-    <StockActual>52</StockActual>
+    <StockActual>45</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-27T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T15:08:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="51">
@@ -606,10 +606,10 @@
     <IdColor></IdColor>
     <Descripcion>Escuadra plastica generica</Descripcion>
     <PrecioUnitario>1300</PrecioUnitario>
-    <StockActual>42</StockActual>
+    <StockActual>37</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T17:41:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="52">
@@ -618,10 +618,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Plasticola Pelikan 50g</Descripcion>
     <PrecioUnitario>2200</PrecioUnitario>
-    <StockActual>50</StockActual>
+    <StockActual>44</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="53">
@@ -630,10 +630,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Cinta adhesiva transparente</Descripcion>
     <PrecioUnitario>1200</PrecioUnitario>
-    <StockActual>74</StockActual>
+    <StockActual>69</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T19:06:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="54">
@@ -642,10 +642,10 @@
     <IdColor>2</IdColor>
     <Descripcion>Tijera Maped escolar azul</Descripcion>
     <PrecioUnitario>3700</PrecioUnitario>
-    <StockActual>29</StockActual>
+    <StockActual>23</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T15:08:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="55">
@@ -654,10 +654,10 @@
     <IdColor>1</IdColor>
     <Descripcion>Tijera oficina generica</Descripcion>
     <PrecioUnitario>4200</PrecioUnitario>
-    <StockActual>20</StockActual>
+    <StockActual>15</StockActual>
     <StockMinimo>5</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T17:41:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="56">
@@ -666,10 +666,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Corrector Bic liquido</Descripcion>
     <PrecioUnitario>2400</PrecioUnitario>
-    <StockActual>44</StockActual>
+    <StockActual>37</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-28T19:06:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T20:18:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="57">
@@ -678,10 +678,10 @@
     <IdColor>6</IdColor>
     <Descripcion>Corrector Pelikan cinta</Descripcion>
     <PrecioUnitario>3100</PrecioUnitario>
-    <StockActual>38</StockActual>
+    <StockActual>33</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-29T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-22T10:36:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="58">
@@ -690,10 +690,10 @@
     <IdColor>9</IdColor>
     <Descripcion>Resaltador Faber Castell rosa</Descripcion>
     <PrecioUnitario>1800</PrecioUnitario>
-    <StockActual>64</StockActual>
+    <StockActual>58</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-29T11:27:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="59">
@@ -702,10 +702,10 @@
     <IdColor>8</IdColor>
     <Descripcion>Resaltador Bic naranja</Descripcion>
     <PrecioUnitario>1700</PrecioUnitario>
-    <StockActual>66</StockActual>
+    <StockActual>60</StockActual>
     <StockMinimo>10</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-29T13:54:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T09:52:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
   <Producto Id="60">
@@ -714,10 +714,10 @@
     <IdColor>10</IdColor>
     <Descripcion>Resaltador Staedtler violeta</Descripcion>
     <PrecioUnitario>2100</PrecioUnitario>
-    <StockActual>48</StockActual>
+    <StockActual>44</StockActual>
     <StockMinimo>8</StockMinimo>
     <FechaAlta>2026-06-01T00:00:00</FechaAlta>
-    <FechaUltimaActualizacion>2026-07-30T09:52:00-03:00</FechaUltimaActualizacion>
+    <FechaUltimaActualizacion>2026-08-20T11:27:00-03:00</FechaUltimaActualizacion>
     <Estado>true</Estado>
   </Producto>
 </Productos>

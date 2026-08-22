@@ -1,215 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RegistrosAuditoria>
-  <RegistroAuditoria Id="1">
-    <Fecha>2026-07-02T13:23:17.3678391-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="2">
-    <Fecha>2026-07-02T13:23:35.4677516-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="3">
-    <Fecha>2026-07-02T14:21:19.9622178-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>2</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142119</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="4">
-    <Fecha>2026-07-02T14:21:48.5351053-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>2</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="5">
-    <Fecha>2026-07-02T14:23:34.8849998-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>2</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="6">
-    <Fecha>2026-07-02T14:25:03.9266278-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142119</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="7">
-    <Fecha>2026-07-02T14:26:01.2840885-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="8">
-    <Fecha>2026-07-02T14:28:15.5214679-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>2</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142815</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="9">
-    <Fecha>2026-07-02T14:37:46.8375532-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_143746</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="10">
-    <Fecha>2026-07-02T14:38:01.3356979-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="11">
-    <Fecha>2026-07-02T14:43:13.450693-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>2</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_144313</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="12">
-    <Fecha>2026-07-02T14:59:34.0098453-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="13">
-    <Fecha>2026-07-02T15:08:07.2699629-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_150807</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="14">
-    <Fecha>2026-07-02T20:17:18.4114369-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_201718</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="15">
-    <Fecha>2026-07-02T20:53:13.8640904-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_205313</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="16">
-    <Fecha>2026-07-02T20:54:57.7719328-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_205313</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="17">
-    <Fecha>2026-07-03T16:23:19.0022903-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>3</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260703_162318</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="18">
-    <Fecha>2026-07-03T16:24:17.8311075-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>3</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_132317</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="19">
-    <Fecha>2026-07-03T16:25:04.3062158-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>3</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260703_162318</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="20">
-    <Fecha>2026-08-03T17:45:19.0908754-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260803_174518</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="21">
-    <Fecha>2026-08-03T19:35:21.3935094-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260803_193521</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="22">
-    <Fecha>2026-08-03T19:54:00.4986005-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260803_195400</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="23">
-    <Fecha>2026-08-03T19:54:13.1847778-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142815</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="24">
-    <Fecha>2026-08-03T19:54:42.8408825-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260803_195400</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="25">
-    <Fecha>2026-08-06T09:51:26.3436174-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_095126</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="26">
-    <Fecha>2026-08-06T09:51:52.3078514-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142119</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="27">
-    <Fecha>2026-08-06T09:53:59.673343-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142119</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="28">
-    <Fecha>2026-08-06T10:08:23.2148379-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>4</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_100823</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="29">
-    <Fecha>2026-08-06T10:10:09.9575707-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_095126</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="30">
-    <Fecha>2026-08-06T10:26:35.1740347-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102635</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="31">
-    <Fecha>2026-08-06T10:29:20.0124235-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102635</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="32">
-    <Fecha>2026-08-06T10:29:58.9410831-03:00</Fecha>
-    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102958</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="33">
-    <Fecha>2026-08-06T10:30:47.615694-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102958</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="34">
-    <Fecha>2026-08-06T10:39:28.0683877-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102958</NombreBackUp>
-  </RegistroAuditoria>
-  <RegistroAuditoria Id="35">
-    <Fecha>2026-08-06T10:42:39.6517246-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260806_102958</NombreBackUp>
-  </RegistroAuditoria>
   <RegistroAuditoria Id="36">
     <Fecha>2026-08-06T10:49:39.840047-03:00</Fecha>
     <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
@@ -222,16 +12,34 @@
     <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
     <NombreBackUp>BackUp_20260806_104939</NombreBackUp>
   </RegistroAuditoria>
-  <RegistroAuditoria Id="38">
-    <Fecha>2026-08-06T11:06:33.1113938-03:00</Fecha>
-    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
-    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
-    <NombreBackUp>BackUp_20260702_142119</NombreBackUp>
-  </RegistroAuditoria>
   <RegistroAuditoria Id="39">
     <Fecha>2026-08-06T11:07:07.2880213-03:00</Fecha>
     <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
     <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
     <NombreBackUp>BackUp_20260806_104939</NombreBackUp>
+  </RegistroAuditoria>
+  <RegistroAuditoria Id="41">
+    <Fecha>2026-08-22T15:17:52.6096753-03:00</Fecha>
+    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
+    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
+    <NombreBackUp>BackUp_20260806_104939</NombreBackUp>
+  </RegistroAuditoria>
+  <RegistroAuditoria Id="42">
+    <Fecha>2026-08-22T15:32:45.1823092-03:00</Fecha>
+    <IdTipoRegistroAuditoria>1</IdTipoRegistroAuditoria>
+    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
+    <NombreBackUp>BackUp_20260822_153245</NombreBackUp>
+  </RegistroAuditoria>
+  <RegistroAuditoria Id="43">
+    <Fecha>2026-08-22T15:32:54.9067584-03:00</Fecha>
+    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
+    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
+    <NombreBackUp>BackUp_20260806_104939</NombreBackUp>
+  </RegistroAuditoria>
+  <RegistroAuditoria Id="44">
+    <Fecha>2026-08-22T15:33:08.3138042-03:00</Fecha>
+    <IdTipoRegistroAuditoria>2</IdTipoRegistroAuditoria>
+    <IdUsuarioAuditoria>1</IdUsuarioAuditoria>
+    <NombreBackUp>BackUp_20260822_153245</NombreBackUp>
   </RegistroAuditoria>
 </RegistrosAuditoria>
