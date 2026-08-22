@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Marcas>
+  <Marca Id="1">
+    <Nombre>Mooving</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+  <Marca Id="2">
+    <Nombre>Rivadavia</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+  <Marca Id="3">
+    <Nombre>Faber Castell</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+  <Marca Id="4">
+    <Nombre>Maped</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+  <Marca Id="5">
+    <Nombre>Exito</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+  <Marca Id="6">
+    <Nombre>Generica</Nombre>
+    <Estado>true</Estado>
+  </Marca>
+</Marcas>

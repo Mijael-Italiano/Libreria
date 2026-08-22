@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TiposRegistroAuditoria>
+  <TipoRegistroAuditoria Id="1">
+    <Nombre>BackUp</Nombre>
+  </TipoRegistroAuditoria>
+  <TipoRegistroAuditoria Id="2">
+    <Nombre>Restore</Nombre>
+  </TipoRegistroAuditoria>
+</TiposRegistroAuditoria>

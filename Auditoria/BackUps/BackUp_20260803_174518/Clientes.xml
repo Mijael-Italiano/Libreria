@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Clientes>
+  <Cliente Id="1">
+    <Documento>28777111</Documento>
+    <Nombre>Laura</Nombre>
+    <Apellido>Sanchez</Apellido>
+    <Telefono>1144556677</Telefono>
+    <Mail>laura@mail.com</Mail>
+    <Direccion>Belgrano 123</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1988-03-12</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="2">
+    <Documento>30999888</Documento>
+    <Nombre>Martin</Nombre>
+    <Apellido>Lopez</Apellido>
+    <Telefono>1133221100</Telefono>
+    <Mail>martin@mail.com</Mail>
+    <Direccion>Mitre 555</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1990-08-05</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="3">
+    <Documento>35666555</Documento>
+    <Nombre>Paula</Nombre>
+    <Apellido>Gimenez</Apellido>
+    <Telefono>1156781234</Telefono>
+    <Mail>paula@mail.com</Mail>
+    <Direccion>Italia 890</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1996-11-22</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="4">
+    <Documento>27123456</Documento>
+    <Nombre>Carlos</Nombre>
+    <Apellido>Rossi</Apellido>
+    <Telefono>1144442222</Telefono>
+    <Mail>carlos@mail.com</Mail>
+    <Direccion>Sarmiento 440</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1985-01-30</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="5">
+    <Documento>40111222</Documento>
+    <Nombre>Sofia</Nombre>
+    <Apellido>Martinez</Apellido>
+    <Telefono>1166667777</Telefono>
+    <Mail>sofia@mail.com</Mail>
+    <Direccion>Moreno 710</Direccion>
+    <Departamento/>
+    <FechaNacimiento>2001-07-19</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="6">
+    <Documento>38999111</Documento>
+    <Nombre>Nicolas</Nombre>
+    <Apellido>Acosta</Apellido>
+    <Telefono>1177778888</Telefono>
+    <Mail>nicolas@mail.com</Mail>
+    <Direccion>Roca 300</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1998-05-14</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="7">
+    <Documento>33111222</Documento>
+    <Nombre>Valeria</Nombre>
+    <Apellido>Diaz</Apellido>
+    <Telefono>1188889999</Telefono>
+    <Mail>valeria@mail.com</Mail>
+    <Direccion>Lavalle 170</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1994-12-02</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="8">
+    <Documento>29555666</Documento>
+    <Nombre>Andres</Nombre>
+    <Apellido>Molina</Apellido>
+    <Telefono>1122223333</Telefono>
+    <Mail>andres@mail.com</Mail>
+    <Direccion>Alsina 210</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1989-06-08</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="9">
+    <Documento>37222444</Documento>
+    <Nombre>Camila</Nombre>
+    <Apellido>Herrera</Apellido>
+    <Telefono>1133334444</Telefono>
+    <Mail>camila@mail.com</Mail>
+    <Direccion>Peron 980</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1997-02-17</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="10">
+    <Documento>31444777</Documento>
+    <Nombre>Diego</Nombre>
+    <Apellido>Fernandez</Apellido>
+    <Telefono>1144445555</Telefono>
+    <Mail>diego@mail.com</Mail>
+    <Direccion>Maipu 670</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1991-10-03</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="11">
+    <Documento>42666888</Documento>
+    <Nombre>Florencia</Nombre>
+    <Apellido>Ruiz</Apellido>
+    <Telefono>1155556666</Telefono>
+    <Mail>florencia@mail.com</Mail>
+    <Direccion>Urquiza 330</Direccion>
+    <Departamento/>
+    <FechaNacimiento>2002-04-26</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="12">
+    <Documento>34222111</Documento>
+    <Nombre>Javier</Nombre>
+    <Apellido>Morales</Apellido>
+    <Telefono>1166661111</Telefono>
+    <Mail>javier@mail.com</Mail>
+    <Direccion>Pueyrredon 1450</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1993-09-15</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="13">
+    <Documento>39888777</Documento>
+    <Nombre>Luciana</Nombre>
+    <Apellido>Castro</Apellido>
+    <Telefono>1177772222</Telefono>
+    <Mail>luciana@mail.com</Mail>
+    <Direccion>Guemes 520</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1999-12-11</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="14">
+    <Documento>28111999</Documento>
+    <Nombre>Roberto</Nombre>
+    <Apellido>Silva</Apellido>
+    <Telefono>1188883333</Telefono>
+    <Mail>roberto@mail.com</Mail>
+    <Direccion>Colon 820</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1986-07-24</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="15">
+    <Documento>36555123</Documento>
+    <Nombre>Natalia</Nombre>
+    <Apellido>Vega</Apellido>
+    <Telefono>1199994444</Telefono>
+    <Mail>natalia@mail.com</Mail>
+    <Direccion>Alberdi 260</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1996-01-09</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="16">
+    <Documento>33444123</Documento>
+    <Nombre>Emiliano</Nombre>
+    <Apellido>Paz</Apellido>
+    <Telefono>1112345678</Telefono>
+    <Mail>emiliano@mail.com</Mail>
+    <Direccion>Saavedra 705</Direccion>
+    <Departamento/>
+    <FechaNacimiento>1994-05-05</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-10T00:00:00</FechaAlta>
+  </Cliente>
+</Clientes>

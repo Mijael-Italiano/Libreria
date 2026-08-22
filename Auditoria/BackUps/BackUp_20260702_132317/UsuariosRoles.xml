@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UsuariosRoles>
+  <UsuarioRol IdUsuario="1" IdRol="1" />
+  <UsuarioRol IdUsuario="2" IdRol="2" />
+  <UsuarioRol IdUsuario="2" IdRol="4" />
+  <UsuarioRol IdUsuario="3" IdRol="6" />
+  <UsuarioRol IdUsuario="2" IdRol="5" />
+  <UsuarioRol IdUsuario="2" IdRol="7" />
+  <UsuarioRol IdUsuario="3" IdRol="8" />
+</UsuariosRoles>

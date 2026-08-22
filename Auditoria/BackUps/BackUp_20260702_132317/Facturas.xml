@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Facturas>
+  <Factura Id="1">
+    <IdCliente>1</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-27T19:12:54.798721-03:00</FechaEmision>
+    <Total>38600</Total>
+    <Estado>Emitida</Estado>
+  </Factura>
+  <Factura Id="2">
+    <IdCliente>3</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-27T19:15:20.5474898-03:00</FechaEmision>
+    <Total>4800</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="3">
+    <IdCliente>4</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T12:50:42.0691405-03:00</FechaEmision>
+    <Total>29500</Total>
+    <Estado>Emitida</Estado>
+  </Factura>
+  <Factura Id="4">
+    <IdCliente>5</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T12:54:07.8014283-03:00</FechaEmision>
+    <Total>4800</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="5">
+    <IdCliente>5</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T13:09:21.9165821-03:00</FechaEmision>
+    <Total>25500</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="6">
+    <IdCliente>1</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T15:03:50.3742806-03:00</FechaEmision>
+    <Total>1800</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="7">
+    <IdCliente>1</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T16:36:45.4779368-03:00</FechaEmision>
+    <Total>51200</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="8">
+    <IdCliente>4</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T16:43:40.2320545-03:00</FechaEmision>
+    <Total>70000</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="9">
+    <IdCliente>1</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T17:01:07.4765396-03:00</FechaEmision>
+    <Total>41800</Total>
+    <Estado>Emitida</Estado>
+  </Factura>
+  <Factura Id="10">
+    <IdCliente>4</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T17:06:07.7699955-03:00</FechaEmision>
+    <Total>5200</Total>
+    <Estado>Emitida</Estado>
+  </Factura>
+  <Factura Id="11">
+    <IdCliente>1</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T17:14:23.6073821-03:00</FechaEmision>
+    <Total>18200</Total>
+    <Estado>Anulada</Estado>
+  </Factura>
+  <Factura Id="12">
+    <IdCliente>5</IdCliente>
+    <IdUsuario>1</IdUsuario>
+    <FechaEmision>2026-06-28T18:21:59.0962761-03:00</FechaEmision>
+    <Total>10400</Total>
+    <Estado>Emitida</Estado>
+  </Factura>
+</Facturas>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RolesPermisos>
+  <RolPermiso IdRol="1" IdPermiso="1" />
+  <RolPermiso IdRol="1" IdPermiso="2" />
+  <RolPermiso IdRol="1" IdPermiso="3" />
+  <RolPermiso IdRol="1" IdPermiso="4" />
+  <RolPermiso IdRol="1" IdPermiso="5" />
+  <RolPermiso IdRol="1" IdPermiso="6" />
+  <RolPermiso IdRol="1" IdPermiso="7" />
+  <RolPermiso IdRol="1" IdPermiso="8" />
+  <RolPermiso IdRol="1" IdPermiso="9" />
+  <RolPermiso IdRol="1" IdPermiso="10" />
+  <RolPermiso IdRol="2" IdPermiso="7" />
+  <RolPermiso IdRol="2" IdPermiso="8" />
+  <RolPermiso IdRol="4" IdPermiso="6" />
+  <RolPermiso IdRol="5" IdPermiso="5" />
+  <RolPermiso IdRol="5" IdPermiso="4" />
+  <RolPermiso IdRol="6" IdPermiso="4" />
+  <RolPermiso IdRol="2" IdPermiso="1" />
+  <RolPermiso IdRol="4" IdPermiso="1" />
+  <RolPermiso IdRol="5" IdPermiso="1" />
+  <RolPermiso IdRol="6" IdPermiso="1" />
+  <RolPermiso IdRol="7" IdPermiso="10" />
+  <RolPermiso IdRol="8" IdPermiso="1" />
+  <RolPermiso IdRol="8" IdPermiso="2" />
+  <RolPermiso IdRol="8" IdPermiso="3" />
+  <RolPermiso IdRol="8" IdPermiso="4" />
+  <RolPermiso IdRol="8" IdPermiso="5" />
+  <RolPermiso IdRol="8" IdPermiso="6" />
+  <RolPermiso IdRol="8" IdPermiso="7" />
+  <RolPermiso IdRol="8" IdPermiso="8" />
+  <RolPermiso IdRol="8" IdPermiso="10" />
+  <RolPermiso IdRol="9" IdPermiso="9" />
+</RolesPermisos>

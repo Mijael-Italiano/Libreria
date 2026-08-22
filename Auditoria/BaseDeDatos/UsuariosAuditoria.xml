@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UsuariosAuditoria>
+  <UsuarioAuditoria Id="1">
+    <Nombre>Administrador</Nombre>
+    <Apellido>Sistema</Apellido>
+    <Dni>1</Dni>
+  </UsuarioAuditoria>
+  <UsuarioAuditoria Id="2">
+    <Nombre>Jose</Nombre>
+    <Apellido>Perez</Apellido>
+    <Dni>32012100</Dni>
+  </UsuarioAuditoria>
+  <UsuarioAuditoria Id="3">
+    <Nombre>Maxi</Nombre>
+    <Apellido>Bonza</Apellido>
+    <Dni>43184381</Dni>
+  </UsuarioAuditoria>
+  <UsuarioAuditoria Id="4">
+    <Nombre>Maxi</Nombre>
+    <Apellido>Bonza</Apellido>
+    <Dni>43915371</Dni>
+  </UsuarioAuditoria>
+</UsuariosAuditoria>

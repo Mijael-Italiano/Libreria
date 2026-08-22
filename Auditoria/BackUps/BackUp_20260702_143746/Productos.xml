@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Productos>
+  <Producto Id="1">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>1</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Mochila Mapped N.10</Descripcion>
+    <PrecioUnitario>35000</PrecioUnitario>
+    <StockActual>10</StockActual>
+    <StockMinimo>3</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T17:01:42.8664618-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="2">
+    <IdMarca>9</IdMarca>
+    <IdCategoria>2</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Lapiz HB Staedtler</Descripcion>
+    <PrecioUnitario>900</PrecioUnitario>
+    <StockActual>88</StockActual>
+    <StockMinimo>20</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T15:04:20.6497743-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="3">
+    <IdMarca>7</IdMarca>
+    <IdCategoria>3</IdCategoria>
+    <IdColor>6</IdColor>
+    <Descripcion>Lapicera Simball azul</Descripcion>
+    <PrecioUnitario>1200</PrecioUnitario>
+    <StockActual>80</StockActual>
+    <StockMinimo>15</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T14:44:09.6718818-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="4">
+    <IdMarca>7</IdMarca>
+    <IdCategoria>3</IdCategoria>
+    <IdColor>2</IdColor>
+    <Descripcion>Lapicera Simball negra</Descripcion>
+    <PrecioUnitario>1200</PrecioUnitario>
+    <StockActual>80</StockActual>
+    <StockMinimo>15</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T16:41:37.1191917-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="5">
+    <IdMarca>7</IdMarca>
+    <IdCategoria>3</IdCategoria>
+    <IdColor>1</IdColor>
+    <Descripcion>Lapicera Simball roja</Descripcion>
+    <PrecioUnitario>1200</PrecioUnitario>
+    <StockActual>57</StockActual>
+    <StockMinimo>12</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T14:21:01.9472069-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="6">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>4</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Cuaderno tapa dura 48 hojas</Descripcion>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <StockActual>35</StockActual>
+    <StockMinimo>8</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="7">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>4</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Cuaderno tapa flexible 84 hojas</Descripcion>
+    <PrecioUnitario>5200</PrecioUnitario>
+    <StockActual>27</StockActual>
+    <StockMinimo>8</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T18:22:16.3414781-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="8">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>5</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Carpeta escolar con anillos</Descripcion>
+    <PrecioUnitario>6800</PrecioUnitario>
+    <StockActual>21</StockActual>
+    <StockMinimo>5</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T17:01:42.931934-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="9">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>5</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Carpeta oficio</Descripcion>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <StockActual>25</StockActual>
+    <StockMinimo>6</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T17:18:24.9852703-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="10">
+    <IdMarca>7</IdMarca>
+    <IdCategoria>6</IdCategoria>
+    <IdColor>2</IdColor>
+    <Descripcion>Marcador permanente negro</Descripcion>
+    <PrecioUnitario>1800</PrecioUnitario>
+    <StockActual>45</StockActual>
+    <StockMinimo>10</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="11">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>6</IdCategoria>
+    <IdColor>3</IdColor>
+    <Descripcion>Marcador resaltador amarillo</Descripcion>
+    <PrecioUnitario>1500</PrecioUnitario>
+    <StockActual>55</StockActual>
+    <StockMinimo>12</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="12">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>6</IdCategoria>
+    <IdColor>11</IdColor>
+    <Descripcion>Marcador resaltador verde</Descripcion>
+    <PrecioUnitario>1500</PrecioUnitario>
+    <StockActual>50</StockActual>
+    <StockMinimo>12</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="13">
+    <IdMarca>9</IdMarca>
+    <IdCategoria>6</IdCategoria>
+    <IdColor>9</IdColor>
+    <Descripcion>Marcador resaltador rosa</Descripcion>
+    <PrecioUnitario>1500</PrecioUnitario>
+    <StockActual>45</StockActual>
+    <StockMinimo>10</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T16:41:37.2933711-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="14">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>7</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Cartuchera simple</Descripcion>
+    <PrecioUnitario>4500</PrecioUnitario>
+    <StockActual>18</StockActual>
+    <StockMinimo>4</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="15">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>7</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Cartuchera doble cierre</Descripcion>
+    <PrecioUnitario>7200</PrecioUnitario>
+    <StockActual>14</StockActual>
+    <StockMinimo>3</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="16">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>8</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Hoja A4 lisa pack 100</Descripcion>
+    <PrecioUnitario>6500</PrecioUnitario>
+    <StockActual>25</StockActual>
+    <StockMinimo>5</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T00:00:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="17">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>8</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Hoja canson blanca</Descripcion>
+    <PrecioUnitario>700</PrecioUnitario>
+    <StockActual>90</StockActual>
+    <StockMinimo>20</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T12:52:47.7557487-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="18">
+    <IdMarca>6</IdMarca>
+    <IdCategoria>9</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Regla plastica 20 cm</Descripcion>
+    <PrecioUnitario>1300</PrecioUnitario>
+    <StockActual>40</StockActual>
+    <StockMinimo>8</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T11:04:32.6893328-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="19">
+    <IdMarca>1</IdMarca>
+    <IdCategoria>10</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Adhesivo escolar en barra</Descripcion>
+    <PrecioUnitario>1600</PrecioUnitario>
+    <StockActual>31</StockActual>
+    <StockMinimo>8</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-28T12:27:23.2129405-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+  <Producto Id="20">
+    <IdMarca>5</IdMarca>
+    <IdCategoria>10</IdCategoria>
+    <IdColor></IdColor>
+    <Descripcion>Adhesivo vinilico chico</Descripcion>
+    <PrecioUnitario>2200</PrecioUnitario>
+    <StockActual>30</StockActual>
+    <StockMinimo>6</StockMinimo>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+    <FechaUltimaActualizacion>2026-06-27T11:05:22.5977858-03:00</FechaUltimaActualizacion>
+    <Estado>true</Estado>
+  </Producto>
+</Productos>

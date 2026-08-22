@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Clientes>
+  <Cliente Id="1">
+    <Documento>30111222</Documento>
+    <Nombre>Juan</Nombre>
+    <Apellido>Perez</Apellido>
+    <Telefono>1123456789</Telefono>
+    <Mail>juan.perez@email.com</Mail>
+    <Direccion>Av. Corrientes 1234</Direccion>
+    <Departamento>2B</Departamento>
+    <FechaNacimiento>1984-05-14</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="2">
+    <Documento>32888444</Documento>
+    <Nombre>Maria</Nombre>
+    <Apellido>Gonzalez</Apellido>
+    <Telefono>1156784321</Telefono>
+    <Mail>maria.gonzalez@email.com</Mail>
+    <Direccion>San Martin 845</Direccion>
+    <Departamento></Departamento>
+    <FechaNacimiento>1987-09-22</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="3">
+    <Documento>35666777</Documento>
+    <Nombre>Lucas</Nombre>
+    <Apellido>Fernandez</Apellido>
+    <Telefono>1165432198</Telefono>
+    <Mail></Mail>
+    <Direccion>Belgrano 560</Direccion>
+    <Departamento>PB</Departamento>
+    <FechaNacimiento>1991-03-08</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="4">
+    <Documento>38999111</Documento>
+    <Nombre>Camila</Nombre>
+    <Apellido>Rodriguez</Apellido>
+    <Telefono></Telefono>
+    <Mail>camila.rodriguez@email.com</Mail>
+    <Direccion>Mitre 234</Direccion>
+    <Departamento>5A</Departamento>
+    <FechaNacimiento>1995-12-01</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+  </Cliente>
+  <Cliente Id="5">
+    <Documento>42123456</Documento>
+    <Nombre>Sofia</Nombre>
+    <Apellido>Martinez</Apellido>
+    <Telefono>1178901234</Telefono>
+    <Mail>sofia.martinez@email.com</Mail>
+    <Direccion></Direccion>
+    <Departamento></Departamento>
+    <FechaNacimiento>1999-07-18</FechaNacimiento>
+    <Estado>true</Estado>
+    <FechaAlta>2026-06-27T00:00:00</FechaAlta>
+  </Cliente>
+</Clientes>

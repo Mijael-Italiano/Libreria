@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Colores>
+  <Color Id="1">
+    <Nombre>Negro</Nombre>
+    <Estado>true</Estado>
+  </Color>
+  <Color Id="2">
+    <Nombre>Azul</Nombre>
+    <Estado>true</Estado>
+  </Color>
+  <Color Id="3">
+    <Nombre>Rojo</Nombre>
+    <Estado>true</Estado>
+  </Color>
+  <Color Id="4">
+    <Nombre>Verde</Nombre>
+    <Estado>true</Estado>
+  </Color>
+  <Color Id="5">
+    <Nombre>Gris</Nombre>
+    <Estado>true</Estado>
+  </Color>
+</Colores>

@@ -1,0 +1,707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FacturaItems>
+  <FacturaItem Id="1">
+    <IdFactura>1</IdFactura>
+    <IdProducto>1</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>32000</PrecioUnitario>
+    <Subtotal>32000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="2">
+    <IdFactura>1</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>8400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="3">
+    <IdFactura>1</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>2550</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="4">
+    <IdFactura>2</IdFactura>
+    <IdProducto>7</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>3500</PrecioUnitario>
+    <Subtotal>14000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="5">
+    <IdFactura>2</IdFactura>
+    <IdProducto>12</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>700</PrecioUnitario>
+    <Subtotal>1400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="6">
+    <IdFactura>3</IdFactura>
+    <IdProducto>4</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>6200</PrecioUnitario>
+    <Subtotal>6200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="7">
+    <IdFactura>3</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>4250</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="8">
+    <IdFactura>3</IdFactura>
+    <IdProducto>10</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>4250</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="9">
+    <IdFactura>3</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>3900</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="10">
+    <IdFactura>4</IdFactura>
+    <IdProducto>14</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>2800</PrecioUnitario>
+    <Subtotal>5600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="11">
+    <IdFactura>4</IdFactura>
+    <IdProducto>17</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7400</PrecioUnitario>
+    <Subtotal>7400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="12">
+    <IdFactura>5</IdFactura>
+    <IdProducto>2</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>28500</PrecioUnitario>
+    <Subtotal>28500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="13">
+    <IdFactura>5</IdFactura>
+    <IdProducto>5</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7600</PrecioUnitario>
+    <Subtotal>7600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="14">
+    <IdFactura>5</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>12600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="15">
+    <IdFactura>6</IdFactura>
+    <IdProducto>8</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>2200</PrecioUnitario>
+    <Subtotal>11000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="16">
+    <IdFactura>6</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>3400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="17">
+    <IdFactura>6</IdFactura>
+    <IdProducto>12</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>700</PrecioUnitario>
+    <Subtotal>2100</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="18">
+    <IdFactura>7</IdFactura>
+    <IdProducto>11</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>1250</PrecioUnitario>
+    <Subtotal>2500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="19">
+    <IdFactura>7</IdFactura>
+    <IdProducto>13</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>950</PrecioUnitario>
+    <Subtotal>1900</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="20">
+    <IdFactura>7</IdFactura>
+    <IdProducto>18</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>1100</PrecioUnitario>
+    <Subtotal>1100</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="21">
+    <IdFactura>8</IdFactura>
+    <IdProducto>3</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>18000</PrecioUnitario>
+    <Subtotal>18000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="22">
+    <IdFactura>8</IdFactura>
+    <IdProducto>15</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>2500</PrecioUnitario>
+    <Subtotal>5000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="23">
+    <IdFactura>8</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>7800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="24">
+    <IdFactura>9</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>8400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="25">
+    <IdFactura>9</IdFactura>
+    <IdProducto>7</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>3500</PrecioUnitario>
+    <Subtotal>7000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="26">
+    <IdFactura>9</IdFactura>
+    <IdProducto>10</IdProducto>
+    <Cantidad>6</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>5100</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="27">
+    <IdFactura>10</IdFactura>
+    <IdProducto>1</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>32000</PrecioUnitario>
+    <Subtotal>32000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="28">
+    <IdFactura>10</IdFactura>
+    <IdProducto>4</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>6200</PrecioUnitario>
+    <Subtotal>6200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="29">
+    <IdFactura>10</IdFactura>
+    <IdProducto>17</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7400</PrecioUnitario>
+    <Subtotal>7400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="30">
+    <IdFactura>11</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>10</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>8500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="31">
+    <IdFactura>11</IdFactura>
+    <IdProducto>10</IdProducto>
+    <Cantidad>10</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>8500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="32">
+    <IdFactura>11</IdFactura>
+    <IdProducto>12</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>700</PrecioUnitario>
+    <Subtotal>3500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="33">
+    <IdFactura>12</IdFactura>
+    <IdProducto>2</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>28500</PrecioUnitario>
+    <Subtotal>28500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="34">
+    <IdFactura>12</IdFactura>
+    <IdProducto>5</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7600</PrecioUnitario>
+    <Subtotal>7600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="35">
+    <IdFactura>12</IdFactura>
+    <IdProducto>14</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>2800</PrecioUnitario>
+    <Subtotal>2800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="36">
+    <IdFactura>13</IdFactura>
+    <IdProducto>7</IdProducto>
+    <Cantidad>6</Cantidad>
+    <PrecioUnitario>3500</PrecioUnitario>
+    <Subtotal>21000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="37">
+    <IdFactura>13</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>7800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="38">
+    <IdFactura>13</IdFactura>
+    <IdProducto>18</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>1100</PrecioUnitario>
+    <Subtotal>2200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="39">
+    <IdFactura>14</IdFactura>
+    <IdProducto>8</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>2200</PrecioUnitario>
+    <Subtotal>6600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="40">
+    <IdFactura>14</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>1700</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="41">
+    <IdFactura>14</IdFactura>
+    <IdProducto>12</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>700</PrecioUnitario>
+    <Subtotal>1400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="42">
+    <IdFactura>15</IdFactura>
+    <IdProducto>3</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>18000</PrecioUnitario>
+    <Subtotal>18000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="43">
+    <IdFactura>15</IdFactura>
+    <IdProducto>4</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>6200</PrecioUnitario>
+    <Subtotal>6200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="44">
+    <IdFactura>15</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>8400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="45">
+    <IdFactura>16</IdFactura>
+    <IdProducto>1</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>32000</PrecioUnitario>
+    <Subtotal>32000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="46">
+    <IdFactura>16</IdFactura>
+    <IdProducto>5</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7600</PrecioUnitario>
+    <Subtotal>7600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="47">
+    <IdFactura>16</IdFactura>
+    <IdProducto>17</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7400</PrecioUnitario>
+    <Subtotal>7400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="48">
+    <IdFactura>17</IdFactura>
+    <IdProducto>14</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>2800</PrecioUnitario>
+    <Subtotal>8400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="49">
+    <IdFactura>17</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>11700</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="50">
+    <IdFactura>18</IdFactura>
+    <IdProducto>11</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>1250</PrecioUnitario>
+    <Subtotal>5000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="51">
+    <IdFactura>18</IdFactura>
+    <IdProducto>13</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>950</PrecioUnitario>
+    <Subtotal>3800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="52">
+    <IdFactura>18</IdFactura>
+    <IdProducto>18</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>1100</PrecioUnitario>
+    <Subtotal>2200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="53">
+    <IdFactura>19</IdFactura>
+    <IdProducto>2</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>28500</PrecioUnitario>
+    <Subtotal>28500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="54">
+    <IdFactura>19</IdFactura>
+    <IdProducto>7</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>3500</PrecioUnitario>
+    <Subtotal>10500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="55">
+    <IdFactura>19</IdFactura>
+    <IdProducto>10</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>3400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="56">
+    <IdFactura>20</IdFactura>
+    <IdProducto>1</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>32000</PrecioUnitario>
+    <Subtotal>32000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="57">
+    <IdFactura>20</IdFactura>
+    <IdProducto>2</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>28500</PrecioUnitario>
+    <Subtotal>28500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="58">
+    <IdFactura>20</IdFactura>
+    <IdProducto>4</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>6200</PrecioUnitario>
+    <Subtotal>12400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="59">
+    <IdFactura>21</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>21000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="60">
+    <IdFactura>21</IdFactura>
+    <IdProducto>7</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>3500</PrecioUnitario>
+    <Subtotal>17500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="61">
+    <IdFactura>21</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>7800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="62">
+    <IdFactura>22</IdFactura>
+    <IdProducto>9</IdProducto>
+    <Cantidad>8</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>6800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="63">
+    <IdFactura>22</IdFactura>
+    <IdProducto>10</IdProducto>
+    <Cantidad>8</Cantidad>
+    <PrecioUnitario>850</PrecioUnitario>
+    <Subtotal>6800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="64">
+    <IdFactura>22</IdFactura>
+    <IdProducto>12</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>700</PrecioUnitario>
+    <Subtotal>2800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="65">
+    <IdFactura>22</IdFactura>
+    <IdProducto>13</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>950</PrecioUnitario>
+    <Subtotal>1900</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="66">
+    <IdFactura>23</IdFactura>
+    <IdProducto>3</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>18000</PrecioUnitario>
+    <Subtotal>36000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="67">
+    <IdFactura>23</IdFactura>
+    <IdProducto>15</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>2500</PrecioUnitario>
+    <Subtotal>5000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="68">
+    <IdFactura>23</IdFactura>
+    <IdProducto>17</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>7400</PrecioUnitario>
+    <Subtotal>7400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="69">
+    <IdFactura>24</IdFactura>
+    <IdProducto>5</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>7600</PrecioUnitario>
+    <Subtotal>15200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="70">
+    <IdFactura>24</IdFactura>
+    <IdProducto>11</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>1250</PrecioUnitario>
+    <Subtotal>3750</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="71">
+    <IdFactura>24</IdFactura>
+    <IdProducto>18</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>1100</PrecioUnitario>
+    <Subtotal>3300</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="72">
+    <IdFactura>25</IdFactura>
+    <IdProducto>8</IdProducto>
+    <Cantidad>6</Cantidad>
+    <PrecioUnitario>2200</PrecioUnitario>
+    <Subtotal>13200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="73">
+    <IdFactura>25</IdFactura>
+    <IdProducto>14</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>2800</PrecioUnitario>
+    <Subtotal>5600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="74">
+    <IdFactura>25</IdFactura>
+    <IdProducto>16</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>3900</PrecioUnitario>
+    <Subtotal>7800</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="75">
+    <IdFactura>2</IdFactura>
+    <IdProducto>19</IdProducto>
+    <Cantidad>4</Cantidad>
+    <PrecioUnitario>650</PrecioUnitario>
+    <Subtotal>2600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="76">
+    <IdFactura>6</IdFactura>
+    <IdProducto>20</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>5200</PrecioUnitario>
+    <Subtotal>5200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="77">
+    <IdFactura>9</IdFactura>
+    <IdProducto>19</IdProducto>
+    <Cantidad>6</Cantidad>
+    <PrecioUnitario>650</PrecioUnitario>
+    <Subtotal>3900</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="78">
+    <IdFactura>11</IdFactura>
+    <IdProducto>19</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>650</PrecioUnitario>
+    <Subtotal>1950</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="79">
+    <IdFactura>15</IdFactura>
+    <IdProducto>21</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>8600</PrecioUnitario>
+    <Subtotal>8600</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="80">
+    <IdFactura>18</IdFactura>
+    <IdProducto>20</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>5200</PrecioUnitario>
+    <Subtotal>5200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="81">
+    <IdFactura>22</IdFactura>
+    <IdProducto>19</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>650</PrecioUnitario>
+    <Subtotal>3250</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="82">
+    <IdFactura>23</IdFactura>
+    <IdProducto>20</IdProducto>
+    <Cantidad>2</Cantidad>
+    <PrecioUnitario>5200</PrecioUnitario>
+    <Subtotal>10400</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="83">
+    <IdFactura>26</IdFactura>
+    <IdProducto>2</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>28500</PrecioUnitario>
+    <Subtotal>28500</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="84">
+    <IdFactura>27</IdFactura>
+    <IdProducto>6</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>4200</PrecioUnitario>
+    <Subtotal>4200</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="85">
+    <IdFactura>28</IdFactura>
+    <IdProducto>1</IdProducto>
+    <Cantidad>1</Cantidad>
+    <PrecioUnitario>32000</PrecioUnitario>
+    <Subtotal>32000</Subtotal>
+    <Estado>Emitido</Estado>
+  </FacturaItem>
+  <FacturaItem Id="86">
+    <IdFactura>29</IdFactura>
+    <IdProducto>5</IdProducto>
+    <Cantidad>3</Cantidad>
+    <PrecioUnitario>7600</PrecioUnitario>
+    <Subtotal>22800</Subtotal>
+    <Estado>Anulado</Estado>
+  </FacturaItem>
+  <FacturaItem Id="87">
+    <IdFactura>29</IdFactura>
+    <IdProducto>37</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>2600</PrecioUnitario>
+    <Subtotal>13000</Subtotal>
+    <Estado>Anulado</Estado>
+  </FacturaItem>
+  <FacturaItem Id="88">
+    <IdFactura>29</IdFactura>
+    <IdProducto>8</IdProducto>
+    <Cantidad>5</Cantidad>
+    <PrecioUnitario>2200</PrecioUnitario>
+    <Subtotal>11000</Subtotal>
+    <Estado>Anulado</Estado>
+  </FacturaItem>
+</FacturaItems>

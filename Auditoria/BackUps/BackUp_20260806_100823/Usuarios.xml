@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Usuarios>
+  <Usuario Id="1">
+    <Documento>1</Documento>
+    <NombreUsuario>Admin</NombreUsuario>
+    <Contrasena>MQAyADMANAA=</Contrasena>
+    <Nombre>Administrador</Nombre>
+    <Apellido>Sistema</Apellido>
+    <Mail>admin@libreria.local</Mail>
+    <Telefono>0000000000</Telefono>
+    <FechaNacimiento>2000-01-01T00:00:00</FechaNacimiento>
+    <Direccion>Sistema</Direccion>
+    <Departamento></Departamento>
+    <Estado>true</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-06-12T15:06:09.9903894-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+  <Usuario Id="2">
+    <Documento>40624611</Documento>
+    <NombreUsuario>mijaelitaliano611</NombreUsuario>
+    <Contrasena>MQAyADMANAA1AA==</Contrasena>
+    <Nombre>Bruno Mijae</Nombre>
+    <Apellido>Italiano</Apellido>
+    <Mail>Bmijaelitaliano@gmail.com</Mail>
+    <Telefono>2210101422</Telefono>
+    <FechaNacimiento>1997-08-14T15:03:44.523</FechaNacimiento>
+    <Direccion>8 n 245</Direccion>
+    <Departamento></Departamento>
+    <Estado>true</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-06-12T15:06:09.9903894-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+  <Usuario Id="3">
+    <Documento>41456190</Documento>
+    <NombreUsuario>JuanRodriguez100</NombreUsuario>
+    <Contrasena>SABvAGwAYQA=</Contrasena>
+    <Nombre>Juan Ernest</Nombre>
+    <Apellido>Rodriguez</Apellido>
+    <Mail>juanrodriguez@gmail.com</Mail>
+    <Telefono>114831840</Telefono>
+    <FechaNacimiento>2002-06-03T14:20:17.651</FechaNacimiento>
+    <Direccion>Las Heras n 1423</Direccion>
+    <Departamento>4A</Departamento>
+    <Estado>true</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-06-15T14:27:44.2245292-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+  <Usuario Id="4">
+    <Documento>13490112</Documento>
+    <NombreUsuario>jimenafernandez112</NombreUsuario>
+    <Contrasena>SABvAGwAYQA=</Contrasena>
+    <Nombre>Jimena</Nombre>
+    <Apellido>Fernandez</Apellido>
+    <Mail>jimenafernandez112</Mail>
+    <Telefono>2210249912</Telefono>
+    <FechaNacimiento>1989-06-11T18:41:37.079</FechaNacimiento>
+    <Direccion>Av. Cordoba 124</Direccion>
+    <Departamento></Departamento>
+    <Estado>false</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-06-15T18:44:44.6261117-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+  <Usuario Id="5">
+    <Documento>32012100</Documento>
+    <NombreUsuario>JosePerez100</NombreUsuario>
+    <Contrasena>SABvAGwAYQA=</Contrasena>
+    <Nombre>Jose </Nombre>
+    <Apellido>Perez</Apellido>
+    <Mail>JosePerez@gmail.com</Mail>
+    <Telefono>2216539910</Telefono>
+    <FechaNacimiento>1994-07-02T14:14:40.598</FechaNacimiento>
+    <Direccion>Calle 3 n 912</Direccion>
+    <Departamento></Departamento>
+    <Estado>true</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-07-02T14:16:25.7708365-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+  <Usuario Id="6">
+    <Documento>43915371</Documento>
+    <NombreUsuario>Maxi</NombreUsuario>
+    <Contrasena>MQAyADMANAA=</Contrasena>
+    <Nombre>Maxi</Nombre>
+    <Apellido>Bonza</Apellido>
+    <Mail>Maxi@gmail.com</Mail>
+    <Telefono>221542752</Telefono>
+    <FechaNacimiento>1986-08-06T10:04:00.261</FechaNacimiento>
+    <Direccion>calle 3 y 53</Direccion>
+    <Departamento></Departamento>
+    <Estado>true</Estado>
+    <Bloqueado>false</Bloqueado>
+    <FechaAlta>2026-08-06T10:04:50.6360835-03:00</FechaAlta>
+    <IntentosFallidos>0</IntentosFallidos>
+  </Usuario>
+</Usuarios>

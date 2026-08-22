@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FacturasMediosPago>
+  <FacturaMedioPago IdFactura="1" IdMedioPago="2">
+    <Monto>42950</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="2" IdMedioPago="1">
+    <Monto>18000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="3" IdMedioPago="3">
+    <Monto>18600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="4" IdMedioPago="2">
+    <Monto>13000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="5" IdMedioPago="3">
+    <Monto>48700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="6" IdMedioPago="1">
+    <Monto>21700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="7" IdMedioPago="1">
+    <Monto>5500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="8" IdMedioPago="2">
+    <Monto>30800</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="9" IdMedioPago="3">
+    <Monto>24400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="10" IdMedioPago="2">
+    <Monto>45600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="11" IdMedioPago="1">
+    <Monto>22450</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="12" IdMedioPago="3">
+    <Monto>38900</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="13" IdMedioPago="2">
+    <Monto>31000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="14" IdMedioPago="1">
+    <Monto>9700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="15" IdMedioPago="2">
+    <Monto>41200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="16" IdMedioPago="3">
+    <Monto>47000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="17" IdMedioPago="1">
+    <Monto>20100</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="18" IdMedioPago="2">
+    <Monto>16200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="19" IdMedioPago="3">
+    <Monto>42400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="20" IdMedioPago="3">
+    <Monto>72900</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="21" IdMedioPago="2">
+    <Monto>46300</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="22" IdMedioPago="1">
+    <Monto>21550</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="23" IdMedioPago="3">
+    <Monto>58800</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="24" IdMedioPago="2">
+    <Monto>22250</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="25" IdMedioPago="1">
+    <Monto>26600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="26" IdMedioPago="1">
+    <Monto>28500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="27" IdMedioPago="2">
+    <Monto>4200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="28" IdMedioPago="2">
+    <Monto>32000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="29" IdMedioPago="1">
+    <Monto>46800</Monto>
+    <Estado>Anulado</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="30" IdMedioPago="1">
+    <Monto>42950</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="31" IdMedioPago="2">
+    <Monto>12800</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="32" IdMedioPago="3">
+    <Monto>19600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="33" IdMedioPago="2">
+    <Monto>37400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="34" IdMedioPago="1">
+    <Monto>19300</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="35" IdMedioPago="3">
+    <Monto>39500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="36" IdMedioPago="1">
+    <Monto>16800</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="37" IdMedioPago="2">
+    <Monto>18850</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="38" IdMedioPago="3">
+    <Monto>37600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="39" IdMedioPago="1">
+    <Monto>15440</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="40" IdMedioPago="2">
+    <Monto>30000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="41" IdMedioPago="3">
+    <Monto>24900</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="42" IdMedioPago="1">
+    <Monto>22200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="43" IdMedioPago="2">
+    <Monto>40750</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="44" IdMedioPago="3">
+    <Monto>18200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="45" IdMedioPago="2">
+    <Monto>52200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="46" IdMedioPago="1">
+    <Monto>16500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="47" IdMedioPago="3">
+    <Monto>17300</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="48" IdMedioPago="2">
+    <Monto>46400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="49" IdMedioPago="1">
+    <Monto>22200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="50" IdMedioPago="1">
+    <Monto>57000</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="51" IdMedioPago="2">
+    <Monto>10800</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="52" IdMedioPago="3">
+    <Monto>12700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="53" IdMedioPago="1">
+    <Monto>24300</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="54" IdMedioPago="2">
+    <Monto>20050</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="55" IdMedioPago="3">
+    <Monto>21200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="56" IdMedioPago="1">
+    <Monto>11400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="57" IdMedioPago="2">
+    <Monto>38500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="58" IdMedioPago="3">
+    <Monto>31100</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="59" IdMedioPago="1">
+    <Monto>14630</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="60" IdMedioPago="2">
+    <Monto>32840</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="61" IdMedioPago="3">
+    <Monto>26700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="62" IdMedioPago="1">
+    <Monto>9250</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="63" IdMedioPago="2">
+    <Monto>36500</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="64" IdMedioPago="3">
+    <Monto>34900</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="65" IdMedioPago="1">
+    <Monto>25100</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="66" IdMedioPago="2">
+    <Monto>6150</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="67" IdMedioPago="3">
+    <Monto>19700</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="68" IdMedioPago="1">
+    <Monto>36850</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="69" IdMedioPago="2">
+    <Monto>13200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="70" IdMedioPago="3">
+    <Monto>22200</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="71" IdMedioPago="1">
+    <Monto>10400</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="72" IdMedioPago="2">
+    <Monto>40600</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="73" IdMedioPago="3">
+    <Monto>13260</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="74" IdMedioPago="1">
+    <Monto>15950</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="75" IdMedioPago="2">
+    <Monto>37460</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="76" IdMedioPago="3">
+    <Monto>9350</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="77" IdMedioPago="1">
+    <Monto>6650</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="78" IdMedioPago="2">
+    <Monto>46650</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+  <FacturaMedioPago IdFactura="79" IdMedioPago="3">
+    <Monto>47250</Monto>
+    <Estado>Activo</Estado>
+  </FacturaMedioPago>
+</FacturasMediosPago>
