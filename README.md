@@ -8,22 +8,6 @@ El proyecto fue desarrollado con una **arquitectura multicapa**, separando prese
 
 ---
 
-## 📸 Capturas del sistema
-
-> Próximamente: capturas de las principales funcionalidades del sistema.
-
-<!--
-Agregar posteriormente imágenes de:
-- Login
-- Menú principal
-- Proceso de venta
-- Dashboard
-- Inventario / productos
-- Usuarios, roles y permisos
--->
-
----
-
 ## ⚙️ Funcionalidades principales
 
 ### 🛒 Ventas y facturación
